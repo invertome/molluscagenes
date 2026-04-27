@@ -73,6 +73,10 @@
     "reference_citation_doi": {
       "type": "string",
       "description": "DOI of source publication if known. v0.1 leaves this empty; v1.0 will populate via NCBI BioProject linkage."
+    },
+    "worms_is_marine": {
+      "type": "string",
+      "description": "'1' if WoRMS marks the species as marine/brackish/freshwater (linkable WoRMS page); '0' if strictly terrestrial; empty if WoRMS returned no record."
     }
   },
   "notes": [

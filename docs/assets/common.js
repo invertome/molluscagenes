@@ -14,6 +14,11 @@ function makeTable({ container, columns, rows, sortable = true, rowClass, onRow 
         const th = document.createElement("th");
         th.textContent = col.label;
         if (col.cls) th.classList.add(col.cls);
+        if (col.tooltip) {
+            th.setAttribute("data-tooltip", col.tooltip);
+            th.setAttribute("data-tooltip-pos", "bottom");
+            th.title = col.tooltip;        // also expose to assistive tech
+        }
         if (sortable) {
             th.addEventListener("click", () => {
                 const order = th.classList.contains("sort-asc") ? "desc" : "asc";

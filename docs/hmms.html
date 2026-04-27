@@ -128,6 +128,7 @@
       <a href="examples.html">Tutorials</a>
       <a href="hmms.html" class="current">HMM browser</a>
       <a href="species.html">Species</a>
+      <a href="contact.html">Contact</a>
       <a href="https://github.com/invertome/molluscagenes">GitHub</a>
     </nav>
   </div>
@@ -150,13 +151,29 @@
 <div class="container">
 
 <div class="toolbar sticky-toolbar">
-  <input id="search" type="search" placeholder="Search Pfam name, accession, HMM name, description… ( / )">
-  <select id="cat-filter"><option value="">All categories</option></select>
-  <button id="select-all" class="secondary">Select all (filtered)</button>
-  <button id="clear-sel" class="secondary">Clear selection</button>
-  <button id="dl-curl">Download (curl)</button>
-  <button id="dl-zip">Download as ZIP</button>
-  <span class="selected-chip empty" id="sel-chip">0 selected</span>
+  <input id="search" type="search"
+         placeholder="Search Pfam name, accession, HMM name, description… ( / )"
+         title="Filter by Pfam family name, Pfam accession (PF00001), HMM ID, category, or description. Press / to focus.">
+  <select id="cat-filter"
+          data-tooltip="Restrict the table to a single biological category — 50 in total (GPCR, VGIC, LGIC, …)."
+          data-tooltip-pos="bottom">
+    <option value="">All categories</option>
+  </select>
+  <button id="select-all" class="secondary"
+          data-tooltip="Tick every HMM that matches the current filter."
+          data-tooltip-pos="bottom">Select all (filtered)</button>
+  <button id="clear-sel" class="secondary"
+          data-tooltip="Untick every HMM, regardless of filter."
+          data-tooltip-pos="bottom">Clear selection</button>
+  <button id="dl-curl"
+          data-tooltip="Show a copyable curl command that downloads the selected HMMs to your terminal's current directory. For users comfortable with the command line."
+          data-tooltip-pos="bottom">Download (curl)</button>
+  <button id="dl-zip"
+          data-tooltip="Bundle the selected HMMs into a single ZIP file and download it through your browser. No command line needed."
+          data-tooltip-pos="bottom">Download as ZIP</button>
+  <span class="selected-chip empty" id="sel-chip"
+        data-tooltip="How many HMMs you've ticked. The download buttons act on this set."
+        data-tooltip-pos="bottom">0 selected</span>
   <span class="stat" id="counts"></span>
 </div>
 
@@ -189,6 +206,7 @@
         <li><a href="examples.html">Tutorials</a></li>
         <li><a href="hmms.html">HMM browser</a></li>
         <li><a href="species.html">Species browser</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -225,17 +243,19 @@ async function init() {
         cb.addEventListener("change", e => { row._selected = e.target.checked; updateCounts(); });
         return cb;
       } },
-    { key: "pfam_name", label: "Pfam name", render: v => `<code>${v}</code>` },
-    { key: "pfam_short_name", label: "Family",
+    { key: "pfam_name", label: "Pfam name", tooltip: "Short identifier of the protein domain family in Pfam (e.g. 7tm_1).",
+      render: v => `<code>${v}</code>` },
+    { key: "pfam_short_name", label: "Family", tooltip: "The full human-readable family name from Pfam.",
       render: v => v ? `<span title="${v.replace(/"/g,'&quot;')}">${v.length > 50 ? v.slice(0,48)+'…' : v}</span>` : '<span class="faint">—</span>' },
-    { key: "pfam_description", label: "Description",
+    { key: "pfam_description", label: "Description", tooltip: "Pfam's biological description of this domain. Hover a row to see the full text.",
       render: v => v ? `<span class="faint" style="display:block;max-width:42ch;line-height:1.35" title="${v.replace(/"/g,'&quot;')}">${v.length > 110 ? v.slice(0,108)+'…' : v}</span>` : '<span class="faint">—</span>' },
-    { key: "pfam_accession", label: "Accession", render: (v, row) =>
+    { key: "pfam_accession", label: "Accession", tooltip: "Pfam accession number (e.g. PF00001). Click to open the entry in InterPro/EBI.",
+      render: (v, row) =>
         v ? `<a href="https://www.ebi.ac.uk/interpro/entry/pfam/${v}/" target="_blank" rel="noopener"><code>${v}</code></a>` : "" },
-    { key: "category", label: "Category" },
-    { key: "hmm_length", label: "Length", type: "number", cls: "col-num" },
-    { key: "n_seed_sequences", label: "Seed N", type: "number", cls: "col-num" },
-    { key: "effn", label: "EFFN", type: "number", cls: "col-num" },
+    { key: "category", label: "Category", tooltip: "Biological grouping we assigned to this HMM (e.g. GPCR, VGIC, LGIC). 50 categories in total." },
+    { key: "hmm_length", label: "Length", type: "number", cls: "col-num", tooltip: "Number of match positions in the HMM (the LENG field of the HMMER profile). Roughly: how many amino acids the model spans." },
+    { key: "n_seed_sequences", label: "Seed N", type: "number", cls: "col-num", tooltip: "Number of mollusc-derived sequences used as the seed alignment for the TIAMMAt re-training of this HMM." },
+    { key: "effn", label: "EFFN", type: "number", cls: "col-num", tooltip: "Effective number of sequences in the HMM (HMMER's EFFN). Lower than seed N because of redundancy filtering." },
   ];
 
   const host = document.getElementById("table-host");
