@@ -58,8 +58,7 @@ substantially higher sensitivity on lophotrochozoan homologs.
 (Exact species counts and metadata are in
 [`metadata/species_metadata.tsv`](metadata/species_metadata.tsv) and on the
 [species browser](https://invertome.github.io/molluscagenes/species.html).
-v0.1 ships ~212 species with sequences plus ~98 listed transparently as
-planned-but-pending — they will land in v1.0.)
+v0.1 includes ~299 species in this release.)
 
 ## How v0.1 was built
 
