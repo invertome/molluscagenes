@@ -1,0 +1,11 @@
+filename	size_bytes	sha256	description
+dict2.tsv	8205	d8f6ff248658765651497f617dca004cebaea6567ade09bbb5d89f0d64ca4d30	Species code -> binomial dictionary
+LICENSE	35149	3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986	GPL-3.0-or-later (code) + CC-BY-4.0 (data)
+mollusca_aa.blast.tar.gz	2703085336	1115e84b4b3c9785efef9c30a8375ed1fd56a25872315bc0c9b7072a0ab4cc52	BLAST protein database (all volumes + metadata)
+mollusca_aa.dmnd	6744577349	be4772c64b198cebe02ca68548810182a6762ecfa3b1b42341ede6af33a838c5	DIAMOND protein database
+mollusca_aa.fa.gz	2452266217	016052e08140d9ed62f9e343212de17075d2d0aba20729efa59e7e38efe2db08	Raw protein FASTA (gzipped) for ~333 mollusc species
+mollusca_mrna.blast.tar.gz	4776118585	8fb789c8f4816688da3f5100ae1085dc976688862cfebb5141279c1847042dc7	BLAST nucleotide database (all volumes + metadata)
+mollusca_mrna.fa.gz	5177966295	32b65740ff95e22e0a012f97177c690b9ae8ef8802716f3205eb1fd65827a00d	Raw mRNA/transcript FASTA (gzipped) for ~333 mollusc species
+README.txt	1822	ab3117fb5ff8a9b91c38fee000b66d12faf1725fb3b9ded260e738e61416fba8	Top-level README for the deposit
+species_metadata.tsv	44550	b8e3ec59ded23407bb5f339b5fec695f7144eb916700cb6805f75d8eb8eba5ff	Per-species metadata (taxonomy, sequence counts, NCBI/WoRMS IDs)
+tiammat_mollusca_hmms.tar.gz	16394201	59762d4c8c671b3d04ba7beb03d4ca29c0ba343f2ec8a25a7905c6f3da01dd97	TIAMMAt mollusc-revised Pfam HMMs (combined + per-domain + indices)

@@ -74,7 +74,7 @@ workflow:
 3. **Redundancy reduction**: EvidentialGene v2023.07.15 (98% clustering, retains main + alternate transcripts).
 4. **Quality gate**: BUSCO v5.4.7 (Metazoa odb10) — assemblies <30% completeness excluded.
 5. **Annotation**: DIAMOND blastp vs. RefSeq (E≤1e-20) + InterProScan (Pfam, SMART, CDD, SUPERFAMILY, Gene3D) + eggNOG-mapper.
-6. **HMM optimisation**: TIAMMAt iterative refinement (initial Pfam → hmmsearch → MAFFT E-INS-i → hmmbuild → repeat 3–5×) validated against 6 held-out proteomes (*Aplysia californica*, *Crassostrea gigas*, *Lingula anatina*, *Lottia gigantea*, *Octopus bimaculoides*, *Pomacea canaliculata*).
+6. **HMM optimization**: TIAMMAt iterative refinement (initial Pfam → hmmsearch → MAFFT E-INS-i → hmmbuild → repeat 3–5×) validated against 6 held-out proteomes (*Aplysia californica*, *Crassostrea gigas*, *Lingula anatina*, *Lottia gigantea*, *Octopus bimaculoides*, *Pomacea canaliculata*).
 
 The pipeline source for the upcoming v1.0 rebuild lives at the sibling
 [MolluscaGenes pipeline repository](https://github.com/invertome/molluscagenes-pipeline)

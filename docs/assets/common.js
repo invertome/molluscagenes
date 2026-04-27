@@ -97,14 +97,14 @@ function showDownloadModal(htmlBody) {
     modal.classList.add("shown");
 }
 
-// Lazy-load JSZip from a CDN. Returns a promise resolving to the JSZip constructor.
+// Lazy-load JSZip from the local bundle (no CDN dependency at runtime).
 function loadJSZip() {
     if (window.JSZip) return Promise.resolve(window.JSZip);
     return new Promise((resolve, reject) => {
         const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js";
+        s.src = "assets/jszip.min.js";
         s.onload = () => resolve(window.JSZip);
-        s.onerror = () => reject(new Error("Failed to load JSZip from CDN"));
+        s.onerror = () => reject(new Error("Failed to load assets/jszip.min.js"));
         document.head.appendChild(s);
     });
 }
@@ -117,3 +117,96 @@ function triggerBlobDownload(blob, filename) {
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
+
+// "/" focuses the page's search input (skipped if user is already typing).
+document.addEventListener("keydown", (e) => {
+    if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (document.activeElement && document.activeElement.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || tag === "select") return;
+    const search = document.querySelector('input[type="search"]');
+    if (search) { e.preventDefault(); search.focus(); search.select(); }
+});
+
+// Add copy-to-clipboard buttons to every <pre> on the page.
+function installCopyButtons(root = document) {
+    for (const pre of root.querySelectorAll("pre")) {
+        if (pre.querySelector(".copy-btn")) continue;
+        pre.classList.add("copyable");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "copy-btn";
+        btn.textContent = "Copy";
+        btn.setAttribute("aria-label", "Copy to clipboard");
+        btn.addEventListener("click", async () => {
+            const text = pre.innerText.replace(/^Copy\n?/, "");
+            try {
+                await navigator.clipboard.writeText(text);
+                btn.textContent = "Copied";
+                btn.classList.add("copied");
+                setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1600);
+            } catch (err) {
+                btn.textContent = "Copy failed";
+                setTimeout(() => { btn.textContent = "Copy"; }, 1600);
+            }
+        });
+        pre.appendChild(btn);
+    }
+}
+
+// IntersectionObserver-driven count-up for stat numbers.
+function installStatCountUp(root = document) {
+    const targets = root.querySelectorAll(".stat .num");
+    if (!targets.length || !("IntersectionObserver" in window)) return;
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const animate = (el) => {
+        if (el.classList.contains("stat-counted")) return;
+        el.classList.add("stat-counted");
+        // Capture the original text, parse out the leading number, hold any suffix
+        // (e.g. "M", "classes" inside <small>) verbatim.
+        const original = el.innerHTML;
+        const match = el.textContent.trim().match(/^[~]?(\d+(?:\.\d+)?)/);
+        if (!match) return;
+        const target = parseFloat(match[1]);
+        const prefix = el.textContent.trim().startsWith("~") ? "~" : "";
+        const suffixHTML = original.replace(/^\s*[~]?\d+(?:\.\d+)?/, "");
+        const dur = 1200;
+        const t0 = performance.now();
+        const step = (now) => {
+            const t = Math.min(1, (now - t0) / dur);
+            const v = Math.round(ease(t) * target);
+            el.innerHTML = prefix + v + suffixHTML;
+            if (t < 1) requestAnimationFrame(step);
+            else el.innerHTML = original;
+        };
+        requestAnimationFrame(step);
+    };
+    const obs = new IntersectionObserver((entries) => {
+        for (const e of entries) if (e.isIntersecting) animate(e.target);
+    }, { threshold: 0.4 });
+    targets.forEach(t => obs.observe(t));
+}
+
+// Trap keyboard focus inside an element while it is open as a modal.
+function installFocusTrap(modalEl) {
+    const handler = (e) => {
+        if (!modalEl.classList.contains("shown")) return;
+        if (e.key === "Escape") { modalEl.classList.remove("shown"); return; }
+        if (e.key !== "Tab") return;
+        const focusables = modalEl.querySelectorAll(
+            'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0], last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", handler);
+}
+
+// Auto-install on every page that loads common.js
+document.addEventListener("DOMContentLoaded", () => {
+    installCopyButtons();
+    installStatCountUp();
+    const modal = document.getElementById("download-modal");
+    if (modal) installFocusTrap(modal);
+});

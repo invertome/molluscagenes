@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HMM browser — MolluscaGenes</title>
 <meta name="description" content="Filter, search, and download the 190 mollusc-revised Pfam HMMs in MolluscaGenes — by category, Pfam accession, or HMM name.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
+<meta property="og:description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-revised Pfam HMMs and CLI wrappers.">
+<meta property="og:url" content="https://invertome.github.io/molluscagenes/">
+<meta property="og:image" content="https://invertome.github.io/molluscagenes/assets/favicon.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
+<meta name="twitter:description" content="A mollusc transcriptome resource paired with mollusc-revised Pfam HMMs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,6 +20,7 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="spiral" viewBox="0 0 100 100">
@@ -37,7 +46,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
 <section class="hero" style="padding-bottom:1.25rem">
   <div class="container container-narrow">
     <span class="eyebrow">HMM browser</span>
@@ -53,13 +62,14 @@
 <section style="padding-top:0">
 <div class="container">
 
-<div class="toolbar">
-  <input id="search" type="search" placeholder="Search Pfam name, accession, HMM name…">
+<div class="toolbar sticky-toolbar">
+  <input id="search" type="search" placeholder="Search Pfam name, accession, HMM name, description… ( / )">
   <select id="cat-filter"><option value="">All categories</option></select>
   <button id="select-all" class="secondary">Select all (filtered)</button>
   <button id="clear-sel" class="secondary">Clear selection</button>
   <button id="dl-curl">Download (curl)</button>
   <button id="dl-zip">Download as ZIP</button>
+  <span class="selected-chip empty" id="sel-chip">0 selected</span>
   <span class="stat" id="counts"></span>
 </div>
 
@@ -75,9 +85,9 @@
         <svg width="20" height="20"><use href="#spiral"/></svg>
         MolluscaGenes
       </a>
-      <p style="margin-top:0.5rem;max-width:38ch;color:rgba(255,255,255,0.65)">
-        A transcriptomic database for the Mollusca. Pérez-Moreno &amp; Katz,
-        Department of Biology, University of Massachusetts Amherst.
+      <p style="margin-top:0.5rem;max-width:42ch;color:rgba(255,255,255,0.65)">
+        A transcriptomic database for the Mollusca. <a href="https://invertome.github.io/molluscagenes" style="color:#fff;border-bottom:0">Pérez-Moreno &amp; Katz</a>,
+        <a href="https://www.umass.edu" style="color:#fff;border-bottom:0">Dept. of Biology, UMass Amherst</a>.
       </p>
       <p class="colophon">
         © 2026. Code GPL-3.0; data on Zenodo CC-BY-4.0.
@@ -127,14 +137,16 @@ async function init() {
         return cb;
       } },
     { key: "pfam_name", label: "Pfam name", render: v => `<code>${v}</code>` },
+    { key: "pfam_short_name", label: "Family",
+      render: v => v ? `<span title="${v.replace(/"/g,'&quot;')}">${v.length > 50 ? v.slice(0,48)+'…' : v}</span>` : '<span class="faint">—</span>' },
+    { key: "pfam_description", label: "Description",
+      render: v => v ? `<span class="faint" style="display:block;max-width:42ch;line-height:1.35" title="${v.replace(/"/g,'&quot;')}">${v.length > 110 ? v.slice(0,108)+'…' : v}</span>` : '<span class="faint">—</span>' },
     { key: "pfam_accession", label: "Accession", render: (v, row) =>
         v ? `<a href="https://www.ebi.ac.uk/interpro/entry/pfam/${v}/" target="_blank" rel="noopener"><code>${v}</code></a>` : "" },
     { key: "category", label: "Category" },
-    { key: "hmm_name", label: "HMM name" },
     { key: "hmm_length", label: "Length", type: "number", cls: "col-num" },
     { key: "n_seed_sequences", label: "Seed N", type: "number", cls: "col-num" },
     { key: "effn", label: "EFFN", type: "number", cls: "col-num" },
-    { key: "hmm_file", label: "Path", render: v => `<code class="faint">${v}</code>` },
   ];
 
   const host = document.getElementById("table-host");
@@ -146,7 +158,9 @@ async function init() {
     const cat = catSel.value;
     visible = rows.filter(r =>
       (!cat || r.category === cat) &&
-      (!q || (r.pfam_name + " " + r.pfam_accession + " " + r.hmm_name + " " + r.category).toLowerCase().includes(q))
+      (!q || (r.pfam_name + " " + r.pfam_accession + " " + r.hmm_name + " " +
+              r.category + " " + (r.pfam_short_name || "") + " " +
+              (r.pfam_description || "")).toLowerCase().includes(q))
     );
     table = makeTable({ container: host, columns, rows: visible });
     updateCounts();
@@ -155,7 +169,10 @@ async function init() {
   function updateCounts() {
     const sel = rows.filter(r => r._selected).length;
     document.getElementById("counts").textContent =
-      `${visible.length} shown / ${rows.length} total — ${sel} selected`;
+      `${visible.length} shown / ${rows.length} total`;
+    const chip = document.getElementById("sel-chip");
+    chip.textContent = `${sel} selected`;
+    chip.classList.toggle("empty", sel === 0);
   }
 
   document.getElementById("search").addEventListener("input", applyFilters);
