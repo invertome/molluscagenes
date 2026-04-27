@@ -380,6 +380,11 @@ machine-readable block is in [`CITATION.cff`](CITATION.cff).
 - The [`nf-core/denovotranscript`](https://nf-co.re/denovotranscript) pipeline
   team for the assembly workflow.
 
+## Authorship
+
+Developed in the [Katz Lab](https://sites.google.com/a/umass.edu/katzlab/home),
+Department of Biology, [University of Massachusetts Amherst](https://www.umass.edu).
+
 ## Contact
 
 Issues and questions: <https://github.com/invertome/molluscagenes/issues>
