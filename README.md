@@ -365,8 +365,9 @@ The full machine-readable block is in [`CITATION.cff`](CITATION.cff).
 
 ## Acknowledgments
 
-- The [TIAMMAt](https://github.com/AnnaConn/TIAMMAt) workflow produced the
-  mollusc-revised HMMs.
+- The [TIAMMAt](https://github.com/mtassia/TIAMMAt) workflow
+  ([Tassia et al. 2021](https://academic.oup.com/mbe/article/38/12/5806/6359823))
+  produced the mollusc-revised HMMs.
 - Pfam / InterPro for the original profile HMMs.
 - NCBI Taxonomy and WoRMS for the cross-link metadata.
 - The [`nf-core/denovotranscript`](https://nf-co.re/denovotranscript) pipeline
