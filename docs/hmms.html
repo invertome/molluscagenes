@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HMM browser — MolluscaGenes</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="site-nav"><div class="container">
+  <span class="brand">MolluscaGenes</span>
+  <a href="index.html">Overview</a>
+  <a href="hmms.html">HMM browser</a>
+  <a href="species.html">Species browser</a>
+  <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+</div></nav>
+
+<main class="container">
+<h1>HMM browser</h1>
+<p class="muted">Filter, search, and download the TIAMMAt mollusc-revised Pfam HMMs.
+Tick rows and use <strong>Download selected</strong> for a curl snippet or zipped bundle.</p>
+
+<div class="toolbar">
+  <input id="search" type="search" placeholder="Search Pfam name, accession, HMM name…">
+  <select id="cat-filter"><option value="">All categories</option></select>
+  <button id="select-all" class="secondary">Select all (filtered)</button>
+  <button id="clear-sel" class="secondary">Clear selection</button>
+  <button id="dl-curl">Download (curl)</button>
+  <button id="dl-zip">Download as ZIP</button>
+  <span class="stat" id="counts"></span>
+</div>
+
+<div id="table-host"></div>
+
+</main>
+
+<script src="assets/common.js"></script>
+<script>
+const RAW_BASE = "https://raw.githubusercontent.com/invertome/molluscagenes/main/";
+
+async function init() {
+  const r = await fetch("data/hmm_metadata.json");
+  if (!r.ok) throw new Error("hmm_metadata.json fetch failed");
+  const data = await r.json();
+  const rows = data.rows.map((row, i) => ({ ...row, _selected: false, _idx: i }));
+
+  const cats = [...new Set(rows.map(r => r.category).filter(Boolean))].sort();
+  const catSel = document.getElementById("cat-filter");
+  cats.forEach(c => {
+    const o = document.createElement("option"); o.value = c; o.textContent = c;
+    catSel.appendChild(o);
+  });
+
+  const columns = [
+    { key: "_select", label: "", render: (_, row) => {
+        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!row._selected;
+        cb.addEventListener("change", e => { row._selected = e.target.checked; updateCounts(); });
+        return cb;
+      } },
+    { key: "pfam_name", label: "Pfam name", render: v => `<code>${v}</code>` },
+    { key: "pfam_accession", label: "Accession", render: (v, row) =>
+        v ? `<a href="https://www.ebi.ac.uk/interpro/entry/pfam/${v}/" target="_blank" rel="noopener"><code>${v}</code></a>` : "" },
+    { key: "category", label: "Category" },
+    { key: "hmm_name", label: "HMM name" },
+    { key: "hmm_length", label: "Length", type: "number", cls: "col-num" },
+    { key: "n_seed_sequences", label: "Seed N", type: "number", cls: "col-num" },
+    { key: "effn", label: "EFFN", type: "number", cls: "col-num" },
+    { key: "hmm_file", label: "Path", render: v => `<code class="faint">${v}</code>` },
+  ];
+
+  const host = document.getElementById("table-host");
+  let visible = rows.slice();
+  let table = makeTable({ container: host, columns, rows: visible });
+
+  function applyFilters() {
+    const q = document.getElementById("search").value.trim().toLowerCase();
+    const cat = catSel.value;
+    visible = rows.filter(r =>
+      (!cat || r.category === cat) &&
+      (!q || (r.pfam_name + " " + r.pfam_accession + " " + r.hmm_name + " " + r.category).toLowerCase().includes(q))
+    );
+    table = makeTable({ container: host, columns, rows: visible });
+    updateCounts();
+  }
+
+  function updateCounts() {
+    const sel = rows.filter(r => r._selected).length;
+    document.getElementById("counts").textContent =
+      `${visible.length} shown / ${rows.length} total — ${sel} selected`;
+  }
+
+  document.getElementById("search").addEventListener("input", applyFilters);
+  catSel.addEventListener("change", applyFilters);
+
+  document.getElementById("select-all").addEventListener("click", () => {
+    visible.forEach(r => r._selected = true); applyFilters();
+  });
+  document.getElementById("clear-sel").addEventListener("click", () => {
+    rows.forEach(r => r._selected = false); applyFilters();
+  });
+
+  document.getElementById("dl-curl").addEventListener("click", () => {
+    const sel = rows.filter(r => r._selected);
+    if (!sel.length) { alert("Select at least one HMM."); return; }
+    const lines = sel.map(r => `curl -O ${RAW_BASE}${r.hmm_file}`);
+    showDownloadModal(`<h3>Download ${sel.length} HMM(s)</h3>
+      <p class="muted">Paste these into a terminal. They will download into the current directory.</p>
+      <pre>${lines.join("\n")}</pre>`);
+  });
+
+  document.getElementById("dl-zip").addEventListener("click", async () => {
+    const sel = rows.filter(r => r._selected);
+    if (!sel.length) { alert("Select at least one HMM."); return; }
+    const btn = document.getElementById("dl-zip");
+    btn.disabled = true; btn.textContent = "Loading JSZip…";
+    try {
+      const JSZip = await loadJSZip();
+      btn.textContent = `Bundling ${sel.length} HMM(s)…`;
+      const zip = new JSZip();
+      let done = 0;
+      for (const r of sel) {
+        const url = RAW_BASE + r.hmm_file;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`fetch ${url}: ${resp.status}`);
+        zip.file(r.hmm_file.replace(/^.*\//, ""), await resp.blob());
+        done++;
+        btn.textContent = `Bundling ${done}/${sel.length}…`;
+      }
+      const blob = await zip.generateAsync({ type: "blob" });
+      triggerBlobDownload(blob, "molluscagenes_selected_hmms.zip");
+      btn.textContent = "Download as ZIP";
+    } catch (err) {
+      alert("Bundle failed: " + err.message);
+      btn.textContent = "Download as ZIP";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  applyFilters();
+}
+
+init().catch(err => {
+  document.getElementById("table-host").innerHTML =
+    `<p class="muted">Failed to load HMM metadata: ${err.message}</p>`;
+});
+</script>
+
+</body>
+</html>

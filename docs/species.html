@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Species browser — MolluscaGenes</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="site-nav"><div class="container">
+  <span class="brand">MolluscaGenes</span>
+  <a href="index.html">Overview</a>
+  <a href="hmms.html">HMM browser</a>
+  <a href="species.html">Species browser</a>
+  <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+</div></nav>
+
+<main class="container">
+<h1>Species browser</h1>
+<p class="muted">All species in the v0.1 release. Use the toolbar to filter by class
+or search by binomial / code; click column headers to sort.
+Use <strong>Export TSV</strong> to download the current filter as a tab-separated table.</p>
+
+<div class="toolbar">
+  <input id="search" type="search" placeholder="Search binomial, code, taxonomy…">
+  <select id="class-filter"><option value="">All classes</option></select>
+  <select id="seqs-filter">
+    <option value="all">All species</option>
+    <option value="with">With sequences only</option>
+    <option value="without">Without sequences only</option>
+  </select>
+  <button id="export-tsv">Export TSV (filtered)</button>
+  <span class="stat" id="counts"></span>
+</div>
+
+<div id="table-host"></div>
+
+</main>
+
+<script src="assets/common.js"></script>
+<script>
+async function init() {
+  const rows = await fetchTSV("data/species_metadata.tsv");
+
+  // Numeric coercion for sortable cols
+  rows.forEach(r => {
+    r.n_proteins = parseInt(r.n_proteins) || 0;
+    r.n_transcripts = parseInt(r.n_transcripts) || 0;
+    r.mean_protein_len = parseFloat(r.mean_protein_len) || "";
+  });
+
+  const classes = [...new Set(rows.map(r => r.class).filter(Boolean))].sort();
+  const cls = document.getElementById("class-filter");
+  classes.forEach(c => { const o = document.createElement("option"); o.value = c; o.textContent = c; cls.appendChild(o); });
+
+  const columns = [
+    { key: "species_code", label: "Code", render: v => `<code>${v}</code>` },
+    { key: "species_binomial", label: "Binomial", cls: "species-binomial" },
+    { key: "class", label: "Class" },
+    { key: "order", label: "Order" },
+    { key: "family", label: "Family" },
+    { key: "n_proteins", label: "Proteins", type: "number", cls: "col-num",
+      render: v => v ? v.toLocaleString() : '<span class="faint">0</span>' },
+    { key: "n_transcripts", label: "Transcripts", type: "number", cls: "col-num",
+      render: v => v ? v.toLocaleString() : '<span class="faint">0</span>' },
+    { key: "ncbi_taxid", label: "NCBI taxid",
+      render: v => v ? `<a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${v}" target="_blank" rel="noopener">${v}</a>` : "" },
+    { key: "worms_aphia_id", label: "WoRMS",
+      render: v => v ? `<a href="https://www.marinespecies.org/aphia.php?p=taxdetails&id=${v}" target="_blank" rel="noopener">${v}</a>` : "" },
+  ];
+
+  const host = document.getElementById("table-host");
+  let visible = rows.slice();
+  makeTable({ container: host, columns, rows: visible });
+
+  function applyFilters() {
+    const q = document.getElementById("search").value.trim().toLowerCase();
+    const c = document.getElementById("class-filter").value;
+    const s = document.getElementById("seqs-filter").value;
+    visible = rows.filter(r => {
+      if (c && r.class !== c) return false;
+      if (s === "with"    && (r.n_proteins === 0 && r.n_transcripts === 0)) return false;
+      if (s === "without" && (r.n_proteins  >  0 || r.n_transcripts  >  0)) return false;
+      if (q) {
+        const hay = (r.species_code + " " + r.species_binomial + " " + r.class +
+                     " " + r.order + " " + r.family + " " + r.phylum).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+    makeTable({ container: host, columns, rows: visible });
+    document.getElementById("counts").textContent =
+      `${visible.length} of ${rows.length} species`;
+  }
+
+  document.getElementById("search").addEventListener("input", applyFilters);
+  document.getElementById("class-filter").addEventListener("change", applyFilters);
+  document.getElementById("seqs-filter").addEventListener("change", applyFilters);
+
+  document.getElementById("export-tsv").addEventListener("click", () => {
+    if (!visible.length) { alert("No rows in current filter."); return; }
+    const cols = Object.keys(visible[0]);
+    const lines = [cols.join("\t")];
+    for (const r of visible) lines.push(cols.map(k => r[k] ?? "").join("\t"));
+    triggerBlobDownload(new Blob([lines.join("\n")], { type: "text/tab-separated-values" }),
+                        "molluscagenes_species_filtered.tsv");
+  });
+
+  applyFilters();
+}
+
+init().catch(err => {
+  document.getElementById("table-host").innerHTML =
+    `<p class="muted">Failed to load species metadata: ${err.message}</p>`;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use MolluscaGenes, please cite both the software and the associated data deposit."
+title: "MolluscaGenes: a mollusc transcriptome + proteome resource with mollusc-optimized Pfam HMMs"
+abstract: "Preliminary release (v0.1) of the MolluscaGenes database, containing BLAST- and DIAMOND-formatted protein and mRNA databases across ~333 mollusc species, paired with the TIAMMAt mollusc-revised Pfam HMMs (190 domains). Includes command-line wrappers for BLAST / DIAMOND / hmmsearch, species extraction, and CrusTome-style iterative-BLAST phylogenetic placement."
+type: software
+version: "0.1.0"
+date-released: "2026-04-24"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/invertome/molluscagenes"
+url: "https://invertome.github.io/molluscagenes"
+authors:
+  - family-names: Perez-Moreno
+    given-names: Jorge L.
+    affiliation: "University of Massachusetts Amherst"
+  - family-names: Katz
+    given-names: Paul S.
+    affiliation: "University of Massachusetts Amherst"
+keywords:
+  - mollusca
+  - transcriptome
+  - proteome
+  - BLAST
+  - DIAMOND
+  - HMMER
+  - Pfam
+  - phylogenetics
+  - chemotactile receptor
+  - nicotinic acetylcholine receptor
+identifiers:
+  - type: doi
+    value: "TBD-zenodo-concept-doi"
+    description: "Zenodo concept DOI (always resolves to latest version)"
+  - type: doi
+    value: "TBD-zenodo-v0.1-doi"
+    description: "Zenodo DOI pinned to v0.1"

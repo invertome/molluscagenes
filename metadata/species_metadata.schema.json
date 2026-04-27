@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MolluscaGenes species_metadata.tsv",
+  "description": "Per-species metadata for MolluscaGenes v0.1.",
+  "tableFormat": "TSV with header row",
+  "columns": {
+    "species_code": {
+      "type": "string",
+      "required": true,
+      "description": "5-7 letter alphanumeric species code (authoritative key)."
+    },
+    "species_binomial": {
+      "type": "string",
+      "required": true,
+      "description": "Genus + species (or Genus sp. for unidentified), space-separated."
+    },
+    "ncbi_taxid": {
+      "type": "string",
+      "description": "NCBI taxonomy ID; may be empty for undescribed species or unmatched names."
+    },
+    "phylum": {
+      "type": "string",
+      "description": "From NCBI taxonomy lineage. Usually Mollusca."
+    },
+    "class": {
+      "type": "string",
+      "description": "From NCBI taxonomy lineage."
+    },
+    "subclass": {
+      "type": "string",
+      "description": "From NCBI taxonomy lineage; often empty."
+    },
+    "order": {
+      "type": "string",
+      "description": "From NCBI taxonomy lineage."
+    },
+    "family": {
+      "type": "string",
+      "description": "From NCBI taxonomy lineage."
+    },
+    "worms_aphia_id": {
+      "type": "string",
+      "description": "WoRMS (World Register of Marine Species) AphiaID; may be empty."
+    },
+    "n_proteins": {
+      "type": "integer",
+      "description": "Count of protein sequences in mollusca_aa for this species."
+    },
+    "n_transcripts": {
+      "type": "integer",
+      "description": "Count of nucleotide transcripts in mollusca_mrna for this species."
+    },
+    "mean_protein_len": {
+      "type": "number",
+      "description": "Mean protein length (residues) across this species."
+    },
+    "data_source": {
+      "type": "string",
+      "description": "Source workflow. 'EvidentialGene assembly' for species with sequences; empty otherwise."
+    },
+    "source_accession": {
+      "type": "string",
+      "description": "Upstream accession if known. v0.1 leaves this mostly empty; v1.0 will populate from NCBI BioProject linkage."
+    },
+    "sequencing_type": {
+      "type": "string",
+      "description": "'transcriptome' for species with sequences; empty for dict-only entries."
+    },
+    "reference_citation_doi": {
+      "type": "string",
+      "description": "DOI of source publication if known. v0.1 leaves this empty; v1.0 will populate via NCBI BioProject linkage."
+    }
+  },
+  "notes": [
+    "Species with n_proteins=0 and n_transcripts=0 are listed for transparency: they were planned for inclusion but no sequences are in this release.",
+    "v1.0 will add BUSCO completeness, source_accession, and reference_citation_doi."
+  ]
+}

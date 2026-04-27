@@ -1,0 +1,39 @@
+# Local config with user paths — never commit
+config.sh
+
+# Caches populated at runtime
+metadata/_cache/
+
+# Output directories from wrapper runs
+downloads/
+runs/
+*/run.log
+*/*.done
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS / editor cruft
+.DS_Store
+*.swp
+*~
+
+# Staging for artifact generation (outside repo recommended, but guard anyway)
+zenodo_staging/
+
+# Private / pre-publication content — never goes on the public GitHub site
+*.private.md
+*.draft.md
+NOTES.md
+notes/
+private/
+preliminary/
+experimental/
+scratch/
+tests/
+test_outputs/
+testing/
+*.tmp
+.DS_Store

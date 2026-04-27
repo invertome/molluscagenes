@@ -1,0 +1,311 @@
+species_code	species_binomial	ncbi_taxid	phylum	class	subclass	order	family	worms_aphia_id	n_proteins	n_transcripts	mean_protein_len	data_source	source_accession	sequencing_type	reference_citation_doi
+Acacri	Acanthochitona crinita	126420	Mollusca	Polyplacophora	Neoloricata	Chitonida	Acanthochitonidae	138675	57217	57217	259.7	EvidentialGene assembly		transcriptome	
+Acagem	Acanthopleura gemmata	167016	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	211919	74901	74901	175.6	EvidentialGene assembly		transcriptome	
+Acagra	Acanthopleura granulata	61363	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	386270	0	0					
+Acaloo	Acanthopleura loochooana	167017	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	386271	62354	62354	266.4	EvidentialGene assembly		transcriptome	
+Achful	Achatina fulica	2315439	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Achatinidae	881463	0	0					
+Achimm	Achatina immaculata	2605667	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Achatinidae	1246505	0	0					
+Adacol	Adamussium colbecki	95546	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	197021	63496	63496	240.9	EvidentialGene assembly		transcriptome	
+Aegche	Aegista chejuensis	1399158	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Camaenidae	1369559	99083	99083	209.3	EvidentialGene assembly		transcriptome	
+Aldmod	Alderia modesta	369574	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	141555	40794	40794	294.1	EvidentialGene assembly		transcriptome	
+Alecra	Alexandromenia crassa	1638916	Mollusca	Solenogastres		Cavibelonia	Amphimeniidae	138741	27354	27354	256.9	EvidentialGene assembly		transcriptome	
+Alibip	Alinda biplicata	1290020	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Clausiliidae	1049653	103007	103007	192.6	EvidentialGene assembly		transcriptome	
+Ambval	Ambigolimax valentianus	1338344	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Limacidae	819990	65627	65627	203.8	EvidentialGene assembly		transcriptome	
+Amphan	Amphioctopus fangsiao	515817	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	534733	0	0					
+Ampsp	Amphimeniidae sp.	3324744	Mollusca	Solenogastres		Cavibelonia	Amphimeniidae	22983	29563	29563	219.0	EvidentialGene assembly		transcriptome	
+Ampsp.	Amphimeniidae sp.	3324744	Mollusca	Solenogastres		Cavibelonia	Amphimeniidae	22983	0	0					
+Amujap	Amusium japonicum	1644149	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	394347	0	0					
+Amuple	Amusium pleuronectes	158443	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	215388	0	0					
+Anabro	Anadara broughtonii	148819	Mollusca	Bivalvia	Autobranchia	Arcoida	Arcidae	504357	180175	180175	163.9	EvidentialGene assembly		transcriptome	
+Anehel	Anentome helena	1912881	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Nassariidae	1027029	267928	267928	144.3	EvidentialGene assembly		transcriptome	
+Antent	Antalis entalis	211836	Mollusca	Scaphopoda		Dentaliida	Dentaliidae	150534	66312	66312	125.5	EvidentialGene assembly		transcriptome	
+Aphosu	Aphanoconia osumiense	2950572	Mollusca	Gastropoda	Neritimorpha	Cycloneritida	Helicinidae	1328886	47680	47680	227.9	EvidentialGene assembly		transcriptome	
+Aplcal	Aplysia californica	6500	Mollusca	Gastropoda	Heterobranchia	Aplysiida	Aplysiidae	240765	0	0					
+Aplent	Aplysiopsis enteromorphae	749931	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	494528	64794	64794	268.7	EvidentialGene assembly		transcriptome	
+Aplfas	Aplysia fasciata	144767	Mollusca	Gastropoda	Heterobranchia	Aplysiida	Aplysiidae	138755	17577	17577	141.0	EvidentialGene assembly		transcriptome	
+Aplkur	Aplysia kurodai	6501	Mollusca	Gastropoda	Heterobranchia	Aplysiida	Aplysiidae	568199	16380	16380	172.3	EvidentialGene assembly		transcriptome	
+Apoeni	Apodomenia enigmatica	2138613	Mollusca	Solenogastres			Apodomeniidae	1347858	25990	25990	267.1	EvidentialGene assembly		transcriptome	
+Archdu	Architeuthis dux	256136	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Architeuthidae	342218	0	0					
+Archma	Archivesica marissinica	2291877	Mollusca	Bivalvia	Autobranchia	Venerida	Vesicomyidae		0	0					
+Argirr	Argopecten irradians	31199	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	156817	0	0					
+Argope	Argopecten sp.	3111797	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	156816	186152	186152	198.8	EvidentialGene assembly		transcriptome	
+Argpur	Argopecten purpuratus	228297	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	394269	0	0					
+Arivul	Arion vulgaris	1028688	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Arionidae	1049785	0	0					
+Batatt	Batillaria attramentaria	370345	Mollusca	Gastropoda	Caenogastropoda		Batillariidae	397021	84630	84630	245.8	EvidentialGene assembly		transcriptome	
+Batazo	Bathymodiolus azoricus	150808	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	140436	21671	21671	389.0	EvidentialGene assembly		transcriptome	
+Bathym	Bathymodiolus sp.	91706	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	138214	60128	60128	258.4	EvidentialGene assembly		transcriptome	
+Batpla	Bathymodiolus platifrons	2830794	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	505970	0	0					
+Batput	Bathymodiolus puteoserpentis	91705	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	505967	60551	60551	267.3	EvidentialGene assembly		transcriptome	
+Baymid	Bayerotrochus midas	702825	Mollusca	Gastropoda	Vetigastropoda	Pleurotomariida	Pleurotomariidae	413447	43358	43358	170.0	EvidentialGene assembly		transcriptome	
+Berste	Berghia stephanieae	1287507	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Aeolidiidae	730410	86026	86026	335.7	EvidentialGene assembly		transcriptome	
+Biogla	Biomphalaria glabrata	6526	Mollusca	Gastropoda	Heterobranchia		Planorbidae	848622	0	0					
+Biopfe	Biomphalaria pfeifferi	112525	Mollusca	Gastropoda	Heterobranchia		Planorbidae	1058681	0	0					
+Bitsia	Bithynia siamensis goniomphalos	3245987	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Bithyniidae	1259346	66793	66793	233.8	EvidentialGene assembly		transcriptome	
+Brasim	Bradybaena similaris	145626	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Camaenidae	875284	129338	129338	197.7	EvidentialGene assembly		transcriptome	
+Bultru	Bulinus truncatus	55810	Mollusca	Gastropoda	Heterobranchia		Planorbidae	716338	0	0					
+Burlea	Bursatella leachii	6508	Mollusca	Gastropoda	Heterobranchia	Aplysiida	Aplysiidae	138759	15710	15710	142.7	EvidentialGene assembly		transcriptome	
+Calloc	Callochiton sp.	256137	Mollusca	Polyplacophora	Neoloricata	Chitonida	Callochitonidae	138085	17792	17792	136.0	EvidentialGene assembly		transcriptome	
+Calsep	Callochiton septemvalvis	256138	Mollusca	Polyplacophora	Neoloricata	Chitonida	Callochitonidae	140132	73056	73056	253.5	EvidentialGene assembly		transcriptome	
+Calsp.	Caliphylla sp.4	749954	Mollusca	Gastropoda	Heterobranchia		Caliphyllidae		0	0					
+Canuni	Candidula unifasciata	100452	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Geomitridae	426356	0	0					
+Carsp.	Carychium sp.	145634	Mollusca	Gastropoda	Heterobranchia	Ellobiida	Ellobiidae	738075	0	0					
+Celgra	Cellana grata	157699	Mollusca	Gastropoda	Patellogastropoda		Nacellidae	325450	33401	33401	380.2	EvidentialGene assembly		transcriptome	
+Celrad	Cellana radiata	351208	Mollusca	Gastropoda	Patellogastropoda		Nacellidae	207651	35073	35073	249.8	EvidentialGene assembly		transcriptome	
+Cepnem	Cepaea nemoralis	28835	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Helicidae	235792	0	0					
+Cepsp	Cephalopoda sp	2952870	Mollusca	Cephalopoda				11707	156248	156248	146.4	EvidentialGene assembly		transcriptome	
+Chaaap	Chaetopleura apiculata	58794	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chaetopleuridae	848051	0	0					
+Chaapi	Chaetopleura apiculata	58794	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chaetopleuridae	848051	28768	28768	233.4	EvidentialGene assembly		transcriptome	
+Chaenit	Chaetoderma nitidulum	256131	Mollusca	Caudofoveata		Chaetodermatida	Chaetodermatidae	139106	0	0					
+Chalam	Charonia lampas	500097	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Ranellidae	141101	129427	129427	188.0	EvidentialGene assembly		transcriptome	
+Chanit	Chaetoderma nitidulum	256131	Mollusca	Caudofoveata		Chaetodermatida	Chaetodermatidae	139106	36233	36233	209.9	EvidentialGene assembly		transcriptome	
+Chasp	Chaetoderma sp.	53690	Mollusca	Caudofoveata		Chaetodermatida	Chaetodermatidae		0	0					
+Chatri	Charonia tritonis	1960912	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Ranellidae	141102	183700	183700	171.9	EvidentialGene assembly		transcriptome	
+Chical	Chiroteuthis calyx	559536	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Chiroteuthidae	341796	22637	22637	236.1	EvidentialGene assembly		transcriptome	
+Chimar	Chiton marmoratus	2732483	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	386780	10577	10577	161.2	EvidentialGene assembly		transcriptome	
+Chioli	Chiton olivaceus	256108	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae		67102	67102	170.9	EvidentialGene assembly		transcriptome	
+Chitor	Chicoreus torrefactus	693199	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Muricidae	208137	127772	127772	166.0	EvidentialGene assembly		transcriptome	
+Chitub	Chiton tuberculatus	1539881	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae		26784	26784	250.4	EvidentialGene assembly		transcriptome	
+Chlfar	Chlamys farreri	106299	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	1468835	0	0					
+Cholat	Choneplax lata	1355511	Mollusca	Polyplacophora	Neoloricata	Chitonida	Acanthochitonidae	386532	42408	42408	114.2	EvidentialGene assembly		transcriptome	
+Chrsqu	Chrysomallon squamiferum	216257	Mollusca	Gastropoda	Neomphalina	Neomphalida	Peltospiridae	736932	0	0					
+Cliant	Clione antarctica	672780	Mollusca	Gastropoda	Heterobranchia	Pteropoda	Clionidae	714164	24407	24407	246.9	EvidentialGene assembly		transcriptome	
+Client	Clione antarctica	672780	Mollusca	Gastropoda	Heterobranchia	Pteropoda	Clionidae	714164	0	0					
+Cliret	Clithon retropictum	2094009	Mollusca	Gastropoda	Neritimorpha	Cycloneritida	Neritidae	737538	120029	120029	231.6	EvidentialGene assembly		transcriptome	
+Cocjap	Cocculina japonica	2905118	Mollusca	Gastropoda	Cocculiniformia		Cocculinidae	556949	36690	36690	164.6	EvidentialGene assembly		transcriptome	
+Conbis	Conchocele bisecta	1803738	Mollusca	Bivalvia	Autobranchia	Lucinida	Thyasiridae	420805	0	0					
+Conerm	Conus ermineus	55423	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215538	45681	45681	164.4	EvidentialGene assembly		transcriptome	
+Congeo	Conus geographus	6491	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215499	86200	86200	167.8	EvidentialGene assembly		transcriptome	
+Conglo	Conus gloriamaris	37336	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae		129921	129921	140.5	EvidentialGene assembly		transcriptome	
+Conimp	Conus imperialis	35631	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215501	100437	100437	148.3	EvidentialGene assembly		transcriptome	
+Conkus	Congeria kusceri	152013	Mollusca	Bivalvia	Autobranchia	Myida	Dreissenidae	505315	162103	162103	194.1	EvidentialGene assembly		transcriptome	
+Conmag	Conus magus	6492	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215429	67957	67957	174.5	EvidentialGene assembly		transcriptome	
+Conpur	Conus purpurascens	41690	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	428255	91803	91803	192.7	EvidentialGene assembly		transcriptome	
+Conrol	Conus rolani	745791	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	428267	95442	95442	170.9	EvidentialGene assembly		transcriptome	
+Constr	Conus striatus	6493	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215466	93228	93228	178.2	EvidentialGene assembly		transcriptome	
+Contex	Conus textile	6494	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	215529	80920	80920	161.8	EvidentialGene assembly		transcriptome	
+Conven	Conus ventricosus	117992	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	428401	0	0					
+Corasp	Cornu aspersum	6535	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Helicidae	820000	174327	174327	152.3	EvidentialGene assembly		transcriptome	
+Cosnon	Costasiella nonatoi	698695	Mollusca	Gastropoda	Heterobranchia		Costasiellidae	420580	91577	91577	271.4	EvidentialGene assembly		transcriptome	
+Cosoce	Costasiella ocellifera	380564	Mollusca	Gastropoda	Heterobranchia		Costasiellidae	420581	70706	70706	314.7	EvidentialGene assembly		transcriptome	
+Cossp.	Costasiella sp.1	380552	Mollusca	Gastropoda	Heterobranchia		Costasiellidae		0	0					
+Craang	Crassostrea angulata	2784310	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	146900	0	0					
+Cragig	Crassostrea gigas	29159	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	140656	0	0					
+Crahon	Crassostrea hongkongensis	2653900	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	388247	0	0					
+Cranip	Crassostrea nippona	6564	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	506708	0	0					
+Cravir	Crassostrea virginica	6565	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	140657	0	0					
+Crenav	Crepidula navicella	1707815	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Calyptraeidae	828960	48773	48773	159.6	EvidentialGene assembly		transcriptome	
+Cripli	Cristaria plicata	165446	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae	1026038	85303	85303	269.6	EvidentialGene assembly		transcriptome	
+Cryjap	Cryptoplax japonica	211840	Mollusca	Polyplacophora	Neoloricata	Chitonida	Cryptoplacidae	386456	41241	41241	120.5	EvidentialGene assembly		transcriptome	
+Crylar	Cryptoplax larvaeformis	2732484	Mollusca	Polyplacophora	Neoloricata	Chitonida	Cryptoplacidae	220212	39437	39437	218.2	EvidentialGene assembly		transcriptome	
+Cyeaff	Cyerce aff. antillensis	259547	Mollusca	Gastropoda	Heterobranchia		Caliphyllidae	494335	0	0					
+Cylbea	Cylindrobulla beauii	431608	Mollusca	Gastropoda	Heterobranchia		Cylindrobullidae	420554	70269	70269	254.1	EvidentialGene assembly		transcriptome	
+Derret	Deroceras reticulatum	145610	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Agriolimacidae	819965	49933	49933	222.2	EvidentialGene assembly		transcriptome	
+Dicorb	Dicathais orbita	69583	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Muricidae	396664	105813	105813	164.2	EvidentialGene assembly		transcriptome	
+Dontod	Dondersia todtae	2812639	Mollusca	Solenogastres		Pholidoskepia	Dondersiidae	852764	73920	73920	137.4	EvidentialGene assembly		transcriptome	
+Dorpea	Doryteuthis pealeii	1051067	Mollusca	Cephalopoda	Coleoidea	Myopsida	Loliginidae	574541	217201	217201	140.3	EvidentialGene assembly		transcriptome	
+Dortri	Dorymenia tricarinata	2912279	Mollusca	Solenogastres		Cavibelonia	Proneomeniidae	340727	49964	49964	212.1	EvidentialGene assembly		transcriptome	
+Drepol	Dreissena polymorpha	45954	Mollusca	Bivalvia	Autobranchia	Myida	Dreissenidae	181566	0	0					
+Ellchi	Ellobium chinense	1628040	Mollusca	Gastropoda	Heterobranchia	Ellobiida	Ellobiidae	872447	86700	86700	212.1	EvidentialGene assembly		transcriptome	
+Elychl	Elysia chlorotica	188477	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	160280	0	0					
+Elycri	Elysia crispata	231223	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	420572	31479	31479	214.5	EvidentialGene assembly		transcriptome	
+Elyhed	Elysia hedgpethi	1522333	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	494452	60968	60968	266.0	EvidentialGene assembly		transcriptome	
+Elymar	Elysia marginata	1093978	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	765107	0	0					
+Elyruf	Elysia rufescens	380559	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	494470	30647	30647	220.2	EvidentialGene assembly		transcriptome	
+Elytim	Elysia timida	154625	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	139684	29248	29248	306.2	EvidentialGene assembly		transcriptome	
+Elyvel	Elysia velutinus	2136272	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	883309	63319	63319	272.5	EvidentialGene assembly		transcriptome	
+Entrum	Entemnotrochus rumphii	160018	Mollusca	Gastropoda	Vetigastropoda	Pleurotomariida	Pleurotomariidae	467983	134272	134272	206.1	EvidentialGene assembly		transcriptome	
+Enttri	Entonomenia tricarinata	1541969	Mollusca	Solenogastres		Cavibelonia	Rhopalomeniidae	340699	38175	38175	232.6	EvidentialGene assembly		transcriptome	
+Eoapus	Eoacmaea pustulata	2494650	Mollusca	Gastropoda	Patellogastropoda		Eoacmaeidae	458655	45228	45228	254.8	EvidentialGene assembly		transcriptome	
+Epibab	Epimenia babai	231999	Mollusca	Solenogastres		Cavibelonia	Epimeniidae	393736	17474	17474	180.9	EvidentialGene assembly		transcriptome	
+Episp	Epimenia sp.	3118893	Mollusca	Solenogastres		Cavibelonia	Epimeniidae	298341	42577	42577	193.5	EvidentialGene assembly		transcriptome	
+Ercboo	Ercolania boodleae	2720088	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	494662	59565	59565	284.0	EvidentialGene assembly		transcriptome	
+Eubrus	Eubranchus rustyus	763125	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Eubranchidae	581842	28210	28210	230.1	EvidentialGene assembly		transcriptome	
+Eupber	Euprymna berryi	153281	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiolidae	342315	282232	282232	130.2	EvidentialGene assembly		transcriptome	
+Euprac	Euprymna scolopes	6613	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiolidae	342322	0	0					
+Falcau	Falcidens caudatus	2049293	Mollusca	Caudofoveata		Chaetodermatida	Chaetodermatidae	532834	33612	33612	249.5	EvidentialGene assembly		transcriptome	
+Falsag	Falcidens sagittiferus	2136975	Mollusca	Caudofoveata		Chaetodermatida	Chaetodermatidae	139115	55812	55812	200.9	EvidentialGene assembly		transcriptome	
+Fisnat	Fissurella natalensis	2497952	Mollusca	Gastropoda	Vetigastropoda	Lepetellida	Fissurellidae	216281	22969	22969	188.7	EvidentialGene assembly		transcriptome	
+Frukur	Fruticicola kurodana	1738606	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Camaenidae		95261	95261	206.8	EvidentialGene assembly		transcriptome	
+Gadtol	Gadila tolmiei	1077242	Mollusca	Scaphopoda		Dentaliida	Gadilinidae	344375	105411	105411	208.7	EvidentialGene assembly		transcriptome	
+Gibmag	Gibbula magus	703304	Mollusca	Gastropoda	Vetigastropoda	Trochida	Trochidae	141790	0	0					
+Gigreg	Gigantopelta aegis	1735272	Mollusca	Gastropoda	Neomphalina	Neomphalida	Peltospiridae	853164	0	0					
+Graebo	Graptacme eborea	55752	Mollusca	Scaphopoda		Dentaliida	Dentaliidae	344508	49045	49045	259.6	EvidentialGene assembly		transcriptome	
+Gympel	Gymnomenia pellucida	1918950	Mollusca	Solenogastres		Pholidoskepia	Gymnomeniidae	140054	70634	70634	210.0	EvidentialGene assembly		transcriptome	
+Haldih	Haliotis discus hannai	42344	Mollusca	Gastropoda	Vetigastropoda	Lepetellida	Haliotidae	397083	0	0					
+Halrub	Haliotis rubra	36100	Mollusca	Gastropoda	Vetigastropoda	Lepetellida	Haliotidae	445354	0	0					
+Halruf	Haliotis rufescens	6454	Mollusca	Gastropoda	Vetigastropoda	Lepetellida	Haliotidae	445357	0	0					
+Hamant	Haminoea antillarum	163905	Mollusca	Gastropoda	Heterobranchia	Cephalaspidea	Haminoeidae	420524	38575	38575	258.7	EvidentialGene assembly		transcriptome	
+Hanhan	Hanleya hanleyi	2732485	Mollusca	Polyplacophora	Neoloricata	Lepidopleurida	Hanleyidae	140082	0	0					
+Helaeg	Helluoherpia aegiri	1541971	Mollusca	Solenogastres		Pholidoskepia	Dondersiidae	139606	27187	27187	235.0	EvidentialGene assembly		transcriptome	
+Helluc	Helix lucorum	31229	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Helicidae	1050278	79948	79948	184.5	EvidentialGene assembly		transcriptome	
+Hercra	Hermissenda crassicornis	205593	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Glaucidae	367883	28438	28438	205.9	EvidentialGene assembly		transcriptome	
+Hinbra	Hinea brasiliana	1514958	Mollusca	Gastropoda	Caenogastropoda		Planaxidae	598428	34284	34284	192.4	EvidentialGene assembly		transcriptome	
+Hydphy	Hydatina physis	259632	Mollusca	Gastropoda	Heterobranchia		Aplustridae	215423	33835	33835	256.5	EvidentialGene assembly		transcriptome	
+Hypanj	Hypomenia sanjuanensis	1500389	Mollusca	Solenogastres		Cavibelonia	Pruvotinidae	819731	0	0					
+Hypsan	Hypomenia sanjuanensis	1500389	Mollusca	Solenogastres		Cavibelonia	Pruvotinidae	819731	19147	19147	157.9	EvidentialGene assembly		transcriptome	
+Idipyg	Idiosepius pygmaeus	55281	Mollusca	Cephalopoda	Coleoidea		Idiosepiidae	342345	40294	40294	181.0	EvidentialGene assembly		transcriptome	
+Kalcan	Kalloconus canariensis	2750724	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Conidae	1442354	0	0					
+Kattun	Katharina tunicata	34587	Mollusca	Polyplacophora	Neoloricata	Chitonida	Mopaliidae	386338	21501	21501	284.9	EvidentialGene assembly		transcriptome	
+Krubor	Kruppomenia borealis	2137290	Mollusca	Solenogastres		Cavibelonia	Simrothiellidae	345768	28675	28675	128.7	EvidentialGene assembly		transcriptome	
+Laehya	Laevipilina hyalina	651133	Mollusca	Monoplacophora		Tryblidiida	Neopilinidae	343681	53641	53641	258.6	EvidentialGene assembly		transcriptome	
+Lannas	Lanistes nyassanus	500758	Mollusca	Gastropoda	Caenogastropoda	Architaenioglossa	Ampullariidae	836453	0	0					
+Latell	Laternula elliptica	228457	Mollusca	Bivalvia	Autobranchia		Laternulidae	197217	246049	246049	167.5	EvidentialGene assembly		transcriptome	
+Lepase	Leptochiton asellus	211853	Mollusca	Polyplacophora	Neoloricata	Lepidopleurida	Lepidopleuridae	140199	400778	400778	164.1	EvidentialGene assembly		transcriptome	
+Lepido	Lepidomeniidae	3070670	Mollusca	Solenogastres				14421	25420	25420	312.0	EvidentialGene assembly		transcriptome	
+Lepmer	Lepidozona mertensii	256066	Mollusca	Polyplacophora	Neoloricata	Chitonida	Ischnochitonidae	386048	21637	21637	249.1	EvidentialGene assembly		transcriptome	
+Leprug	Leptochiton rugatus	413421	Mollusca	Polyplacophora	Neoloricata	Lepidopleurida	Lepidopleuridae	367856	35161	35161	228.6	EvidentialGene assembly		transcriptome	
+Lepsp	Lepidomeniidae sp.	3479927	Mollusca	Solenogastres			Lepidomeniidae	14421	0	0					
+Limfla	Limacus flavus	36461	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Limacidae	819991	65142	65142	230.5	EvidentialGene assembly		transcriptome	
+Limmax	Limax maximus	146086	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Limacidae	819992	86241	86241	249.6	EvidentialGene assembly		transcriptome	
+Liojap	Liolophura japonica	13599	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	386278	125488	125488	208.9	EvidentialGene assembly		transcriptome	
+Litsax	Littorina saxatilis	31220	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Littorinidae		157793	157793	211.9	EvidentialGene assembly		transcriptome	
+Lobnev	Lobiger nevilli	2916554	Mollusca	Gastropoda	Heterobranchia		Oxynoeidae	494419	46708	46708	270.7	EvidentialGene assembly		transcriptome	
+Lotgig	Lottia gigantea	225164	Mollusca	Gastropoda	Patellogastropoda		Lottiidae	456593	0	0					
+Macsch	Macellomenia schanderi	1500390	Mollusca	Solenogastres		Pholidoskepia	Macellomeniidae	819729	29607	29607	319.1	EvidentialGene assembly		transcriptome	
+Marcor	Marisa cornuarietis	75126	Mollusca	Gastropoda	Caenogastropoda	Architaenioglossa	Ampullariidae	737469	0	0					
+Megbil	Meghimatium bilineatum	318265	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Philomycidae	1059436	66842	66842	236.1	EvidentialGene assembly		transcriptome	
+Megfru	Meghimatium fruhstorferi	414506	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Philomycidae	1331739	84093	84093	181.3	EvidentialGene assembly		transcriptome	
+Megner	Megalonaias nervosa	52375	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae	857346	133721	133721	198.7	EvidentialGene assembly		transcriptome	
+Meisp	Meiomeniidae sp	1500366	Mollusca	Solenogastres		Pholidoskepia		387405	319245	319245	125.5	EvidentialGene assembly		transcriptome	
+Meispe	Meiomeniidae sp.	1500366	Mollusca	Solenogastres		Pholidoskepia		387405	0	0					
+Meiswe	Meiomenia swedmarki	1500384	Mollusca	Solenogastres		Pholidoskepia	Meiomeniidae	391074	30344	30344	305.0	EvidentialGene assembly		transcriptome	
+Melleo	Melibe leonina	76178	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Dendronotidae	575441	38164	38164	188.2	EvidentialGene assembly		transcriptome	
+Mermer	Mercenaria mercenaria	6596	Mollusca	Bivalvia	Autobranchia	Venerida	Veneridae	141919	0	0					
+Merpet	Meretrix petechialis	311198	Mollusca	Bivalvia	Autobranchia	Venerida	Veneridae	397140	21368	21368	244.2	EvidentialGene assembly		transcriptome	
+Micfod	Micromenia fodiens	669226	Mollusca	Solenogastres		Pholidoskepia	Dondersiidae	139608	48346	48346	144.4	EvidentialGene assembly		transcriptome	
+Mimnob	Mimachlamys nobilis	106276	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	1476808	88853	88853	244.8	EvidentialGene assembly		transcriptome	
+Modkur	Modiolus kurilensis	1647520	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	541262	85866	85866	211.9	EvidentialGene assembly		transcriptome	
+Modphi	Modiolus philippinarum	310899	Mollusca	Bivalvia	Autobranchia	Mytilida	Modiolidae	214951	0	0					
+Moncor	Monoplex corrugatus	2962468	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Ranellidae	476518	0	0					
+Monlab	Monodonta labio	74046	Mollusca	Gastropoda	Vetigastropoda	Trochida	Trochidae	216318	34147	34147	299.8	EvidentialGene assembly		transcriptome	
+Mopmus	Mopalia muscosa	256104	Mollusca	Polyplacophora	Neoloricata	Chitonida	Mopaliidae	386353	18525	18525	238.7	EvidentialGene assembly		transcriptome	
+Mousp.	Mourgona sp.5	483976	Mollusca	Gastropoda	Heterobranchia		Caliphyllidae		0	0					
+Mullat	Mulinia lateralis	31206	Mollusca	Bivalvia	Autobranchia	Venerida	Mactridae	156870	137656	137656	108.3	EvidentialGene assembly		transcriptome	
+Myaare	Mya arenaria	6604	Mollusca	Bivalvia	Autobranchia	Myida	Myidae	140430	34456	34456	209.2	EvidentialGene assembly		transcriptome	
+Mytcal	Mytilus californianus	6549	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	367837	0	0					
+Mytchi	Mytilus chilensis	173667	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	397041	0	0					
+Mytcor	Mytilus coruscus	42192	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	506159	0	0					
+Mytgal	Mytilus galloprovincialis	29158	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	140481	0	0					
+Mytros	Mytilus trossulus	6551	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	140482	0	0					
+Myttro	Mytilus trossulus	6551	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	140482	40735	40735	167.5	EvidentialGene assembly		transcriptome	
+Mytvir	Mytilisepta virgata	2547956	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	506157	0	0					
+Naupom	Nautilus pompilius	34573	Mollusca	Cephalopoda	Nautiloidea	Nautilida	Nautilidae	216384	48159	48159	145.6	EvidentialGene assembly		transcriptome	
+Neoaff	Neomenia aff. Herwigi	3118892	Mollusca	Solenogastres		Neomeniamorpha	Neomeniidae	138249	7897	7897	105.6	EvidentialGene assembly		transcriptome	
+Neocar	Neomenia carinata	1541962	Mollusca	Solenogastres		Neomeniamorpha	Neomeniidae	140560	28135	28135	157.0	EvidentialGene assembly		transcriptome	
+Neomeg	Neomenia megatrapezata	1077245	Mollusca	Solenogastres		Neomeniamorpha	Neomeniidae	340753	32635	32635	253.8	EvidentialGene assembly		transcriptome	
+Neoper	Neomenia permagna	3118891	Mollusca	Solenogastres		Neomeniamorpha	Neomeniidae	340754	25962	25962	245.7	EvidentialGene assembly		transcriptome	
+Neosp	Neomeniomorpha sp	231996	Mollusca						81253	81253	238.5	EvidentialGene assembly		transcriptome	
+Neospe	Neomeniomorpha sp.	231996	Mollusca						0	0					
+Nepcum	Neptunea cumingii	481892	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Buccinidae		163524	163524	174.0	EvidentialGene assembly		transcriptome	
+Neralb	Nerita albicilla	52928	Mollusca	Gastropoda	Neritimorpha	Cycloneritida	Neritidae	216254	58636	58636	207.3	EvidentialGene assembly		transcriptome	
+Nerpul	Neritina pulligera	537799	Mollusca	Gastropoda	Neritimorpha	Cycloneritida	Neritidae	207646	59044	59044	277.6	EvidentialGene assembly		transcriptome	
+Nipfus	Nipponacmea fuscoviridis	225302	Mollusca	Gastropoda	Patellogastropoda		Lottiidae	456612	40273	40273	314.4	EvidentialGene assembly		transcriptome	
+Nodsub	Nodipecten subnodosus	330909	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	394383	83424	83424	225.9	EvidentialGene assembly		transcriptome	
+Nuctum	Nucula tumidula	437803	Mollusca	Bivalvia	Protobranchia	Nuculida	Nuculidae		73490	73490	202.9	EvidentialGene assembly		transcriptome	
+Nutmir	Nuttallochiton mirandus	256062	Mollusca	Polyplacophora	Neoloricata	Chitonida	Mopaliidae	386365	80097	80097	208.5	EvidentialGene assembly		transcriptome	
+Octbim	Octopus bimaculoides	37653	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341952	0	0					
+Octboc	Octopus bocki	158821	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341953	328638	328638	170.9	EvidentialGene assembly		transcriptome	
+Octdel	Octopoteuthis deletron	1582096	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Octopoteuthidae	342057	32381	32381	303.9	EvidentialGene assembly		transcriptome	
+Octmay	Octopus maya	623738	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341996	84708	84708	158.4	EvidentialGene assembly		transcriptome	
+Octmin	Octopus minor	515824	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	342002	0	0					
+Octsin	Octopus sinensis	2607531	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	534443	0	0					
+Octvar	Octopus variabilis	158018	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	342040	52393	52393	229.1	EvidentialGene assembly		transcriptome	
+Octvul	Octopus vulgaris	6645	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	140605	0	0					
+Olehan	Olea hansineensis	1522364	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	494677	56963	56963	266.5	EvidentialGene assembly		transcriptome	
+Oncflo	Onchidella floridana	259645	Mollusca	Gastropoda	Heterobranchia	Systellommatophora	Onchidiidae	420650	35855	35855	243.9	EvidentialGene assembly		transcriptome	
+Onchup	Oncomelania hupensis	56141	Mollusca	Gastropoda	Caenogastropoda	Littorinimorpha	Pomatiopsidae	740259	60696	60696	275.7	EvidentialGene assembly		transcriptome	
+Oncmur	Onchidoris muricata	71370	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Onchidorididae	140640	137791	137791	153.8	EvidentialGene assembly		transcriptome	
+Oncree	Onchidium reevesii	2547651	Mollusca	Gastropoda	Heterobranchia	Systellommatophora	Onchidiidae	956738	37575	37575	230.1	EvidentialGene assembly		transcriptome	
+Oncver	Onchidium verrucosum	259646	Mollusca	Gastropoda	Heterobranchia	Systellommatophora	Onchidiidae		34767	34767	224.0	EvidentialGene assembly		transcriptome	
+Onyban	Onychoteuthis banksii	392296	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Onychoteuthidae	140649	23803	23803	240.1	EvidentialGene assembly		transcriptome	
+Ostered	Ostrea edulis	37623	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	140658	0	0					
+Oxytab	Oxystele tabularis	336183	Mollusca	Gastropoda	Vetigastropoda	Trochida	Trochidae	216321	28060	28060	188.6	EvidentialGene assembly		transcriptome	
+Patpel	Patella pellucida	88005	Mollusca	Gastropoda	Patellogastropoda		Patellidae	147459	0	0					
+Patsac	Patelloida saccharina	72694	Mollusca	Gastropoda	Patellogastropoda		Lottiidae	220948	51710	51710	203.8	EvidentialGene assembly		transcriptome	
+Patuly	Patella ulyssiponensis	334708	Mollusca	Gastropoda	Patellogastropoda		Patellidae	140684	48775	48775	208.0	EvidentialGene assembly		transcriptome	
+Patvul	Patella vulgata	6465	Mollusca	Gastropoda	Patellogastropoda		Patellidae	140685	0	0					
+Patyes	Mizuhopecten (Patinopecten) yessoensis	6573	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae		0	0					
+Pecmax	Pecten maximus	6579	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	140712	0	0					
+Pervir	Perna viridis	73031	Mollusca	Bivalvia	Autobranchia	Mytilida	Mytilidae	367822	79293	79293	268.5	EvidentialGene assembly		transcriptome	
+Phasol	Phallomedusa solida	929610	Mollusca	Gastropoda	Heterobranchia		Phallomedusidae	549365	36435	36435	265.5	EvidentialGene assembly		transcriptome	
+Phaven	Phasianella ventricosa	335755	Mollusca	Gastropoda	Vetigastropoda	Trochida	Phasianellidae		43318	43318	294.8	EvidentialGene assembly		transcriptome	
+Pholid	Pholidoskepia sp. 1	1077249	Mollusca	Solenogastres				14420	55676	55676	249.0	EvidentialGene assembly		transcriptome	
+Phosp	Pholidoskepia sp. 2	1077249	Mollusca	Solenogastres				14420	37396	37396	303.2	EvidentialGene assembly		transcriptome	
+Photur	Phorcus turbinatus	43341	Mollusca	Gastropoda	Vetigastropoda	Trochida	Trochidae	689179	206951	206951	192.4	EvidentialGene assembly		transcriptome	
+Phyacu	Physella acuta	109671	Mollusca	Gastropoda	Heterobranchia		Physidae	234093	157193	157193	222.0	EvidentialGene assembly		transcriptome	
+Phybuc	Phylliroe bucephala	1903125	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Phylliroidae	581832	22797	22797	241.3	EvidentialGene assembly		transcriptome	
+Physp	Phyllomenia sp.	3451366	Mollusca	Solenogastres		Sterrofustia	Phyllomeniidae	298356	27517	27517	149.8	EvidentialGene assembly		transcriptome	
+Picver	Pictodentalium vernedei	2996714	Mollusca	Scaphopoda		Dentaliida	Dentaliidae	344538	0	0					
+Pinfu	Pinctada fucata	50426	Mollusca	Bivalvia	Autobranchia	Pterioida	Pteriidae	397170	0	0					
+Pinimb	Pinctada imbricata	66713	Mollusca	Bivalvia	Autobranchia	Pterioida	Pteriidae	207901	0	0					
+Pinmax	Pinctada maxima	104660	Mollusca	Bivalvia	Autobranchia	Pterioida	Pteriidae	464492	97367	97367	246.6	EvidentialGene assembly		transcriptome	
+Pladum	Platynereis dumerilii	6359	Annelida	Polychaeta	Errantia	Phyllodocida	Nereididae	130417	71694	71694	239.9	EvidentialGene assembly		transcriptome	
+Plaian	Plakobranchus ianthobapsus	2050001	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae		68290	68290	275.9	EvidentialGene assembly		transcriptome	
+Plakin	Placida kingstoni	749936	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	420582	60154	60154	333.8	EvidentialGene assembly		transcriptome	
+Plamag	Placopecten magellanicus	6577	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	156972	0	0					
+Plaoce	Plakobranchus ocellatus	259542	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	451657	0	0					
+Plecal	Pleurobranchaea californica	404816	Mollusca	Gastropoda	Heterobranchia	Pleurobranchida	Pleurobranchidae	367819	57888	57888	221.8	EvidentialGene assembly		transcriptome	
+Pleque	Plectotropis quelpartensis	1399213	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Camaenidae	1446283	114470	114470	197.8	EvidentialGene assembly		transcriptome	
+Pomcan	Pomacea canaliculata	400727	Mollusca	Gastropoda	Caenogastropoda	Architaenioglossa	Ampullariidae	741113	0	0					
+Pomele	Pomatias elegans	928741	Mollusca	Gastropoda	Caenogastropoda	Architaenioglossa	Cochlostomatidae		45079	45079	253.2	EvidentialGene assembly		transcriptome	
+Pommac	Pomacea maculata	1245466	Mollusca	Gastropoda	Caenogastropoda	Architaenioglossa	Ampullariidae	737473	0	0					
+Potstr	Potamilus streckersoni	2493646	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae	1356337	0	0					
+Procal	Prochaetoderma californicum	3246909	Mollusca	Caudofoveata		Chaetodermatida	Prochaetodermatidae	544986	54036	54036	227.0	EvidentialGene assembly		transcriptome	
+Procus	Proneomenia custodiens	1500391	Mollusca	Solenogastres		Cavibelonia	Proneomeniidae	818882	32645	32645	194.0	EvidentialGene assembly		transcriptome	
+Proslu	Proneomenia sluiteri	1500380	Mollusca	Solenogastres		Cavibelonia	Proneomeniidae	140863	21055	21055	147.7	EvidentialGene assembly		transcriptome	
+Prosp	Proneomenia sp.	3324747	Mollusca	Solenogastres		Cavibelonia	Proneomeniidae	138383	46204	46204	172.5	EvidentialGene assembly		transcriptome	
+Prusp	Pruvotinidae sp.	3070669	Mollusca	Solenogastres		Cavibelonia	Pruvotinidae	23105	15911	15911	294.5	EvidentialGene assembly		transcriptome	
+Psecol	Pseudosuccinea columella	31228	Mollusca	Gastropoda	Heterobranchia		Lymnaeidae	724460	37245	37245	421.1	EvidentialGene assembly		transcriptome	
+Ptehoy	Pterygioteuthis hoylei	559549	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Enoploteuthidae	548183	26978	26978	341.2	EvidentialGene assembly		transcriptome	
+Pythpac	Pythia pachyodon	157724	Mollusca	Gastropoda	Heterobranchia	Ellobiida	Ellobiidae	1427952	0	0					
+Pytpac	Pythia pachyodon	157724	Mollusca	Gastropoda	Heterobranchia	Ellobiida	Ellobiidae	1427952	39804	39804	218.8	EvidentialGene assembly		transcriptome	
+Rapven	Rapana venosa	55521	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Muricidae	140416	0	0					
+Reicla	Reishia clavigera	272940	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Muricidae	397003	266906	266906	150.3	EvidentialGene assembly		transcriptome	
+Rhyoli	Rhyssoplax olivaceus	291883	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae		57016	57016	154.6	EvidentialGene assembly		transcriptome	
+Riscar	Rissoella caribaea	57639	Mollusca	Gastropoda	Heterobranchia		Rissoellidae	420414	43050	43050	332.0	EvidentialGene assembly		transcriptome	
+Rudphi	Ruditapes philippinarum	129788	Mollusca	Bivalvia	Autobranchia	Venerida	Veneridae	231750	0	0					
+Sacglo	Saccostrea glomerata	157728	Mollusca	Bivalvia	Autobranchia	Ostreida	Ostreidae	397183	0	0					
+Sacsma	Sacoproteus smaragdinus	2282303	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	1298640	37260	37260	226.6	EvidentialGene assembly		transcriptome	
+Scabro	Scapharca broughtonii	148819	Mollusca	Bivalvia	Autobranchia	Arcoida	Arcidae	591364	0	0					
+Scuven	Scutopus ventrolineatus	52922	Mollusca	Caudofoveata		Limifossorida	Scutopodidae	140250	41365	41365	186.3	EvidentialGene assembly		transcriptome	
+Semcor	Semisulcospira coreana	364284	Mollusca	Gastropoda	Caenogastropoda		Semisulcospiridae	999732	70324	70324	254.8	EvidentialGene assembly		transcriptome	
+Semhab	Semisulcospira habei	481879	Mollusca	Gastropoda	Caenogastropoda		Semisulcospiridae	1059804	0	0					
+Sepesc	Sepia esculenta	31210	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiidae	342131	234692	234692	140.3	EvidentialGene assembly		transcriptome	
+Sepjap	Sepiella japonica	279094	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiidae	153107	72954	72954	249.0	EvidentialGene assembly		transcriptome	
+Seplin	Sepioloidea lineolata	61742	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiadariidae	342394	723003	723003	113.5	EvidentialGene assembly		transcriptome	
+Sepoff	Sepia officinalis	6610	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiidae	141444	233263	233263	138.4	EvidentialGene assembly		transcriptome	
+Seppha	Sepia pharaonis	158019	Mollusca	Cephalopoda	Coleoidea	Sepiida	Sepiidae	181376	0	0					
+Simmar	Simrothiella margaritacea	669227	Mollusca	Solenogastres		Cavibelonia	Simrothiellidae	141466	28026	28026	220.1	EvidentialGene assembly		transcriptome	
+Sincon	Sinonovacula constricta	98310	Mollusca	Bivalvia	Autobranchia	Cardiida	Solecurtidae	413600	0	0					
+Sincum	Sinohyriopsis cumingii	165450	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae	1251115	81283	81283	184.1	EvidentialGene assembly		transcriptome	
+Sipdal	Siphonodentalium dalli	3019061	Mollusca	Scaphopoda		Gadilida	Siphonodentaliidae	344385	0	0					
+Sipnor	Siphonaria normalis	981058	Mollusca	Gastropoda	Heterobranchia	Siphonariida	Siphonariidae	215294	35758	35758	272.3	EvidentialGene assembly		transcriptome	
+Sippec	Siphonaria pectinata	57642	Mollusca	Gastropoda	Heterobranchia	Siphonariida	Siphonariidae	141470	106128	106128	220.4	EvidentialGene assembly		transcriptome	
+Sipsp.	Siphonaria sp.2								0	0					
+Spacle	Spathoderma clenchi	1638910	Mollusca	Caudofoveata		Chaetodermatida	Prochaetodermatidae	140854	23747	23747	145.2	EvidentialGene assembly		transcriptome	
+Spisol	Spisula solida	31201	Mollusca	Bivalvia	Autobranchia	Venerida	Mactridae	140301	0	0					
+Stebah	Stenoplax bahamensis	2785805	Mollusca	Polyplacophora	Neoloricata	Chitonida	Ischnochitonidae	848154	54136	54136	144.3	EvidentialGene assembly		transcriptome	
+Strhae	Stramonita haemastoma	134471	Mollusca	Gastropoda	Caenogastropoda	Neogastropoda	Muricidae	140417	0	0					
+Stysul	Stylomenia sulcodoryata	2137292	Mollusca	Solenogastres		Pholidoskepia	Dondersiidae	156443	39578	39578	323.0	EvidentialGene assembly		transcriptome	
+Teggra	Tegillarca granosa	220873	Mollusca	Bivalvia	Autobranchia	Arcoida	Arcidae	504471	0	0					
+Tegula	Tegulaherpia sp.	3070673	Mollusca	Solenogastres			Lepidomeniidae	138114	86490	86490	207.1	EvidentialGene assembly		transcriptome	
+Ternav	Teredo navalis	263429	Mollusca	Bivalvia	Autobranchia	Myida	Teredinidae	141607	74728	74728	162.8	EvidentialGene assembly		transcriptome	
+Thepis	Theba pisana	145622	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Helicidae	426411	167088	167088	168.6	EvidentialGene assembly		transcriptome	
+Thugra	Thuridilla gracilis	483958	Mollusca	Gastropoda	Heterobranchia		Plakobranchidae	494494	43968	43968	218.5	EvidentialGene assembly		transcriptome	
+Titlim	Titiscania limacina	200181	Mollusca	Gastropoda	Neritimorpha	Cycloneritida	Neritopsidae	532065	55609	55609	224.0	EvidentialGene assembly		transcriptome	
+Tonlin	Tonicella lineata	256058	Mollusca	Polyplacophora	Neoloricata	Chitonida	Mopaliidae	386441	108982	108982	204.0	EvidentialGene assembly		transcriptome	
+Tonsch	Tonicia schrammi	2732486	Mollusca	Polyplacophora	Neoloricata	Chitonida	Chitonidae	386334	25494	25494	200.9	EvidentialGene assembly		transcriptome	
+Tricro	Tridacna crocea	80833	Mollusca	Bivalvia	Autobranchia	Cardiida	Cardiidae	207673	0	0					
+Trisqu	Tridacna squamosa	80830	Mollusca	Bivalvia	Autobranchia	Cardiida	Cardiidae	207674	635406	635406	190.8	EvidentialGene assembly		transcriptome	
+Tritet	Tritonia tetraquetra	2780533	Mollusca	Gastropoda	Heterobranchia	Nudibranchia	Tritoniidae		39360	39360	150.1	EvidentialGene assembly		transcriptome	
+Tronig	Trochus nigropunctatus	2950569	Mollusca	Gastropoda	Vetigastropoda	Trochida	Trochidae	216348	27373	27373	193.2	EvidentialGene assembly		transcriptome	
+Tylsar	Tylomelania sarasinorum	232253	Mollusca	Gastropoda	Caenogastropoda		Pachychilidae	738569	131101	131101	210.6	EvidentialGene assembly		transcriptome	
+Unidel	Unio delphinus	461120	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae		0	0					
+Unielo	Unio elongatulus	1223348	Mollusca	Bivalvia	Autobranchia	Unionida	Unionidae	1067373	421672	421672	127.7	EvidentialGene assembly		transcriptome	
+Uroedu	Uroteuthis edulis	55720	Mollusca	Cephalopoda	Coleoidea	Myopsida	Loliginidae	342409	74883	74883	203.3	EvidentialGene assembly		transcriptome	
+Vaminf	Vampyroteuthis infernalis	55288	Mollusca	Cephalopoda	Coleoidea	Vampyromorpha	Vampyroteuthidae	141887	46211	46211	226.2	EvidentialGene assembly		transcriptome	
+Wilpel	Williamia peltoides	1522360	Mollusca	Gastropoda	Heterobranchia	Siphonariida	Siphonariidae	559235	54240	54240	230.7	EvidentialGene assembly		transcriptome	
+Wirarg	Wirenia argentea	669229	Mollusca	Solenogastres		Pholidoskepia	Gymnomeniidae	140055	57476	57476	221.1	EvidentialGene assembly		transcriptome	
+Xinnot	Xipholeptos notoides	66914	Mollusca	Cephalopoda	Coleoidea		Idiosepiidae	1055555	0	0					
+Xipnot	Xipholeptos notoides	66914	Mollusca	Cephalopoda	Coleoidea		Idiosepiidae	1055555	99475	99475	187.1	EvidentialGene assembly		transcriptome	
+Ylibal	Ylistrum balloti	509963	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	821597	0	0					

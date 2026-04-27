@@ -1,0 +1,130 @@
+/* MolluscaGenes site — minimal, responsive, no framework. */
+:root {
+    --fg: #1a1a1a;
+    --fg-muted: #555;
+    --fg-faint: #888;
+    --bg: #ffffff;
+    --bg-alt: #f7f7f7;
+    --accent: #00897B;        /* Cephalopoda teal, from canonical taxonomy palette */
+    --accent-fg: #ffffff;
+    --border: #d8d8d8;
+    --code-bg: #f4f4f4;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.5;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+nav.site-nav {
+    background: var(--accent);
+    color: var(--accent-fg);
+    padding: 0.6rem 1.25rem;
+}
+nav.site-nav .container { padding: 0; max-width: 1280px; display: flex; align-items: center; gap: 1.2rem; }
+nav.site-nav a { color: var(--accent-fg); text-decoration: none; font-weight: 500; }
+nav.site-nav a:hover { text-decoration: underline; }
+nav.site-nav .brand { font-weight: 700; font-size: 1.05rem; margin-right: auto; }
+
+h1 { font-size: 1.6rem; margin-top: 0.5em; }
+h2 { font-size: 1.25rem; margin-top: 1.5em; border-bottom: 1px solid var(--border); padding-bottom: 0.15em; }
+h3 { font-size: 1.05rem; }
+
+a { color: var(--accent); }
+code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+pre {
+    background: var(--code-bg);
+    padding: 0.75em 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+.cta {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-fg);
+    padding: 0.55em 1.1em;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 0.5em;
+}
+.cta.secondary {
+    background: var(--bg-alt);
+    color: var(--fg);
+    border: 1px solid var(--border);
+}
+.muted { color: var(--fg-muted); }
+.faint { color: var(--fg-faint); font-size: 0.9em; }
+
+/* Tables (HMM browser, species browser) */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.6rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+.toolbar input[type="search"], .toolbar select {
+    padding: 0.35em 0.5em;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+.toolbar input[type="search"] { min-width: 220px; }
+.toolbar button {
+    padding: 0.4em 0.9em;
+    background: var(--accent);
+    color: var(--accent-fg);
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.toolbar button.secondary { background: var(--bg); color: var(--fg); border: 1px solid var(--border); }
+.toolbar button:disabled { opacity: 0.4; cursor: not-allowed; }
+.toolbar .stat { color: var(--fg-muted); font-size: 0.9rem; margin-left: auto; }
+
+table.data { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+table.data thead th {
+    background: var(--bg-alt);
+    border-bottom: 2px solid var(--border);
+    padding: 0.4em 0.55em;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    position: sticky; top: 0;
+    white-space: nowrap;
+}
+table.data thead th.sort-asc::after  { content: " ▲"; color: var(--accent); }
+table.data thead th.sort-desc::after { content: " ▼"; color: var(--accent); }
+table.data tbody td { padding: 0.32em 0.55em; border-bottom: 1px solid var(--border); }
+table.data tbody tr:hover { background: var(--bg-alt); }
+table.data .col-num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data .species-binomial { font-style: italic; }
+
+#download-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(0,0,0,0.4);
+    align-items: center; justify-content: center;
+}
+#download-modal.shown { display: flex; }
+#download-modal .modal-body {
+    background: var(--bg);
+    max-width: 720px; width: 90%;
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    max-height: 80vh; overflow-y: auto;
+}
+#download-modal pre { white-space: pre-wrap; word-break: break-all; }
+#download-modal .close { float: right; cursor: pointer; color: var(--fg-faint); }
+
+footer { padding: 1.5em 1.25em; color: var(--fg-faint); font-size: 0.85em; text-align: center; }

@@ -1,0 +1,29 @@
+# MolluscaGenes wrapper config
+# Copy to config.sh, fill in the paths below, then `source config.sh` before
+# running any wrapper. `config.sh` is gitignored — your paths stay local.
+
+# --- Database paths (populated by wrappers/mg_fetch.sh, or set manually) ---
+
+# Directory holding the BLAST database files. Must contain
+#   mollusca_aa.*  (protein BLAST volumes)
+#   mollusca_mrna.*  (nucleotide BLAST volumes)
+export MG_BLAST_DIR="/path/to/molluscagenes_data"
+
+# Full "db" stems for BLAST (no extension):
+export MG_BLAST_AA="${MG_BLAST_DIR}/mollusca_aa"
+export MG_BLAST_MRNA="${MG_BLAST_DIR}/mollusca_mrna"
+
+# DIAMOND protein database:
+export MG_DIAMOND_AA="${MG_BLAST_DIR}/mollusca_aa.dmnd"
+
+# TIAMMAt mollusc-revised HMM file (concatenated, hmmpress-indexed):
+export MG_HMM="${MG_BLAST_DIR}/mollusca_revised_hmms.hmm"
+
+# --- Repo paths (usually auto-detected; override if needed) ---
+
+# Path to this repo's metadata/ directory:
+export MG_METADATA="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)/metadata"
+
+# --- Runtime defaults ---
+
+export MG_THREADS=10

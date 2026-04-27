@@ -1,0 +1,21 @@
+name: molluscagenes
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - blast>=2.15
+  - diamond>=2.1
+  - hmmer>=3.4
+  - mafft>=7.5
+  - clipkit>=2.3
+  - iqtree>=2.3
+  - treeshrink>=1.3
+  - pigz
+  - jq
+  - curl
+  - pip
+  - pip:
+      - biopython>=1.83
+      - requests>=2.31
+      - pandas>=2.1

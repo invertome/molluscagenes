@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MolluscaGenes — mollusc transcriptome resource + TIAMMAt HMMs</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="site-nav"><div class="container">
+  <span class="brand">MolluscaGenes</span>
+  <a href="index.html">Overview</a>
+  <a href="hmms.html">HMM browser</a>
+  <a href="species.html">Species browser</a>
+  <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+</div></nav>
+
+<main class="container">
+
+<h1>MolluscaGenes — preliminary release (v0.1)</h1>
+
+<p>A mollusc transcriptome and proteome resource, paired with the
+<strong>TIAMMAt mollusc-revised Pfam HMMs</strong> (190 domains across 50
+biological categories), plus command-line wrappers for BLAST / DIAMOND /
+hmmsearch search, species extraction, and CrusTome-style iterative-BLAST
+phylogenetic placement.</p>
+
+<p>v0.1 is a <em>preliminary</em> release of the database used in the
+accompanying biorxiv preprint. A full rebuild (v1.0) is in progress on Unity
+HPC and will supersede v0.1 under the same Zenodo concept DOI.</p>
+
+<p>
+  <a class="cta" href="#download">Download (Zenodo)</a>
+  <a class="cta secondary" href="hmms.html">Browse HMMs</a>
+  <a class="cta secondary" href="species.html">Browse species</a>
+  <a class="cta secondary" href="https://github.com/invertome/molluscagenes">Code on GitHub</a>
+</p>
+
+<h2>What's in the release</h2>
+<ul>
+  <li><strong>~333 mollusc species</strong> across all major classes (Gastropoda, Bivalvia, Cephalopoda, Scaphopoda, Solenogastres, Caudofoveata, Polyplacophora, Monoplacophora) — 212 with sequences in this release, 98 listed transparently as planned-but-pending.</li>
+  <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
+  <li><strong>TIAMMAt mollusc-revised HMMs</strong>: 190 Pfam profiles re-trained on mollusc-derived sequences. Tagged with biological categories (GPCR, VGIC, LGIC, etc.).</li>
+  <li><strong>Per-species and per-HMM metadata tables</strong> with NCBI taxonomy and WoRMS cross-links.</li>
+  <li><strong>Wrapper scripts</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code> (CrusTome-style phylogeny), <code>mg_extract</code> (per-species or per-taxon FASTA extraction).</li>
+</ul>
+
+<h2 id="download">Download</h2>
+
+<p>The database files (~13 GB compressed) are hosted on Zenodo. The
+<strong>concept DOI</strong> always resolves to the latest version; the
+<strong>v0.1 DOI</strong> permanently pins this release.</p>
+
+<ul>
+  <li>Concept DOI: <code>TBD</code> (filled in at deposit time)</li>
+  <li>v0.1 DOI: <code>TBD</code></li>
+</ul>
+
+<p>Recommended workflow (clone repo, then fetch with the wrapper):</p>
+<pre>git clone https://github.com/invertome/molluscagenes
+cd molluscagenes
+conda env create -f environment.yml
+conda activate molluscagenes
+bash wrappers/mg_fetch.sh /path/to/storage   # downloads, verifies, writes config.sh
+source config.sh
+bash wrappers/mg_blast.sh -q my_query.fa -o blast_out -d aa</pre>
+
+<h2>Citation</h2>
+<p>If you use MolluscaGenes, please cite both the software/data deposit and the
+biorxiv preprint:</p>
+<pre>Perez-Moreno JL, Katz PS. MolluscaGenes: a mollusc transcriptome
+resource with mollusc-optimized Pfam HMMs (v0.1). Zenodo, 2026.
+DOI: TBD
+
+Perez-Moreno JL, Katz PS. [Title TBD]. biorxiv, 2026.
+DOI: TBD</pre>
+<p>The full machine-readable citation block is in
+<a href="https://github.com/invertome/molluscagenes/blob/main/CITATION.cff"><code>CITATION.cff</code></a>.</p>
+
+<h2>License</h2>
+<p>Code: <strong>GPL-3.0-or-later</strong>.<br>
+Data on Zenodo: <strong>CC-BY-4.0</strong>.<br>
+HMMs derive from <a href="https://www.ebi.ac.uk/interpro/about/pfam/">Pfam</a>; revisions are by the
+<a href="https://github.com/AnnaConn/TIAMMAt">TIAMMAt</a> mollusc-tuning workflow.</p>
+
+</main>
+
+<footer>
+  MolluscaGenes © 2026 — Perez-Moreno &amp; Katz, University of Massachusetts Amherst.
+</footer>
+
+</body>
+</html>
