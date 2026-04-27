@@ -5,9 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
-## [0.1.0] — 2026-04-24 — Preliminary release
+## [0.1.0] — 2026-04-27 — Preliminary release
 
 First public release, accompanying the biorxiv preprint.
+
+- Concept DOI: [10.5281/zenodo.19825265](https://doi.org/10.5281/zenodo.19825265)
+- v0.1 DOI: [10.5281/zenodo.19825266](https://doi.org/10.5281/zenodo.19825266)
 
 ### Data
 

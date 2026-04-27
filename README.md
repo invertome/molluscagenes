@@ -1,5 +1,9 @@
 # MolluscaGenes
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19825265.svg)](https://doi.org/10.5281/zenodo.19825265)
+[![License](https://img.shields.io/badge/code-GPL--3.0-881C1C.svg)](LICENSE)
+[![Data License](https://img.shields.io/badge/data-CC--BY--4.0-1f3a52.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 A taxonomically comprehensive **mollusc transcriptome and proteome resource**
 paired with the **TIAMMAt mollusc-revised Pfam HMMs**, with command-line
 wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
@@ -10,7 +14,9 @@ extraction, and iterative-BLAST phylogenetic placement.
 > v0.1 under the same Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
-- **Database (Zenodo):** concept DOI `TBD` · v0.1 DOI `TBD`
+- **Database (Zenodo):**
+  - Concept DOI (always latest): [`10.5281/zenodo.19825265`](https://doi.org/10.5281/zenodo.19825265)
+  - v0.1 DOI (pinned): [`10.5281/zenodo.19825266`](https://doi.org/10.5281/zenodo.19825266)
 - **License:** GPL-3.0-or-later (code) · CC-BY-4.0 (data on Zenodo)
 
 ---
@@ -354,13 +360,15 @@ source BLAST databases.
 
 ```
 Pérez-Moreno JL, Katz PS. MolluscaGenes: a transcriptomic database for the
-Mollusca (v0.1). Zenodo, 2026. DOI: TBD
+Mollusca (v0.1). Zenodo, 2026. https://doi.org/10.5281/zenodo.19825266
 
 Pérez-Moreno JL, Katz PS. MolluscaGenes: A Transcriptomic Database for the
-Mollusca. biorxiv, 2026. DOI: TBD
+Mollusca. biorxiv, 2026. DOI: TBD (preprint pending).
 ```
 
-The full machine-readable block is in [`CITATION.cff`](CITATION.cff).
+For citing the latest version regardless of release, use the concept DOI
+[`10.5281/zenodo.19825265`](https://doi.org/10.5281/zenodo.19825265). The full
+machine-readable block is in [`CITATION.cff`](CITATION.cff).
 
 ## Acknowledgments
 
