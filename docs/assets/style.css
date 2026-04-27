@@ -428,23 +428,29 @@ ul.plain li::before {
     width: 8px; height: 1px; background: var(--maroon);
 }
 
-/* Pipeline SVG diagram (index "How v0.1 was built" section) */
+/* Pipeline SVG diagram (index "How v0.1 was built" section). The diagram
+   lives in the wider .container (1180px max), and the SVG scales down via
+   its viewBox so no horizontal scroll is needed at narrower viewport widths.
+   Text inside scales proportionally; below ~520px viewport width we let
+   horizontal scroll kick in as a last resort. */
 .pipeline-diagram {
-    margin: 1.5rem 0 0;
+    margin: 1.5rem auto 0;
     padding: 1.25rem 1rem;
     background: rgba(255, 255, 255, 0.55);
     border: 1px solid var(--rule-soft);
     border-radius: 4px;
     box-shadow: var(--shadow-sm);
-    overflow-x: auto;
+    max-width: 1080px;
 }
 .pipeline-diagram svg {
     width: 100%;
-    min-width: 720px;
-    max-width: 920px;
     height: auto;
     display: block;
     margin: 0 auto;
+}
+@media (max-width: 520px) {
+    .pipeline-diagram { overflow-x: auto; padding: 1rem 0.5rem; }
+    .pipeline-diagram svg { min-width: 520px; }
 }
 .pipeline-diagram figcaption {
     margin-top: 0.9rem;
