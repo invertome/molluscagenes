@@ -1,14 +1,17 @@
-/* MolluscaGenes site — minimal, responsive, no framework. */
+/* MolluscaGenes site — minimal, responsive, no framework.
+   Color palette anchored on UMass Amherst brand identity:
+   primary "UMass Maroon" PMS 209 = #881C1C, paired with white + neutral grays. */
 :root {
     --fg: #1a1a1a;
     --fg-muted: #555;
     --fg-faint: #888;
     --bg: #ffffff;
-    --bg-alt: #f7f7f7;
-    --accent: #00897B;        /* Cephalopoda teal, from canonical taxonomy palette */
+    --bg-alt: #f7f5f4;          /* warm off-white that doesn't clash with maroon */
+    --accent: #881C1C;          /* UMass Amherst Maroon */
+    --accent-dark: #5e1313;     /* hover/active state */
     --accent-fg: #ffffff;
     --border: #d8d8d8;
-    --code-bg: #f4f4f4;
+    --code-bg: #f4f1ee;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -51,7 +54,10 @@ pre {
     text-decoration: none;
     font-weight: 600;
     margin-right: 0.5em;
+    transition: background 0.15s ease;
 }
+.cta:hover { background: var(--accent-dark); }
+.cta.secondary:hover { background: #ebe7e4; }
 .cta.secondary {
     background: var(--bg-alt);
     color: var(--fg);
@@ -87,7 +93,9 @@ pre {
     border-radius: 3px;
     cursor: pointer;
     font-weight: 500;
+    transition: background 0.15s ease;
 }
+.toolbar button:hover:not(:disabled) { background: var(--accent-dark); }
 .toolbar button.secondary { background: var(--bg); color: var(--fg); border: 1px solid var(--border); }
 .toolbar button:disabled { opacity: 0.4; cursor: not-allowed; }
 .toolbar .stat { color: var(--fg-muted); font-size: 0.9rem; margin-left: auto; }

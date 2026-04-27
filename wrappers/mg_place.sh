@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # mg_place.sh — phylogenetic placement of a query against MolluscaGenes,
-# mirroring the CrusTome iterative-BLAST workflow but parameterized.
+# parameterized iterative-BLAST + alignment + tree workflow.
 #
-# Pipeline (per CrusTome example.sh):
+# Pipeline:
 #   1. Iterative search (BLAST blastp or DIAMOND blastp), N rounds, accumulating hits
 #   2. blastdbcmd extracts all unique hits as FASTA
 #   3. Concatenate with the user's reference query FASTA
@@ -28,18 +28,47 @@ Required:
   -q PATH               reference query FASTA (your seed sequences)
   -o DIR                output directory
 
-Options:
-  -t N                  threads [$MG_THREADS, default 10]
-  -e FLOAT              e-value for iterative searches [1e-96, per CrusTome]
-  --search MODE         blastp | diamond  [blastp]
-  --iterations N        rounds of iterative search [4]
-  --max-hits N          per-iteration -max_target_seqs / --max-target-seqs [1000]
-  --model STRING        IQ-TREE -m argument [TESTNEW]
-  --bb N                IQ-TREE UFBoot replicates [1000]
-  --bb-final N          IQ-TREE UFBoot replicates for final tree [10000]
-  --skip-treeshrink     skip the TreeShrink prune step
-  --force               re-run all steps even if .done sentinels are present
-  -h | --help           this help
+Options (general):
+  -t N                          threads [$MG_THREADS, default 10]
+  --force                       re-run all steps even if .done sentinels present
+  -h | --help                   this help
+
+Iterative search (BLAST or DIAMOND, rounds 1..N):
+  -e FLOAT                      e-value (-evalue / --evalue)              [1e-96]
+  --search MODE                 blastp | diamond                          [blastp]
+  --iterations N                number of iterative rounds                [4]
+  --max-hits N                  per-round -max_target_seqs                [1000]
+  --search-extra "ARGS"         appended to every BLAST/DIAMOND call
+                                (e.g. "-word_size 6 -seg yes" for blastp,
+                                 "--masking 0 --comp-based-stats 1" for diamond)
+
+Alignment (MAFFT):
+  --mafft-mode MODE             dash | localpair | globalpair | genafpair |
+                                linsi | einsi                              [dash]
+                                ('dash' uses MAFFT-DASH structure-aware mode;
+                                 'genafpair' = E-INS-i; 'linsi' = L-INS-i)
+  --mafft-maxiterate N          --maxiterate                              [10000]
+  --mafft-extra "ARGS"          appended to mafft. Example: "--ep 0.123 --op 1.53"
+
+Trimming (ClipKit):
+  --clipkit-mode MODE           gappy | kpic | kpi | kpic-gappy | kpi-gappy |
+                                kpic-smart-gap | kpi-smart-gap | smart-gap [smart-gap]
+  --clipkit-extra "ARGS"        appended to clipkit. Example: "-g 0.95"
+
+Tree inference (IQ-TREE 2):
+  --model STRING                -m argument                                [TESTNEW]
+  --iqtree-msub MODE            -msub: nuclear | mitochondrial | chloroplast |
+                                viral                                      [nuclear]
+  --bb N                        UFBoot replicates for round-1 tree         [1000]
+  --bb-final N                  UFBoot replicates for final tree           [10000]
+  --iqtree-extra "ARGS"         appended to every iqtree call.
+                                Example: "-alrt 1000 -lbp 1000 --quiet"
+
+Rogue-tip prune (TreeShrink):
+  --skip-treeshrink             skip the TreeShrink step entirely
+  --treeshrink-q FLOAT          -q quantile threshold                      [0.05]
+  --treeshrink-extra "ARGS"     appended to run_treeshrink.py
+                                Example: "-b 5 -k 50"
 
 Outputs (key files):
   iter<N>/hits.tsv      BLAST/DIAMOND output for round N
@@ -67,6 +96,16 @@ bb="1000"
 bb_final="10000"
 skip_ts="no"
 force="no"
+mafft_mode="dash"
+mafft_maxiterate="10000"
+mafft_extra=""
+clipkit_mode="smart-gap"
+clipkit_extra=""
+iqtree_msub="nuclear"
+iqtree_extra=""
+treeshrink_q="0.05"
+treeshrink_extra=""
+search_extra=""
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -77,15 +116,54 @@ while [[ $# -gt 0 ]]; do
         --search) search="$2"; shift 2 ;;
         --iterations) iters="$2"; shift 2 ;;
         --max-hits) max_hits="$2"; shift 2 ;;
+        --search-extra) search_extra="$2"; shift 2 ;;
         --model) model="$2"; shift 2 ;;
         --bb) bb="$2"; shift 2 ;;
         --bb-final) bb_final="$2"; shift 2 ;;
+        --iqtree-msub) iqtree_msub="$2"; shift 2 ;;
+        --iqtree-extra) iqtree_extra="$2"; shift 2 ;;
+        --mafft-mode) mafft_mode="$2"; shift 2 ;;
+        --mafft-maxiterate) mafft_maxiterate="$2"; shift 2 ;;
+        --mafft-extra) mafft_extra="$2"; shift 2 ;;
+        --clipkit-mode) clipkit_mode="$2"; shift 2 ;;
+        --clipkit-extra) clipkit_extra="$2"; shift 2 ;;
         --skip-treeshrink) skip_ts="yes"; shift ;;
+        --treeshrink-q) treeshrink_q="$2"; shift 2 ;;
+        --treeshrink-extra) treeshrink_extra="$2"; shift 2 ;;
         --force) force="yes"; shift ;;
         -h|--help) usage; exit 0 ;;
         *) echo "unknown arg: $1" >&2; usage; exit 2 ;;
     esac
 done
+
+# Validate enumerated choices
+case "$mafft_mode" in
+    dash|localpair|globalpair|genafpair|linsi|einsi) ;;
+    *) mg_die "--mafft-mode must be dash|localpair|globalpair|genafpair|linsi|einsi" ;;
+esac
+case "$iqtree_msub" in
+    nuclear|mitochondrial|chloroplast|viral) ;;
+    *) mg_die "--iqtree-msub must be nuclear|mitochondrial|chloroplast|viral" ;;
+esac
+
+# Translate mafft_mode to flag set
+mafft_flags=()
+case "$mafft_mode" in
+    dash)        mafft_flags=( --dash --originalseqonly --genafpair ) ;;
+    localpair)   mafft_flags=( --localpair ) ;;
+    globalpair)  mafft_flags=( --globalpair ) ;;
+    genafpair)   mafft_flags=( --genafpair ) ;;
+    linsi)       mafft_flags=( --localpair ) ;;            # L-INS-i
+    einsi)       mafft_flags=( --genafpair ) ;;            # E-INS-i
+esac
+
+# Helpers to expand "--*-extra" strings into argv arrays
+parse_extra() { eval "$1=( ${2:-} )"; }
+parse_extra MAFFT_EX     "$mafft_extra"
+parse_extra CLIPKIT_EX   "$clipkit_extra"
+parse_extra IQTREE_EX    "$iqtree_extra"
+parse_extra TREESHRINK_EX "$treeshrink_extra"
+parse_extra SEARCH_EX    "$search_extra"
 
 [[ -z "$ref"    ]] && { usage; mg_die "missing -q"; }
 [[ -z "$outdir" ]] && { usage; mg_die "missing -o"; }
@@ -133,13 +211,17 @@ for ((i=1; i<=iters; i++)); do
         if [[ "$search" == "blastp" ]]; then
             blastp -query "$prev_query" -db "$MG_BLAST_AA" \
                    -num_threads "$threads" -max_target_seqs "$max_hits" \
-                   -evalue "$evalue" -outfmt "$OUTFMT" -out "$iter_hits" 2>> "$log"
+                   -evalue "$evalue" -outfmt "$OUTFMT" \
+                   "${SEARCH_EX[@]}" \
+                   -out "$iter_hits" 2>> "$log"
         else
             read -r -a fmt_arr <<< "$OUTFMT"
             diamond blastp --query "$prev_query" --db "$MG_DIAMOND_AA" \
                     --threads "$threads" --max-target-seqs "$max_hits" \
                     --evalue "$evalue" --more-sensitive \
-                    --outfmt "${fmt_arr[@]}" --out "$iter_hits" --quiet 2>> "$log"
+                    --outfmt "${fmt_arr[@]}" \
+                    "${SEARCH_EX[@]}" \
+                    --out "$iter_hits" --quiet 2>> "$log"
         fi
 
         cut -f2 "$iter_hits" | awk '!seen[$0]++' > "$iter_list"
@@ -169,29 +251,33 @@ if ! step_done "combine"; then
     step_mark "combine"
 fi
 
-# --- MAFFT-DASH alignment ---
+# --- MAFFT alignment ---
 if ! step_done "mafft"; then
-    mg_log "$log" "MAFFT-DASH aligning..."
-    mafft --dash --originalseqonly --genafpair --maxiterate 10000 \
-          --thread "$threads" "${outdir}/input.fa" > "${outdir}/alignment.fa" 2>> "$log"
+    mg_log "$log" "MAFFT aligning (mode=$mafft_mode, maxiterate=$mafft_maxiterate)..."
+    mafft "${mafft_flags[@]}" --maxiterate "$mafft_maxiterate" \
+          --thread "$threads" \
+          "${MAFFT_EX[@]}" \
+          "${outdir}/input.fa" > "${outdir}/alignment.fa" 2>> "$log"
     mg_log "$log" "  alignment: $(grep -c '^>' "${outdir}/alignment.fa") sequences"
     step_mark "mafft"
 fi
 
 # --- ClipKit trim ---
 if ! step_done "clipkit"; then
-    mg_log "$log" "ClipKit trimming (smart-gap)..."
+    mg_log "$log" "ClipKit trimming (mode=$clipkit_mode)..."
     cut -d ' ' -f1 "${outdir}/alignment.fa" > "${outdir}/aligned.fa"
-    clipkit "${outdir}/aligned.fa" -m smart-gap 2>> "$log"
+    clipkit "${outdir}/aligned.fa" -m "$clipkit_mode" "${CLIPKIT_EX[@]}" 2>> "$log"
     # produces aligned.fa.clipkit
     step_mark "clipkit"
 fi
 
 # --- IQ-TREE round 1 (trimmed) ---
 if ! step_done "iqtree1"; then
-    mg_log "$log" "IQ-TREE round 1 (trimmed) ..."
+    mg_log "$log" "IQ-TREE round 1 (trimmed; model=$model, msub=$iqtree_msub, bb=$bb)..."
     iqtree -s "${outdir}/aligned.fa.clipkit" -pre "${outdir}/iqtree" \
-           -nt "$threads" -m "$model" -msub nuclear -bb "$bb" -bnni -abayes 2>> "$log"
+           -nt "$threads" -m "$model" -msub "$iqtree_msub" \
+           -bb "$bb" -bnni -abayes \
+           "${IQTREE_EX[@]}" 2>> "$log"
     step_mark "iqtree1"
 fi
 
@@ -206,12 +292,13 @@ mg_log "$log" "selected model for final round: $selected_model"
 # --- TreeShrink ---
 if [[ "$skip_ts" == "no" ]]; then
     if ! step_done "treeshrink"; then
-        mg_log "$log" "TreeShrink (q=0.05) ..."
+        mg_log "$log" "TreeShrink (q=$treeshrink_q) ..."
         ts_dir="${outdir}/treeshrink/run"
         mkdir -p "$ts_dir"
         cp "${outdir}/iqtree.contree" "${ts_dir}/input.tree"
         cp "${outdir}/aligned.fa.clipkit" "${ts_dir}/input.fasta"
-        run_treeshrink.py -i "${outdir}/treeshrink" -q 0.05 >> "$log" 2>&1
+        run_treeshrink.py -i "${outdir}/treeshrink" -q "$treeshrink_q" \
+            "${TREESHRINK_EX[@]}" >> "$log" 2>&1
         step_mark "treeshrink"
     fi
     final_input_fa="${outdir}/treeshrink/run/output.fasta"
@@ -222,17 +309,20 @@ fi
 # --- Re-align (post-shrink) + IQ-TREE final ---
 if ! step_done "iqtree_final"; then
     if [[ "$skip_ts" == "no" ]]; then
-        mg_log "$log" "Re-aligning post-TreeShrink ..."
-        mafft --dash --originalseqonly --genafpair --maxiterate 10000 \
-              --thread "$threads" "$final_input_fa" > "${outdir}/realigned.fa" 2>> "$log"
+        mg_log "$log" "Re-aligning post-TreeShrink (mode=$mafft_mode)..."
+        mafft "${mafft_flags[@]}" --maxiterate "$mafft_maxiterate" \
+              --thread "$threads" \
+              "${MAFFT_EX[@]}" \
+              "$final_input_fa" > "${outdir}/realigned.fa" 2>> "$log"
         final_aln="${outdir}/realigned.fa"
     else
         final_aln="$final_input_fa"
     fi
-    mg_log "$log" "IQ-TREE final round (model=$selected_model) ..."
+    mg_log "$log" "IQ-TREE final round (model=$selected_model, msub=$iqtree_msub, bb=$bb_final)..."
     iqtree -s "$final_aln" -pre "${outdir}/final" \
-           -nt "$threads" -mset "$selected_model" -nstop 250 \
-           -bb "$bb_final" -bnni -abayes 2>> "$log"
+           -nt "$threads" -mset "$selected_model" -msub "$iqtree_msub" \
+           -nstop 250 -bb "$bb_final" -bnni -abayes \
+           "${IQTREE_EX[@]}" 2>> "$log"
     step_mark "iqtree_final"
 fi
 
@@ -242,7 +332,7 @@ if ! step_done "rename"; then
     dict="${MG_METADATA}/dict2.tsv"
     [[ -f "$dict" ]] || mg_die "dict2.tsv not found at $dict"
 
-    # CrusTome's sed-substitute idiom: build a sed script from the dict and apply.
+    # Build a sed script from the dict and apply to the tree file.
     # We replace the SPECIES-CODE PREFIX (anchored at start of label) — not arbitrary
     # substrings — to avoid clobbering matches inside accession bodies.
     # IQ-TREE labels look like "AcacriEVm000001t1" so the prefix anchor is the start of

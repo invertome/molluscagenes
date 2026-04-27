@@ -20,10 +20,19 @@ Required:
   -d aa|mrna      target db: aa = proteins (blastp), mrna = nucleotides (blastn)
 
 Options:
-  -e FLOAT        e-value threshold [1e-5]
-  -t N            threads [\$MG_THREADS, default 10]
+  -e FLOAT        e-value threshold (-evalue) [1e-5]
+  -t N            threads (-num_threads) [\$MG_THREADS, default 10]
   --max-hits N    -max_target_seqs [1000]
-  --outfmt STR    BLAST outfmt 6 column string (default: the 15-col set used in CrusTome)
+  --outfmt STR    BLAST -outfmt string (default: 15-col extended set)
+  --task NAME     -task (blastp | blastp-fast | blastp-short for protein;
+                  blastn | blastn-short | dc-megablast | megablast for nucleotide)
+  --word-size N   -word_size  (auto-set by BLAST if omitted)
+  --matrix NAME   -matrix (BLOSUM62 etc.; protein only)
+  --culling N     -culling_limit
+  --extra "ARGS"  appended verbatim to the blastp/blastn command. Use this to
+                  pass any flag we don't expose by name (-gapopen, -seg,
+                  -comp_based_stats, -soft_masking, -best_hit_overhang, …).
+                  Example: --extra "-gapopen 11 -gapextend 1 -seg yes"
   --force         re-run even if .done sentinel present
   -h | --help     this help
 EOF
@@ -37,6 +46,11 @@ threads=""
 max_hits="1000"
 outfmt_default='6 qseqid sseqid evalue bitscore pident nident qlen slen qstart qend sstart send length mismatch gapopen'
 outfmt="$outfmt_default"
+task=""
+word_size=""
+matrix=""
+culling=""
+extra=""
 force="no"
 
 while [[ $# -gt 0 ]]; do
@@ -48,6 +62,11 @@ while [[ $# -gt 0 ]]; do
         -t) threads="$2"; shift 2 ;;
         --max-hits) max_hits="$2"; shift 2 ;;
         --outfmt) outfmt="$2"; shift 2 ;;
+        --task) task="$2"; shift 2 ;;
+        --word-size) word_size="$2"; shift 2 ;;
+        --matrix) matrix="$2"; shift 2 ;;
+        --culling) culling="$2"; shift 2 ;;
+        --extra) extra="$2"; shift 2 ;;
         --force) force="yes"; shift ;;
         -h|--help) usage; exit 0 ;;
         *) echo "unknown arg: $1" >&2; usage; exit 2 ;;
@@ -89,7 +108,18 @@ mg_log "$log" "query: $query"
 mg_log "$log" "evalue: $evalue  threads: $threads  max_hits: $max_hits"
 mg_log_versions "$log" "$cmd"
 
-mg_log "$log" "running $cmd..."
+extra_args=()
+[[ -n "$task"      ]] && extra_args+=( -task "$task" )
+[[ -n "$word_size" ]] && extra_args+=( -word_size "$word_size" )
+[[ -n "$matrix"    ]] && extra_args+=( -matrix "$matrix" )
+[[ -n "$culling"   ]] && extra_args+=( -culling_limit "$culling" )
+if [[ -n "$extra" ]]; then
+    # shellcheck disable=SC2206
+    eval "extra_passthrough=( $extra )"
+    extra_args+=( "${extra_passthrough[@]}" )
+fi
+
+mg_log "$log" "running $cmd ${extra_args[*]:-}..."
 "$cmd" \
     -query "$query" \
     -db "$db" \
@@ -97,6 +127,7 @@ mg_log "$log" "running $cmd..."
     -max_target_seqs "$max_hits" \
     -evalue "$evalue" \
     -outfmt "$outfmt" \
+    "${extra_args[@]}" \
     -out "$hits_raw"
 
 nhits=$(wc -l < "$hits_raw" | awk '{print $1}')

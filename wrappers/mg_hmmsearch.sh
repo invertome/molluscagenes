@@ -25,9 +25,18 @@ Required:
 
 Options:
   --hmm PATH              HMM file [default: \$MG_HMM, the full TIAMMAt mollusc HMMs]
-  -t N                    threads [\$MG_THREADS, default 10]
-  -E FLOAT                full-sequence E-value threshold [1e-5]
-  --domE FLOAT            per-domain E-value threshold [1e-5]
+  -t N                    --cpu (threads) [\$MG_THREADS, default 10]
+  -E FLOAT                full-sequence E-value threshold (-E) [1e-5]
+  --domE FLOAT            per-domain E-value threshold (--domE) [1e-5]
+  -T FLOAT                full-sequence bit-score threshold (-T) [unset]
+  --domT FLOAT            per-domain bit-score threshold (--domT) [unset]
+  --incE FLOAT            inclusion E-value (--incE)
+  --cut-ga                use Pfam gathering thresholds (--cut_ga)
+                          (overrides -E / --domE — mutually exclusive)
+  --cut-nc                use Pfam noise cutoffs (--cut_nc)
+  --cut-tc                use Pfam trusted cutoffs (--cut_tc)
+  --extra "ARGS"          appended verbatim to hmmsearch. Example:
+                          --extra "--max --F1 0.05 --F2 0.001 --F3 1e-05"
   --force                 re-run even if .done sentinel present
   -h | --help             this help
 
@@ -45,6 +54,11 @@ hmm=""
 threads=""
 evalue="1e-5"
 dome="1e-5"
+bitscore=""
+dom_bit=""
+inc_e=""
+cut_flag=""
+extra=""
 force="no"
 
 while [[ $# -gt 0 ]]; do
@@ -55,6 +69,13 @@ while [[ $# -gt 0 ]]; do
         -t) threads="$2"; shift 2 ;;
         -E) evalue="$2"; shift 2 ;;
         --domE) dome="$2"; shift 2 ;;
+        -T) bitscore="$2"; shift 2 ;;
+        --domT) dom_bit="$2"; shift 2 ;;
+        --incE) inc_e="$2"; shift 2 ;;
+        --cut-ga) cut_flag="--cut_ga"; shift ;;
+        --cut-nc) cut_flag="--cut_nc"; shift ;;
+        --cut-tc) cut_flag="--cut_tc"; shift ;;
+        --extra) extra="$2"; shift 2 ;;
         --force) force="yes"; shift ;;
         -h|--help) usage; exit 0 ;;
         *) echo "unknown arg: $1" >&2; usage; exit 2 ;;
@@ -89,10 +110,24 @@ mg_log "$log" "hmm: $hmm"
 mg_log "$log" "target: $query  E: $evalue  domE: $dome  threads: $threads"
 mg_log_versions "$log" "hmmsearch"
 
-mg_log "$log" "running hmmsearch..."
+extra_args=()
+if [[ -n "$cut_flag" ]]; then
+    extra_args+=( "$cut_flag" )       # --cut_ga / --cut_nc / --cut_tc override -E/--domE
+else
+    extra_args+=( -E "$evalue" --domE "$dome" )
+    [[ -n "$bitscore" ]] && extra_args+=( -T "$bitscore" )
+    [[ -n "$dom_bit"  ]] && extra_args+=( --domT "$dom_bit" )
+    [[ -n "$inc_e"    ]] && extra_args+=( --incE "$inc_e" )
+fi
+if [[ -n "$extra" ]]; then
+    eval "extra_passthrough=( $extra )"
+    extra_args+=( "${extra_passthrough[@]}" )
+fi
+
+mg_log "$log" "running hmmsearch ${extra_args[*]}..."
 hmmsearch \
     --cpu "$threads" \
-    -E "$evalue" --domE "$dome" \
+    "${extra_args[@]}" \
     --tblout "$tbl" \
     --domtblout "$domtbl" \
     "$hmm" "$query" > "${outdir}/hmmsearch.stdout" 2>> "$log"

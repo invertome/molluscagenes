@@ -21,12 +21,19 @@ Required:
   -o DIR                    output directory
 
 Options:
-  -e FLOAT                  e-value [1e-5]
-  -t N                      threads [\$MG_THREADS, default 10]
+  -e FLOAT                  --evalue [1e-5]
+  -t N                      --threads [\$MG_THREADS, default 10]
   --max-hits N              --max-target-seqs [1000]
   --sensitivity MODE        fast | mid-sensitive | sensitive | more-sensitive | very-sensitive | ultra-sensitive [more-sensitive]
   --blastx                  run blastx (nucleotide query) instead of blastp
-  --outfmt STR              diamond outfmt 6 column string (default matches mg_blast)
+  --outfmt STR              diamond -f / --outfmt 6 column string (default matches mg_blast)
+  --query-cover PCT         --query-cover (min % query coverage, 0-100)
+  --subject-cover PCT       --subject-cover (min % subject coverage, 0-100)
+  --id PCT                  --id (min % identity, 0-100)
+  --extra "ARGS"            appended verbatim to diamond. Use for any flag we
+                            don't expose by name (--masking, --comp-based-stats,
+                            --frameshift, --no-unlink, …). Example:
+                            --extra "--comp-based-stats 1 --masking 0"
   --force                   re-run even if .done sentinel present
   -h | --help               this help
 EOF
@@ -41,6 +48,10 @@ sens="more-sensitive"
 mode="blastp"
 outfmt_default='6 qseqid sseqid evalue bitscore pident nident qlen slen qstart qend sstart send length mismatch gapopen'
 outfmt="$outfmt_default"
+query_cover=""
+subject_cover=""
+min_id=""
+extra=""
 force="no"
 
 while [[ $# -gt 0 ]]; do
@@ -53,6 +64,10 @@ while [[ $# -gt 0 ]]; do
         --sensitivity) sens="$2"; shift 2 ;;
         --blastx) mode="blastx"; shift ;;
         --outfmt) outfmt="$2"; shift 2 ;;
+        --query-cover) query_cover="$2"; shift 2 ;;
+        --subject-cover) subject_cover="$2"; shift 2 ;;
+        --id) min_id="$2"; shift 2 ;;
+        --extra) extra="$2"; shift 2 ;;
         --force) force="yes"; shift ;;
         -h|--help) usage; exit 0 ;;
         *) echo "unknown arg: $1" >&2; usage; exit 2 ;;
@@ -93,7 +108,16 @@ mg_log_versions "$log" "diamond"
 # (diamond accepts '6 qseqid sseqid ...' as the -f flag)
 read -r -a outfmt_arr <<< "$outfmt"
 
-mg_log "$log" "running diamond $mode --$sens..."
+extra_args=()
+[[ -n "$query_cover"   ]] && extra_args+=( --query-cover "$query_cover" )
+[[ -n "$subject_cover" ]] && extra_args+=( --subject-cover "$subject_cover" )
+[[ -n "$min_id"        ]] && extra_args+=( --id "$min_id" )
+if [[ -n "$extra" ]]; then
+    eval "extra_passthrough=( $extra )"
+    extra_args+=( "${extra_passthrough[@]}" )
+fi
+
+mg_log "$log" "running diamond $mode --$sens ${extra_args[*]:-}..."
 diamond "$mode" \
     --query "$query" \
     --db "$MG_DIAMOND_AA" \
@@ -102,6 +126,7 @@ diamond "$mode" \
     --evalue "$evalue" \
     --"$sens" \
     --outfmt "${outfmt_arr[@]}" \
+    "${extra_args[@]}" \
     --out "$hits_raw" \
     --quiet 2>> "$log"
 
