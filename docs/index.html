@@ -4,172 +4,278 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MolluscaGenes — a transcriptomic database for the Mollusca</title>
+<meta name="description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-optimized Pfam HMMs and CLI wrappers for BLAST/DIAMOND/HMM search and phylogenetic placement.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<nav class="site-nav"><div class="container">
-  <span class="brand">MolluscaGenes</span>
-  <a href="index.html">Overview</a>
-  <a href="hmms.html">HMM browser</a>
-  <a href="species.html">Species browser</a>
-  <a href="https://github.com/invertome/molluscagenes">GitHub</a>
-</div></nav>
 
-<main class="container">
+<!-- Reusable spiral mark — exported via CSS for nav/footer/divider use -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="spiral" viewBox="0 0 100 100">
+    <!-- Logarithmic spiral approximating mollusc shell whorl -->
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M50,50 m0,-2 a2,2 0 1,1 0,4 a4,4 0 1,1 0,-8 a8,8 0 1,1 0,16 a16,16 0 1,1 0,-32 a32,32 0 1,1 0,64 a48,48 0 1,1 0,-96"/>
+    </g>
+  </symbol>
+</svg>
 
-<h1>MolluscaGenes — a transcriptomic database for the Mollusca</h1>
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="MolluscaGenes home">
+      <svg width="22" height="22"><use href="#spiral"/></svg>
+      MolluscaGenes
+    </a>
+    <nav>
+      <a href="index.html" class="current">Overview</a>
+      <a href="examples.html">Examples</a>
+      <a href="hmms.html">HMM browser</a>
+      <a href="species.html">Species</a>
+      <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+    </nav>
+  </div>
+</header>
 
-<p class="muted" style="font-size:1.05em">
-A taxonomically comprehensive resource consolidating de-novo and previously
-published transcriptomes for ~300 mollusc species across all eight classes,
-paired with the <strong>TIAMMAt mollusc-revised Pfam HMMs</strong> and
-command-line wrappers for BLAST / DIAMOND / hmmsearch search, species
-extraction, and iterative-BLAST phylogenetic placement.
-</p>
+<main>
 
-<p>
-  <a class="cta" href="#download">Download (Zenodo)</a>
-  <a class="cta secondary" href="hmms.html">Browse HMMs</a>
-  <a class="cta secondary" href="species.html">Browse species</a>
-  <a class="cta secondary" href="https://github.com/invertome/molluscagenes">Code on GitHub</a>
-</p>
+<!-- ─── HERO ────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow reveal reveal-1">v0.1 — preliminary release · Pérez-Moreno &amp; Katz · UMass Amherst</span>
+      <h1 class="reveal reveal-2">MolluscaGenes —<br><span class="accent">a transcriptomic database</span><br>for the Mollusca.</h1>
+      <p class="lead reveal reveal-3">
+        A taxonomically comprehensive resource consolidating de-novo and previously
+        published transcriptomes for ~300 mollusc species across all eight classes,
+        paired with mollusc-revised Pfam HMMs and command-line wrappers for
+        search, extraction, and iterative-BLAST phylogenetic placement.
+      </p>
+      <div class="cta-row reveal reveal-4">
+        <a class="cta" href="#download">
+          Download <span class="arrow">→</span>
+        </a>
+        <a class="cta secondary" href="examples.html">Worked examples</a>
+        <a class="cta secondary" href="hmms.html">Browse HMMs</a>
+        <a class="cta secondary" href="https://github.com/invertome/molluscagenes">Code on GitHub</a>
+      </div>
+      <dl class="meta reveal reveal-5">
+        <div><dt>License</dt><dd>GPL-3.0 (code) · CC-BY-4.0 (data)</dd></div>
+        <div><dt>DOI</dt><dd><code>TBD</code> (Zenodo)</dd></div>
+      </dl>
+    </div>
+    <svg class="spiral-deco" aria-hidden="true"><use href="#spiral"/></svg>
+  </div>
 
-<p class="faint">
-v0.1 — preliminary release accompanying the biorxiv preprint. A full HPC
-rebuild (v1.0) is in progress and will supersede v0.1 under the same Zenodo
-concept DOI. Both code (GPL-3.0) and data (CC-BY-4.0) are open.
-</p>
+  <div class="container">
+    <div class="stats reveal reveal-5" aria-label="Database scale">
+      <div class="stat"><span class="num">~300</span><span class="label">Species</span></div>
+      <div class="stat"><span class="num">8<small>classes</small></span><span class="label">Coverage</span></div>
+      <div class="stat"><span class="num">17<small>M</small></span><span class="label">Sequences</span></div>
+      <div class="stat"><span class="num">190</span><span class="label">HMMs</span></div>
+      <div class="stat"><span class="num">50</span><span class="label">Categories</span></div>
+    </div>
+  </div>
+</section>
 
-<h2>Why MolluscaGenes</h2>
+<!-- ─── WHY ─────────────────────────────────────────────────────────── -->
+<section class="alt">
+  <div class="container container-narrow">
+    <span class="section-title">Why MolluscaGenes</span>
+    <h2>An under-served phylum, finally consolidated.</h2>
+    <p class="dropcap">
+      Mollusca is the second-largest animal phylum (over 70,000 described species
+      across eight classes), yet its genomic resources remain scattered across NCBI
+      BioProjects, MolluscDB, MateDB, and individual lab repositories. Detection of
+      divergent protein homologs is further constrained by the bias of public HMM
+      resources toward vertebrate and ecdysozoan sequences — Pfam profiles can miss
+      legitimate molluscan family members because of lineage-specific substitution
+      patterns.
+    </p>
+    <p>
+      MolluscaGenes addresses both problems. It consolidates ~300 species worth of
+      transcriptomic data into a single searchable resource, and ships
+      <strong>mollusc-optimized HMMs</strong> — Pfam profiles iteratively re-trained
+      against molluscan sequence diversity for substantially higher sensitivity on
+      lophotrochozoan homologs.
+    </p>
+    <p class="faint">
+      v0.1 is the database used in the accompanying biorxiv preprint. A full HPC
+      rebuild (v1.0) is in progress and will supersede v0.1 under the same Zenodo
+      concept DOI.
+    </p>
+  </div>
+</section>
 
-<p>Mollusca, the second-largest animal phylum (>70,000 described species across
-eight classes), has historically been under-served by genomic resources.
-Mollusc transcriptomes are scattered across NCBI BioProjects, MolluscDB,
-MateDB, and individual lab repositories. Detection of divergent protein
-homologs across the phylum is further constrained by the bias of public
-HMM resources (e.g. Pfam) toward vertebrate and ecdysozoan sequences,
-which can miss legitimate molluscan family members because of
-lineage-specific substitution patterns.</p>
+<div class="divider-spiral" aria-hidden="true">
+  <svg width="36" height="36"><use href="#spiral"/></svg>
+</div>
 
-<p>MolluscaGenes addresses both problems: it consolidates ~300 species worth
-of transcriptomic data into a single searchable resource, and ships
-<strong>mollusc-optimized HMMs</strong> — Pfam profiles iteratively re-trained
-against molluscan sequence diversity for substantially higher sensitivity on
-lophotrochozoan homologs.</p>
+<!-- ─── WHAT'S IN THE RELEASE ──────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <span class="section-title">What's inside</span>
+    <h2>The release at a glance.</h2>
+    <div class="two-col">
+      <div>
+        <ul class="plain">
+          <li><strong>~300 species</strong> across all eight molluscan classes (Gastropoda, Bivalvia, Cephalopoda, Polyplacophora, Scaphopoda, Solenogastres, Caudofoveata, Monoplacophora).</li>
+          <li><strong>~17 million transcripts</strong> (~16.8 Gb of nucleotide data).</li>
+          <li><strong>~17 million predicted proteins</strong> (~3.3 Gb of amino-acid data).</li>
+          <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
+          <li><strong>190 mollusc-revised HMMs</strong> across 50 biological categories.</li>
+          <li><strong>Per-species &amp; per-HMM metadata</strong> with NCBI taxonomy and WoRMS cross-links.</li>
+          <li><strong>CLI wrappers</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code>, <code>mg_extract</code>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Taxonomic coverage</h3>
+        <table class="tax-table">
+          <thead><tr><th>Class</th><th class="num">Species (≈)</th></tr></thead>
+          <tbody>
+            <tr><td>Gastropoda</td>      <td class="num">140</td></tr>
+            <tr><td>Bivalvia</td>        <td class="num">62</td></tr>
+            <tr><td>Solenogastres</td>   <td class="num">36</td></tr>
+            <tr><td>Cephalopoda</td>     <td class="num">28</td></tr>
+            <tr><td>Polyplacophora</td>  <td class="num">26</td></tr>
+            <tr><td>Caudofoveata</td>    <td class="num">8</td></tr>
+            <tr><td>Scaphopoda</td>      <td class="num">5</td></tr>
+            <tr><td>Monoplacophora</td>  <td class="num">1</td></tr>
+          </tbody>
+        </table>
+        <p class="faint" style="margin-top:0.9rem">
+          v0.1 ships ~212 species with assembled sequences; ~98 listed transparently
+          as planned-but-pending land in v1.0. The
+          <a href="species.html">species browser</a> has the full table, filterable
+          by class and exportable to TSV.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>What's in the release</h2>
+<!-- ─── PIPELINE ────────────────────────────────────────────────────── -->
+<section class="alt">
+  <div class="container container-narrow">
+    <span class="section-title">Method</span>
+    <h2>How v0.1 was built.</h2>
+    <p>
+      Raw reads were sourced from the NCBI Sequence Read Archive (paired-end Illumina,
+      ≥20M read-pairs per sample, prioritizing tissue diversity and under-represented
+      classes), supplemented with pre-assembled transcriptomes from MateDB and MolluscDB.
+      The pipeline is the
+      <a href="https://nf-co.re/denovotranscript"><code>nf-core/denovotranscript</code></a>
+      multi-assembler workflow:
+    </p>
+    <ol class="features">
+      <li><strong>QC</strong> — <code>fastp</code> (Q20 sliding window, min length 50, low-complexity filter).</li>
+      <li><strong>Assembly</strong> — Trinity + rnaSPAdes (k = 25, 49, 73), merged.</li>
+      <li><strong>Redundancy reduction</strong> — EvidentialGene (98% clustering, retains main + alternate transcripts).</li>
+      <li><strong>Quality gate</strong> — BUSCO (Metazoa odb10); assemblies below 30% completeness excluded.</li>
+      <li><strong>Annotation</strong> — DIAMOND blastp vs.&nbsp;NCBI RefSeq + InterProScan (Pfam, SMART, CDD, SUPERFAMILY, Gene3D) + eggNOG-mapper.</li>
+      <li><strong>HMM optimisation</strong> — TIAMMAt iterative refinement (initial Pfam → hmmsearch → MAFFT E-INS-i → hmmbuild → repeat 3–5×) validated against six held-out proteomes (<em>A.&nbsp;californica</em>, <em>C.&nbsp;gigas</em>, <em>L.&nbsp;anatina</em>, <em>L.&nbsp;gigantea</em>, <em>O.&nbsp;bimaculoides</em>, <em>P.&nbsp;canaliculata</em>).</li>
+    </ol>
+  </div>
+</section>
 
-<ul>
-  <li><strong>~300 species</strong> spanning all eight molluscan classes
-      (Gastropoda, Bivalvia, Cephalopoda, Polyplacophora, Scaphopoda,
-      Solenogastres, Caudofoveata, Monoplacophora).</li>
-  <li><strong>~17 million transcript sequences</strong> (~16.8 Gb of nucleotide data).</li>
-  <li><strong>~17 million predicted protein sequences</strong> (~3.3 Gb of amino-acid data).</li>
-  <li><strong>BLAST databases</strong> (protein + nucleotide) and a
-      <strong>DIAMOND protein database</strong> built from the same source.</li>
-  <li><strong>190 mollusc-revised HMMs</strong> across 50 biological categories
-      (innate immunity, developmental signalling, Ca²⁺ signalling, voltage- and
-      ligand-gated ion channels, GPCRs, shell biomineralization, epigenetic
-      regulation, chemoreception, circadian rhythms, neuropeptide processing,
-      toxin biology, synaptic function, and more) — see the
-      <a href="hmms.html">HMM browser</a>.</li>
-  <li><strong>Per-species and per-HMM metadata tables</strong> with NCBI
-      taxonomy and WoRMS cross-links — see the
-      <a href="species.html">species browser</a>.</li>
-  <li><strong>Wrapper scripts</strong>: <code>mg_blast</code>,
-      <code>mg_diamond</code>, <code>mg_hmmsearch</code>,
-      <code>mg_characterize</code>,
-      <code>mg_place</code> (iterative-BLAST phylogenetic placement),
-      <code>mg_extract</code> (per-species or per-taxon FASTA extraction).</li>
-</ul>
-
-<h2>Taxonomic coverage</h2>
-
-<table style="border-collapse:collapse;font-size:0.95em">
-<thead><tr style="background:var(--bg-alt)">
-  <th style="border:1px solid var(--border);padding:6px 12px;text-align:left">Class</th>
-  <th style="border:1px solid var(--border);padding:6px 12px;text-align:right">Species (≈)</th>
-</tr></thead>
-<tbody>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Gastropoda</td>      <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">140</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Bivalvia</td>        <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">62</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Solenogastres</td>   <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">36</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Cephalopoda</td>     <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">28</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Polyplacophora</td>  <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">26</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Caudofoveata</td>    <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">8</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Scaphopoda</td>      <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">5</td></tr>
-  <tr><td style="border:1px solid var(--border);padding:4px 12px">Monoplacophora</td>  <td style="border:1px solid var(--border);padding:4px 12px;text-align:right">1</td></tr>
-</tbody>
-</table>
-
-<p class="faint">v0.1 ships ~212 species with assembled sequences plus ~98 listed
-transparently as planned-but-pending — they will land in v1.0. The
-<a href="species.html">species browser</a> has the full table, filterable by
-class and exportable to TSV.</p>
-
-<h2>How v0.1 was built</h2>
-
-<p>Raw reads were sourced from the NCBI Sequence Read Archive (paired-end
-Illumina, ≥20M read-pairs/sample, prioritizing tissue diversity and
-under-represented classes), supplemented with pre-assembled transcriptomes
-from MateDB and MolluscDB. The pipeline is the
-<a href="https://nf-co.re/denovotranscript"><code>nf-core/denovotranscript</code></a>
-multi-assembler workflow:</p>
-
-<ol>
-  <li><strong>QC</strong>: <code>fastp</code> (Q20 sliding window, min length 50, low-complexity filter).</li>
-  <li><strong>Assembly</strong>: Trinity + rnaSPAdes (k=25,49,73), merged.</li>
-  <li><strong>Redundancy reduction</strong>: EvidentialGene (98% clustering, retains main + alternate transcripts).</li>
-  <li><strong>Quality gate</strong>: BUSCO (Metazoa odb10) — assemblies below 30% completeness excluded.</li>
-  <li><strong>Annotation</strong>: DIAMOND blastp vs. NCBI RefSeq + InterProScan (Pfam, SMART, CDD, SUPERFAMILY, Gene3D) + eggNOG-mapper.</li>
-  <li><strong>HMM optimisation</strong>: TIAMMAt iterative refinement (initial Pfam → hmmsearch → MAFFT E-INS-i → hmmbuild → repeat 3–5×) validated against six held-out proteomes (<em>Aplysia californica</em>, <em>Crassostrea gigas</em>, <em>Lingula anatina</em>, <em>Lottia gigantea</em>, <em>Octopus bimaculoides</em>, <em>Pomacea canaliculata</em>).</li>
-</ol>
-
-<h2 id="download">Download</h2>
-
-<p>The database files (~13 GB compressed) are hosted on Zenodo. The
-<strong>concept DOI</strong> always resolves to the latest version; the
-<strong>v0.1 DOI</strong> permanently pins this release.</p>
-
-<ul>
-  <li>Concept DOI: <code>TBD</code> (filled in at deposit time)</li>
-  <li>v0.1 DOI: <code>TBD</code></li>
-</ul>
-
-<p>Recommended workflow — clone the repo, then fetch + verify with the wrapper:</p>
-
+<!-- ─── DOWNLOAD ────────────────────────────────────────────────────── -->
+<section id="download">
+  <div class="container container-narrow">
+    <span class="section-title">Get the data</span>
+    <h2>Download &amp; first run.</h2>
+    <p>
+      The database files (~13 GB compressed) are hosted on Zenodo. The
+      <strong>concept DOI</strong> always resolves to the latest version; the
+      <strong>v0.1 DOI</strong> permanently pins this release.
+    </p>
+    <ul class="plain">
+      <li>Concept DOI: <code>TBD</code> (filled in at deposit time)</li>
+      <li>v0.1 DOI: <code>TBD</code></li>
+    </ul>
+    <p>
+      Recommended workflow — clone the repo, then fetch &amp; verify with the wrapper:
+    </p>
 <pre>git clone https://github.com/invertome/molluscagenes
 cd molluscagenes
 conda env create -f environment.yml
 conda activate molluscagenes
-bash wrappers/mg_fetch.sh /path/to/storage   <span class="muted"># downloads, verifies, writes config.sh</span>
+bash wrappers/mg_fetch.sh /path/to/storage   # downloads, verifies, writes config.sh
 source config.sh
 bash wrappers/mg_blast.sh -q my_query.fa -o blast_out -d aa</pre>
+    <p class="faint">
+      <code>mg_fetch.sh</code> reads the Zenodo record id from
+      <code>metadata/zenodo_record.txt</code>, downloads every artifact in the manifest,
+      verifies SHA256, extracts the BLAST/HMM tarballs, and writes a populated
+      <code>config.sh</code>. To re-verify an existing download:
+      <code>bash wrappers/verify_download.sh /path/to/storage</code>.
+    </p>
+    <div class="cta-row">
+      <a class="cta" href="examples.html">See worked examples <span class="arrow">→</span></a>
+      <a class="cta secondary" href="https://github.com/invertome/molluscagenes/blob/main/README.md">Full README</a>
+    </div>
+  </div>
+</section>
 
-<h2>Citation</h2>
-
-<p>If you use MolluscaGenes, please cite both the data deposit and the biorxiv
-preprint:</p>
-
-<pre>Pérez-Moreno JL, Katz PS. MolluscaGenes: a transcriptomic database for the
-Mollusca (v0.1). Zenodo, 2026. DOI: TBD
+<!-- ─── CITE ────────────────────────────────────────────────────────── -->
+<section class="alt">
+  <div class="container container-narrow">
+    <span class="section-title">Cite</span>
+    <h2>If you use MolluscaGenes.</h2>
+    <p>Please cite both the data deposit and the biorxiv preprint:</p>
+<pre class="no-prompt">Pérez-Moreno JL, Katz PS. MolluscaGenes: a transcriptomic database for the
+  Mollusca (v0.1). Zenodo, 2026. DOI: TBD
 
 Pérez-Moreno JL, Katz PS. MolluscaGenes: A Transcriptomic Database for the
-Mollusca. biorxiv, 2026. DOI: TBD</pre>
-
-<p>The full machine-readable citation block is in
-<a href="https://github.com/invertome/molluscagenes/blob/main/CITATION.cff"><code>CITATION.cff</code></a>.</p>
-
-<h2>License</h2>
-<p>Code: <strong>GPL-3.0-or-later</strong> · Data on Zenodo: <strong>CC-BY-4.0</strong>.<br>
-HMMs derive from <a href="https://www.ebi.ac.uk/interpro/about/pfam/">Pfam</a>;
-revisions follow the <a href="https://github.com/mtassia/TIAMMAt">TIAMMAt</a>
-mollusc-tuning workflow (<a href="https://academic.oup.com/mbe/article/38/12/5806/6359823">Tassia et al. 2021</a>).</p>
+  Mollusca. biorxiv, 2026. DOI: TBD</pre>
+    <p class="faint">
+      The full machine-readable citation block is in
+      <a href="https://github.com/invertome/molluscagenes/blob/main/CITATION.cff"><code>CITATION.cff</code></a>.
+    </p>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  MolluscaGenes © 2026 — Pérez-Moreno &amp; Katz, University of Massachusetts Amherst.
+  <div class="container">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff;border-bottom:0;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--display);font-size:1.05rem">
+        <svg width="20" height="20"><use href="#spiral"/></svg>
+        MolluscaGenes
+      </a>
+      <p style="margin-top:0.5rem;max-width:38ch;color:rgba(255,255,255,0.65)">
+        A transcriptomic database for the Mollusca. Pérez-Moreno &amp; Katz,
+        Department of Biology, University of Massachusetts Amherst.
+      </p>
+      <p class="colophon">
+        © 2026. Code GPL-3.0; data on Zenodo CC-BY-4.0. HMMs derive from
+        <a href="https://www.ebi.ac.uk/interpro/about/pfam/">Pfam</a>; mollusc-revisions follow the
+        <a href="https://github.com/mtassia/TIAMMAt">TIAMMAt</a> workflow
+        (<a href="https://academic.oup.com/mbe/article/38/12/5806/6359823">Tassia et al. 2021</a>).
+      </p>
+    </div>
+    <div>
+      <h4>Browse</h4>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="hmms.html">HMM browser</a></li>
+        <li><a href="species.html">Species browser</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://github.com/invertome/molluscagenes">GitHub repository</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/issues">Issue tracker</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/blob/main/README.md">README</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/blob/main/CITATION.cff">Citation (CFF)</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
 </body>

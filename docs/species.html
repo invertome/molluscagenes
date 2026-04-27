@@ -4,22 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Species browser — MolluscaGenes</title>
+<meta name="description" content="Browse all species in MolluscaGenes v0.1 with NCBI taxonomy and WoRMS cross-links. Filter by class, sort, and export to TSV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<nav class="site-nav"><div class="container">
-  <span class="brand">MolluscaGenes</span>
-  <a href="index.html">Overview</a>
-  <a href="hmms.html">HMM browser</a>
-  <a href="species.html">Species browser</a>
-  <a href="https://github.com/invertome/molluscagenes">GitHub</a>
-</div></nav>
 
-<main class="container">
-<h1>Species browser</h1>
-<p class="muted">All species in the v0.1 release. Use the toolbar to filter by class
-or search by binomial / code; click column headers to sort.
-Use <strong>Export TSV</strong> to download the current filter as a tab-separated table.</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="spiral" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M50,50 m0,-2 a2,2 0 1,1 0,4 a4,4 0 1,1 0,-8 a8,8 0 1,1 0,16 a16,16 0 1,1 0,-32 a32,32 0 1,1 0,64 a48,48 0 1,1 0,-96"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="MolluscaGenes home">
+      <svg width="22" height="22"><use href="#spiral"/></svg>
+      MolluscaGenes
+    </a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="examples.html">Examples</a>
+      <a href="hmms.html">HMM browser</a>
+      <a href="species.html" class="current">Species</a>
+      <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:1.25rem">
+  <div class="container container-narrow">
+    <span class="eyebrow">Species browser</span>
+    <h1 style="font-size:clamp(2rem,4.5vw,3rem)"><span class="accent">~300</span> species, all eight classes.</h1>
+    <p class="lead">
+      Filter by class or completeness, search by binomial or code, sort by sequence
+      counts, and export the current filter as TSV. Each species links out to NCBI
+      Taxonomy and WoRMS.
+    </p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+<div class="container">
 
 <div class="toolbar">
   <input id="search" type="search" placeholder="Search binomial, code, taxonomy…">
@@ -34,8 +65,44 @@ Use <strong>Export TSV</strong> to download the current filter as a tab-separate
 </div>
 
 <div id="table-host"></div>
-
+</div>
+</section>
 </main>
+
+<footer>
+  <div class="container">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff;border-bottom:0;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--display);font-size:1.05rem">
+        <svg width="20" height="20"><use href="#spiral"/></svg>
+        MolluscaGenes
+      </a>
+      <p style="margin-top:0.5rem;max-width:38ch;color:rgba(255,255,255,0.65)">
+        A transcriptomic database for the Mollusca. Pérez-Moreno &amp; Katz,
+        Department of Biology, University of Massachusetts Amherst.
+      </p>
+      <p class="colophon">
+        © 2026. Code GPL-3.0; data on Zenodo CC-BY-4.0.
+      </p>
+    </div>
+    <div>
+      <h4>Browse</h4>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="hmms.html">HMM browser</a></li>
+        <li><a href="species.html">Species browser</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://github.com/invertome/molluscagenes">GitHub repository</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/issues">Issue tracker</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/blob/main/README.md">README</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
 <script src="assets/common.js"></script>
 <script>

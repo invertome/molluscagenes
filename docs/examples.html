@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worked examples — MolluscaGenes</title>
+<meta name="description" content="Walkthroughs of the most common MolluscaGenes analyses: protein characterization, phylogenetic placement, taxonomic extraction, and HMM search.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="spiral" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M50,50 m0,-2 a2,2 0 1,1 0,4 a4,4 0 1,1 0,-8 a8,8 0 1,1 0,16 a16,16 0 1,1 0,-32 a32,32 0 1,1 0,64 a48,48 0 1,1 0,-96"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="MolluscaGenes home">
+      <svg width="22" height="22"><use href="#spiral"/></svg>
+      MolluscaGenes
+    </a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="examples.html" class="current">Examples</a>
+      <a href="hmms.html">HMM browser</a>
+      <a href="species.html">Species</a>
+      <a href="https://github.com/invertome/molluscagenes">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" style="padding-bottom:1.5rem">
+  <div class="container container-narrow">
+    <span class="eyebrow reveal reveal-1">Worked examples</span>
+    <h1 class="reveal reveal-2">Common analyses<br><span class="accent">step by step.</span></h1>
+    <p class="lead reveal reveal-3">
+      Once you have <code>config.sh</code> sourced (see the
+      <a href="index.html#download">overview</a> for first-run setup), each of these
+      runs is a one-line command. The wrappers do the joining, logging, and resume
+      bookkeeping for you.
+    </p>
+    <p class="faint reveal reveal-4">
+      Every wrapper writes a <code>run.log</code> with the exact command, tool
+      versions, and timing, plus a <code>.done</code> sentinel that lets you re-run
+      with new flags without redoing finished steps. Pass <code>--force</code> to
+      override.
+    </p>
+  </div>
+</section>
+
+<div class="divider-spiral" aria-hidden="true">
+  <svg width="32" height="32"><use href="#spiral"/></svg>
+</div>
+
+<section>
+  <div class="container container-narrow">
+
+    <!-- ─── Example 1 ─── -->
+    <article class="example reveal reveal-1">
+      <span class="tag">Example 01 · characterize</span>
+      <h3>What is this protein, and where does it occur in the Mollusca?</h3>
+      <p>
+        Given a single (or few) protein sequence(s), run all three search modes —
+        BLAST, DIAMOND, and hmmsearch against the mollusc-revised HMMs — in
+        parallel, and roll the best hits into a single report keyed by query.
+      </p>
+<pre>wrappers/mg_characterize.sh -q query.fa -o characterize_out -t 8</pre>
+      <p>Outputs:</p>
+      <ul class="plain">
+        <li><code>characterize_out/blast/hits_with_species.tsv</code> — BLAST hits joined to species metadata</li>
+        <li><code>characterize_out/diamond/hits_with_species.tsv</code> — DIAMOND hits</li>
+        <li><code>characterize_out/hmm/hits_with_species.tsv</code> — per-sequence HMM matches</li>
+        <li><code>characterize_out/summary.tsv</code> — per-query best hit per method, side-by-side</li>
+        <li><code>characterize_out/report.html</code> — self-contained HTML rollup, openable in any browser</li>
+      </ul>
+      <div class="note">
+        <strong>Tip.</strong> For large query sets, drop one of the search modes
+        with <code>--skip diamond</code> (BLAST already covers it) or
+        <code>--skip blast</code> (DIAMOND is faster). The HMM scan is the
+        unique value-add — keep it.
+      </div>
+    </article>
+
+    <!-- ─── Example 2 ─── -->
+    <article class="example reveal reveal-2">
+      <span class="tag">Example 02 · phylogeny</span>
+      <h3>Build a phylum-wide tree of a gene family from reference seeds.</h3>
+      <p>
+        Given a small reference FASTA (one or several seed sequences for the family
+        you care about), iteratively recruit homologs across all of MolluscaGenes,
+        align with MAFFT, trim with ClipKit, infer a tree with IQ-TREE 2, prune
+        rogues with TreeShrink, re-align, infer the final tree, and rename tips
+        from species codes to binomials.
+      </p>
+<pre>wrappers/mg_place.sh \
+    -q nachr_seeds.fa \
+    -o nachr_tree \
+    --search diamond \
+    --iterations 4 \
+    --mafft-mode einsi \
+    --clipkit-mode kpic-smart-gap \
+    --bb-final 10000 \
+    -t 16</pre>
+      <p>Key outputs:</p>
+      <ul class="plain">
+        <li><code>nachr_tree/iter1..iter4/hits.tsv</code> — every iterative search round, fully traceable</li>
+        <li><code>nachr_tree/alignment.fa</code> — MAFFT alignment of the recruited set + seeds</li>
+        <li><code>nachr_tree/aligned.fa.clipkit</code> — ClipKit-trimmed alignment</li>
+        <li><code>nachr_tree/iqtree.iqtree</code> — IQ-TREE log; round-1 model selection</li>
+        <li><code>nachr_tree/treeshrink/run/output.fasta</code> — TreeShrink-pruned set</li>
+        <li><code>nachr_tree/final.contree</code> — final consensus tree (with bootstraps)</li>
+        <li><code>nachr_tree/final.names.contree</code> — same tree with species-code prefixes replaced by binomials</li>
+      </ul>
+      <div class="note">
+        <strong>Performance.</strong> A 4-round DIAMOND-based run with 16 threads on
+        a typical workstation takes ~2 hours wall time end-to-end on a small
+        reference set, dominated by the MAFFT and IQ-TREE rounds. For BLAST-based
+        searches budget ~6 hours. <code>--skip-treeshrink</code> halves the runtime
+        if you don't need rogue-tip removal.
+      </div>
+      <div class="note">
+        <strong>Resume-safe.</strong> Each step writes a <code>.step_&lt;name&gt;.done</code>
+        sentinel — you can re-run the command after changing later-stage flags
+        (model, ClipKit mode) and only the affected steps will recompute.
+      </div>
+    </article>
+
+    <!-- ─── Example 3 ─── -->
+    <article class="example reveal reveal-3">
+      <span class="tag">Example 03 · extract</span>
+      <h3>Pull every protein from a single class for a downstream analysis.</h3>
+      <p>
+        Run an analysis on, say, every cephalopod protein in the database
+        (28 species, ~2.8 M sequences in v0.1) without writing any glue code.
+      </p>
+<pre>wrappers/mg_extract.sh \
+    -s Cephalopoda --by class \
+    -o cephalopoda_proteins \
+    -d aa --merge \
+    -t 8</pre>
+      <p>The selector accepts:</p>
+      <ul class="plain">
+        <li>A single code: <code>-s Octbim</code></li>
+        <li>A comma-separated list: <code>-s Octbim,Sepoff,Eupber</code></li>
+        <li>A binomial: <code>-s "Octopus bimaculoides" --by binomial</code></li>
+        <li>A taxonomic rank: <code>-s Cephalopoda --by class</code> (also works with <code>order</code>, <code>family</code>, <code>phylum</code>)</li>
+        <li>A file: <code>-s @my_codes.txt</code> (one token per line)</li>
+      </ul>
+      <p>Outputs:</p>
+      <ul class="plain">
+        <li><code>cephalopoda_proteins/extracted_aa.fa</code> — single merged FASTA (because of <code>--merge</code>)</li>
+        <li><code>cephalopoda_proteins/extracted_species.tsv</code> — per-species count of what was actually extracted</li>
+      </ul>
+      <div class="note">
+        <strong>First-run cost.</strong> The first <code>mg_extract</code> against
+        a fresh database builds an accession-by-species cache (~2 minutes,
+        ~600 MB under <code>metadata/_cache/</code>). Subsequent runs are
+        I/O-bound and complete in seconds.
+      </div>
+    </article>
+
+    <!-- ─── Example 4 ─── -->
+    <article class="example reveal reveal-4">
+      <span class="tag">Example 04 · HMM scan</span>
+      <h3>Scan a proteome with the mollusc-revised HMMs.</h3>
+      <p>
+        Given any protein FASTA — your own assembly, a single species pulled with
+        <code>mg_extract</code>, or anything else — run hmmsearch with the full
+        TIAMMAt-revised HMM bundle and join hits to species metadata. Here we use
+        the two together:
+      </p>
+<pre>wrappers/mg_extract.sh -s "Octopus bimaculoides" --by binomial -o obim --merge
+wrappers/mg_hmmsearch.sh -q obim/extracted_aa.fa -o obim_hmm -t 8</pre>
+      <p>
+        For Pfam gathering thresholds (the conservative default many curators
+        prefer), use <code>--cut-ga</code> instead of <code>-E</code>:
+      </p>
+<pre>wrappers/mg_hmmsearch.sh -q obim/extracted_aa.fa -o obim_hmm --cut-ga -t 8</pre>
+      <p>
+        Or scan with a single HMM rather than the full bundle:
+      </p>
+<pre>wrappers/mg_hmmsearch.sh \
+    -q obim/extracted_aa.fa \
+    -o obim_neur_chan \
+    --hmm hmm/per_domain/Neur_chan_LBD_REVISION.hmm</pre>
+      <p>Outputs:</p>
+      <ul class="plain">
+        <li><code>obim_hmm/hits.tbl</code> — per-sequence tabular output</li>
+        <li><code>obim_hmm/hits.domtbl</code> — per-domain tabular output</li>
+        <li><code>obim_hmm/hits_with_species.tsv</code> — per-sequence hits joined to species metadata</li>
+      </ul>
+      <div class="note">
+        <strong>Pick HMMs interactively.</strong> The
+        <a href="hmms.html">HMM browser</a> lets you filter the 190 HMMs by
+        category (GPCR, VGIC, LGIC, …), tick a subset, and download as either
+        a curl snippet or a zipped bundle.
+      </div>
+    </article>
+
+    <!-- ─── Example 5 ─── -->
+    <article class="example reveal reveal-5">
+      <span class="tag">Example 05 · custom search</span>
+      <h3>Pass any flag to the underlying tool.</h3>
+      <p>
+        Every wrapper exposes the most-used flags by name <em>and</em> an
+        <code>--extra "ARGS"</code> passthrough so anything we haven't surfaced
+        is still reachable. The string is split on whitespace and appended verbatim:
+      </p>
+<pre>wrappers/mg_blast.sh -q q.fa -o out -d aa \
+    --extra "-gapopen 11 -gapextend 1 -seg yes"
+
+wrappers/mg_diamond.sh -q q.fa -o out \
+    --extra "--masking 0 --comp-based-stats 1 --frameshift 15"
+
+wrappers/mg_place.sh -q seeds.fa -o phylo \
+    --iqtree-extra "-alrt 1000 -lbp 1000" \
+    --search-extra "-soft_masking true"</pre>
+      <div class="note">
+        <strong>Reproducibility.</strong> Whatever you pass via <code>--extra</code>
+        also lands verbatim in the <code>run.log</code>, alongside the tool
+        version that was used. Reviewers asking <em>"what settings did you use?"</em>
+        get a single deterministic answer.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container container-narrow">
+    <span class="section-title">Reference</span>
+    <h2>Want every flag?</h2>
+    <p>
+      The <a href="https://github.com/invertome/molluscagenes/blob/main/README.md">repository
+      README</a> has per-wrapper option tables that map every flag to the
+      underlying tool's flag (BLAST, DIAMOND, hmmsearch, MAFFT, ClipKit,
+      IQ-TREE, TreeShrink). Each wrapper also has built-in help:
+    </p>
+<pre>wrappers/mg_blast.sh --help
+wrappers/mg_diamond.sh --help
+wrappers/mg_hmmsearch.sh --help
+wrappers/mg_extract.sh --help
+wrappers/mg_characterize.sh --help
+wrappers/mg_place.sh --help</pre>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff;border-bottom:0;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--display);font-size:1.05rem">
+        <svg width="20" height="20"><use href="#spiral"/></svg>
+        MolluscaGenes
+      </a>
+      <p style="margin-top:0.5rem;max-width:38ch;color:rgba(255,255,255,0.65)">
+        A transcriptomic database for the Mollusca. Pérez-Moreno &amp; Katz,
+        Department of Biology, University of Massachusetts Amherst.
+      </p>
+      <p class="colophon">
+        © 2026. Code GPL-3.0; data on Zenodo CC-BY-4.0.
+      </p>
+    </div>
+    <div>
+      <h4>Browse</h4>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="hmms.html">HMM browser</a></li>
+        <li><a href="species.html">Species browser</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://github.com/invertome/molluscagenes">GitHub repository</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/issues">Issue tracker</a></li>
+        <li><a href="https://github.com/invertome/molluscagenes/blob/main/README.md">README</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
