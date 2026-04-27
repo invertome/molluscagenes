@@ -44,7 +44,7 @@ WORMS_BASE = "https://www.marinespecies.org/rest"
 COLUMNS = [
     "species_code", "species_binomial", "ncbi_taxid",
     "phylum", "class", "subclass", "order", "family",
-    "worms_aphia_id",
+    "worms_aphia_id", "molluscabase_id",
     "n_proteins", "n_transcripts", "mean_protein_len",
     "data_source", "source_accession", "sequencing_type",
     "reference_citation_doi",
@@ -250,6 +250,8 @@ def write_schema(path: Path) -> None:
             "family": {"type": "string", "description": "From NCBI taxonomy lineage."},
             "worms_aphia_id": {"type": "string",
                 "description": "WoRMS (World Register of Marine Species) AphiaID; may be empty."},
+            "molluscabase_id": {"type": "string",
+                "description": "MolluscaBase identifier. Federated with WoRMS — same AphiaID resolves on both sites; mirrored from worms_aphia_id."},
             "n_proteins": {"type": "integer",
                 "description": "Count of protein sequences in mollusca_aa for this species."},
             "n_transcripts": {"type": "integer",
@@ -356,6 +358,10 @@ def main() -> int:
             "order": tax["order"],
             "family": tax["family"],
             "worms_aphia_id": aphia,
+            # MolluscaBase shares the AphiaID registry with WoRMS — every WoRMS
+            # AphiaID resolves on molluscabase.org. We mirror the value into a
+            # dedicated column so the metadata is explicit about both authorities.
+            "molluscabase_id": aphia,
             "n_proteins": n_p,
             "n_transcripts": n_t,
             "mean_protein_len": mean_len,

@@ -42,6 +42,10 @@
       "type": "string",
       "description": "WoRMS (World Register of Marine Species) AphiaID; may be empty."
     },
+    "molluscabase_id": {
+      "type": "string",
+      "description": "MolluscaBase identifier. Federated with WoRMS \u2014 same AphiaID resolves on both sites; mirrored from worms_aphia_id."
+    },
     "n_proteins": {
       "type": "integer",
       "description": "Count of protein sequences in mollusca_aa for this species."

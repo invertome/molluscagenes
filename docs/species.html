@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Species browser — MolluscaGenes</title>
-<meta name="description" content="Browse all species in MolluscaGenes v0.1 with NCBI taxonomy and WoRMS cross-links. Filter by class, sort, and export to TSV.">
+<meta name="description" content="Browse all species in MolluscaGenes v0.1 with NCBI taxonomy, WoRMS, and MolluscaBase cross-links. Filter by class, sort, and export to TSV.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -44,7 +45,7 @@
     <p class="lead">
       Filter by class or completeness, search by binomial or code, sort by sequence
       counts, and export the current filter as TSV. Each species links out to NCBI
-      Taxonomy and WoRMS.
+      Taxonomy, WoRMS, and MolluscaBase.
     </p>
   </div>
 </section>
@@ -123,17 +124,19 @@ async function init() {
   const columns = [
     { key: "species_code", label: "Code", render: v => `<code>${v}</code>` },
     { key: "species_binomial", label: "Binomial", cls: "species-binomial" },
-    { key: "class", label: "Class" },
-    { key: "order", label: "Order" },
     { key: "family", label: "Family" },
+    { key: "order", label: "Order" },
+    { key: "class", label: "Class" },
     { key: "n_proteins", label: "Proteins", type: "number", cls: "col-num",
       render: v => v ? v.toLocaleString() : '<span class="faint">0</span>' },
     { key: "n_transcripts", label: "Transcripts", type: "number", cls: "col-num",
       render: v => v ? v.toLocaleString() : '<span class="faint">0</span>' },
-    { key: "ncbi_taxid", label: "NCBI taxid",
+    { key: "ncbi_taxid", label: "NCBI",
       render: v => v ? `<a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=${v}" target="_blank" rel="noopener">${v}</a>` : "" },
     { key: "worms_aphia_id", label: "WoRMS",
       render: v => v ? `<a href="https://www.marinespecies.org/aphia.php?p=taxdetails&id=${v}" target="_blank" rel="noopener">${v}</a>` : "" },
+    { key: "molluscabase_id", label: "MolluscaBase",
+      render: v => v ? `<a href="https://www.molluscabase.org/aphia.php?p=taxdetails&id=${v}" target="_blank" rel="noopener">${v}</a>` : "" },
   ];
 
   const host = document.getElementById("table-host");

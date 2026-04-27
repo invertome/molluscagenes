@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- MolluscaGenes brand mark — logarithmic spiral (mollusc shell whorl).
+       Maroon stroke on warm cream, matching the site palette. -->
+  <rect width="100" height="100" rx="14" fill="#faf6f0"/>
+  <g fill="none" stroke="#881C1C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50,50 m0,-2 a2,2 0 1,1 0,4 a4,4 0 1,1 0,-8 a8,8 0 1,1 0,16 a16,16 0 1,1 0,-32 a32,32 0 1,1 0,64 a40,40 0 1,1 0,-80"/>
+  </g>
+</svg>
