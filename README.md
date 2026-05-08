@@ -9,15 +9,30 @@ paired with the **TIAMMAt mollusc-revised Pfam HMMs**, with command-line
 wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
 extraction, and iterative-BLAST phylogenetic placement.
 
-> **v0.1 — preliminary release.** The database used in the accompanying biorxiv
+> **v0.2 — preliminary release.** The database used in the accompanying biorxiv
 > preprint. A full rebuild (v1.0) is in progress on Unity HPC and will supersede
-> v0.1 under the same Zenodo concept DOI.
+> v0.2 under the same Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
 - **Database (Zenodo):**
   - Concept DOI (always latest): [`10.5281/zenodo.19825265`](https://doi.org/10.5281/zenodo.19825265)
   - v0.1 DOI (pinned): [`10.5281/zenodo.19825266`](https://doi.org/10.5281/zenodo.19825266)
 - **License:** GPL-3.0-or-later (code) · CC-BY-4.0 (data on Zenodo)
+
+---
+
+## What's new in v0.2
+
+- **1,057 mollusc-optimized Pfam HMMs** (up from 190 in v0.1) — TIAMMAt-revised
+  against 212 mollusc proteomes from MolluscaGenes v1.
+- **12-theme / 99-subcategory curation taxonomy** replaces the flat 50-category
+  grouping.
+- **Evaluation report** at `docs/hmms_evaluation.html` (or
+  https://invertome.github.io/molluscagenes/hmms_evaluation.html): six-proteome
+  benchmark vs original Pfam-A 36.0; +36.3% mean detection sensitivity;
+  specificity-decomposed (95.5% of "lost" detections are reassignments or
+  near-threshold marginals, not real losses).
+- SHA-256 of canonical concat: `dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14`.
 
 ---
 
@@ -45,10 +60,11 @@ substantially higher sensitivity on lophotrochozoan homologs.
   Monoplacophora).
 - **~17 million transcript sequences** (~16.8 Gb of nucleotide data).
 - **~17 million predicted protein sequences** (~3.3 Gb of amino-acid data).
-- **190 mollusc-revised HMMs** across 50 biological categories (innate
-  immunity, developmental signalling, Ca²⁺ signalling, VGIC, GPCR, LGIC,
-  shell biomineralization, epigenetic regulation, chemoreception, circadian,
-  neuropeptide processing, toxin biology, synaptic function, …).
+- **1,057 mollusc-revised HMMs** organized by a 12-theme / 99-subcategory
+  curation taxonomy (innate immunity, developmental signalling, Ca²⁺ signalling,
+  VGIC, GPCR, LGIC, shell biomineralization, epigenetic regulation,
+  chemoreception, circadian, neuropeptide processing, toxin biology, synaptic
+  function, …).
 
 | Class | Species |
 | --- | ---: |
@@ -64,9 +80,9 @@ substantially higher sensitivity on lophotrochozoan homologs.
 (Exact species counts and metadata are in
 [`metadata/species_metadata.tsv`](metadata/species_metadata.tsv) and on the
 [species browser](https://invertome.github.io/molluscagenes/species.html).
-v0.1 includes ~299 species in this release.)
+v0.2 includes ~299 species in this release.)
 
-## How v0.1 was built
+## How v0.2 was built
 
 Raw reads were sourced from the NCBI Sequence Read Archive (paired-end
 Illumina, ≥20M read-pairs/sample, prioritizing tissue diversity and
@@ -92,7 +108,7 @@ The pipeline source for the upcoming v1.0 rebuild lives at the sibling
 - `scripts/` — reproducibility scripts (build metadata, recover FASTA, build
   DIAMOND, package tarballs, generate checksums, sync site data).
 - `hmm/` — TIAMMAt mollusc-revised HMMs: combined `mollusca_revised_hmms.hmm` +
-  hmmpress indices + `per_domain/` (190 individual HMMs) + `domain_list.tsv`.
+  hmmpress indices + `per_domain/` (1,057 individual HMMs) + `domain_list.tsv`.
 - `metadata/` — `species_metadata.tsv`, `hmm_metadata.tsv` /`.json`, `dict2.tsv`,
   Zenodo manifest.
 - `docs/` — GitHub Pages site (HMM browser with multi-select download, species
@@ -314,13 +330,14 @@ Per-step `.done` sentinels enable resume; `--force` re-runs every step.
 | `worms_aphia_id` | WoRMS AphiaID |
 | `n_proteins` / `n_transcripts` | Sequence counts in this release |
 | `mean_protein_len` | Mean protein length, residues |
-| `data_source` | `EvidentialGene assembly` for v0.1 |
-| `source_accession` | Upstream accession if known (mostly empty in v0.1; v1.0 will populate) |
+| `data_source` | `EvidentialGene assembly` for v0.2 |
+| `source_accession` | Upstream accession if known (mostly empty in v0.2; v1.0 will populate) |
 | `sequencing_type` | `transcriptome` for species with sequences |
-| `reference_citation_doi` | Source publication DOI (mostly empty in v0.1) |
+| `reference_citation_doi` | Source publication DOI (mostly empty in v0.2) |
 
 Species with `n_proteins = n_transcripts = 0` are listed for transparency
 as "planned but not yet in this release". v1.0 will close that gap.
+
 
 ### `metadata/hmm_metadata.tsv`
 

@@ -5,6 +5,32 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.2.0 — 2026-05-08
+
+### Changed
+
+- **HMM resource**: replaces the 190-domain v1 prototype with **1,057
+  mollusc-optimized HMMs** (TIAMMAt-revised against 212 mollusc proteomes
+  from MolluscaGenes v1). Same Pfam-A 36.0 accessions; revised models are
+  drop-in compatible with downstream tooling.
+- Curation taxonomy: 12 themes / 99 subcategories (was a flat ~50 categories
+  in v0.1).
+
+### Added
+
+- `docs/hmms_evaluation.html` — comprehensive evaluation report (six
+  RefSeq proteomes, methodology, results tables, six figures, specificity
+  decomposition, reproducibility checksums).
+- `scripts/build_domain_list.py` — reproducer for the v2 `hmm/domain_list.tsv`
+  schema (5-column: accession, version, name, theme, subcategory).
+- Per-domain HMM bundle expanded from 190 to 1,057 files in `hmm/per_domain/`.
+
+### Verified
+
+- SHA-256 of `mollusca_revised_hmms.hmm`:
+  `dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14` (matches
+  canonical Unity build).
+
 ## [0.1.0] — 2026-04-27 — Preliminary release
 
 First public release, accompanying the biorxiv preprint.

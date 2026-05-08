@@ -3,8 +3,8 @@ message: "If you use MolluscaGenes, please cite both the software and the associ
 title: "MolluscaGenes: a mollusc transcriptome + proteome resource with mollusc-optimized Pfam HMMs"
 abstract: "Preliminary release (v0.1) of the MolluscaGenes database, containing BLAST- and DIAMOND-formatted protein and mRNA databases across ~299 mollusc species, paired with the TIAMMAt mollusc-revised Pfam HMMs (190 domains). Includes command-line wrappers for BLAST / DIAMOND / hmmsearch, species extraction, and iterative-BLAST phylogenetic placement."
 type: software
-version: "0.1.0"
-date-released: "2026-04-27"
+version: "0.2.0"
+date-released: "2026-05-08"
 license: GPL-3.0-or-later
 doi: "10.5281/zenodo.19825266"
 repository-code: "https://github.com/invertome/molluscagenes"
