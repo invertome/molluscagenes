@@ -667,6 +667,103 @@ pre.no-prompt::before { content: ''; }
 .case-study a:hover { text-decoration: underline; }
 .case-study strong { color: var(--maroon-deep); }
 
+/* Evaluation callout — Performance highlight card on the Overview page.
+ * Two-column inside a single card: text (eyebrow + headline + body + CTA)
+ * paired with a large numeric badge. Collapses to single column on narrow
+ * viewports.
+ */
+.eval-callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 1.5rem 1.75rem;
+    border: 1px solid var(--rule-soft);
+    border-left: 5px solid var(--maroon);
+    border-radius: 3px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), var(--maroon-soft));
+}
+@media (max-width: 720px) {
+    .eval-callout {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1.25rem;
+    }
+}
+.eval-callout-text { min-width: 0; }
+.eval-eyebrow {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+}
+.eval-headline {
+    margin: 0 0 0.6rem;
+    font-family: var(--display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+}
+.eval-callout p {
+    margin: 0 0 0.9rem;
+    max-width: 60ch;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ink);
+}
+.eval-callout-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.6rem 0.5rem;
+    border-left: 1px solid var(--rule-soft);
+}
+@media (max-width: 720px) {
+    .eval-callout-stat {
+        border-left: 0;
+        border-top: 1px solid var(--rule-soft);
+        padding-top: 1rem;
+    }
+}
+.eval-stat-num {
+    font-family: var(--display);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--maroon-deep);
+    letter-spacing: -0.01em;
+}
+.eval-stat-num small {
+    font-size: 0.55em;
+    font-weight: 500;
+    margin-left: 0.12em;
+    color: var(--maroon);
+}
+.eval-stat-label {
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.4;
+}
+.eval-stat-label small {
+    display: block;
+    font-size: 0.92em;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-top: 0.15rem;
+}
+
 /* Net-assessment ordered list — numbered, generous spacing */
 .net-takeaways {
     counter-reset: takeaway;

@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MolluscaGenes — a transcriptomic database for the Mollusca</title>
-<meta name="description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-optimized Pfam HMMs and CLI wrappers for BLAST/DIAMOND/HMM search and phylogenetic placement.">
+<meta name="description" content="A taxonomically comprehensive mollusc transcriptome resource paired with 1,057 mollusc-optimized Pfam HMMs and CLI wrappers for BLAST/DIAMOND/HMM search and phylogenetic placement.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
-<meta property="og:description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-revised Pfam HMMs and CLI wrappers.">
+<meta property="og:description" content="A taxonomically comprehensive mollusc transcriptome resource paired with 1,057 mollusc-optimized Pfam HMMs and CLI wrappers.">
 <meta property="og:url" content="https://invertome.github.io/molluscagenes/">
 <meta property="og:image" content="https://invertome.github.io/molluscagenes/assets/favicon.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
-<meta name="twitter:description" content="A mollusc transcriptome resource paired with mollusc-revised Pfam HMMs.">
+<meta name="twitter:description" content="A mollusc transcriptome resource paired with 1,057 mollusc-optimized Pfam HMMs.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,7 +129,7 @@
     <nav>
       <a href="index.html" class="current">Overview</a>
       <a href="examples.html">Tutorials</a>
-      <a href="hmms.html">HMM browser</a>
+      <a href="hmms.html">HMMs</a>
       <a href="species.html">Species</a>
       <a href="contact.html">Contact</a>
       <a href="https://github.com/invertome/molluscagenes">GitHub</a>
@@ -156,6 +156,7 @@
         </a>
         <a class="cta secondary" href="examples.html">Worked examples</a>
         <a class="cta secondary" href="hmms.html">Browse HMMs</a>
+        <a class="cta secondary" href="hmms_evaluation.html">HMM evaluation</a>
         <a class="cta secondary" href="https://github.com/invertome/molluscagenes">Code on GitHub</a>
       </div>
       <dl class="meta reveal reveal-5">
@@ -171,8 +172,8 @@
       <div class="stat"><span class="num">~300</span><span class="label">Species</span></div>
       <div class="stat"><span class="num">8<small>classes</small></span><span class="label">Coverage</span></div>
       <div class="stat"><span class="num">17<small>M</small></span><span class="label">Sequences</span></div>
-      <div class="stat"><span class="num">190</span><span class="label">HMMs</span></div>
-      <div class="stat"><span class="num">50</span><span class="label">HMM categories</span></div>
+      <div class="stat"><span class="num">1,057</span><span class="label">HMMs</span></div>
+      <div class="stat"><span class="num">+36.3%</span><span class="label">Detection sensitivity</span></div>
     </div>
   </div>
 </section>
@@ -222,7 +223,7 @@
           <li><strong>~17 million transcripts</strong> (~16.8 Gb of nucleotide data).</li>
           <li><strong>~17 million predicted proteins</strong> (~3.3 Gb of amino-acid data).</li>
           <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
-          <li><strong>190 mollusc-revised HMMs</strong> across 50 biological categories.</li>
+          <li><strong>1,057 mollusc-revised HMMs</strong> across 50 biological categories &mdash; +36.3&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 on six held-out mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
           <li><strong>Per-species &amp; per-HMM metadata</strong> with NCBI taxonomy and WoRMS cross-links.</li>
           <li><strong>CLI wrappers</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code>, <code>mg_extract</code>.</li>
         </ul>
@@ -247,6 +248,28 @@
           <a href="species.html">species browser</a> has the full table, filterable
           by class and exportable to TSV.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EVALUATION CALLOUT ─────────────────────────────────────────── -->
+<section>
+  <div class="container container-narrow">
+    <div class="eval-callout">
+      <div class="eval-callout-text">
+        <span class="eval-eyebrow">Performance</span>
+        <h3 class="eval-headline">+36.3&thinsp;% detection sensitivity.<br>Drop-in for Pfam-A 36.0.</h3>
+        <p>
+          Six-proteome held-out evaluation comparing the 1,057 mollusc-optimized
+          HMMs against original Pfam-A 36.0. Specificity-decomposed (true gains
+          vs. reassignment) and figure-rich.
+        </p>
+        <a class="cta secondary" href="hmms_evaluation.html">View evaluation report <span class="arrow">→</span></a>
+      </div>
+      <div class="eval-callout-stat">
+        <span class="eval-stat-num">+36.3<small>%</small></span>
+        <span class="eval-stat-label">mean sensitivity gain<br><small>(vs. stock Pfam-A 36.0)</small></span>
       </div>
     </div>
   </div>
@@ -360,7 +383,7 @@
         Multi-assembler workflow with EvidentialGene redundancy reduction and BUSCO
         gating (≥30% completeness on Metazoa odb10). Annotation is DIAMOND vs.
         RefSeq + InterProScan (Pfam, SMART, CDD, SUPERFAMILY, Gene3D) plus
-        eggNOG-mapper for GO/KEGG. The TIAMMAt branch iteratively re-trains 190
+        eggNOG-mapper for GO/KEGG. The TIAMMAt branch iteratively re-trains 1,057
         Pfam HMMs against the molluscan sequence pool, validated against six
         held-out proteomes (<em>A. californica</em>, <em>C. gigas</em>,
         <em>L. anatina</em>, <em>L. gigantea</em>, <em>O. bimaculoides</em>,
@@ -428,7 +451,7 @@
       <li><strong>Source provenance.</strong> Per-species <code>source_accession</code> (BioProject / SRA run) and <code>reference_citation_doi</code> populated from NCBI BioProject linkage — empty for most rows in v0.1.</li>
       <li><strong>Annotation add-on.</strong> A separate v1.1 workflow producing GO terms, KEGG pathways, and InterPro hits as a downloadable annotation TSV.</li>
       <li><strong>Discovery site upgrade.</strong> Eleventy-driven static site with client-side MinHash search over species sets, replacing the present plain-HTML browsers.</li>
-      <li><strong>Expanded HMM coverage.</strong> Considering re-applying TIAMMAt across the full Pfam catalog rather than the current 190-domain biological-process subset.</li>
+      <li><strong>Expanded HMM coverage.</strong> Considering re-applying TIAMMAt across the full Pfam catalog rather than the current 1,057-domain biological-process subset.</li>
     </ul>
   </div>
 </section>
