@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HMM browser — MolluscaGenes</title>
-<meta name="description" content="Filter, search, and download the 190 mollusc-revised Pfam HMMs in MolluscaGenes — by category, Pfam accession, or HMM name.">
+<meta name="description" content="Filter, search, and download the 1,057 mollusc-revised Pfam HMMs in MolluscaGenes — by curation theme, subcategory, Pfam accession, or HMM name.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
-<meta property="og:description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-revised Pfam HMMs and CLI wrappers.">
+<meta property="og:description" content="Filter, search, and download the 1,057 mollusc-revised Pfam HMMs in MolluscaGenes — by curation theme, subcategory, Pfam accession, or HMM name.">
 <meta property="og:url" content="https://invertome.github.io/molluscagenes/">
 <meta property="og:image" content="https://invertome.github.io/molluscagenes/assets/favicon.svg">
 <meta name="twitter:card" content="summary">
@@ -138,14 +138,21 @@
 <section class="hero" style="padding-bottom:1.25rem">
   <div class="container container-narrow">
     <span class="eyebrow">HMM browser</span>
-    <h1 style="font-size:clamp(2rem,4.5vw,3rem)">190 mollusc-revised <span class="accent">Pfam HMMs.</span></h1>
+    <h1 style="font-size:clamp(2rem,4.5vw,3rem)">1,057 mollusc-revised <span class="accent">Pfam HMMs.</span></h1>
     <p class="lead">
-      Filter by biological category, search by Pfam accession or name, tick rows,
-      and either copy a <code>curl</code> snippet or download the selection as a
-      ZIP bundle.
+      Filter by curation theme or subcategory, search by Pfam accession or name,
+      tick rows, and either copy a <code>curl</code> snippet or download the
+      selection as a ZIP bundle.
     </p>
   </div>
 </section>
+
+<nav class="subnav" aria-label="HMM section pages">
+  <div class="container">
+    <a class="subnav-tab current" href="hmms.html">Browser</a>
+    <a class="subnav-tab" href="hmms_evaluation.html">Evaluation</a>
+  </div>
+</nav>
 
 <section style="padding-top:0">
 <div class="container">
@@ -153,11 +160,16 @@
 <div class="toolbar sticky-toolbar">
   <input id="search" type="search"
          placeholder="Search Pfam name, accession, HMM name, description… ( / )"
-         title="Filter by Pfam family name, Pfam accession (PF00001), HMM ID, category, or description. Press / to focus.">
-  <select id="cat-filter"
-          data-tooltip="Restrict the table to a single biological category — 50 in total (GPCR, VGIC, LGIC, …)."
+         title="Filter by Pfam family name, Pfam accession (PF00001), HMM ID, theme, subcategory, or description. Press / to focus.">
+  <select id="theme-filter"
+          data-tooltip="Restrict by curation theme — 12 broad biological groupings."
           data-tooltip-pos="bottom">
-    <option value="">All categories</option>
+    <option value="">All themes</option>
+  </select>
+  <select id="subcat-filter"
+          data-tooltip="Restrict by curation subcategory — 99 finer biological groupings; narrows to the chosen theme."
+          data-tooltip-pos="bottom">
+    <option value="">All subcategories</option>
   </select>
   <button id="select-all" class="secondary"
           data-tooltip="Tick every HMM that matches the current filter."
@@ -230,12 +242,47 @@ async function init() {
   const data = await r.json();
   const rows = data.rows.map((row, i) => ({ ...row, _selected: false, _idx: i }));
 
-  const cats = [...new Set(rows.map(r => r.category).filter(Boolean))].sort();
-  const catSel = document.getElementById("cat-filter");
-  cats.forEach(c => {
-    const o = document.createElement("option"); o.value = c; o.textContent = c;
-    catSel.appendChild(o);
+  // Build (theme_id → display) and (subcat_id → {display, theme_id}) maps,
+  // then populate the theme select. The subcategory select is rebuilt every
+  // time the theme changes (cascade).
+  const themeMap = new Map();          // theme_id → theme display name
+  const subcatMap = new Map();         // subcategory_id → { name, theme_id }
+  rows.forEach(r => {
+    if (r.theme_id && !themeMap.has(r.theme_id)) themeMap.set(r.theme_id, r.theme || r.theme_id);
+    if (r.subcategory_id && !subcatMap.has(r.subcategory_id)) {
+      subcatMap.set(r.subcategory_id, { name: r.subcategory || r.subcategory_id, theme_id: r.theme_id });
+    }
   });
+
+  const themeSel = document.getElementById("theme-filter");
+  [...themeMap.entries()]
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .forEach(([id, name]) => {
+      const o = document.createElement("option"); o.value = id; o.textContent = name;
+      themeSel.appendChild(o);
+    });
+
+  const subcatSel = document.getElementById("subcat-filter");
+  function rebuildSubcatOptions() {
+    // If a theme is chosen, restrict subcategories to that theme; else show all.
+    const theme = themeSel.value;
+    const prev = subcatSel.value;
+    subcatSel.innerHTML = '<option value="">All subcategories</option>';
+    [...subcatMap.entries()]
+      .filter(([, v]) => !theme || v.theme_id === theme)
+      .sort((a, b) => a[1].name.localeCompare(b[1].name))
+      .forEach(([id, v]) => {
+        const o = document.createElement("option"); o.value = id; o.textContent = v.name;
+        subcatSel.appendChild(o);
+      });
+    // Preserve the previous selection only if it's still consistent with the theme.
+    if (prev && [...subcatSel.options].some(o => o.value === prev)) {
+      subcatSel.value = prev;
+    } else {
+      subcatSel.value = "";
+    }
+  }
+  rebuildSubcatOptions();
 
   const columns = [
     { key: "_select", label: "", render: (_, row) => {
@@ -252,7 +299,10 @@ async function init() {
     { key: "pfam_accession", label: "Accession", tooltip: "Pfam accession number (e.g. PF00001). Click to open the entry in InterPro/EBI.",
       render: (v, row) =>
         v ? `<a href="https://www.ebi.ac.uk/interpro/entry/pfam/${v}/" target="_blank" rel="noopener"><code>${v}</code></a>` : "" },
-    { key: "category", label: "Category", tooltip: "Biological grouping we assigned to this HMM (e.g. GPCR, VGIC, LGIC). 50 categories in total." },
+    { key: "theme", label: "Theme", tooltip: "12-theme curation grouping (display name; filterable above).",
+      render: v => v || '<span class="faint">—</span>' },
+    { key: "subcategory", label: "Subcategory", tooltip: "99-subcategory curation grouping; nested under theme.",
+      render: v => v || '<span class="faint">—</span>' },
     { key: "hmm_length", label: "Length", type: "number", cls: "col-num", tooltip: "Number of match positions in the HMM (the LENG field of the HMMER profile). Roughly: how many amino acids the model spans." },
     { key: "n_seed_sequences", label: "Seed N", type: "number", cls: "col-num", tooltip: "Number of mollusc-derived sequences used as the seed alignment for the TIAMMAt re-training of this HMM." },
     { key: "effn", label: "EFFN", type: "number", cls: "col-num", tooltip: "Effective number of sequences in the HMM (HMMER's EFFN). Lower than seed N because of redundancy filtering." },
@@ -264,11 +314,14 @@ async function init() {
 
   function applyFilters() {
     const q = document.getElementById("search").value.trim().toLowerCase();
-    const cat = catSel.value;
+    const theme = themeSel.value;
+    const subcat = subcatSel.value;
     visible = rows.filter(r =>
-      (!cat || r.category === cat) &&
+      (!theme  || r.theme_id       === theme) &&
+      (!subcat || r.subcategory_id === subcat) &&
       (!q || (r.pfam_name + " " + r.pfam_accession + " " + r.hmm_name + " " +
-              r.category + " " + (r.pfam_short_name || "") + " " +
+              (r.theme || "") + " " + (r.subcategory || "") + " " +
+              (r.pfam_short_name || "") + " " +
               (r.pfam_description || "")).toLowerCase().includes(q))
     );
     table = makeTable({ container: host, columns, rows: visible });
@@ -285,7 +338,8 @@ async function init() {
   }
 
   document.getElementById("search").addEventListener("input", applyFilters);
-  catSel.addEventListener("change", applyFilters);
+  themeSel.addEventListener("change", () => { rebuildSubcatOptions(); applyFilters(); });
+  subcatSel.addEventListener("change", applyFilters);
 
   document.getElementById("select-all").addEventListener("click", () => {
     visible.forEach(r => r._selected = true); applyFilters();
