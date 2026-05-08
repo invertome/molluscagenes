@@ -223,7 +223,7 @@
           <li><strong>~17 million transcripts</strong> (~16.8 Gb of nucleotide data).</li>
           <li><strong>~17 million predicted proteins</strong> (~3.3 Gb of amino-acid data).</li>
           <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
-          <li><strong>1,057 mollusc-revised HMMs</strong> across 50 biological categories &mdash; +36.3&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 on six held-out mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
+          <li><strong>1,057 mollusc-revised HMMs</strong> across 50 biological categories &mdash; +36.3&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 across six mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
           <li><strong>Per-species &amp; per-HMM metadata</strong> with NCBI taxonomy and WoRMS cross-links.</li>
           <li><strong>CLI wrappers</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code>, <code>mg_extract</code>.</li>
         </ul>
@@ -261,7 +261,7 @@
         <span class="eval-eyebrow">Performance</span>
         <h3 class="eval-headline">+36.3&thinsp;% detection sensitivity.<br>Drop-in for Pfam-A 36.0.</h3>
         <p>
-          Six-proteome held-out evaluation comparing the 1,057 mollusc-optimized
+          Six-proteome evaluation comparing the 1,057 mollusc-optimized
           HMMs against original Pfam-A 36.0. Specificity-decomposed (true gains
           vs. reassignment) and figure-rich.
         </p>
@@ -385,7 +385,7 @@
         RefSeq + InterProScan (Pfam, SMART, CDD, SUPERFAMILY, Gene3D) plus
         eggNOG-mapper for GO/KEGG. The TIAMMAt branch iteratively re-trains 1,057
         Pfam HMMs against the molluscan sequence pool, validated against six
-        held-out proteomes (<em>A. californica</em>, <em>C. gigas</em>,
+        independent RefSeq proteomes (<em>A. californica</em>, <em>C. gigas</em>,
         <em>L. anatina</em>, <em>L. gigantea</em>, <em>O. bimaculoides</em>,
         <em>P. canaliculata</em>).
       </figcaption>
