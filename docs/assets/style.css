@@ -667,6 +667,24 @@ pre.no-prompt::before { content: ''; }
 .case-study a:hover { text-decoration: underline; }
 .case-study strong { color: var(--maroon-deep); }
 
+/* Sub-headings within the Case studies section, grouping the case-study
+ * cards by category (sensitivity gains / specificity-driven reductions /
+ * genuine reductions). */
+.case-study-heading {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin: 1.75rem 0 0.35rem;
+}
+.case-study-heading:first-of-type { margin-top: 1rem; }
+.case-study-intro {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    max-width: 65ch;
+    margin: 0 0 0.85rem;
+}
+
 /* Evaluation callout — Performance highlight card on the Overview page.
  * Two-column inside a single card: text (eyebrow + headline + body + CTA)
  * paired with a large numeric badge. Collapses to single column on narrow

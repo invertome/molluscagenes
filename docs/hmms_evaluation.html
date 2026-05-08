@@ -574,19 +574,23 @@
     </figure>
 
     <h3>Case studies</h3>
+
+    <h4 class="case-study-heading">Sensitivity gains</h4>
+    <p class="case-study-intro">
+      Domains where mollusc-specific seed expansion captures legitimate
+      molluscan paralogs that the original Pfam-A 36.0 profile misses.
+    </p>
     <div class="case-study-grid">
       <article class="case-study">
         <h4>PF10320 &mdash; chemoreception (Notch family)</h4>
         <p>
           <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF10320/" rel="noopener">PF10320</a>
           shows the largest absolute new-detection count in the bundle:
-          1,407&nbsp;&rarr;&nbsp;3,832 detections (+2,425 new). This is a
-          domain where mollusc-specific seed expansion captures a large
-          family of legitimate molluscan homologs that the
-          metazoan-bias-trained Pfam profile misses. The gain is uniform
-          across all five mollusc proteomes and attenuated on the
-          brachiopod outgroup, consistent with capture of mollusc-specific
-          sequence diversity rather than promiscuous matching.
+          1,407&nbsp;&rarr;&nbsp;3,832 detections (+2,425 new). The gain
+          is uniform across all five mollusc proteomes and attenuated on
+          the brachiopod outgroup, consistent with capture of
+          mollusc-specific sequence diversity rather than promiscuous
+          matching.
         </p>
       </article>
       <article class="case-study">
@@ -600,6 +604,89 @@
           metal-stress response domains across the mollusc proteomes,
           where mollusc-specific paralog expansions had limited
           representation in the original Pfam-A 36.0 seed.
+        </p>
+      </article>
+    </div>
+
+    <h4 class="case-study-heading">Apparent reductions reflecting specificity gains</h4>
+    <p class="case-study-intro">
+      For some domains the revised model produces fewer total
+      detections than the original, but the &ldquo;lost&rdquo; sequences are
+      reassigned to a different Pfam family rather than dropped &mdash;
+      the revised model is sharper at distinguishing the domain in its
+      canonical context from cross-reactive matches elsewhere.
+    </p>
+    <div class="case-study-grid">
+      <article class="case-study">
+        <h4>PF00612 &mdash; IQ calmodulin-binding motif</h4>
+        <p>
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00612/" rel="noopener">PF00612</a>
+          shows 646&nbsp;&rarr;&nbsp;554 detections (&minus;103). All 103
+          &ldquo;lost&rdquo; sequences are reassignments &mdash; 87 to a
+          different subcategory, 16 marginal-E rejections, zero strong-E
+          original-only. The IQ motif is a short (~25 aa) calmodulin-
+          binding signature shared across many calcium-signaling
+          proteins (myosins, IQGAP, neurogranin&hellip;); the
+          mollusc-revised model is sharper at calling IQ in its primary
+          calcium-signaling context and refusing cross-reactive matches
+          in unrelated proteins. No biological signal is dropped.
+        </p>
+      </article>
+      <article class="case-study">
+        <h4>PF12661 &mdash; hEGF (within-family disambiguation)</h4>
+        <p>
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF12661/" rel="noopener">PF12661</a>
+          shows 1,673&nbsp;&rarr;&nbsp;1,655 detections (&minus;18 net).
+          126 sequences appear to be lost, but 114 of them are
+          reassigned to a sibling EGF-family Pfam (PF00008 EGF,
+          PF07645 EGF_CA, PF09262 EGF_3&hellip;). The revised model
+          better separates hEGF from its closely-related EGF paralogs
+          rather than rejecting EGF-bearing proteins outright &mdash;
+          purely within-superfamily disambiguation.
+        </p>
+      </article>
+    </div>
+
+    <h4 class="case-study-heading">Genuine sensitivity reductions</h4>
+    <p class="case-study-intro">
+      A small number of domains show strong-E original-only detections
+      the revised model no longer captures. These tend to be families
+      where the original Pfam profile is broadly trained across taxa
+      and mollusc-specific re-training narrows the model in ways that
+      miss canonical-but-divergent homologs.
+    </p>
+    <div class="case-study-grid">
+      <article class="case-study">
+        <h4>PF07719 &mdash; TPR_2 (tetratricopeptide repeat)</h4>
+        <p>
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF07719/" rel="noopener">PF07719</a>
+          has the highest count of strong-E original-only detections in
+          the bundle: 1,218&nbsp;&rarr;&nbsp;1,056 (&minus;162 net), with
+          52 strong-E reductions. TPR is a 33-aa &alpha;-helical
+          protein-protein interaction motif found in &gt;100 distinct
+          protein families &mdash; cell-cycle regulators, mitochondrial
+          import receptors, Hsp70/Hsp90 cochaperones, peroxisomal
+          targeting receptors. Sequence conservation within TPR is low
+          while structural conservation is high; mollusc-specific re-
+          training appears to bias the profile toward mollusc-typical
+          TPR variants and miss canonical TPR-bearing proteins from
+          non-mollusc-specific contexts (the chaperone and
+          peroxisomal-import machinery in particular).
+        </p>
+      </article>
+      <article class="case-study">
+        <h4>PF00578 &mdash; AhpC-TSA (peroxiredoxin)</h4>
+        <p>
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00578/" rel="noopener">PF00578</a>
+          shows 222&nbsp;&rarr;&nbsp;161 detections (&minus;61, with
+          22 strong-E reductions). Peroxiredoxins are an ancient,
+          ubiquitous antioxidant family with very high structural
+          conservation but high sequence divergence across taxa, and
+          mollusc proteomes contain peroxiredoxin paralogs of likely
+          mitochondrial-symbiont ancestral origin. The revised HMM
+          appears biased toward the cytosolic mollusc-typical isoforms
+          and misses some of these conserved-but-divergent ancestral
+          variants.
         </p>
       </article>
     </div>
