@@ -1,191 +1,1058 @@
-accession	version	name	category
-PF00001	PF00001.27	7tm_1	GPCR
-PF00002	PF00002.30	7tm_2	GPCR
-PF00003	PF00003.29	7tm_3	GPCR
-PF00005	PF00005.34	ABC_tran	Detoxification
-PF00008	PF00008.34	EGF	Developmental_signaling
-PF00010	PF00010.32	HLH	Circadian
-PF00017	PF00017.31	SH2	Insulin_ILP
-PF00018	PF00018.35	SH3_1	Insulin_ILP
-PF00019	PF00019.26	TGF_beta	Developmental_signaling
-PF00023	PF00023.37	Ank	VGIC
-PF00027	PF00027.36	cNMP_binding	VGIC
-PF00035	PF00035.33	dsrm	RNA_editing
-PF00036	PF00036.39	EF-hand_1	Calcium_signaling
-PF00041	PF00041.28	fn3	RTK
-PF00043	PF00043.31	GST_C	Detoxification
-PF00046	PF00046.36	Homeodomain	Stem_cell
-PF00059	PF00059.28	Lectin_C	Innate_immunity
-PF00060	PF00060.33	Lig_chan	LGIC
-PF00062	PF00062.26	Lys	Antimicrobial_peptide
-PF00063	PF00063.28	Myosin_head	Pigmentation
-PF00067	PF00067.28	p450	Detoxification
-PF00069	PF00069.32	Pkinase	RTK
-PF00071	PF00071.29	Ras	MAPK
-PF00076	PF00076.29	RRM_1	NF_kB
-PF00077	PF00077.26	RVP	Innate_immunity
-PF00080	PF00080.26	Sod_Cu	Redox
-PF00081	PF00081.28	Sod_Fe_N	Redox
-PF00082	PF00082.28	Peptidase_S8	Neuropeptide_processing
-PF00084	PF00084.27	Sushi	Innate_immunity
-PF00085	PF00085.27	Thioredoxin	Redox
-PF00087	PF00087.28	Toxin_TOLIP	Toxin
-PF00092	PF00092.35	VWA	Shell_biomineralization
-PF00094	PF00094.31	VWD	Mucus
-PF00097	PF00097.32	zf-C3HC4	Ubiquitin_proteasome
-PF00098	PF00098.29	zf-CCHC	RNA_editing
-PF00102	PF00102.33	Y_phosphatase	RTK
-PF00104	PF00104.36	Hormone_recep	Nuclear_hormone_receptor
-PF00105	PF00105.25	zf-C4	Nuclear_hormone_receptor
-PF00111	PF00111.33	Fer2	Magnetoreception
-PF00144	PF00144.30	Beta-lactamase	Photoreception
-PF00145	PF00145.24	DNA_methylase	Epigenetic
-PF00147	PF00147.24	Fibrinogen_C	Mollusc_expanded
-PF00168	PF00168.37	C2	Synaptic
-PF00169	PF00169.36	PH	Insulin_ILP
-PF00176	PF00176.30	SNF2-rel_dom	Chromatin_remodeling
-PF00179	PF00179.32	UQ_con	Ubiquitin_proteasome
-PF00181	PF00181.31	Ribosomal_L2_N	Developmental_signaling
-PF00194	PF00194.27	Carb_anhydrase	Shell_biomineralization
-PF00209	PF00209.25	SNF	NT_transporter
-PF00210	PF00210.31	Ferritin	Hemolymph
-PF00211	PF00211.26	Guanylate_cyc	Second_messenger
-PF00233	PF00233.26	PDEase_I	Second_messenger
-PF00235	PF00235.26	Profilin	Shell_biomineralization
-PF00237	PF00237.25	Ribosomal_L22	NT_synthesis
-PF00240	PF00240.30	ubiquitin	Ubiquitin_proteasome
-PF00246	PF00246.30	Peptidase_M14	Neuropeptide_processing
-PF00266	PF00266.26	Aminotran_5	NT_synthesis
-PF00270	PF00270.36	DEAD	Circadian
-PF00271	PF00271.38	Helicase_C	Chromatin_remodeling
-PF00273	PF00273.26	Serum_albumin	cAMP_signaling
-PF00335	PF00335.27	Tetraspanin	Synaptic
-PF00337	PF00337.30	Gal-bind_lectin	Shell_biomineralization
-PF00339	PF00339.35	Arrestin_N	G_protein
-PF00350	PF00350.30	Dynamin_N	Endocytosis
-PF00372	PF00372.25	Hemocyanin_M	Hemolymph
-PF00379	PF00379.30	Chitin_bind_4	Shell_biomineralization
-PF00385	PF00385.31	Chromo	Epigenetic
-PF00386	PF00386.28	C1q	Innate_immunity
-PF00387	PF00387.26	PI-PLC-Y	Second_messenger
-PF00388	PF00388.26	PI-PLC-X	Second_messenger
-PF00394	PF00394.29	Cu-oxidase	Neuropeptide_processing
-PF00400	PF00400.39	WD40	G_protein
-PF00424	PF00424.24	REV	MAPK
-PF00433	PF00433.30	Pkinase_C	Second_messenger
-PF00439	PF00439.31	Bromodomain	Epigenetic
-PF00462	PF00462.31	Glutaredoxin	Redox
-PF00497	PF00497.26	SBP_bac_3	LGIC
-PF00503	PF00503.27	G-alpha	G_protein
-PF00520	PF00520.38	Ion_trans	VGIC
-PF00531	PF00531.29	Death	Innate_immunity
-PF00554	PF00554.28	RHD_DNA_bind	NF_kB
-PF00564	PF00564.31	PB1	NF_kB
-PF00571	PF00571.34	CBS	cAMP_signaling
-PF00578	PF00578.28	AhpC-TSA	Redox
-PF00604	PF00604.23	Flu_PB2_5th	Calcium_signaling
-PF00612	PF00612.34	IQ	VGIC
-PF00613	PF00613.27	PI3Ka	Insulin_ILP
-PF00614	PF00614.29	PLDc	Insulin_ILP
-PF00615	PF00615.25	RGS	G_protein
-PF00628	PF00628.36	PHD	Epigenetic
-PF00631	PF00631.28	G-gamma	G_protein
-PF00632	PF00632.31	HECT	Ubiquitin_proteasome
-PF00641	PF00641.24	Zn_ribbon_RanBP	Synaptic
-PF00648	PF00648.28	Peptidase_C2	Calcium_signaling
-PF00653	PF00653.28	BIR	Developmental_signaling
-PF00689	PF00689.27	Cation_ATPase_C	Calcium_signaling
-PF00694	PF00694.26	Aconitase_C	Calcium_signaling
-PF00753	PF00753.34	Lactamase_B	Learning_memory
-PF00757	PF00757.26	Furin-like	Insulin_ILP
-PF00855	PF00855.24	PWWP	Epigenetic
-PF00856	PF00856.34	SET	Epigenetic
-PF00858	PF00858.30	ASC	Mechanosensory
-PF00860	PF00860.27	Xan_ur_permease	Purinergic
-PF00883	PF00883.27	Peptidase_M17	Gap_junction
-PF00963	PF00963.25	Cohesin	Hedgehog
-PF00986	PF00986.27	DNA_gyraseB_C	mTOR
-PF00989	PF00989.32	PAS	Circadian
-PF01011	PF01011.29	PQQ	Learning_memory
-PF01054	PF01054.23	MMTV_SAg	Calcium_signaling
-PF01085	PF01085.24	HH_signal	Developmental_signaling
-PF01092	PF01092.25	Ribosomal_S6e	Detoxification
-PF01094	PF01094.35	ANF_receptor	LGIC
-PF01097	PF01097.25	Defensin_2	Antimicrobial_peptide
-PF01153	PF01153.26	Glypican	Hedgehog
-PF01207	PF01207.24	Dus	Endocytosis
-PF01227	PF01227.28	GTP_cyclohydroI	Neuropeptide_processing
-PF01302	PF01302.32	CAP_GLY	Notch
-PF01395	PF01395.28	PBP_GOBP	Chemoreception
-PF01403	PF01403.26	Sema	Axon_guidance
-PF01414	PF01414.26	DSL	Developmental_signaling
-PF01500	PF01500.23	Keratin_B2	Endocytosis
-PF01534	PF01534.24	Frizzled	GPCR
-PF01571	PF01571.27	GCV_T	Epigenetic
-PF01582	PF01582.26	TIR	Innate_immunity
-PF01699	PF01699.30	Na_Ca_ex	VGIC
-PF01759	PF01759.28	NTR	Axon_guidance
-PF01823	PF01823.25	MACPF	Complement
-PF01825	PF01825.28	GPS	GPCR
-PF01846	PF01846.26	FF	Hedgehog
-PF01853	PF01853.25	MOZ_SAS	Epigenetic
-PF01865	PF01865.22	PhoU_div	Shell_biomineralization
-PF02008	PF02008.26	zf-CXXC	Epigenetic
-PF02026	PF02026.22	RyR	Calcium_signaling
-PF02141	PF02141.27	DENN	Epigenetic
-PF02171	PF02171.24	Piwi	Epigenetic
-PF02295	PF02295.24	z-alpha	RNA_editing
-PF02373	PF02373.29	JmjC	Epigenetic
-PF02460	PF02460.25	Patched	Developmental_signaling
-PF02752	PF02752.28	Arrestin_C	G_protein
-PF02758	PF02758.23	PYRIN	Innate_immunity
-PF02767	PF02767.22	DNA_pol3_beta_2	Endocytosis
-PF02793	PF02793.28	HRM	GPCR
-PF02931	PF02931.29	Neur_chan_LBD	LGIC
-PF02932	PF02932.22	Neur_chan_memb	LGIC
-PF02950	PF02950.23	Conotoxin	Toxin
-PF03099	PF03099.25	BPL_LplA_LipB	Developmental_signaling
-PF03461	PF03461.21	TRCF	Magnetoreception
-PF03564	PF03564.22	DUF1759	MAPK
-PF03723	PF03723.21	Hemocyanin_C	Mollusc_expanded
-PF03907	PF03907.19	Spo7	NO_signaling
-PF03953	PF03953.23	Tubulin_C	Mollusc_expanded
-PF03983	PF03983.19	SHD1	Autophagy
-PF03987	PF03987.21	Autophagy_act_C	Autophagy
-PF04071	PF04071.18	zf-like	Chromatin_remodeling
-PF04712	PF04712.18	Radial_spoke	Synaptic
-PF05522	PF05522.17	Metallothio_6	JAK_STAT
-PF05729	PF05729.19	NACHT	Innate_immunity
-PF05739	PF05739.26	SNARE	Synaptic
-PF06011	PF06011.18	TRP	VGIC
-PF06335	PF06335.18	DUF1054	Notch
-PF06802	PF06802.16	DUF1231	Toxin
-PF07262	PF07262.18	CdiI	Antimicrobial_peptide
-PF07562	PF07562.21	NCD3G	GPCR
-PF07645	PF07645.22	EGF_CA	Developmental_signaling
-PF07654	PF07654.22	C1-set	RTK
-PF07657	PF07657.20	MNNL	Mucus
-PF07679	PF07679.23	I-set	RTK
-PF07690	PF07690.22	MFS_1	NT_transporter
-PF07700	PF07700.21	HNOB	NO_signaling
-PF07714	PF07714.24	PK_Tyr_Ser-Thr	RTK
-PF07862	PF07862.17	Nif11	Developmental_signaling
-PF07885	PF07885.23	Ion_trans_2	VGIC
-PF08078	PF08078.19	PsaX	Toxin
-PF08087	PF08087.17	Toxin_18	Toxin
-PF08236	PF08236.18	SRI	JAK_STAT
-PF08344	PF08344.17	TRP_2	VGIC
-PF08409	PF08409.17	TMTC_DUF1736	Complement
-PF08447	PF08447.19	PAS_3	Circadian
-PF10443	PF10443.16	RNA12	Autophagy
-PF10613	PF10613.15	Lig_chan-Glu_bd	LGIC
-PF10769	PF10769.15	DUF2594	Antimicrobial_peptide
-PF11601	PF11601.14	Shal-type	Hippo
-PF11870	PF11870.14	LutB_C	Calcium_signaling
-PF11872	PF11872.14	DUF3392	mTOR
-PF11922	PF11922.14	DUF3440	Hedgehog
-PF12838	PF12838.13	Fer4_7	Magnetoreception
-PF13366	PF13366.13	PDDEXK_3	Notch
-PF13499	PF13499.13	EF-hand_7	Calcium_signaling
-PF13855	PF13855.13	LRR_8	Innate_immunity
-PF15917	PF15917.12	Piezo_TM25-28	Mechanosensory
+accession	version	name	theme	subcategory
+PF00001	PF00001.27	7tm_1	01_sensory	01.1_photoreception
+PF00002	PF00002.30	7tm_2	01_sensory	01.1_photoreception
+PF00003	PF00003.29	7tm_3	01_sensory	01.1_photoreception
+PF00005	PF00005.34	ABC_tran	09_stress	09.5_pollution
+PF00008	PF00008.34	EGF	02_neural	02.5_axon_guidance
+PF00010	PF00010.32	HLH	02_neural	02.6_neurodevelopment
+PF00012	PF00012.27	HSP70	06_cellular	06.5_secretion_er
+PF00017	PF00017.31	SH2	04_signaling	04.2_pi3k_akt_mtor
+PF00018	PF00018.35	SH3_1	12_emerging	12.4_cellular_ag_muscle
+PF00019	PF00019.26	TGF_beta	07_stemcells	07.3_regeneration
+PF00020	PF00020.25	TNFR_c6	05_immunity	05.8_cytokines
+PF00023	PF00023.37	Ank	01_sensory	01.3_mechanosensation
+PF00026	PF00026.29	Asp	05_immunity	05.3_complement
+PF00028	PF00028.24	Cadherin	06_cellular	06.6_ecm_adhesion
+PF00029	PF00029.25	Connexin	12_emerging	12.5_cellular_ag_growth
+PF00035	PF00035.33	dsrm	10_epigenetics	10.6_rna_editing
+PF00036	PF00036.39	EF-hand_1	04_signaling	04.10_calcium
+PF00038	PF00038.27	Filament	02_neural	02.7_learning_memory
+PF00039	PF00039.25	fn1	03_endocrine	03.4_processing_enzymes
+PF00040	PF00040.25	fn2	03_endocrine	03.4_processing_enzymes
+PF00041	PF00041.28	fn3	02_neural	02.5_axon_guidance
+PF00043	PF00043.31	GST_C	09_stress	09.7_detox
+PF00045	PF00045.25	Hemopexin	01_sensory	01.7_proprioception
+PF00046	PF00046.36	Homeodomain	02_neural	02.6_neurodevelopment
+PF00048	PF00048.26	IL8	05_immunity	05.8_cytokines
+PF00052	PF00052.25	Laminin_B	06_cellular	06.6_ecm_adhesion
+PF00053	PF00053.31	EGF_laminin	11_mollusc	11.6_chromatophore_ink
+PF00054	PF00054.31	Laminin_G_1	06_cellular	06.6_ecm_adhesion
+PF00055	PF00055.24	Laminin_N	06_cellular	06.6_ecm_adhesion
+PF00059	PF00059.28	Lectin_C	05_immunity	05.4_lectins
+PF00060	PF00060.33	Lig_chan	01_sensory	01.2_chemoreception
+PF00061	PF00061.30	Lipocalin	11_mollusc	11.5_catch_muscle
+PF00062	PF00062.26	Lys	07_stemcells	07.3_regeneration
+PF00063	PF00063.28	Myosin_head	12_emerging	12.4_cellular_ag_muscle
+PF00066	PF00066.23	Notch	04_signaling	04.7_notch
+PF00067	PF00067.28	p450	01_sensory	01.2_chemoreception
+PF00069	PF00069.32	Pkinase	02_neural	02.7_learning_memory
+PF00071	PF00071.29	Ras	04_signaling	04.15_g_protein
+PF00076	PF00076.29	RRM_1	07_stemcells	07.4_germline
+PF00080	PF00080.26	Sod_Cu	09_stress	09.6_oxidative
+PF00081	PF00081.28	Sod_Fe_N	09_stress	09.6_oxidative
+PF00082	PF00082.28	Peptidase_S8	03_endocrine	03.4_processing_enzymes
+PF00083	PF00083.31	Sugar_tr	08_metabolism	08.3_glycogen
+PF00084	PF00084.27	Sushi	05_immunity	05.3_complement
+PF00087	PF00087.28	Toxin_TOLIP	12_emerging	12.6_cellular_ag_lipid
+PF00089	PF00089.33	Trypsin	05_immunity	05.3_complement
+PF00092	PF00092.35	VWA	05_immunity	05.3_complement
+PF00093	PF00093.25	VWC	06_cellular	06.6_ecm_adhesion
+PF00094	PF00094.31	VWD	07_stemcells	07.7_reproduction
+PF00096	PF00096.33	zf-C2H2	02_neural	02.6_neurodevelopment
+PF00100	PF00100.30	Zona_pellucida	07_stemcells	07.7_reproduction
+PF00104	PF00104.36	Hormone_recep	03_endocrine	03.2_nhrs
+PF00105	PF00105.25	zf-C4	03_endocrine	03.2_nhrs
+PF00107	PF00107.33	ADH_zinc_N	06_cellular	06.9_endocytosis
+PF00110	PF00110.25	wnt	04_signaling	04.6_wnt
+PF00112	PF00112.30	Peptidase_C1	11_mollusc	11.8_radula_teeth
+PF00118	PF00118.30	Cpn60_TCP1	09_stress	09.3_thermal
+PF00120	PF00120.30	Gln-synt_C	08_metabolism	08.2_amino_acid
+PF00121	PF00121.25	TIM	04_signaling	04.2_pi3k_akt_mtor
+PF00122	PF00122.26	E1-E2_ATPase	09_stress	09.4_salinity
+PF00129	PF00129.24	MHC_I	03_endocrine	03.1_gpcrs
+PF00131	PF00131.26	Metallothio	09_stress	09.7_detox
+PF00132	PF00132.31	Hexapep	01_sensory	01.3_mechanosensation
+PF00134	PF00134.29	Cyclin_N	06_cellular	06.1_cell_cycle
+PF00143	PF00143.25	Interferon	02_neural	02.4_synapse
+PF00145	PF00145.24	DNA_methylase	09_stress	09.2_acidification
+PF00147	PF00147.24	Fibrinogen_C	05_immunity	05.5_freps
+PF00149	PF00149.34	Metallophos	02_neural	02.7_learning_memory
+PF00155	PF00155.28	Aminotran_1_2	02_neural	02.3_neurotransmitter
+PF00156	PF00156.34	Pribosyltran	07_stemcells	07.5_embryogenesis
+PF00157	PF00157.24	Pou	07_stemcells	07.1_pluripotency
+PF00166	PF00166.27	Cpn10	04_signaling	04.1_mapk
+PF00169	PF00169.36	PH	04_signaling	04.3_jak_stat
+PF00170	PF00170.27	bZIP_1	09_stress	09.6_oxidative
+PF00175	PF00175.27	NAD_binding_1	04_signaling	04.11_no
+PF00176	PF00176.30	SNF2-rel_dom	05_immunity	05.6_srcr
+PF00179	PF00179.32	UQ_con	06_cellular	06.4_ubiquitin
+PF00183	PF00183.24	HSP90	09_stress	09.3_thermal
+PF00186	PF00186.25	DHFR_1	10_epigenetics	10.5_chromatin_remodel
+PF00187	PF00187.25	Chitin_bind_1	05_immunity	05.1_prr
+PF00188	PF00188.33	CAP	12_emerging	12.8_aquaculture_pathology
+PF00194	PF00194.27	Carb_anhydrase	03_endocrine	03.4_processing_enzymes
+PF00197	PF00197.25	Kunitz_legume	06_cellular	06.4_ubiquitin
+PF00199	PF00199.25	Catalase	09_stress	09.6_oxidative
+PF00200	PF00200.29	Disintegrin	06_cellular	06.6_ecm_adhesion
+PF00207	PF00207.29	A2M	05_immunity	05.3_complement
+PF00209	PF00209.25	SNF	12_emerging	12.7_cellular_ag_flavor
+PF00210	PF00210.31	Ferritin	01_sensory	01.4_magnetoreception
+PF00211	PF00211.26	Guanylate_cyc	04_signaling	04.12_camp_cgmp
+PF00214	PF00214.25	Calc_CGRP_IAPP	08_metabolism	08.2_amino_acid
+PF00225	PF00225.30	Kinesin	06_cellular	06.7_cilia
+PF00227	PF00227.32	Proteasome	06_cellular	06.4_ubiquitin
+PF00229	PF00229.25	TNF	05_immunity	05.8_cytokines
+PF00230	PF00230.26	MIP	09_stress	09.4_salinity
+PF00240	PF00240.30	ubiquitin	04_signaling	04.5_nfkb
+PF00241	PF00241.26	Cofilin_ADF	01_sensory	01.1_photoreception
+PF00246	PF00246.30	Peptidase_M14	03_endocrine	03.4_processing_enzymes
+PF00251	PF00251.27	Glyco_hydro_32N	06_cellular	06.4_ubiquitin
+PF00255	PF00255.26	GSHPx	09_stress	09.6_oxidative
+PF00258	PF00258.31	Flavodoxin_1	04_signaling	04.11_no
+PF00261	PF00261.26	Tropomyosin	11_mollusc	11.10_allergens
+PF00264	PF00264.26	Tyrosinase	08_metabolism	08.4_o2_transport
+PF00270	PF00270.36	DEAD	05_immunity	05.1_prr
+PF00271	PF00271.38	Helicase_C	07_stemcells	07.4_germline
+PF00275	PF00275.26	EPSP_synthase	10_epigenetics	10.8_ncrna
+PF00282	PF00282.26	Pyridoxal_deC	02_neural	02.3_neurotransmitter
+PF00292	PF00292.25	PAX	07_stemcells	07.2_cell_fate
+PF00300	PF00300.28	His_Phos_1	02_neural	02.3_neurotransmitter
+PF00305	PF00305.25	Lipoxygenase	04_signaling	04.14_eicosanoid
+PF00306	PF00306.33	ATP-synt_ab_C	09_stress	09.1_hypoxia
+PF00307	PF00307.37	CH	12_emerging	12.4_cellular_ag_muscle
+PF00309	PF00309.26	Sigma54_AID	04_signaling	04.4_hippo
+PF00323	PF00323.25	Defensin_1	05_immunity	05.2_amp
+PF00332	PF00332.25	Glyco_hydro_17	06_cellular	06.6_ecm_adhesion
+PF00335	PF00335.27	Tetraspanin	06_cellular	06.10_tetraspanins
+PF00337	PF00337.30	Gal-bind_lectin	05_immunity	05.4_lectins
+PF00339	PF00339.35	Arrestin_N	06_cellular	06.9_endocytosis
+PF00343	PF00343.27	Phosphorylase	08_metabolism	08.3_glycogen
+PF00349	PF00349.28	Hexokinase_1	08_metabolism	08.3_glycogen
+PF00350	PF00350.30	Dynamin_N	06_cellular	06.9_endocytosis
+PF00351	PF00351.27	Biopterin_H	02_neural	02.3_neurotransmitter
+PF00354	PF00354.25	Pentaxin	05_immunity	05.5_freps
+PF00357	PF00357.26	Integrin_alpha	04_signaling	04.15_g_protein
+PF00362	PF00362.25	Integrin_beta	04_signaling	04.15_g_protein
+PF00372	PF00372.25	Hemocyanin_M	08_metabolism	08.4_o2_transport
+PF00379	PF00379.30	Chitin_bind_4	11_mollusc	11.3_byssus_adhesion
+PF00380	PF00380.26	Ribosomal_S9	08_metabolism	08.2_amino_acid
+PF00385	PF00385.31	Chromo	10_epigenetics	10.4_histone_readers
+PF00386	PF00386.28	C1q	05_immunity	05.4_lectins
+PF00387	PF00387.26	PI-PLC-Y	04_signaling	04.16_second_messenger
+PF00388	PF00388.26	PI-PLC-X	04_signaling	04.16_second_messenger
+PF00397	PF00397.33	WW	04_signaling	04.4_hippo
+PF00400	PF00400.39	WD40	04_signaling	04.15_g_protein
+PF00403	PF00403.33	HMA	08_metabolism	08.5_iron_metal
+PF00405	PF00405.23	Transferrin	08_metabolism	08.5_iron_metal
+PF00407	PF00407.26	Bet_v_1	12_emerging	12.7_cellular_ag_flavor
+PF00431	PF00431.27	CUB	11_mollusc	11.13_apextrin
+PF00433	PF00433.30	Pkinase_C	04_signaling	04.16_second_messenger
+PF00439	PF00439.31	Bromodomain	10_epigenetics	10.4_histone_readers
+PF00443	PF00443.36	UCH	06_cellular	06.4_ubiquitin
+PF00452	PF00452.25	Bcl-2	06_cellular	06.2_apoptosis
+PF00454	PF00454.34	PI3_PI4_kinase	04_signaling	04.12_camp_cgmp
+PF00484	PF00484.25	Pro_CA	09_stress	09.2_acidification
+PF00487	PF00487.31	FA_desaturase	09_stress	09.3_thermal
+PF00489	PF00489.23	IL6	05_immunity	05.8_cytokines
+PF00491	PF00491.27	Arginase	08_metabolism	08.2_amino_acid
+PF00503	PF00503.27	G-alpha	04_signaling	04.15_g_protein
+PF00505	PF00505.26	HMG_box	04_signaling	04.6_wnt
+PF00514	PF00514.30	Arm	04_signaling	04.6_wnt
+PF00515	PF00515.35	TPR_1	02_neural	02.7_learning_memory
+PF00519	PF00519.24	PPV_E1_C	01_sensory	01.6_nociception
+PF00520	PF00520.38	Ion_trans	01_sensory	01.5_thermoreception
+PF00530	PF00530.24	SRCR	05_immunity	05.6_srcr
+PF00531	PF00531.29	Death	05_immunity	05.7_apoptosis_immune
+PF00536	PF00536.38	SAM_1	02_neural	02.5_axon_guidance
+PF00537	PF00537.25	Toxin_3	05_immunity	05.2_amp
+PF00554	PF00554.28	RHD_DNA_bind	04_signaling	04.5_nfkb
+PF00560	PF00560.40	LRR_1	05_immunity	05.1_prr
+PF00567	PF00567.31	TUDOR	10_epigenetics	10.4_histone_readers
+PF00578	PF00578.28	AhpC-TSA	09_stress	09.6_oxidative
+PF00583	PF00583.32	Acetyltransf_1	10_epigenetics	10.2_histone_writers
+PF00595	PF00595.30	PDZ	04_signaling	04.6_wnt
+PF00610	PF00610.28	DEP	04_signaling	04.6_wnt
+PF00612	PF00612.34	IQ	01_sensory	01.1_photoreception
+PF00613	PF00613.27	PI3Ka	04_signaling	04.2_pi3k_akt_mtor
+PF00614	PF00614.29	PLDc	06_cellular	06.2_apoptosis
+PF00615	PF00615.25	RGS	04_signaling	04.15_g_protein
+PF00619	PF00619.28	CARD	05_immunity	05.7_apoptosis_immune
+PF00622	PF00622.37	SPRY	06_cellular	06.4_ubiquitin
+PF00628	PF00628.36	PHD	10_epigenetics	10.4_histone_readers
+PF00631	PF00631.28	G-gamma	04_signaling	04.15_g_protein
+PF00632	PF00632.31	HECT	06_cellular	06.4_ubiquitin
+PF00637	PF00637.27	Clathrin	06_cellular	06.9_endocytosis
+PF00641	PF00641.24	Zn_ribbon_RanBP	09_stress	09.5_pollution
+PF00648	PF00648.28	Peptidase_C2	04_signaling	04.10_calcium
+PF00651	PF00651.38	BTB	09_stress	09.6_oxidative
+PF00652	PF00652.29	Ricin_B_lectin	05_immunity	05.4_lectins
+PF00653	PF00653.28	BIR	05_immunity	05.7_apoptosis_immune
+PF00656	PF00656.28	Peptidase_C14	05_immunity	05.7_apoptosis_immune
+PF00657	PF00657.29	Lipase_GDSL	12_emerging	12.5_cellular_ag_growth
+PF00664	PF00664.29	ABC_membrane	09_stress	09.7_detox
+PF00667	PF00667.27	FAD_binding_1	04_signaling	04.11_no
+PF00688	PF00688.25	TGFb_propeptide	04_signaling	04.9_tgfbeta
+PF00728	PF00728.29	Glyco_hydro_20	02_neural	02.5_axon_guidance
+PF00735	PF00735.25	Septin	04_signaling	04.3_jak_stat
+PF00754	PF00754.32	F5_F8_type_C	05_immunity	05.4_lectins
+PF00757	PF00757.26	Furin-like	03_endocrine	03.4_processing_enzymes
+PF00764	PF00764.26	Arginosuc_synth	08_metabolism	08.2_amino_acid
+PF00778	PF00778.24	DIX	04_signaling	04.6_wnt
+PF00792	PF00792.31	PI3K_C2	04_signaling	04.2_pi3k_akt_mtor
+PF00794	PF00794.25	PI3K_rbd	04_signaling	04.2_pi3k_akt_mtor
+PF00800	PF00800.24	PDT	06_cellular	06.3_autophagy
+PF00810	PF00810.24	ER_lumen_recept	04_signaling	04.10_calcium
+PF00812	PF00812.24	Ephrin	02_neural	02.5_axon_guidance
+PF00850	PF00850.25	Hist_deacetyl	10_epigenetics	10.3_histone_erasers
+PF00855	PF00855.24	PWWP	10_epigenetics	10.1_dna_meth
+PF00856	PF00856.34	SET	10_epigenetics	10.2_histone_writers
+PF00858	PF00858.30	ASC	01_sensory	01.6_nociception
+PF00864	PF00864.25	P2X_receptor	01_sensory	01.6_nociception
+PF00875	PF00875.25	DNA_photolyase	12_emerging	12.3_circadian_behavior
+PF00879	PF00879.24	Defensin_propep	05_immunity	05.2_amp
+PF00883	PF00883.27	Peptidase_M17	09_stress	09.2_acidification
+PF00899	PF00899.28	ThiF	06_cellular	06.4_ubiquitin
+PF00907	PF00907.28	T-box	07_stemcells	07.5_embryogenesis
+PF00917	PF00917.33	MATH	06_cellular	06.4_ubiquitin
+PF00924	PF00924.25	MS_channel_2nd	01_sensory	01.7_proprioception
+PF00943	PF00943.26	Alpha_E2_glycop	05_immunity	05.2_amp
+PF00955	PF00955.28	HCO3_cotransp	09_stress	09.2_acidification
+PF00956	PF00956.24	NAP	09_stress	09.2_acidification
+PF00958	PF00958.28	GMP_synt_C	09_stress	09.2_acidification
+PF00969	PF00969.25	MHC_II_beta	03_endocrine	03.1_gpcrs
+PF00975	PF00975.27	Thioesterase	11_mollusc	11.5_catch_muscle
+PF00986	PF00986.27	DNA_gyraseB_C	02_neural	02.4_synapse
+PF00989	PF00989.32	PAS	09_stress	09.5_pollution
+PF00992	PF00992.26	Troponin	12_emerging	12.4_cellular_ag_muscle
+PF00993	PF00993.26	MHC_II_alpha	03_endocrine	03.1_gpcrs
+PF00995	PF00995.29	Sec1	02_neural	02.4_synapse
+PF00996	PF00996.25	GDI	02_neural	02.4_synapse
+PF00999	PF00999.27	Na_H_Exchanger	09_stress	09.2_acidification
+PF01007	PF01007.27	IRK	02_neural	02.2_vgic
+PF01017	PF01017.27	STAT_alpha	04_signaling	04.3_jak_stat
+PF01027	PF01027.27	Bax1-I	05_immunity	05.7_apoptosis_immune
+PF01036	PF01036.25	Bac_rhodopsin	01_sensory	01.3_mechanosensation
+PF01049	PF01049.23	CADH_Y-type_LIR	06_cellular	06.3_autophagy
+PF01061	PF01061.30	ABC2_membrane	09_stress	09.7_detox
+PF01063	PF01063.25	Aminotran_4	05_immunity	05.2_amp
+PF01064	PF01064.31	Activin_recp	04_signaling	04.9_tgfbeta
+PF01067	PF01067.29	Calpain_III	04_signaling	04.10_calcium
+PF01068	PF01068.27	DNA_ligase_A_M	04_signaling	04.10_calcium
+PF01079	PF01079.26	Hint	04_signaling	04.8_hedgehog
+PF01082	PF01082.26	Cu2_monooxygen	03_endocrine	03.4_processing_enzymes
+PF01083	PF01083.29	Cutinase	12_emerging	12.5_cellular_ag_growth
+PF01085	PF01085.24	HH_signal	04_signaling	04.8_hedgehog
+PF01086	PF01086.23	Clathrin_lg_ch	06_cellular	06.9_endocytosis
+PF01094	PF01094.35	ANF_receptor	01_sensory	01.2_chemoreception
+PF01097	PF01097.25	Defensin_2	05_immunity	05.2_amp
+PF01098	PF01098.25	FTSW_RODA_SPOVE	06_cellular	06.9_endocytosis
+PF01108	PF01108.24	Tissue_fac	05_immunity	05.8_cytokines
+PF01115	PF01115.23	F_actin_cap_B	04_signaling	04.15_g_protein
+PF01122	PF01122.26	Cobalamin_bind	01_sensory	01.1_photoreception
+PF01124	PF01124.24	MAPEG	04_signaling	04.14_eicosanoid
+PF01127	PF01127.28	Sdh_cyt	09_stress	09.1_hypoxia
+PF01146	PF01146.23	Caveolin	06_cellular	06.9_endocytosis
+PF01150	PF01150.24	GDA1_CD39	04_signaling	04.13_purinergic
+PF01160	PF01160.24	Opiods_neuropep	03_endocrine	03.3_neuropeptides
+PF01207	PF01207.24	Dus	06_cellular	06.9_endocytosis
+PF01220	PF01220.25	DHquinase_II	04_signaling	04.16_second_messenger
+PF01267	PF01267.23	F-actin_cap_A	04_signaling	04.15_g_protein
+PF01287	PF01287.27	eIF-5a	01_sensory	01.1_photoreception
+PF01303	PF01303.24	Egg_lysin	07_stemcells	07.7_reproduction
+PF01314	PF01314.24	AFOR_C	07_stemcells	07.3_regeneration
+PF01344	PF01344.32	Kelch_1	09_stress	09.6_oxidative
+PF01347	PF01347.29	Vitellogenin_N	07_stemcells	07.7_reproduction
+PF01351	PF01351.26	RNase_HII	12_emerging	12.1_symbiosis
+PF01363	PF01363.28	FYVE	06_cellular	06.3_autophagy
+PF01389	PF01389.24	OmpA_membrane	02_neural	02.2_vgic
+PF01391	PF01391.24	Collagen	06_cellular	06.6_ecm_adhesion
+PF01395	PF01395.28	PBP_GOBP	01_sensory	01.2_chemoreception
+PF01399	PF01399.34	PCI	06_cellular	06.5_secretion_er
+PF01403	PF01403.26	Sema	02_neural	02.5_axon_guidance
+PF01404	PF01404.26	Ephrin_lbd	02_neural	02.5_axon_guidance
+PF01410	PF01410.24	COLFI	06_cellular	06.6_ecm_adhesion
+PF01413	PF01413.26	C4	03_endocrine	03.4_processing_enzymes
+PF01414	PF01414.26	DSL	04_signaling	04.7_notch
+PF01419	PF01419.23	Jacalin	05_immunity	05.4_lectins
+PF01426	PF01426.25	BAH	08_metabolism	08.2_amino_acid
+PF01429	PF01429.26	MBD	10_epigenetics	10.1_dna_meth
+PF01437	PF01437.32	PSI	02_neural	02.5_axon_guidance
+PF01439	PF01439.24	Metallothio_2	09_stress	09.8_metals
+PF01459	PF01459.29	Porin_3	02_neural	02.3_neurotransmitter
+PF01483	PF01483.28	P_proprotein	03_endocrine	03.4_processing_enzymes
+PF01484	PF01484.23	Col_cuticle_N	11_mollusc	11.3_byssus_adhesion
+PF01486	PF01486.23	K-box	07_stemcells	07.2_cell_fate
+PF01501	PF01501.27	Glyco_transf_8	08_metabolism	08.3_glycogen
+PF01510	PF01510.31	Amidase_2	12_emerging	12.8_aquaculture_pathology
+PF01512	PF01512.23	Complex1_51K	09_stress	09.1_hypoxia
+PF01534	PF01534.24	Frizzled	03_endocrine	03.1_gpcrs
+PF01537	PF01537.24	Herpes_glycop_D	07_stemcells	07.3_regeneration
+PF01549	PF01549.30	ShK	11_mollusc	11.9_venoms
+PF01553	PF01553.27	Acyltransferase	04_signaling	04.13_purinergic
+PF01562	PF01562.25	Pep_M12B_propep	04_signaling	04.6_wnt
+PF01565	PF01565.29	FAD_binding_4	12_emerging	12.4_cellular_ag_muscle
+PF01576	PF01576.25	Myosin_tail_1	11_mollusc	11.10_allergens
+PF01582	PF01582.26	TIR	04_signaling	04.5_nfkb
+PF01586	PF01586.22	Basic	07_stemcells	07.2_cell_fate
+PF01593	PF01593.31	Amino_oxidase	10_epigenetics	10.3_histone_erasers
+PF01602	PF01602.27	Adaptin_N	06_cellular	06.9_endocytosis
+PF01607	PF01607.30	CBM_14	11_mollusc	11.1_biomineralization
+PF01618	PF01618.22	MotA_ExbB	02_neural	02.2_vgic
+PF01645	PF01645.24	Glu_synthase	12_emerging	12.7_cellular_ag_flavor
+PF01652	PF01652.25	IF4E	04_signaling	04.4_hippo
+PF01741	PF01741.24	MscL	02_neural	02.2_vgic
+PF01759	PF01759.28	NTR	05_immunity	05.3_complement
+PF01784	PF01784.25	DUF34_NIF3	04_signaling	04.4_hippo
+PF01793	PF01793.23	Glyco_transf_15	06_cellular	06.9_endocytosis
+PF01814	PF01814.29	Hemerythrin	08_metabolism	08.4_o2_transport
+PF01821	PF01821.24	ANATO	05_immunity	05.3_complement
+PF01823	PF01823.25	MACPF	05_immunity	05.3_complement
+PF01825	PF01825.28	GPS	03_endocrine	03.1_gpcrs
+PF01826	PF01826.24	TIL	11_mollusc	11.2_mucus
+PF01839	PF01839.30	FG-GAP	11_mollusc	11.8_radula_teeth
+PF01853	PF01853.25	MOZ_SAS	10_epigenetics	10.2_histone_writers
+PF01857	PF01857.26	RB_B	06_cellular	06.1_cell_cycle
+PF01858	PF01858.23	RB_A	06_cellular	06.1_cell_cycle
+PF01906	PF01906.24	YbjQ_1	08_metabolism	08.5_iron_metal
+PF02008	PF02008.26	zf-CXXC	10_epigenetics	10.1_dna_meth
+PF02060	PF02060.21	ISK_Channel	01_sensory	01.5_thermoreception
+PF02066	PF02066.21	Metallothio_11	08_metabolism	08.5_iron_metal
+PF02067	PF02067.22	Metallothio_5	08_metabolism	08.5_iron_metal
+PF02101	PF02101.22	Ocular_alb	03_endocrine	03.1_gpcrs
+PF02116	PF02116.21	STE2	04_signaling	04.4_hippo
+PF02117	PF02117.23	7TM_GPCR_Sra	03_endocrine	03.4_processing_enzymes
+PF02137	PF02137.25	A_deamin	10_epigenetics	10.6_rna_editing
+PF02146	PF02146.24	SIR2	10_epigenetics	10.3_histone_erasers
+PF02148	PF02148.26	zf-UBP	06_cellular	06.4_ubiquitin
+PF02149	PF02149.26	KA1	04_signaling	04.10_calcium
+PF02155	PF02155.21	GCR	03_endocrine	03.2_nhrs
+PF02165	PF02165.21	WT1	02_neural	02.7_learning_memory
+PF02170	PF02170.29	PAZ	10_epigenetics	10.7_pirna
+PF02171	PF02171.24	Piwi	07_stemcells	07.4_germline
+PF02175	PF02175.23	7TM_GPCR_Srb	03_endocrine	03.4_processing_enzymes
+PF02180	PF02180.23	BH4	06_cellular	06.2_apoptosis
+PF02189	PF02189.21	ITAM	04_signaling	04.7_notch
+PF02191	PF02191.24	OLF	11_mollusc	11.11_olfactomedin
+PF02192	PF02192.23	PI3K_p85B	04_signaling	04.2_pi3k_akt_mtor
+PF02195	PF02195.27	ParB_N	02_neural	02.2_vgic
+PF02196	PF02196.23	RBD	04_signaling	04.1_mapk
+PF02210	PF02210.32	Laminin_G_2	06_cellular	06.6_ecm_adhesion
+PF02218	PF02218.21	HS1_rep	04_signaling	04.15_g_protein
+PF02228	PF02228.22	Gag_p19	06_cellular	06.9_endocytosis
+PF02259	PF02259.30	FAT	06_cellular	06.1_cell_cycle
+PF02260	PF02260.26	FATC	06_cellular	06.1_cell_cycle
+PF02295	PF02295.24	z-alpha	10_epigenetics	10.6_rna_editing
+PF02296	PF02296.23	Alpha_adaptin_C	06_cellular	06.9_endocytosis
+PF02323	PF02323.21	ELH	03_endocrine	03.3_neuropeptides
+PF02331	PF02331.21	P35	05_immunity	05.7_apoptosis_immune
+PF02373	PF02373.29	JmjC	10_epigenetics	10.3_histone_erasers
+PF02377	PF02377.21	Dishevelled	04_signaling	04.6_wnt
+PF02395	PF02395.23	Peptidase_S6	05_immunity	05.3_complement
+PF02420	PF02420.21	AFP	04_signaling	04.15_g_protein
+PF02442	PF02442.23	L1R_F9L	05_immunity	05.9_apextrin
+PF02446	PF02446.24	Glyco_hydro_77	08_metabolism	08.3_glycogen
+PF02518	PF02518.32	HATPase_c	09_stress	09.3_thermal
+PF02560	PF02560.20	Cyanate_lyase	04_signaling	04.13_purinergic
+PF02585	PF02585.23	PIG-L	09_stress	09.7_detox
+PF02592	PF02592.21	Vut_1	08_metabolism	08.2_amino_acid
+PF02653	PF02653.22	BPD_transp_2	09_stress	09.4_salinity
+PF02668	PF02668.23	TauD	08_metabolism	08.2_amino_acid
+PF02702	PF02702.24	KdpD	02_neural	02.2_vgic
+PF02713	PF02713.21	DUF220	10_epigenetics	10.3_histone_erasers
+PF02714	PF02714.21	RSN1_7TM	02_neural	02.2_vgic
+PF02729	PF02729.27	OTCace_N	08_metabolism	08.2_amino_acid
+PF02736	PF02736.26	Myosin_N	12_emerging	12.4_cellular_ag_muscle
+PF02752	PF02752.28	Arrestin_C	06_cellular	06.9_endocytosis
+PF02758	PF02758.23	PYRIN	05_immunity	05.7_apoptosis_immune
+PF02777	PF02777.24	Sod_Fe_C	09_stress	09.6_oxidative
+PF02786	PF02786.23	CPSase_L_D2	08_metabolism	08.2_amino_acid
+PF02798	PF02798.27	GST_N	09_stress	09.7_detox
+PF02801	PF02801.29	Ketoacyl-synt_C	08_metabolism	08.4_o2_transport
+PF02805	PF02805.22	Ada_Zn_binding	08_metabolism	08.3_glycogen
+PF02861	PF02861.26	Clp_N	12_emerging	12.2_aging
+PF02864	PF02864.21	STAT_bind	04_signaling	04.3_jak_stat
+PF02872	PF02872.24	5_nucleotid_C	04_signaling	04.13_purinergic
+PF02882	PF02882.26	THF_DHG_CYH_C	08_metabolism	08.2_amino_acid
+PF02886	PF02886.24	LBP_BPI_CETP_C	05_immunity	05.2_amp
+PF02888	PF02888.22	CaMBD	04_signaling	04.10_calcium
+PF02898	PF02898.21	NO_synthase	02_neural	02.7_learning_memory
+PF02907	PF02907.22	Peptidase_S29	10_epigenetics	10.4_histone_readers
+PF02931	PF02931.29	Neur_chan_LBD	02_neural	02.1_lgic
+PF02932	PF02932.22	Neur_chan_memb	02_neural	02.1_lgic
+PF02949	PF02949.26	7tm_6	01_sensory	01.2_chemoreception
+PF02950	PF02950.23	Conotoxin	11_mollusc	11.9_venoms
+PF02978	PF02978.27	SRP_SPB	07_stemcells	07.3_regeneration
+PF02984	PF02984.25	Cyclin_C	06_cellular	06.1_cell_cycle
+PF02986	PF02986.20	Fn_bind	04_signaling	04.15_g_protein
+PF03031	PF03031.25	NIF	04_signaling	04.4_hippo
+PF03068	PF03068.21	PAD	02_neural	02.7_learning_memory
+PF03089	PF03089.21	RAG2	02_neural	02.3_neurotransmitter
+PF03162	PF03162.19	Y_phosphatase2	10_epigenetics	10.2_histone_writers
+PF03165	PF03165.23	MH1	04_signaling	04.9_tgfbeta
+PF03166	PF03166.20	MH2	04_signaling	04.9_tgfbeta
+PF03185	PF03185.21	CaKB	02_neural	02.2_vgic
+PF03188	PF03188.22	Cytochrom_B561	06_cellular	06.2_apoptosis
+PF03199	PF03199.22	GSH_synthase	02_neural	02.7_learning_memory
+PF03223	PF03223.21	V-ATPase_C	09_stress	09.2_acidification
+PF03272	PF03272.19	Mucin_bdg	08_metabolism	08.3_glycogen
+PF03344	PF03344.21	Daxx	10_epigenetics	10.6_rna_editing
+PF03368	PF03368.20	Dicer_dimer	10_epigenetics	10.8_ncrna
+PF03392	PF03392.19	OS-D	01_sensory	01.2_chemoreception
+PF03405	PF03405.21	FA_desaturase_2	12_emerging	12.6_cellular_ag_lipid
+PF03416	PF03416.26	Peptidase_C54	06_cellular	06.3_autophagy
+PF03441	PF03441.20	FAD_binding_7	12_emerging	12.3_circadian_behavior
+PF03481	PF03481.20	Sua5_C	02_neural	02.3_neurotransmitter
+PF03482	PF03482.19	SIC	02_neural	02.3_neurotransmitter
+PF03491	PF03491.19	5HT_transport_N	02_neural	02.3_neurotransmitter
+PF03493	PF03493.24	BK_channel_a	02_neural	02.2_vgic
+PF03520	PF03520.20	KCNQ_channel	01_sensory	01.5_thermoreception
+PF03521	PF03521.20	Kv2channel	01_sensory	01.5_thermoreception
+PF03529	PF03529.19	TF_Otx	07_stemcells	07.5_embryogenesis
+PF03530	PF03530.20	SK_channel	02_neural	02.2_vgic
+PF03595	PF03595.23	SLAC1	02_neural	02.2_vgic
+PF03722	PF03722.20	Hemocyanin_N	08_metabolism	08.4_o2_transport
+PF03723	PF03723.21	Hemocyanin_C	08_metabolism	08.4_o2_transport
+PF03724	PF03724.23	META	09_stress	09.2_acidification
+PF03727	PF03727.23	Hexokinase_2	08_metabolism	08.3_glycogen
+PF03741	PF03741.23	TerC	01_sensory	01.5_thermoreception
+PF03753	PF03753.18	HHV6-IE	12_emerging	12.8_aquaculture_pathology
+PF03815	PF03815.25	LCCL	05_immunity	05.4_lectins
+PF03896	PF03896.22	TRAP_alpha	04_signaling	04.2_pi3k_akt_mtor
+PF03913	PF03913.18	Ragweed_pollen	11_mollusc	11.10_allergens
+PF03915	PF03915.19	AIP3	10_epigenetics	10.6_rna_editing
+PF03917	PF03917.24	GSH_synth_ATP	02_neural	02.7_learning_memory
+PF03951	PF03951.25	Gln-synt_N	12_emerging	12.7_cellular_ag_flavor
+PF03984	PF03984.20	DUF346	06_cellular	06.3_autophagy
+PF03987	PF03987.21	Autophagy_act_C	06_cellular	06.3_autophagy
+PF04106	PF04106.19	ATG5_UblB	06_cellular	06.3_autophagy
+PF04111	PF04111.18	APG6	06_cellular	06.3_autophagy
+PF04119	PF04119.18	HSP9_HSP12	09_stress	09.3_thermal
+PF04145	PF04145.21	Ctr	08_metabolism	08.5_iron_metal
+PF04212	PF04212.25	MIT	06_cellular	06.7_cilia
+PF04219	PF04219.18	DUF413	11_mollusc	11.12_mollusc_dufs
+PF04366	PF04366.18	Ysc84	04_signaling	04.15_g_protein
+PF04384	PF04384.19	Fe-S_assembly	01_sensory	01.4_magnetoreception
+PF04538	PF04538.18	BEX	02_neural	02.8_cephalopod_cns
+PF04564	PF04564.22	U-box	06_cellular	06.4_ubiquitin
+PF04577	PF04577.20	Glyco_transf_61	06_cellular	06.5_secretion_er
+PF04603	PF04603.19	Mog1	10_epigenetics	10.6_rna_editing
+PF04670	PF04670.19	Gtr1_RagA	04_signaling	04.2_pi3k_akt_mtor
+PF04938	PF04938.18	SIP1	10_epigenetics	10.6_rna_editing
+PF04954	PF04954.19	SIP	10_epigenetics	10.6_rna_editing
+PF04960	PF04960.21	Glutaminase	12_emerging	12.7_cellular_ag_flavor
+PF05004	PF05004.20	IFRD	04_signaling	04.15_g_protein
+PF05093	PF05093.19	CIAPIN1	05_immunity	05.7_apoptosis_immune
+PF05217	PF05217.17	SAXO1-2	02_neural	02.5_axon_guidance
+PF05296	PF05296.20	TAS2R	01_sensory	01.2_chemoreception
+PF05350	PF05350.18	GSK-3_bind	04_signaling	04.6_wnt
+PF05374	PF05374.18	Mu-conotoxin	11_mollusc	11.9_venoms
+PF05422	PF05422.18	SIN1	04_signaling	04.12_camp_cgmp
+PF05431	PF05431.17	Toxin_10	11_mollusc	11.9_venoms
+PF05454	PF05454.17	DAG1	11_mollusc	11.8_radula_teeth
+PF05466	PF05466.18	BASP1	02_neural	02.8_cephalopod_cns
+PF05483	PF05483.18	SCP-1	05_immunity	05.9_apextrin
+PF05552	PF05552.18	MS_channel_1st_1	02_neural	02.2_vgic
+PF05613	PF05613.17	Herpes_U15	12_emerging	12.8_aquaculture_pathology
+PF05640	PF05640.20	NKAIN	10_epigenetics	10.6_rna_editing
+PF05647	PF05647.17	Epiglycanin_TR	11_mollusc	11.2_mucus
+PF05662	PF05662.20	YadA_stalk	03_endocrine	03.1_gpcrs
+PF05685	PF05685.19	Uma2	09_stress	09.2_acidification
+PF05693	PF05693.20	Glycogen_syn	08_metabolism	08.3_glycogen
+PF05729	PF05729.19	NACHT	05_immunity	05.1_prr
+PF05737	PF05737.19	Collagen_bind	06_cellular	06.6_ecm_adhesion
+PF05739	PF05739.26	SNARE	02_neural	02.4_synapse
+PF05741	PF05741.19	zf-nanos	07_stemcells	07.4_germline
+PF05797	PF05797.18	Rep_4	10_epigenetics	10.6_rna_editing
+PF05890	PF05890.18	Ebp2	03_endocrine	03.4_processing_enzymes
+PF05907	PF05907.19	CXXC_Zn-b_euk	05_immunity	05.3_complement
+PF05918	PF05918.18	API5	05_immunity	05.7_apoptosis_immune
+PF05920	PF05920.18	Homeobox_KN	07_stemcells	07.5_embryogenesis
+PF05934	PF05934.16	MCLC	02_neural	02.2_vgic
+PF05953	PF05953.18	Allatostatin	03_endocrine	03.3_neuropeptides
+PF05978	PF05978.23	UNC-93	02_neural	02.2_vgic
+PF05994	PF05994.17	FragX_IP	10_epigenetics	10.6_rna_editing
+PF05995	PF05995.19	CDO_I	08_metabolism	08.2_amino_acid
+PF06003	PF06003.18	SMN_Tudor	10_epigenetics	10.4_histone_readers
+PF06008	PF06008.20	Laminin_I	06_cellular	06.6_ecm_adhesion
+PF06009	PF06009.20	Laminin_II	06_cellular	06.6_ecm_adhesion
+PF06011	PF06011.18	TRP	01_sensory	01.3_mechanosensation
+PF06017	PF06017.20	Myosin_TH1	08_metabolism	08.1_lipid_pufa
+PF06018	PF06018.21	CodY	01_sensory	01.5_thermoreception
+PF06025	PF06025.18	DUF913	10_epigenetics	10.8_ncrna
+PF06030	PF06030.19	WxLIP_PGBD	10_epigenetics	10.6_rna_editing
+PF06113	PF06113.18	BRE	02_neural	02.8_cephalopod_cns
+PF06151	PF06151.19	Trehalose_recp	01_sensory	01.2_chemoreception
+PF06241	PF06241.18	Castor_Poll_mid	01_sensory	01.5_thermoreception
+PF06261	PF06261.16	LktC	11_mollusc	11.9_venoms
+PF06273	PF06273.17	eIF-4B	07_stemcells	07.5_embryogenesis
+PF06292	PF06292.24	MUN	02_neural	02.4_synapse
+PF06384	PF06384.17	ICAT	04_signaling	04.6_wnt
+PF06387	PF06387.17	Calcyon	04_signaling	04.7_notch
+PF06393	PF06393.17	BID	10_epigenetics	10.6_rna_editing
+PF06409	PF06409.17	NPIP	03_endocrine	03.2_nhrs
+PF06446	PF06446.18	Hepcidin	05_immunity	05.2_amp
+PF06459	PF06459.18	RR_TM4-6	04_signaling	04.10_calcium
+PF06482	PF06482.18	Endostatin	04_signaling	04.3_jak_stat
+PF06501	PF06501.16	Herpes_U55	12_emerging	12.8_aquaculture_pathology
+PF06529	PF06529.17	Vert_IL3-reg_TF	02_neural	02.6_neurodevelopment
+PF06546	PF06546.17	Vert_HS_TF	09_stress	09.3_thermal
+PF06567	PF06567.17	Neural_ProG_Cyt	02_neural	02.6_neurodevelopment
+PF06629	PF06629.19	MipA	10_epigenetics	10.6_rna_editing
+PF06736	PF06736.17	TMEM175	02_neural	02.2_vgic
+PF06757	PF06757.19	Ins_allergen_rp	09_stress	09.7_detox
+PF06761	PF06761.18	IcmF-related	06_cellular	06.1_cell_cycle
+PF06802	PF06802.16	DUF1231	11_mollusc	11.9_venoms
+PF06809	PF06809.16	NPDC1	02_neural	02.6_neurodevelopment
+PF06814	PF06814.20	GOST_TM	03_endocrine	03.1_gpcrs
+PF06816	PF06816.19	NOD	04_signaling	04.7_notch
+PF06859	PF06859.19	Bin3	10_epigenetics	10.6_rna_editing
+PF06972	PF06972.18	GIP1_N	10_epigenetics	10.6_rna_editing
+PF07086	PF07086.18	Jagunal	06_cellular	06.10_tetraspanins
+PF07100	PF07100.17	ASRT	03_endocrine	03.1_gpcrs
+PF07174	PF07174.18	FAP	06_cellular	06.6_ecm_adhesion
+PF07177	PF07177.20	Neuralized	04_signaling	04.7_notch
+PF07310	PF07310.20	PAS_5	12_emerging	12.3_circadian_behavior
+PF07365	PF07365.18	Toxin_8	11_mollusc	11.9_venoms
+PF07402	PF07402.16	Herpes_U26	12_emerging	12.8_aquaculture_pathology
+PF07473	PF07473.16	Toxin_11	11_mollusc	11.9_venoms
+PF07474	PF07474.18	G2F	06_cellular	06.6_ecm_adhesion
+PF07524	PF07524.20	Bromo_TP	10_epigenetics	10.4_histone_readers
+PF07550	PF07550.18	Shr-like_HID	10_epigenetics	10.6_rna_editing
+PF07562	PF07562.21	NCD3G	03_endocrine	03.1_gpcrs
+PF07645	PF07645.22	EGF_CA	04_signaling	04.7_notch
+PF07654	PF07654.22	C1-set	12_emerging	12.5_cellular_ag_growth
+PF07657	PF07657.20	MNNL	04_signaling	04.7_notch
+PF07679	PF07679.23	I-set	06_cellular	06.6_ecm_adhesion
+PF07684	PF07684.18	NODP	04_signaling	04.7_notch
+PF07686	PF07686.24	V-set	02_neural	02.6_neurodevelopment
+PF07690	PF07690.22	MFS_1	02_neural	02.3_neurotransmitter
+PF07699	PF07699.20	Ephrin_rec_like	02_neural	02.5_axon_guidance
+PF07700	PF07700.21	HNOB	04_signaling	04.11_no
+PF07701	PF07701.21	HNOBA	04_signaling	04.11_no
+PF07703	PF07703.21	A2M_BRD	12_emerging	12.4_cellular_ag_muscle
+PF07707	PF07707.22	BACK	04_signaling	04.5_nfkb
+PF07714	PF07714.24	PK_Tyr_Ser-Thr	02_neural	02.5_axon_guidance
+PF07719	PF07719.24	TPR_2	12_emerging	12.1_symbiosis
+PF07740	PF07740.19	Toxin_12	02_neural	02.2_vgic
+PF07749	PF07749.18	ERp29	09_stress	09.1_hypoxia
+PF07799	PF07799.18	DUF1643	02_neural	02.6_neurodevelopment
+PF07829	PF07829.16	Toxin_14	11_mollusc	11.9_venoms
+PF07839	PF07839.17	CaM_binding	04_signaling	04.10_calcium
+PF07846	PF07846.18	Metallothio_Cad	09_stress	09.8_metals
+PF07856	PF07856.18	Orai-1	02_neural	02.2_vgic
+PF07885	PF07885.23	Ion_trans_2	01_sensory	01.5_thermoreception
+PF07887	PF07887.17	Calmodulin_bind	04_signaling	04.10_calcium
+PF07936	PF07936.18	Defensin_4	02_neural	02.2_vgic
+PF07938	PF07938.18	Fungal_lectin	05_immunity	05.6_srcr
+PF07941	PF07941.17	K_channel_TID	02_neural	02.2_vgic
+PF07974	PF07974.20	EGF_2	11_mollusc	11.3_byssus_adhesion
+PF08007	PF08007.19	JmjC_2	10_epigenetics	10.3_histone_erasers
+PF08016	PF08016.19	PKD_channel	01_sensory	01.7_proprioception
+PF08021	PF08021.18	FAD_binding_9	10_epigenetics	10.6_rna_editing
+PF08087	PF08087.17	Toxin_18	02_neural	02.1_lgic
+PF08088	PF08088.18	Toxin_19	02_neural	02.1_lgic
+PF08091	PF08091.17	Toxin_21	11_mollusc	11.9_venoms
+PF08094	PF08094.16	Toxin_24	11_mollusc	11.9_venoms
+PF08097	PF08097.16	Toxin_26	02_neural	02.1_lgic
+PF08123	PF08123.20	DOT1	10_epigenetics	10.2_histone_writers
+PF08164	PF08164.18	TRAUB	02_neural	02.6_neurodevelopment
+PF08214	PF08214.18	HAT_KAT11	10_epigenetics	10.2_histone_writers
+PF08236	PF08236.18	SRI	10_epigenetics	10.6_rna_editing
+PF08241	PF08241.19	Methyltransf_11	12_emerging	12.6_cellular_ag_lipid
+PF08270	PF08270.16	PRD_Mga	04_signaling	04.15_g_protein
+PF08276	PF08276.18	PAN_2	04_signaling	04.4_hippo
+PF08280	PF08280.18	HTH_Mga	04_signaling	04.15_g_protein
+PF08284	PF08284.17	RVP_2	04_signaling	04.3_jak_stat
+PF08332	PF08332.17	CaMKII_AD	02_neural	02.7_learning_memory
+PF08337	PF08337.18	Plexin_cytopl	02_neural	02.5_axon_guidance
+PF08341	PF08341.17	TED	05_immunity	05.3_complement
+PF08344	PF08344.17	TRP_2	01_sensory	01.3_mechanosensation
+PF08347	PF08347.17	CTNNB1_binding	04_signaling	04.6_wnt
+PF08393	PF08393.19	DHC_N2	06_cellular	06.7_cilia
+PF08395	PF08395.18	7tm_7	01_sensory	01.2_chemoreception
+PF08417	PF08417.19	PaO	07_stemcells	07.3_regeneration
+PF08423	PF08423.18	Rad51	06_cellular	06.6_ecm_adhesion
+PF08434	PF08434.17	CLCA	02_neural	02.2_vgic
+PF08447	PF08447.19	PAS_3	09_stress	09.5_pollution
+PF08448	PF08448.17	PAS_4	12_emerging	12.3_circadian_behavior
+PF08466	PF08466.16	IRK_N	02_neural	02.2_vgic
+PF08473	PF08473.18	VGCC_alpha2	02_neural	02.2_vgic
+PF08485	PF08485.17	Polysacc_syn_2C	12_emerging	12.1_symbiosis
+PF08515	PF08515.18	TGF_beta_GS	04_signaling	04.9_tgfbeta
+PF08557	PF08557.16	Lipid_DES	12_emerging	12.6_cellular_ag_lipid
+PF08614	PF08614.17	ATG16	06_cellular	06.3_autophagy
+PF08623	PF08623.17	TIP120	10_epigenetics	10.6_rna_editing
+PF08683	PF08683.17	CAMSAP_CKK	04_signaling	04.10_calcium
+PF08742	PF08742.17	C8	11_mollusc	11.2_mucus
+PF08763	PF08763.18	Ca_chan_IQ	02_neural	02.2_vgic
+PF08778	PF08778.16	HIF-1a_CTAD	09_stress	09.1_hypoxia
+PF08816	PF08816.18	Ivy	11_mollusc	11.2_mucus
+PF08917	PF08917.17	ecTbetaR2	04_signaling	04.9_tgfbeta
+PF08923	PF08923.17	MAPKK1_Int	04_signaling	04.1_mapk
+PF08934	PF08934.16	Rb_C	06_cellular	06.1_cell_cycle
+PF08941	PF08941.16	USP8_interact	10_epigenetics	10.6_rna_editing
+PF08945	PF08945.16	Bclx_interact	10_epigenetics	10.6_rna_editing
+PF08976	PF08976.18	EF-hand_11	04_signaling	04.10_calcium
+PF09032	PF09032.17	Siah-Interact_N	10_epigenetics	10.6_rna_editing
+PF09036	PF09036.16	Bcr-Abl_Oligo	12_emerging	12.6_cellular_ag_lipid
+PF09057	PF09057.16	Smac_DIABLO	04_signaling	04.16_second_messenger
+PF09058	PF09058.16	L27_1	04_signaling	04.3_jak_stat
+PF09068	PF09068.18	EF-hand_2	04_signaling	04.10_calcium
+PF09069	PF09069.18	EF-hand_3	04_signaling	04.10_calcium
+PF09085	PF09085.17	Adhes-Ig_like	06_cellular	06.6_ecm_adhesion
+PF09110	PF09110.17	HAND	10_epigenetics	10.5_chromatin_remodel
+PF09127	PF09127.18	Leuk-A4-hydro_C	04_signaling	04.14_eicosanoid
+PF09252	PF09252.16	Feld-I_B	06_cellular	06.8_mitochondria
+PF09253	PF09253.16	Ole_e_6	11_mollusc	11.10_allergens
+PF09268	PF09268.17	Clathrin-link	06_cellular	06.9_endocytosis
+PF09270	PF09270.17	BTD	04_signaling	04.7_notch
+PF09271	PF09271.17	LAG1-DNAbind	04_signaling	04.7_notch
+PF09272	PF09272.16	Hepsin-SRCR	05_immunity	05.6_srcr
+PF09279	PF09279.18	EF-hand_like	04_signaling	04.10_calcium
+PF09294	PF09294.17	Interfer-bind	04_signaling	04.7_notch
+PF09307	PF09307.16	MHC2-interact	10_epigenetics	10.6_rna_editing
+PF09310	PF09310.15	PD-C2-AF1	07_stemcells	07.1_pluripotency
+PF09318	PF09318.16	Glyco_trans_A_1	06_cellular	06.5_secretion_er
+PF09379	PF09379.17	FERM_N	04_signaling	04.3_jak_stat
+PF09416	PF09416.17	UPF1_Zn_bind	10_epigenetics	10.5_chromatin_remodel
+PF09451	PF09451.17	ATG27	06_cellular	06.3_autophagy
+PF09596	PF09596.16	MamL-1	04_signaling	04.7_notch
+PF09728	PF09728.15	Taxilin	12_emerging	12.4_cellular_ag_muscle
+PF09744	PF09744.15	RH1	09_stress	09.1_hypoxia
+PF09766	PF09766.15	FmiP_Thoc5	10_epigenetics	10.6_rna_editing
+PF10018	PF10018.15	Med4	04_signaling	04.7_notch
+PF10113	PF10113.15	Fibrillarin_2	02_neural	02.3_neurotransmitter
+PF10147	PF10147.15	CR6_interact	10_epigenetics	10.6_rna_editing
+PF10148	PF10148.16	SCHIP-1_C	10_epigenetics	10.6_rna_editing
+PF10164	PF10164.15	BRI3	02_neural	02.8_cephalopod_cns
+PF10172	PF10172.15	DDA1	02_neural	02.5_axon_guidance
+PF10174	PF10174.15	Cast	02_neural	02.4_synapse
+PF10192	PF10192.16	GPR180-TMEM145_TM	03_endocrine	03.1_gpcrs
+PF10197	PF10197.15	Cir_N	10_epigenetics	10.6_rna_editing
+PF10211	PF10211.15	Ax_dynein_light	02_neural	02.5_axon_guidance
+PF10215	PF10215.15	Ost4	06_cellular	06.5_secretion_er
+PF10248	PF10248.15	Mlf1IP	10_epigenetics	10.6_rna_editing
+PF10253	PF10253.15	PRCC	06_cellular	06.1_cell_cycle
+PF10292	PF10292.16	7TM_GPCR_Srab	03_endocrine	03.1_gpcrs
+PF10316	PF10316.16	7TM_GPCR_Srbc	04_signaling	04.7_notch
+PF10317	PF10317.16	7TM_GPCR_Srd	04_signaling	04.7_notch
+PF10318	PF10318.16	7TM_GPCR_Srh	04_signaling	04.7_notch
+PF10319	PF10319.16	7TM_GPCR_Srj	04_signaling	04.7_notch
+PF10320	PF10320.16	7TM_GPCR_Srsx	04_signaling	04.7_notch
+PF10321	PF10321.16	7TM_GPCR_Srt	04_signaling	04.7_notch
+PF10322	PF10322.16	7TM_GPCR_Sru	04_signaling	04.7_notch
+PF10323	PF10323.16	7TM_GPCR_Srv	04_signaling	04.7_notch
+PF10409	PF10409.16	PTEN_C2	04_signaling	04.2_pi3k_akt_mtor
+PF10413	PF10413.15	Rhodopsin_N	03_endocrine	03.1_gpcrs
+PF10453	PF10453.15	NUFIP1	10_epigenetics	10.6_rna_editing
+PF10469	PF10469.16	AKAP7_NLS	04_signaling	04.12_camp_cgmp
+PF10514	PF10514.15	Bcl-2_BAD	06_cellular	06.2_apoptosis
+PF10520	PF10520.16	Lipid_desat	09_stress	09.3_thermal
+PF10530	PF10530.15	Toxin_35	11_mollusc	11.9_venoms
+PF10562	PF10562.15	CaM_bdg_C0	04_signaling	04.10_calcium
+PF10574	PF10574.15	UPF0552	10_epigenetics	10.6_rna_editing
+PF10587	PF10587.15	EF-1_beta_acid	08_metabolism	08.1_lipid_pufa
+PF10596	PF10596.15	U6-snRNA_bdg	10_epigenetics	10.6_rna_editing
+PF10613	PF10613.15	Lig_chan-Glu_bd	01_sensory	01.2_chemoreception
+PF10682	PF10682.16	UL40	12_emerging	12.6_cellular_ag_lipid
+PF10690	PF10690.15	Myticin-prepro	05_immunity	05.2_amp
+PF11099	PF11099.14	M11L	05_immunity	05.7_apoptosis_immune
+PF11105	PF11105.15	CCAP	05_immunity	05.7_apoptosis_immune
+PF11326	PF11326.14	PANTS-like	02_neural	02.4_synapse
+PF11386	PF11386.14	VERL	07_stemcells	07.7_reproduction
+PF11461	PF11461.14	RILP	10_epigenetics	10.6_rna_editing
+PF11515	PF11515.15	Cul7	12_emerging	12.4_cellular_ag_muscle
+PF11585	PF11585.14	Stomoxyn	05_immunity	05.2_amp
+PF11601	PF11601.14	Shal-type	01_sensory	01.3_mechanosensation
+PF11618	PF11618.15	C2-C2_1	10_epigenetics	10.6_rna_editing
+PF11626	PF11626.14	Rap1_C	10_epigenetics	10.6_rna_editing
+PF11642	PF11642.14	Blo-t-5	11_mollusc	11.10_allergens
+PF11652	PF11652.14	FAM167	04_signaling	04.3_jak_stat
+PF11701	PF11701.16	UNC45-central	11_mollusc	11.5_catch_muscle
+PF11708	PF11708.14	Slu7	10_epigenetics	10.6_rna_editing
+PF11767	PF11767.15	SET_assoc	10_epigenetics	10.2_histone_writers
+PF11797	PF11797.15	WxLIP_HBD	10_epigenetics	10.6_rna_editing
+PF11825	PF11825.14	Nuc_recep-AF1	03_endocrine	03.2_nhrs
+PF11834	PF11834.14	KHA	02_neural	02.2_vgic
+PF11933	PF11933.14	Na_trans_cytopl	02_neural	02.2_vgic
+PF12004	PF12004.14	DAB2P_C	10_epigenetics	10.6_rna_editing
+PF12009	PF12009.14	Telomerase_RBD	12_emerging	12.2_aging
+PF12052	PF12052.14	VGCC_beta4Aa_N	01_sensory	01.5_thermoreception
+PF12058	PF12058.14	PipX	10_epigenetics	10.6_rna_editing
+PF12063	PF12063.15	ATG1-like_MIT1	06_cellular	06.3_autophagy
+PF12144	PF12144.14	Med12-PQL	04_signaling	04.6_wnt
+PF12154	PF12154.13	HCMVantigenic_N	01_sensory	01.5_thermoreception
+PF12160	PF12160.14	Fibrinogen_aC	12_emerging	12.8_aquaculture_pathology
+PF12166	PF12166.15	Piezo_cap	01_sensory	01.3_mechanosensation
+PF12170	PF12170.14	DNA_pol3_tau_5	10_epigenetics	10.6_rna_editing
+PF12177	PF12177.14	Proho_convert	03_endocrine	03.4_processing_enzymes
+PF12179	PF12179.14	IKKbetaNEMObind	04_signaling	04.5_nfkb
+PF12201	PF12201.14	bcl-2I13	06_cellular	06.2_apoptosis
+PF12205	PF12205.14	GIT1_C	10_epigenetics	10.6_rna_editing
+PF12210	PF12210.14	Hrs_helical	12_emerging	12.5_cellular_ag_growth
+PF12231	PF12231.14	Rif1_N	10_epigenetics	10.6_rna_editing
+PF12232	PF12232.14	Myf5	12_emerging	12.4_cellular_ag_muscle
+PF12237	PF12237.14	PCIF1_WW	10_epigenetics	10.6_rna_editing
+PF12255	PF12255.14	TcdB_toxin_midC	11_mollusc	11.4_hemocyanin
+PF12256	PF12256.15	TcdB_toxin_midN	11_mollusc	11.4_hemocyanin
+PF12280	PF12280.14	BSMAP	02_neural	02.8_cephalopod_cns
+PF12284	PF12284.14	HoxA13_N	07_stemcells	07.5_embryogenesis
+PF12298	PF12298.15	Bot1p	06_cellular	06.8_mitochondria
+PF12308	PF12308.14	Noelin-1	11_mollusc	11.11_olfactomedin
+PF12430	PF12430.14	ABA_GPCR	08_metabolism	08.1_lipid_pufa
+PF12444	PF12444.14	Sox_N	07_stemcells	07.1_pluripotency
+PF12455	PF12455.14	Dynactin	06_cellular	06.7_cilia
+PF12457	PF12457.14	TIP_N	10_epigenetics	10.6_rna_editing
+PF12496	PF12496.14	BNIP2	10_epigenetics	10.6_rna_editing
+PF12507	PF12507.14	HCMV_UL139	12_emerging	12.6_cellular_ag_lipid
+PF12533	PF12533.14	Neuro_bHLH	02_neural	02.6_neurodevelopment
+PF12661	PF12661.14	hEGF	12_emerging	12.5_cellular_ag_growth
+PF12712	PF12712.15	DUF3805	06_cellular	06.7_cilia
+PF12721	PF12721.13	RHIM	04_signaling	04.5_nfkb
+PF12749	PF12749.12	Metallothio_Euk	09_stress	09.8_metals
+PF12794	PF12794.13	MscS_TM	01_sensory	01.7_proprioception
+PF12795	PF12795.13	MscS_porin	02_neural	02.2_vgic
+PF12796	PF12796.14	Ank_2	04_signaling	04.7_notch
+PF12809	PF12809.13	Metallothi_Euk2	08_metabolism	08.5_iron_metal
+PF12850	PF12850.13	Metallophos_2	02_neural	02.7_learning_memory
+PF12851	PF12851.14	Tet_JBP	10_epigenetics	10.1_dna_meth
+PF12929	PF12929.13	Mid1	01_sensory	01.3_mechanosensation
+PF13017	PF13017.13	Maelstrom	10_epigenetics	10.7_pirna
+PF13186	PF13186.12	SPASM	01_sensory	01.4_magnetoreception
+PF13188	PF13188.14	PAS_8	10_epigenetics	10.4_histone_readers
+PF13202	PF13202.13	EF-hand_5	04_signaling	04.10_calcium
+PF13246	PF13246.13	Cation_ATPase	09_stress	09.4_salinity
+PF13281	PF13281.13	MAP3K_TRAF_bd	04_signaling	04.5_nfkb
+PF13289	PF13289.13	SIR2_2	10_epigenetics	10.3_histone_erasers
+PF13324	PF13324.13	GCIP_N	10_epigenetics	10.6_rna_editing
+PF13339	PF13339.12	AATF-Che1	05_immunity	05.7_apoptosis_immune
+PF13352	PF13352.12	DUF4100	01_sensory	01.5_thermoreception
+PF13366	PF13366.13	PDDEXK_3	07_stemcells	07.3_regeneration
+PF13367	PF13367.12	PrsW-protease	07_stemcells	07.3_regeneration
+PF13385	PF13385.14	Laminin_G_3	02_neural	02.1_lgic
+PF13405	PF13405.13	EF-hand_6	04_signaling	04.10_calcium
+PF13417	PF13417.13	GST_N_3	12_emerging	12.9_environmental_biomarkers
+PF13426	PF13426.14	PAS_9	12_emerging	12.3_circadian_behavior
+PF13439	PF13439.13	Glyco_transf_4	06_cellular	06.5_secretion_er
+PF13454	PF13454.13	NAD_binding_9	09_stress	09.1_hypoxia
+PF13499	PF13499.13	EF-hand_7	04_signaling	04.10_calcium
+PF13510	PF13510.12	Fer2_4	01_sensory	01.4_magnetoreception
+PF13516	PF13516.13	LRR_6	02_neural	02.5_axon_guidance
+PF13603	PF13603.13	tRNA-synt_1_2	12_emerging	12.1_symbiosis
+PF13620	PF13620.13	CarboxypepD_reg	03_endocrine	03.4_processing_enzymes
+PF13668	PF13668.13	Ferritin_2	08_metabolism	08.5_iron_metal
+PF13676	PF13676.12	TIR_2	05_immunity	05.1_prr
+PF13677	PF13677.12	MotB_plug	02_neural	02.2_vgic
+PF13694	PF13694.12	Hph	10_epigenetics	10.6_rna_editing
+PF13731	PF13731.12	WxL	10_epigenetics	10.2_histone_writers
+PF13794	PF13794.13	Ferritin_fold-like	01_sensory	01.4_magnetoreception
+PF13807	PF13807.12	GNVR	05_immunity	05.1_prr
+PF13815	PF13815.12	Dzip-like_N	10_epigenetics	10.6_rna_editing
+PF13833	PF13833.13	EF-hand_8	04_signaling	04.10_calcium
+PF13841	PF13841.12	Defensin_beta_2	05_immunity	05.2_amp
+PF13855	PF13855.13	LRR_8	05_immunity	05.1_prr
+PF13864	PF13864.12	Enkurin	04_signaling	04.10_calcium
+PF13871	PF13871.13	Helicase_C_4	04_signaling	04.7_notch
+PF13912	PF13912.13	zf-C2H2_6	09_stress	09.8_metals
+PF13918	PF13918.12	PLDc_3	04_signaling	04.16_second_messenger
+PF13920	PF13920.13	zf-C3HC4_3	04_signaling	04.7_notch
+PF13965	PF13965.13	SID-1_RNA_chan	01_sensory	01.5_thermoreception
+PF14200	PF14200.13	RicinB_lectin_2	05_immunity	05.4_lectins
+PF14310	PF14310.13	Fn3-like	06_cellular	06.6_ecm_adhesion
+PF14408	PF14408.12	Actino_peptide	02_neural	02.3_neurotransmitter
+PF14496	PF14496.12	NEL	10_epigenetics	10.6_rna_editing
+PF14500	PF14500.12	MMS19_N	10_epigenetics	10.6_rna_editing
+PF14538	PF14538.12	Raptor_N	04_signaling	04.2_pi3k_akt_mtor
+PF14575	PF14575.12	EphA2_TM	02_neural	02.1_lgic
+PF14586	PF14586.12	MHC_I_2	02_neural	02.1_lgic
+PF14625	PF14625.12	Lustrin_cystein	11_mollusc	11.1_biomineralization
+PF14636	PF14636.13	FNIP_N	10_epigenetics	10.6_rna_editing
+PF14637	PF14637.12	FNIP_M	10_epigenetics	10.6_rna_editing
+PF14638	PF14638.12	FNIP_C	10_epigenetics	10.6_rna_editing
+PF14654	PF14654.11	Epiglycanin_C	11_mollusc	11.2_mucus
+PF14658	PF14658.13	EF-hand_9	04_signaling	04.10_calcium
+PF14668	PF14668.12	RICTOR_V	04_signaling	04.2_pi3k_akt_mtor
+PF14699	PF14699.13	hGDE_N	08_metabolism	08.3_glycogen
+PF14702	PF14702.13	hGDE_central	08_metabolism	08.3_glycogen
+PF14721	PF14721.13	AIF_C	05_immunity	05.7_apoptosis_immune
+PF14722	PF14722.12	KRAP_IP3R_bind	10_epigenetics	10.6_rna_editing
+PF14766	PF14766.12	RPA_interact_N	10_epigenetics	10.6_rna_editing
+PF14767	PF14767.12	RPA_interact_M	10_epigenetics	10.6_rna_editing
+PF14768	PF14768.12	RPA_interact_C	10_epigenetics	10.6_rna_editing
+PF14779	PF14779.13	BBS1	06_cellular	06.7_cilia
+PF14780	PF14780.12	NEPRO_N	02_neural	02.6_neurodevelopment
+PF14788	PF14788.13	EF-hand_10	04_signaling	04.10_calcium
+PF14816	PF14816.12	CANIN	10_epigenetics	10.6_rna_editing
+PF14972	PF14972.12	Mito_morph_reg	06_cellular	06.8_mitochondria
+PF14973	PF14973.12	TINF2_N	03_endocrine	03.2_nhrs
+PF15018	PF15018.12	InaF-motif	10_epigenetics	10.6_rna_editing
+PF15041	PF15041.12	TKTI1	10_epigenetics	10.6_rna_editing
+PF15043	PF15043.12	CNRIP1	10_epigenetics	10.6_rna_editing
+PF15097	PF15097.12	Ig_J_chain	06_cellular	06.8_mitochondria
+PF15099	PF15099.12	PIRT	10_epigenetics	10.6_rna_editing
+PF15108	PF15108.12	TMEM37	02_neural	02.2_vgic
+PF15133	PF15133.12	TASL	10_epigenetics	10.6_rna_editing
+PF15137	PF15137.11	ECPIP	10_epigenetics	10.6_rna_editing
+PF15158	PF15158.12	TMEM249	02_neural	02.2_vgic
+PF15170	PF15170.12	CaM-KIIN	02_neural	02.2_vgic
+PF15185	PF15185.12	BMF	05_immunity	05.7_apoptosis_immune
+PF15196	PF15196.11	Harakiri	05_immunity	05.7_apoptosis_immune
+PF15226	PF15226.12	HPIP	10_epigenetics	10.6_rna_editing
+PF15229	PF15229.12	POM121	02_neural	02.4_synapse
+PF15238	PF15238.12	TEADIR3	04_signaling	04.4_hippo
+PF15255	PF15255.12	CAP-ZIP_m	10_epigenetics	10.6_rna_editing
+PF15274	PF15274.12	MLIP	10_epigenetics	10.6_rna_editing
+PF15285	PF15285.12	BH3	06_cellular	06.3_autophagy
+PF15286	PF15286.12	Bcl-2_3	05_immunity	05.7_apoptosis_immune
+PF15293	PF15293.12	NUFIP2	10_epigenetics	10.6_rna_editing
+PF15317	PF15317.12	Lbh	05_immunity	05.7_apoptosis_immune
+PF15319	PF15319.12	RHINO	03_endocrine	03.2_nhrs
+PF15324	PF15324.12	TALPID3	04_signaling	04.8_hedgehog
+PF15330	PF15330.12	SIT	02_neural	02.1_lgic
+PF15332	PF15332.12	LIME1	02_neural	02.1_lgic
+PF15334	PF15334.12	AIB	10_epigenetics	10.6_rna_editing
+PF15335	PF15335.12	CAAP1	05_immunity	05.7_apoptosis_immune
+PF15338	PF15338.12	TPIP1	05_immunity	05.7_apoptosis_immune
+PF15373	PF15373.12	SAXO5-like	02_neural	02.5_axon_guidance
+PF15462	PF15462.12	Barttin	02_neural	02.6_neurodevelopment
+PF15494	PF15494.12	SRCR_2	05_immunity	05.6_srcr
+PF15498	PF15498.12	Dendrin	02_neural	02.5_axon_guidance
+PF15502	PF15502.12	MPLKIP	10_epigenetics	10.6_rna_editing
+PF15517	PF15517.13	TBPIP_N	10_epigenetics	10.6_rna_editing
+PF15677	PF15677.11	CEND1	01_sensory	01.1_photoreception
+PF15687	PF15687.11	NRIP1_repr_1	03_endocrine	03.2_nhrs
+PF15688	PF15688.11	NRIP1_repr_2	03_endocrine	03.2_nhrs
+PF15689	PF15689.11	NRIP1_repr_3	03_endocrine	03.2_nhrs
+PF15690	PF15690.11	NRIP1_repr_4	03_endocrine	03.2_nhrs
+PF15696	PF15696.11	RAD51_interact	10_epigenetics	10.6_rna_editing
+PF15699	PF15699.11	NPR1_interact	10_epigenetics	10.6_rna_editing
+PF15729	PF15729.12	CTSRT	02_neural	02.2_vgic
+PF15739	PF15739.11	TSNAXIP1_N	10_epigenetics	10.6_rna_editing
+PF15741	PF15741.11	LRIF1	02_neural	02.1_lgic
+PF15749	PF15749.11	MRNIP	10_epigenetics	10.6_rna_editing
+PF15773	PF15773.11	DAAP1	02_neural	02.5_axon_guidance
+PF15783	PF15783.11	FSIP2	09_stress	09.3_thermal
+PF15800	PF15800.11	CiPC	12_emerging	12.3_circadian_behavior
+PF15802	PF15802.12	DCAF17	06_cellular	06.4_ubiquitin
+PF15803	PF15803.11	zf-SCNM1	02_neural	02.2_vgic
+PF15805	PF15805.11	SCNM1_acidic	02_neural	02.2_vgic
+PF15822	PF15822.11	MISS	04_signaling	04.1_mapk
+PF15826	PF15826.10	PUMA	05_immunity	05.7_apoptosis_immune
+PF15854	PF15854.11	GPR15L	02_neural	02.1_lgic
+PF15886	PF15886.12	CBM39	12_emerging	12.8_aquaculture_pathology
+PF15898	PF15898.11	PRKG1_interact	04_signaling	04.12_camp_cgmp
+PF15904	PF15904.11	LIP1	05_immunity	05.3_complement
+PF15906	PF15906.11	zf-NOSIP	02_neural	02.7_learning_memory
+PF15907	PF15907.12	Itfg2	05_immunity	05.3_complement
+PF15968	PF15968.10	RexB	02_neural	02.2_vgic
+PF15974	PF15974.11	Cadherin_tail	04_signaling	04.6_wnt
+PF15984	PF15984.11	Collagen_mid	11_mollusc	11.4_hemocyanin
+PF16025	PF16025.11	CaM_bind	02_neural	02.2_vgic
+PF16179	PF16179.12	RHD_dimer	04_signaling	04.5_nfkb
+PF16190	PF16190.12	E1_FCCH	06_cellular	06.4_ubiquitin
+PF16405	PF16405.11	DUF5013	10_epigenetics	10.8_ncrna
+PF16469	PF16469.11	NPA	11_mollusc	11.10_allergens
+PF16470	PF16470.11	S8_pro-domain	03_endocrine	03.4_processing_enzymes
+PF16471	PF16471.11	JIP_LZII	05_immunity	05.1_prr
+PF16486	PF16486.12	ArgoN	10_epigenetics	10.7_pirna
+PF16487	PF16487.11	ArgoMid	10_epigenetics	10.7_pirna
+PF16504	PF16504.11	SP24	07_stemcells	07.5_embryogenesis
+PF16515	PF16515.12	HIP1_clath_bdg	06_cellular	06.9_endocytosis
+PF16521	PF16521.11	Myosin-VI_CBD	12_emerging	12.4_cellular_ag_muscle
+PF16540	PF16540.11	MKLP1_Arf_bdg	06_cellular	06.7_cilia
+PF16541	PF16541.11	AltA1	11_mollusc	11.10_allergens
+PF16623	PF16623.11	WW_FCH_linker	12_emerging	12.1_symbiosis
+PF16642	PF16642.11	KCNQ2_u3	02_neural	02.2_vgic
+PF16644	PF16644.11	NEXCaM_BD	09_stress	09.2_acidification
+PF16676	PF16676.11	FOXO-TAD	12_emerging	12.2_aging
+PF16735	PF16735.11	MYO10_CC	12_emerging	12.4_cellular_ag_muscle
+PF16739	PF16739.12	CARD_2	05_immunity	05.7_apoptosis_immune
+PF16768	PF16768.11	NupH_GANP	02_neural	02.3_neurotransmitter
+PF16794	PF16794.12	fn3_4	06_cellular	06.6_ecm_adhesion
+PF16799	PF16799.11	VGPC1_C	02_neural	02.2_vgic
+PF16869	PF16869.11	CNDH2_M	01_sensory	01.5_thermoreception
+PF16885	PF16885.12	CAC1F_C	02_neural	02.2_vgic
+PF16893	PF16893.12	fn3_2	06_cellular	06.6_ecm_adhesion
+PF16899	PF16899.11	Cyclin_C_2	06_cellular	06.1_cell_cycle
+PF16905	PF16905.11	GPHH	02_neural	02.2_vgic
+PF16972	PF16972.10	TipE	02_neural	02.2_vgic
+PF16977	PF16977.11	ApeC	05_immunity	05.9_apextrin
+PF16978	PF16978.12	CRIM	11_mollusc	11.4_hemocyanin
+PF16981	PF16981.11	Chi-conotoxin	02_neural	02.1_lgic
+PF16984	PF16984.11	Grp7_allergen	11_mollusc	11.10_allergens
+PF17047	PF17047.12	SMP_LBD	02_neural	02.4_synapse
+PF17095	PF17095.11	CAMSAP_CC1	04_signaling	04.10_calcium
+PF17205	PF17205.10	PSI_integrin	02_neural	02.5_axon_guidance
+PF17486	PF17486.8	Cys_Knot_tox	11_mollusc	11.9_venoms
+PF17523	PF17523.8	MPS-4	02_neural	02.2_vgic
+PF17557	PF17557.8	Conotoxin_I2	11_mollusc	11.9_venoms
+PF17655	PF17655.8	IRK_C	02_neural	02.2_vgic
+PF17725	PF17725.8	YBD	12_emerging	12.5_cellular_ag_growth
+PF17742	PF17742.7	Fndc10	06_cellular	06.6_ecm_adhesion
+PF17766	PF17766.8	fn3_6	08_metabolism	08.3_glycogen
+PF17789	PF17789.8	MG4	05_immunity	05.3_complement
+PF17790	PF17790.8	MG1	05_immunity	05.3_complement
+PF17842	PF17842.8	dsRBD2	10_epigenetics	10.8_ncrna
+PF17878	PF17878.9	ssDBP	06_cellular	06.4_ubiquitin
+PF17892	PF17892.8	Cadherin_5	04_signaling	04.3_jak_stat
+PF17901	PF17901.9	EF-hand_12	04_signaling	04.10_calcium
+PF17958	PF17958.8	EF-hand_13	04_signaling	04.10_calcium
+PF17959	PF17959.8	EF-hand_14	04_signaling	04.10_calcium
+PF17960	PF17960.8	TIG_plexin	02_neural	02.5_axon_guidance
+PF17980	PF17980.8	ADD_DNMT3	10_epigenetics	10.1_dna_meth
+PF17997	PF17997.8	Cry1Ac_D5	04_signaling	04.7_notch
+PF18020	PF18020.8	TIG_2	02_neural	02.5_axon_guidance
+PF18109	PF18109.7	Fer4_24	01_sensory	01.7_proprioception
+PF18119	PF18119.7	RIG-I_C	05_immunity	05.1_prr
+PF18132	PF18132.7	Tyrosinase_C	11_mollusc	11.6_chromatophore_ink
+PF18148	PF18148.7	RGS_DHEX	04_signaling	04.15_g_protein
+PF18199	PF18199.7	Dynein_C	06_cellular	06.7_cilia
+PF18214	PF18214.8	STATa_Ig	04_signaling	04.3_jak_stat
+PF18251	PF18251.8	Defensin_5	05_immunity	05.2_amp
+PF18253	PF18253.7	HipN	09_stress	09.3_thermal
+PF18258	PF18258.7	IL4_i_Ig	05_immunity	05.8_cytokines
+PF18279	PF18279.7	zf-WRNIP1_ubi	06_cellular	06.4_ubiquitin
+PF18346	PF18346.8	SH3_15	04_signaling	04.7_notch
+PF18372	PF18372.8	I-EGF_1	12_emerging	12.5_cellular_ag_growth
+PF18377	PF18377.7	FERM_F2	04_signaling	04.3_jak_stat
+PF18379	PF18379.7	FERM_F1	04_signaling	04.3_jak_stat
+PF18397	PF18397.7	IKBKB_SDD	04_signaling	04.5_nfkb
+PF18424	PF18424.7	a_DG1_N2	12_emerging	12.4_cellular_ag_muscle
+PF18432	PF18432.8	ECD	06_cellular	06.6_ecm_adhesion
+PF18447	PF18447.8	FN3_7	06_cellular	06.6_ecm_adhesion
+PF18461	PF18461.8	Atypical_Card	05_immunity	05.7_apoptosis_immune
+PF18567	PF18567.7	TIR_3	05_immunity	05.1_prr
+PF18597	PF18597.8	SH3_19	12_emerging	12.4_cellular_ag_muscle
+PF18626	PF18626.8	Gln_deamidase_2	12_emerging	12.7_cellular_ag_flavor
+PF18683	PF18683.8	ChiW_Ig_like	11_mollusc	11.1_biomineralization
+PF18696	PF18696.8	SMP_C2CD2L	08_metabolism	08.1_lipid_pufa
+PF18761	PF18761.8	Heliorhodopsin	03_endocrine	03.1_gpcrs
+PF18762	PF18762.8	Kinase-PolyVal	05_immunity	05.3_complement
+PF18800	PF18800.7	Atthog	04_signaling	04.8_hedgehog
+PF19188	PF19188.6	AGRB_N	03_endocrine	03.1_gpcrs
+PF19273	PF19273.6	Exportin-5	10_epigenetics	10.8_ncrna
+PF19330	PF19330.5	DNER_C	04_signaling	04.7_notch
+PF19333	PF19333.5	FAXC_N	02_neural	02.5_axon_guidance
+PF19420	PF19420.6	DDAH_eukar	08_metabolism	08.2_amino_acid
+PF19428	PF19428.6	Sema4F_C	02_neural	02.5_axon_guidance
+PF19434	PF19434.5	OPA1_C	06_cellular	06.8_mitochondria
+PF19442	PF19442.5	CRIM1_C	05_immunity	05.6_srcr
+PF19710	PF19710.5	PIK3CG_ABD	04_signaling	04.2_pi3k_akt_mtor
+PF19914	PF19914.6	WEF-hand	04_signaling	04.10_calcium
+PF20170	PF20170.5	Plexin_RBD	02_neural	02.5_axon_guidance
+PF20451	PF20451.4	Calmod_bind_M	04_signaling	04.10_calcium
+PF20452	PF20452.4	Calmod_bind_C	04_signaling	04.10_calcium
+PF20478	PF20478.4	P2RX7_C	04_signaling	04.13_purinergic
+PF20519	PF20519.5	Polycystin_dom	01_sensory	01.7_proprioception
+PF20684	PF20684.4	Fung_rhodopsin	03_endocrine	03.1_gpcrs
+PF20801	PF20801.3	MAML1_3_TAD2	04_signaling	04.7_notch
+PF20810	PF20810.3	MINT_RID	03_endocrine	03.2_nhrs
+PF20838	PF20838.3	IgD_del_linker	04_signaling	04.7_notch
+PF20885	PF20885.3	NPB13-l_MII_rpt	03_endocrine	03.2_nhrs
+PF20932	PF20932.4	Dicer_dsRBD	10_epigenetics	10.8_ncrna
+PF21014	PF21014.3	Slowpoke_C	02_neural	02.2_vgic
+PF21082	PF21082.3	MS_channel_3rd	02_neural	02.2_vgic
+PF21088	PF21088.3	MS_channel_1st	02_neural	02.2_vgic
+PF21094	PF21094.4	Nup188_SH3-like	11_mollusc	11.6_chromatophore_ink
+PF21116	PF21116.4	EF-hand_Zip	04_signaling	04.10_calcium
+PF21149	PF21149.4	FAS_pseudo-KR	08_metabolism	08.1_lipid_pufa
+PF21161	PF21161.4	P2R3B_EF-hand	04_signaling	04.10_calcium
+PF21199	PF21199.4	LAMININ_IV_B	06_cellular	06.6_ecm_adhesion
+PF21208	PF21208.5	euk_SelB_III	05_immunity	05.6_srcr
+PF21308	PF21308.4	C3_CUB2	05_immunity	05.3_complement
+PF21335	PF21335.3	ATPD_C_metazoa	04_signaling	04.7_notch
+PF21353	PF21353.4	Per3-like_PAS-A	12_emerging	12.3_circadian_behavior
+PF21406	PF21406.3	C3_CUB1	05_immunity	05.3_complement
+PF21521	PF21521.4	MYO6_lever	12_emerging	12.4_cellular_ag_muscle
+PF21550	PF21550.4	MTIP_N	12_emerging	12.4_cellular_ag_muscle
+PF21646	PF21646.4	ACTMAP-like_C	05_immunity	05.3_complement
+PF21801	PF21801.4	ASPP2-like_RA	05_immunity	05.7_apoptosis_immune
+PF21875	PF21875.3	CAPN13-like_C_EFh	01_sensory	01.6_nociception
+PF21998	PF21998.3	FERM_C1_MyoVII	12_emerging	12.4_cellular_ag_muscle
+PF22143	PF22143.4	ScpA_C	06_cellular	06.6_ecm_adhesion
+PF22214	PF22214.2	Mec-4_10_cyt	01_sensory	01.7_proprioception
+PF22265	PF22265.3	T26-6p_Ig-like_dom_2	04_signaling	04.16_second_messenger
+PF22350	PF22350.3	Int_EF-hand	04_signaling	04.10_calcium
+PF22433	PF22433.4	MtxA_IG-like	12_emerging	12.2_aging
+PF22592	PF22592.3	FCaBP_EF-hand	04_signaling	04.10_calcium
+PF22614	PF22614.3	Slo-like_RCK	02_neural	02.2_vgic
+PF22631	PF22631.3	PLCB1-4-like_EFh	04_signaling	04.10_calcium
+PF22701	PF22701.4	Mala_s_1-like	11_mollusc	11.10_allergens
+PF22750	PF22750.2	Sol_i_2	11_mollusc	11.10_allergens
+PF22773	PF22773.2	Myo1_CA	12_emerging	12.4_cellular_ag_muscle
+PF22971	PF22971.3	Ig_VEGFR-1-like_5th	12_emerging	12.5_cellular_ag_growth
+PF22986	PF22986.4	Fn3_ELFN	06_cellular	06.6_ecm_adhesion
+PF22993	PF22993.5	SAM_EPH	02_neural	02.5_axon_guidance
+PF23003	PF23003.3	Fn1_2	06_cellular	06.6_ecm_adhesion
+PF23170	PF23170.2	bHLH_PER	12_emerging	12.3_circadian_behavior
+PF23171	PF23171.1	bHLH_HIF1A	09_stress	09.1_hypoxia
+PF23244	PF23244.2	VWF	11_mollusc	11.3_byssus_adhesion
+PF23281	PF23281.2	DAAF9_N	02_neural	02.5_axon_guidance
+PF23317	PF23317.2	YVC1_C	02_neural	02.2_vgic
+PF23329	PF23329.4	EF_HAND_1_PLCG	04_signaling	04.10_calcium
+PF23358	PF23358.2	OST48_MD	06_cellular	06.5_secretion_er
+PF23376	PF23376.2	Fn3_VIN3	06_cellular	06.6_ecm_adhesion
+PF23564	PF23564.2	EF-hand_FSTL1	04_signaling	04.10_calcium
+PF23583	PF23583.3	EF_HAND_2_PLCG	04_signaling	04.10_calcium
+PF23602	PF23602.2	CS_DNAAF11_C	02_neural	02.5_axon_guidance
+PF23617	PF23617.2	EF-hand_15	04_signaling	04.10_calcium
+PF23724	PF23724.2	Dredd_2nd	04_signaling	04.16_second_messenger
+PF24077	PF24077.2	IgA0_D2	05_immunity	05.3_complement
+PF24123	PF24123.2	Myosin_VII_N	12_emerging	12.4_cellular_ag_muscle
+PF24148	PF24148.2	ApeC_platyh	05_immunity	05.9_apextrin
+PF24221	PF24221.2	Fn3_nematode	06_cellular	06.6_ecm_adhesion
+PF24317	PF24317.2	PSI_Plexin-B	02_neural	02.5_axon_guidance
+PF24479	PF24479.2	PSI_PlexinA-B	02_neural	02.5_axon_guidance
+PF24528	PF24528.2	Ig_ADGRF3	06_cellular	06.6_ecm_adhesion
+PF24548	PF24548.2	EF_EFCAB10_C	04_signaling	04.10_calcium
+PF24550	PF24550.2	LIS_MGM1	04_signaling	04.1_mapk
+PF24556	PF24556.2	SH3_Myosin-XVIIIa	12_emerging	12.4_cellular_ag_muscle
+PF24573	PF24573.2	HEAT_DAAF5	02_neural	02.5_axon_guidance
+PF24956	PF24956.1	Msl2-3_C	02_neural	02.2_vgic
+PF24973	PF24973.2	EGF_LMN_ATRN	06_cellular	06.6_ecm_adhesion
+PF24999	PF24999.2	LAMB4	06_cellular	06.6_ecm_adhesion
+PF25007	PF25007.2	DYH2-5-8_CC	02_neural	02.5_axon_guidance
+PF25028	PF25028.2	FnI_RECK	06_cellular	06.6_ecm_adhesion
+PF25101	PF25101.2	Spectrin_7	05_immunity	05.1_prr
+PF25237	PF25237.1	MSL2_3	02_neural	02.2_vgic
+PF25288	PF25288.2	PIEZO	01_sensory	01.3_mechanosensation
+PF25307	PF25307.2	SEA_Gpr126	06_cellular	06.6_ecm_adhesion
+PF25312	PF25312.2	Allergen_Asp_f_4	11_mollusc	11.10_allergens
+PF25325	PF25325.2	EF-hand_EFHB_C	04_signaling	04.10_calcium
+PF25369	PF25369.2	SH3_VIII-1_N	12_emerging	12.4_cellular_ag_muscle
+PF25391	PF25391.2	WD40_Gbeta	04_signaling	04.15_g_protein
+PF25392	PF25392.2	MS_channel_TM1	02_neural	02.2_vgic
+PF25530	PF25530.2	EF-hand_SWAP70_N	04_signaling	04.10_calcium
+PF25578	PF25578.2	EF-hand_STIM1	04_signaling	04.10_calcium
+PF25599	PF25599.3	Ephrin_CRD	02_neural	02.5_axon_guidance
+PF25609	PF25609.1	Unc5_NetrinR_N	02_neural	02.5_axon_guidance
+PF25689	PF25689.1	HHV_U21	12_emerging	12.8_aquaculture_pathology
+PF25706	PF25706.1	HCMV_UL116	12_emerging	12.6_cellular_ag_lipid
+PF25732	PF25732.2	BILF1	04_signaling	04.15_g_protein
+PF25736	PF25736.2	Herpes_gQ2	12_emerging	12.8_aquaculture_pathology
+PF25739	PF25739.2	HCMV_UL15A	12_emerging	12.6_cellular_ag_lipid
+PF25750	PF25750.2	CMV_UL148C	12_emerging	12.6_cellular_ag_lipid
+PF25751	PF25751.1	Methanobactin	08_metabolism	08.5_iron_metal
+PF25757	PF25757.2	TPR_DNAAF5	02_neural	02.5_axon_guidance
+PF25825	PF25825.2	SAPC2_N	04_signaling	04.10_calcium
+PF25832	PF25832.1	Fn3_SaeA_2nd	06_cellular	06.6_ecm_adhesion
+PF25833	PF25833.1	Fn3_SaeA_3rd	06_cellular	06.6_ecm_adhesion
+PF25834	PF25834.1	Fn3_SaeA_4th	06_cellular	06.6_ecm_adhesion
+PF25835	PF25835.1	Fn3_SaeA_5th	06_cellular	06.6_ecm_adhesion
+PF25836	PF25836.1	Fn3_SaeA_6th	06_cellular	06.6_ecm_adhesion
+PF25868	PF25868.1	Fn1_3	06_cellular	06.6_ecm_adhesion
+PF25886	PF25886.1	Msy1	02_neural	02.2_vgic
+PF25962	PF25962.1	TIL_OTOGL_Mucin	11_mollusc	11.2_mucus
+PF25966	PF25966.1	Myo5a	12_emerging	12.4_cellular_ag_muscle
+PF26040	PF26040.1	Zn_ribbon_CLPX_N	12_emerging	12.2_aging
+PF26050	PF26050.1	Helical_CED_Drosha	10_epigenetics	10.8_ncrna
+PF26146	PF26146.1	PI-PLC_X	04_signaling	04.16_second_messenger
+PF26375	PF26375.1	SidJ_CaM_N	04_signaling	04.10_calcium
+PF26560	PF26560.1	UFSP2_MPN_insect	05_immunity	05.3_complement
+PF26570	PF26570.1	MYO15	12_emerging	12.4_cellular_ag_muscle
+PF26586	PF26586.1	Fn3_R-PTP-O	06_cellular	06.6_ecm_adhesion
+PF26765	PF26765.1	Fn3_FA	06_cellular	06.6_ecm_adhesion
+PF26987	PF26987.1	HCMV_UL148B	12_emerging	12.6_cellular_ag_lipid
+PF27020	PF27020.1	HCMV_RL1	12_emerging	12.6_cellular_ag_lipid
+PF27583	PF27583.1	BEGAIN_coil	02_neural	02.8_cephalopod_cns
+PF27785	PF27785.1	DNAI3_N	02_neural	02.5_axon_guidance
+PF27805	PF27805.1	MbnC-like	08_metabolism	08.2_amino_acid
+PF27858	PF27858.1	EF_TTLL11	04_signaling	04.10_calcium
+PF27924	PF27924.1	EID	10_epigenetics	10.2_histone_writers
+PF27937	PF27937.1	CBARP	02_neural	02.2_vgic
+PF28033	PF28033.1	Fn3_ROS1	06_cellular	06.6_ecm_adhesion
+PF28127	PF28127.1	FNDC9_C	06_cellular	06.6_ecm_adhesion
+PF28320	PF28320.1	Ig_Sema4F	02_neural	02.5_axon_guidance
+PF28354	PF28354.1	Ig_SEMA7A	02_neural	02.5_axon_guidance
+PF28452	PF28452.1	BIVM	01_sensory	01.3_mechanosensation
+PF28570	PF28570.1	IL27RA_FN3_3	06_cellular	06.6_ecm_adhesion
