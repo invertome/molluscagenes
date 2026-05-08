@@ -226,7 +226,7 @@
     <article class="method-block">
       <h3>Detection criteria</h3>
       <p>
-        For each held-out proteome we ran <code>hmmscan</code> (HMMER 3.4)
+        For each evaluation proteome we ran <code>hmmscan</code> (HMMER 3.4)
         against both databases with <code>--domE 1e-5 --incdomE 1e-5</code>,
         capturing per-sequence and per-domain output. A sequence was counted
         as detected by domain <em>D</em> if any reported domain on that
@@ -274,7 +274,7 @@
 
     <h3>Overall detection totals</h3>
     <p class="table-caption">
-      Aggregate detection counts across all six held-out proteomes, summed
+      Aggregate detection counts across all six evaluation proteomes, summed
       over the 1,057 Pfam accessions evaluated.
     </p>
     <table class="data-table">
@@ -457,7 +457,7 @@
   <div class="container container-narrow">
     <h2>Specificity &mdash; why most &ldquo;losses&rdquo; aren&rsquo;t real</h2>
     <p>
-      Across the six held-out proteomes, 7,173 sequences are detected
+      Across the six evaluation proteomes, 7,173 sequences are detected
       <em>only</em> by the original Pfam-A 36.0 models. Of those, 3,595 sit
       inside the 207 domains where revised raw counts are below original. Does
       that mean the revised HMMs lost sensitivity, or that they gained
@@ -663,7 +663,8 @@ sha256sum mollusca_revised_hmms.hmm
       <ul>
         <li><a href="index.html">Overview</a></li>
         <li><a href="examples.html">Tutorials</a></li>
-        <li><a href="hmms.html">HMMs</a></li>
+        <li><a href="hmms.html">HMMs (Browser)</a></li>
+        <li><a href="hmms_evaluation.html">HMMs (Evaluation)</a></li>
         <li><a href="species.html">Species browser</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>

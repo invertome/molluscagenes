@@ -127,7 +127,7 @@
     <nav>
       <a href="index.html">Overview</a>
       <a href="examples.html" class="current">Tutorials</a>
-      <a href="hmms.html">HMM browser</a>
+      <a href="hmms.html">HMMs</a>
       <a href="species.html">Species</a>
       <a href="contact.html">Contact</a>
       <a href="https://github.com/invertome/molluscagenes">GitHub</a>
@@ -326,7 +326,7 @@ LADEQERVQKKTFTNWINSYLVKHIPPVKVESL</pre>
         <ul class="plain">
           <li><strong>BLAST</strong> against every protein in the database (sensitive, slower)</li>
           <li><strong>DIAMOND</strong> against the same protein database (less sensitive but ~50× faster)</li>
-          <li><strong>hmmsearch</strong> against the 190 mollusc-revised Pfam HMMs (best at finding what <em>family</em> your protein belongs to)</li>
+          <li><strong>hmmsearch</strong> against the 1,057 mollusc-revised Pfam HMMs (best at finding what <em>family</em> your protein belongs to)</li>
         </ul>
         <p>
           The wrapper joins each method's hits to species metadata so you can see
@@ -400,7 +400,7 @@ my_protein         OctbimEVm004812t1    1.34e-156          OctbimEVm004812t1    
           <ul>
             <li><strong>"no config.sh found"</strong> — you forgot to <code>source config.sh</code>, or you're in the wrong directory. <code>cd</code> back to the repo root and try again.</li>
             <li><strong>"BLAST db not found"</strong> — the path in <code>config.sh</code> doesn't point to a folder with the BLAST volumes. Re-run <code>mg_fetch.sh</code>.</li>
-            <li><strong>The HMM search reports "0 hits"</strong> — your protein may genuinely not match any of the 190 HMMs (we cover ~50 biological categories, not all of Pfam). Try lowering <code>--hmm-E</code> first; if still nothing, the protein may be from a family we don't have an HMM for.</li>
+            <li><strong>The HMM search reports "0 hits"</strong> — your protein may genuinely not match any of the 1,057 HMMs (we cover ~50 biological categories, not all of Pfam). Try lowering <code>--hmm-E</code> first; if still nothing, the protein may be from a family we don't have an HMM for.</li>
             <li><strong>It seems hung</strong> — open <code>characterize_out/run.log</code> in another terminal (<code>tail -f characterize_out/run.log</code>) to see live progress.</li>
           </ul>
         </div>
@@ -631,7 +631,7 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
         <p>
           Given any protein FASTA — your own assembly, a set extracted with
           <code>mg_extract.sh</code>, or any third-party proteome — annotate it
-          domain-by-domain using the 190 mollusc-revised HMMs. Because these
+          domain-by-domain using the 1,057 mollusc-revised HMMs. Because these
           HMMs were re-trained against molluscan sequence diversity, they
           recover divergent homologs that vertebrate-trained Pfam profiles
           frequently miss.
@@ -641,7 +641,7 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
           <dt>You'll need</dt>
           <dd>A protein FASTA. We'll generate one from <em>Octopus bimaculoides</em> using <code>mg_extract</code>.</dd>
           <dt>Time</dt>
-          <dd>~10 minutes for an 80,000-protein proteome on 8 threads with the full bundle (190 HMMs). Single-HMM scans take seconds.</dd>
+          <dd>~10 minutes for an 80,000-protein proteome on 8 threads with the full bundle (1,057 HMMs). Single-HMM scans take seconds.</dd>
         </dl>
 
         <div class="step">
@@ -696,7 +696,7 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
 
         <div class="callout">
           <p><strong>Pick HMMs interactively.</strong> The
-          <a href="hmms.html">HMM browser</a> lets you filter the 190 HMMs by
+          <a href="hmms.html">HMMs (Browser)</a> page lets you filter the 1,057 HMMs by
           biological category (GPCR, VGIC, LGIC, …), tick a subset, and copy a
           <code>curl</code> snippet or download a ZIP bundle. Useful when you
           want to scan with a small custom subset rather than the full
@@ -829,7 +829,7 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
           <dd>A probabilistic model of a protein domain family. Each position in the model has its own preferences for which amino acids it accepts. HMMs are more sensitive than BLAST for finding distant family members, especially when the family has conserved positions interleaved with variable ones.</dd>
 
           <dt>Pfam</dt>
-          <dd>The standard public collection of protein-domain HMMs. MolluscaGenes ships TIAMMAt-revised versions of 190 Pfam HMMs that have been retrained on molluscan sequence data.</dd>
+          <dd>The standard public collection of protein-domain HMMs. MolluscaGenes ships TIAMMAt-revised versions of 1,057 Pfam HMMs that have been retrained on molluscan sequence data.</dd>
 
           <dt>FASTA</dt>
           <dd>A plain-text file format for sequences. Each entry begins with a <code>&gt;</code> header line and is followed by the sequence on the next lines.</dd>
@@ -877,7 +877,8 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
       <ul>
         <li><a href="index.html">Overview</a></li>
         <li><a href="examples.html">Tutorials</a></li>
-        <li><a href="hmms.html">HMM browser</a></li>
+        <li><a href="hmms.html">HMMs (Browser)</a></li>
+        <li><a href="hmms_evaluation.html">HMMs (Evaluation)</a></li>
         <li><a href="species.html">Species browser</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
