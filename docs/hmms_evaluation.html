@@ -338,7 +338,7 @@
     <h3>Per-theme summary</h3>
     <p class="table-caption">
       Twelve curation themes, each spanning multiple subcategories and Pfam
-      domains. Sorted by absolute new-detection count (descending).
+      domains. Sorted by % change in detections (descending).
     </p>
     <table class="data-table">
       <thead>
@@ -353,26 +353,27 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Cellular machinery</td><td class="num">266</td><td class="num">42,977</td><td class="num">48,722</td><td class="num">7,114</td><td class="num">+5,745</td><td class="num">+13.4%</td></tr>
-        <tr><td>Innate immunity and host defense</td><td class="num">70</td><td class="num">20,554</td><td class="num">24,372</td><td class="num">4,102</td><td class="num">+3,818</td><td class="num">+18.6%</td></tr>
-        <tr><td>Intracellular signaling pathways</td><td class="num">145</td><td class="num">48,227</td><td class="num">51,050</td><td class="num">3,819</td><td class="num">+2,823</td><td class="num">+5.9%</td></tr>
         <tr><td>Sensory perception</td><td class="num">44</td><td class="num">7,034</td><td class="num">10,029</td><td class="num">3,103</td><td class="num">+2,995</td><td class="num">+42.6%</td></tr>
         <tr><td>Metabolism and physiology</td><td class="num">60</td><td class="num">7,157</td><td class="num">8,616</td><td class="num">1,749</td><td class="num">+1,459</td><td class="num">+20.4%</td></tr>
+        <tr><td>Innate immunity and host defense</td><td class="num">70</td><td class="num">20,554</td><td class="num">24,372</td><td class="num">4,102</td><td class="num">+3,818</td><td class="num">+18.6%</td></tr>
+        <tr><td>Cellular machinery</td><td class="num">266</td><td class="num">42,977</td><td class="num">48,722</td><td class="num">7,114</td><td class="num">+5,745</td><td class="num">+13.4%</td></tr>
         <tr><td>Neural and synaptic biology</td><td class="num">97</td><td class="num">10,093</td><td class="num">11,429</td><td class="num">1,563</td><td class="num">+1,336</td><td class="num">+13.2%</td></tr>
-        <tr><td>Stem cells regeneration and development</td><td class="num">23</td><td class="num">12,578</td><td class="num">13,732</td><td class="num">1,457</td><td class="num">+1,154</td><td class="num">+9.2%</td></tr>
-        <tr><td>Epigenetics and RNA biology</td><td class="num">56</td><td class="num">10,073</td><td class="num">10,708</td><td class="num">933</td><td class="num">+635</td><td class="num">+6.3%</td></tr>
         <tr><td>Endocrine and neuroendocrine</td><td class="num">35</td><td class="num">4,779</td><td class="num">5,247</td><td class="num">604</td><td class="num">+468</td><td class="num">+9.8%</td></tr>
+        <tr><td>Stem cells regeneration and development</td><td class="num">23</td><td class="num">12,578</td><td class="num">13,732</td><td class="num">1,457</td><td class="num">+1,154</td><td class="num">+9.2%</td></tr>
         <tr><td>Mollusc-specific biology</td><td class="num">108</td><td class="num">4,557</td><td class="num">4,878</td><td class="num">492</td><td class="num">+321</td><td class="num">+7.0%</td></tr>
-        <tr><td>Stress environment and xenobiotics</td><td class="num">36</td><td class="num">6,060</td><td class="num">5,764</td><td class="num">380</td><td class="num">&minus;296</td><td class="num">&minus;4.9%</td></tr>
+        <tr><td>Epigenetics and RNA biology</td><td class="num">56</td><td class="num">10,073</td><td class="num">10,708</td><td class="num">933</td><td class="num">+635</td><td class="num">+6.3%</td></tr>
+        <tr><td>Intracellular signaling pathways</td><td class="num">145</td><td class="num">48,227</td><td class="num">51,050</td><td class="num">3,819</td><td class="num">+2,823</td><td class="num">+5.9%</td></tr>
         <tr><td>Symbiosis longevity and emerging biology</td><td class="num">14</td><td class="num">924</td><td class="num">962</td><td class="num">72</td><td class="num">+38</td><td class="num">+4.1%</td></tr>
+        <tr><td>Stress environment and xenobiotics</td><td class="num">36</td><td class="num">6,060</td><td class="num">5,764</td><td class="num">380</td><td class="num">&minus;296</td><td class="num">&minus;4.9%</td></tr>
       </tbody>
     </table>
 
-    <h3>Top 20 domains by new detections</h3>
+    <h3>Top 20 domains by % change</h3>
     <p class="table-caption">
-      Twenty Pfam accessions with the largest absolute number of new
-      detections in the revised model (revised-only sequences). Each
-      accession links out to the corresponding InterPro entry.
+      Twenty Pfam accessions with the largest percent change in detections
+      (revised vs original), among domains with at least 50 revised
+      detections. Each accession links out to the corresponding InterPro
+      entry.
     </p>
     <table class="data-table">
       <thead>
@@ -388,26 +389,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF10320/" rel="noopener">PF10320</a></td><td>Sensory perception</td><td>Chemoreception</td><td class="num">1,407</td><td class="num">3,832</td><td class="num">2,425</td><td class="num">+2,425</td><td class="num">+172.4%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13912/" rel="noopener">PF13912</a></td><td>Stem cells regeneration and development</td><td>Cell fate and lineage commitment</td><td class="num">3,237</td><td class="num">4,463</td><td class="num">1,236</td><td class="num">+1,226</td><td class="num">+37.9%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF07686/" rel="noopener">PF07686</a></td><td>Innate immunity and host defense</td><td>Cytokine-like</td><td class="num">1,899</td><td class="num">3,017</td><td class="num">1,125</td><td class="num">+1,118</td><td class="num">+58.9%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00083/" rel="noopener">PF00083</a></td><td>Metabolism and physiology</td><td>Glycogen and carbohydrate</td><td class="num">1,085</td><td class="num">2,093</td><td class="num">1,034</td><td class="num">+1,008</td><td class="num">+92.9%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13833/" rel="noopener">PF13833</a></td><td>Intracellular signaling pathways</td><td>Calcium signaling</td><td class="num">1,514</td><td class="num">2,187</td><td class="num">695</td><td class="num">+673</td><td class="num">+44.5%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF07974/" rel="noopener">PF07974</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">1,321</td><td class="num">1,965</td><td class="num">677</td><td class="num">+644</td><td class="num">+48.8%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF14658/" rel="noopener">PF14658</a></td><td>Intracellular signaling pathways</td><td>Calcium signaling</td><td class="num">396</td><td class="num">1,052</td><td class="num">657</td><td class="num">+656</td><td class="num">+165.7%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF22971/" rel="noopener">PF22971</a></td><td>Innate immunity and host defense</td><td>Cytokine-like</td><td class="num">600</td><td class="num">1,217</td><td class="num">640</td><td class="num">+617</td><td class="num">+102.8%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF25391/" rel="noopener">PF25391</a></td><td>Intracellular signaling pathways</td><td>G-protein machinery</td><td class="num">1,982</td><td class="num">2,609</td><td class="num">636</td><td class="num">+627</td><td class="num">+31.6%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00735/" rel="noopener">PF00735</a></td><td>Cellular machinery</td><td>Cell cycle</td><td class="num">347</td><td class="num">855</td><td class="num">514</td><td class="num">+508</td><td class="num">+146.4%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF01108/" rel="noopener">PF01108</a></td><td>Innate immunity and host defense</td><td>Complement system</td><td class="num">45</td><td class="num">257</td><td class="num">222</td><td class="num">+212</td><td class="num">+471.1%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF02949/" rel="noopener">PF02949</a></td><td>Sensory perception</td><td>Chemoreception</td><td class="num">12</td><td class="num">65</td><td class="num">56</td><td class="num">+53</td><td class="num">+441.7%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF11701/" rel="noopener">PF11701</a></td><td>Mollusc-specific biology</td><td>Catch muscle and paramyosin</td><td class="num">21</td><td class="num">96</td><td class="num">76</td><td class="num">+75</td><td class="num">+357.1%</td></tr>
         <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF25757/" rel="noopener">PF25757</a></td><td>Cellular machinery</td><td>Cilia and flagella</td><td class="num">137</td><td class="num">585</td><td class="num">450</td><td class="num">+448</td><td class="num">+327.0%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00001/" rel="noopener">PF00001</a></td><td>Sensory perception</td><td>Photoreception</td><td class="num">3,911</td><td class="num">4,276</td><td class="num">379</td><td class="num">+365</td><td class="num">+9.3%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF23317/" rel="noopener">PF23317</a></td><td>Neural and synaptic biology</td><td>Voltage-gated ion channels</td><td class="num">490</td><td class="num">842</td><td class="num">355</td><td class="num">+352</td><td class="num">+71.8%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00754/" rel="noopener">PF00754</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">1,202</td><td class="num">1,512</td><td class="num">351</td><td class="num">+310</td><td class="num">+25.8%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00053/" rel="noopener">PF00053</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">457</td><td class="num">792</td><td class="num">349</td><td class="num">+335</td><td class="num">+73.3%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00002/" rel="noopener">PF00002</a></td><td>Endocrine and neuroendocrine</td><td>GPCRs all classes</td><td class="num">732</td><td class="num">1,065</td><td class="num">341</td><td class="num">+333</td><td class="num">+45.5%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF01602/" rel="noopener">PF01602</a></td><td>Cellular machinery</td><td>Endocytosis</td><td class="num">309</td><td class="num">617</td><td class="num">322</td><td class="num">+308</td><td class="num">+99.7%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF07645/" rel="noopener">PF07645</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">1,360</td><td class="num">1,660</td><td class="num">315</td><td class="num">+300</td><td class="num">+22.1%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF08016/" rel="noopener">PF08016</a></td><td>Neural and synaptic biology</td><td>Voltage-gated ion channels</td><td class="num">542</td><td class="num">834</td><td class="num">297</td><td class="num">+292</td><td class="num">+53.9%</td></tr>
-        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13855/" rel="noopener">PF13855</a></td><td>Innate immunity and host defense</td><td>Pattern recognition receptors</td><td class="num">2,274</td><td class="num">2,564</td><td class="num">297</td><td class="num">+290</td><td class="num">+12.8%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF06003/" rel="noopener">PF06003</a></td><td>Epigenetics and RNA biology</td><td>Histone modifiers readers</td><td class="num">49</td><td class="num">205</td><td class="num">156</td><td class="num">+156</td><td class="num">+318.4%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF24573/" rel="noopener">PF24573</a></td><td>Cellular machinery</td><td>Cilia and flagella</td><td class="num">28</td><td class="num">116</td><td class="num">91</td><td class="num">+88</td><td class="num">+314.3%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF25028/" rel="noopener">PF25028</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">93</td><td class="num">370</td><td class="num">279</td><td class="num">+277</td><td class="num">+297.8%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF11618/" rel="noopener">PF11618</a></td><td>Cellular machinery</td><td>Ubiquitin-proteasome</td><td class="num">32</td><td class="num">122</td><td class="num">90</td><td class="num">+90</td><td class="num">+281.2%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF08123/" rel="noopener">PF08123</a></td><td>Epigenetics and RNA biology</td><td>Histone modifiers writers</td><td class="num">61</td><td class="num">228</td><td class="num">172</td><td class="num">+167</td><td class="num">+273.8%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF15906/" rel="noopener">PF15906</a></td><td>Intracellular signaling pathways</td><td>Nitric oxide signaling</td><td class="num">36</td><td class="num">132</td><td class="num">98</td><td class="num">+96</td><td class="num">+266.7%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF09272/" rel="noopener">PF09272</a></td><td>Innate immunity and host defense</td><td>SRCR superfamily</td><td class="num">89</td><td class="num">298</td><td class="num">210</td><td class="num">+209</td><td class="num">+234.8%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF23244/" rel="noopener">PF23244</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">56</td><td class="num">161</td><td class="num">106</td><td class="num">+105</td><td class="num">+187.5%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF16471/" rel="noopener">PF16471</a></td><td>Cellular machinery</td><td>Apoptosis machinery</td><td class="num">105</td><td class="num">289</td><td class="num">203</td><td class="num">+184</td><td class="num">+175.2%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF03915/" rel="noopener">PF03915</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">58</td><td class="num">159</td><td class="num">111</td><td class="num">+101</td><td class="num">+174.1%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF10320/" rel="noopener">PF10320</a></td><td>Sensory perception</td><td>Chemoreception</td><td class="num">1,407</td><td class="num">3,832</td><td class="num">2,425</td><td class="num">+2,425</td><td class="num">+172.4%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF05004/" rel="noopener">PF05004</a></td><td>Innate immunity and host defense</td><td>Cytokine-like</td><td class="num">50</td><td class="num">135</td><td class="num">99</td><td class="num">+85</td><td class="num">+170.0%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF14658/" rel="noopener">PF14658</a></td><td>Intracellular signaling pathways</td><td>Calcium signaling</td><td class="num">396</td><td class="num">1,052</td><td class="num">657</td><td class="num">+656</td><td class="num">+165.7%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF11834/" rel="noopener">PF11834</a></td><td>Neural and synaptic biology</td><td>Voltage-gated ion channels</td><td class="num">21</td><td class="num">54</td><td class="num">36</td><td class="num">+33</td><td class="num">+157.1%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF23376/" rel="noopener">PF23376</a></td><td>Cellular machinery</td><td>Extracellular matrix and cell adhesion</td><td class="num">190</td><td class="num">474</td><td class="num">285</td><td class="num">+284</td><td class="num">+149.5%</td></tr>
+        <tr><td><a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00735/" rel="noopener">PF00735</a></td><td>Cellular machinery</td><td>Cell cycle</td><td class="num">347</td><td class="num">855</td><td class="num">514</td><td class="num">+508</td><td class="num">+146.4%</td></tr>
       </tbody>
     </table>
 
