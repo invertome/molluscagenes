@@ -173,7 +173,7 @@
       <div class="stat"><span class="num">8<small>classes</small></span><span class="label">Coverage</span></div>
       <div class="stat"><span class="num">17<small>M</small></span><span class="label">Sequences</span></div>
       <div class="stat"><span class="num">1,057</span><span class="label">HMMs</span></div>
-      <div class="stat"><span class="num">+11.7%</span><span class="label">Detection sensitivity (QC'd)</span></div>
+      <div class="stat"><span class="num">+11.7%</span><span class="label">Detection sensitivity</span></div>
     </div>
   </div>
 </section>
@@ -223,7 +223,7 @@
           <li><strong>~17 million transcripts</strong> (~16.8 Gb of nucleotide data).</li>
           <li><strong>~17 million predicted proteins</strong> (~3.3 Gb of amino-acid data).</li>
           <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
-          <li><strong>1,057 QC&rsquo;d hybrid HMMs</strong> (909 TIAMMAt-revised + 148 reverted to original Pfam-A 36.0 after specificity QC) across 12 themes / 104 subcategories &mdash; honest +11.7&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 across six mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
+          <li><strong>1,057 mollusc-optimized HMMs</strong> across 12 themes / 104 subcategories (909 TIAMMAt-revised, 148 original Pfam-A 36.0 fallback after per-HMM specificity QC) &mdash; +11.7&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 across six mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
           <li><strong>Per-species &amp; per-HMM metadata</strong> with NCBI taxonomy and WoRMS cross-links.</li>
           <li><strong>CLI wrappers</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code>, <code>mg_extract</code>.</li>
         </ul>
@@ -259,19 +259,17 @@
     <div class="eval-callout">
       <div class="eval-callout-text">
         <span class="eval-eyebrow">Performance</span>
-        <h3 class="eval-headline">+11.7&thinsp;% detection sensitivity.<br>Honest, QC&rsquo;d, drop-in for Pfam-A 36.0.</h3>
+        <h3 class="eval-headline">+11.7&thinsp;% detection sensitivity.<br>Drop-in for Pfam-A 36.0.</h3>
         <p>
-          Six-proteome evaluation comparing the 1,057 QC&rsquo;d hybrid HMMs
-          (909 TIAMMAt-revised + 148 reverted to original Pfam-A 36.0 after
-          per-HMM specificity QC) against the original Pfam-A 36.0
-          baseline. Specificity-decomposed (true gains vs. reassignment) and
-          figure-rich.
+          Six-proteome benchmark comparing 1,057 mollusc-optimized HMMs
+          against original Pfam-A 36.0. Per-HMM specificity QC, 12-theme
+          curation taxonomy, specificity-decomposed and figure-rich.
         </p>
         <a class="cta secondary" href="hmms_evaluation.html">View evaluation report <span class="arrow">→</span></a>
       </div>
       <div class="eval-callout-stat">
         <span class="eval-stat-num">+11.7<small>%</small></span>
-        <span class="eval-stat-label">mean sensitivity gain<br><small>(QC&rsquo;d, vs. stock Pfam-A 36.0)</small></span>
+        <span class="eval-stat-label">mean sensitivity gain<br><small>(vs. stock Pfam-A 36.0)</small></span>
       </div>
     </div>
   </div>
@@ -440,11 +438,10 @@
     <span class="section-title">Roadmap</span>
     <h2>Coming in v1.0.</h2>
     <p>
-      v0.1 is a preliminary release. The full HPC-driven rebuild — tracked
-      under the
+      A full HPC-driven rebuild (v1.0) is tracked under the
       <a href="https://github.com/invertome/molluscagenes/issues">project's
-      issue tracker</a> — will supersede v0.1 under the same Zenodo concept
-      DOI. Planned changes:
+      issue tracker</a> and will supersede the current release under the
+      same Zenodo concept DOI. Planned changes:
     </p>
     <ul class="plain">
       <li><strong>Larger taxonomic scope.</strong> Re-querying NCBI's SRA against an updated MolluscaBase target list, including taxa added since v0.1 was assembled.</li>

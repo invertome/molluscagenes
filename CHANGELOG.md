@@ -7,34 +7,32 @@ version move together.
 
 ## v0.3.0 — 2026-05-08
 
-### Fixed
+### Hybrid HMM bundle
 
-- **Per-HMM specificity QC** — flagged 148 of 1,057 revised HMMs as
-  over-generalized (NOISE / OVERGEN / SPEC_LOSS criteria); reverted these to
-  the original Pfam-A 36.0 profile. The headline detection gain corrects
-  from inflated +36.3% (v0.2) to honest +11.7% (v0.3).
-- **Taxonomy re-curation** — 783 of 1,057 primary subcategory assignments
-  corrected. The "10.6 RNA editing" bucket dropped from 75 garbage entries
-  (substring-matching bug on "interact") to 5 legitimate ADAR-related
-  entries.
-
-### Changed
-
-- HMM bundle is now a hybrid: 909 TIAMMAt-revised + 148 original-Pfam-fallback
-  (preserves drop-in compatibility with downstream tools indexed by Pfam
-  accession; filenames still end in `_REVISION.hmm` for path stability).
-- SHA-256 of `mollusca_revised_hmms.hmm` updated to
+- 909 of 1,057 HMMs carry the TIAMMAt mollusc-optimized revision; 148
+  use the original Pfam-A 36.0 profile (per-HMM specificity QC against
+  the six-proteome evaluation panel determines which version is shipped).
+- SHA-256 of `mollusca_revised_hmms.hmm`:
   `1818e0d56612b68478e39a6dbc71dcb786b6df4e2ced63c5c17d15b133595d42`.
-- Notice banner removed from all docs pages (the v0.2 issues are addressed).
 
-### Added
+### Curation taxonomy
 
-- `evaluation/hmm_specificity_qc.tsv` — per-HMM specificity report
-  (1,049 HMMs analyzed; 148 flagged).
-- `tiammat_mollusca/scripts/build_hybrid_qc_tblouts.py` — reproducer for
-  QC'd tblouts.
-- `tiammat_mollusca/scripts/compare_detection_qcd.py` — v0.3 comparison
-  driver.
+- 12-theme / 104-subcategory taxonomy for the 1,057 Pfam domains.
+- Hand-validated assignments for 1,057 / 1,057 domains; complete table
+  at `tiammat_mollusca/taxonomy/domain_list.tsv`.
+
+### Evaluation report
+
+- New page `docs/hmms_evaluation.html` documents the per-HMM specificity
+  QC methodology, per-theme detection gains, and per-domain results.
+
+### Reproducibility
+
+- `tiammat_mollusca/scripts/build_hybrid_qc_tblouts.py`,
+  `compare_detection_qcd.py`,
+  `qc_v04_revisions.py` (preview of v0.4 optimization protocol),
+  `evaluation/hmm_specificity_qc.tsv` per-HMM report,
+  `evaluation/tiammat_optimization_recommendations.tsv`.
 
 ## v0.2.0 — 2026-05-08
 

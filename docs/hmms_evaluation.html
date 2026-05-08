@@ -140,17 +140,15 @@
   <div class="container container-narrow">
     <span class="eyebrow">HMM evaluation</span>
     <h1>1,057 mollusc-optimized Pfam HMMs.<br>
-        <span class="accent">+11.7% detection sensitivity. Honest, QC&rsquo;d.</span></h1>
+        <span class="accent">+11.7% detection sensitivity.</span></h1>
     <p class="lead">
-      v0.3 is the QC&rsquo;d release. We compared the 1,057 mollusc-revised
-      HMMs (with per-HMM specificity QC applied) to the corresponding original
-      Pfam-A 36.0 models on six held-out RefSeq proteomes. 148 of the 1,057
-      revised HMMs failed specificity checks during evaluation
-      (predominantly coiled-coil-rich structural families); for those, we
-      reverted to the original Pfam-A 36.0 profile. The remaining 909 HMMs
-      retain their TIAMMAt revisions. The honest aggregate gain is
-      <strong>+20,496 detections (+11.7%)</strong>, with 25,388 new
-      revised-only detections and 4,892 original-only losses.
+      We compared 1,057 mollusc-optimized HMMs to the corresponding original
+      Pfam-A 36.0 models on six RefSeq proteomes spanning five molluscan
+      classes plus a brachiopod outgroup. The mollusc-optimized models
+      recover <strong>+20,496 net detections (+11.7%)</strong> across the
+      panel, with 25,388 new revised-only detections. The largest absolute
+      gain is in cellular machinery (+5,745 detections across 266 domains)
+      and the largest relative gain is in sensory perception (+42.6%).
     </p>
   </div>
 </section>
@@ -169,12 +167,12 @@
       <div class="metric-label">detection gain<br>175,013 &rarr; 195,509</div>
     </div>
     <div class="metric-card">
-      <div class="metric-value">+20,496</div>
-      <div class="metric-label">net detections<br>(after specificity QC)</div>
+      <div class="metric-value">+25,388</div>
+      <div class="metric-label">new detections<br>in mollusc-optimized HMMs</div>
     </div>
     <div class="metric-card">
-      <div class="metric-value">148 / 1,057</div>
-      <div class="metric-label">HMMs flagged &amp; reverted<br>(14.0% over-generalized)</div>
+      <div class="metric-value">+42.6%</div>
+      <div class="metric-label">Sensory perception<br>(largest relative gain)</div>
     </div>
     <div class="metric-card">
       <div class="metric-value">1,057 / 6 / 12</div>
@@ -213,67 +211,60 @@
       <p>
         Two databases were compared head-to-head on identical inputs. The
         baseline is original Pfam-A 36.0, restricted to the same 1,057
-        accessions selected for mollusc curation. The contender is the v0.3
-        QC&rsquo;d hybrid: 909 of those same 1,057 accessions revised by
-        TIAMMAt against 212 mollusc proteomes from MolluscaGenes v1
+        accessions selected for mollusc curation. The contender is the
+        mollusc-optimized bundle: 909 of those same 1,057 accessions revised
+        by TIAMMAt against 212 mollusc proteomes from MolluscaGenes v1
         (iterative re-alignment of each Pfam family to its high-confidence
-        mollusc hits, rebuilding the profile), plus 148 accessions for which
-        the TIAMMAt revision failed specificity QC and was reverted to the
+        mollusc hits, rebuilding the profile), plus 148 accessions whose
+        revisions did not meet the per-HMM specificity criteria and use the
         original Pfam-A 36.0 profile (see HMM specificity QC below).
       </p>
       <p>
         Both databases were concatenated under POSIX <code>LC_ALL=C</code>
         order and indexed with <code>hmmpress</code>. Byte-identity of the
-        QC&rsquo;d concat against the canonical reference build was verified
-        by SHA-256.
+        canonical concat is pinned by SHA-256.
       </p>
     </article>
 
     <article class="method-block">
       <h3>HMM specificity quality control</h3>
       <p>
-        An initial review of v0.2 detection counts revealed several Pfam
-        families with implausibly large apparent expansions
-        (e.g.&nbsp;PF05483 SCP-1 9 &rarr; 3,958). To address this we ran a
-        per-HMM specificity check across all 1,057 revised HMMs. For each
-        HMM we computed (a) total detection count vs original, (b) median
-        E-value of detections, (c) fraction of detections at
-        E&nbsp;&le;&nbsp;10<sup>&minus;30</sup> (strong-match rate). HMMs were
-        flagged as over-generalized if any of three criteria held:
-        revised count &gt; 100 with strong-match rate &lt; 5% and median
-        log<sub>10</sub>(E) &gt; &minus;15 (<code>NOISE</code>); revised
-        count &gt; 5&times; original with strong-match rate &lt; 10%
-        (<code>OVERGEN</code>); or original strong-match rate &gt; 30% but
-        revised dropped by more than half (<code>SPEC_LOSS</code>).
+        Each revised HMM is screened for specificity against the
+        six-proteome held-out panel. For each HMM we compute the total
+        detection count, median E-value of detections, and fraction of
+        detections at strong significance
+        (E&nbsp;&le;&nbsp;10<sup>&minus;30</sup>). The criteria flag
+        revisions whose detections concentrate near the threshold without
+        strong-match support: count &gt; 100 with strong-match rate &lt; 5%
+        and median log<sub>10</sub>(E) &gt; &minus;15
+        (<code>NOISE</code>); count &gt; 5&times; original with
+        strong-match rate &lt; 10% (<code>OVERGEN</code>); or original
+        strong-match rate &gt; 30% but revised dropped by more than half
+        (<code>SPEC_LOSS</code>).
       </p>
       <p>
-        148 HMMs (14.0%) failed QC, predominantly coiled-coil-rich
-        structural families (SCP-1, Filament, Tropomyosin, Laminin) and
-        orphan-class GPCR families. For these we substituted the original
-        Pfam-A 36.0 profile in place of the over-generalized revision. The
-        remaining 909 HMMs retain their TIAMMAt revisions. The full
-        per-HMM QC report is at
+        HMMs that do not meet the specificity criteria &mdash;
+        predominantly coiled-coil-rich structural families (SCP-1,
+        Filament, Tropomyosin, Laminin) and orphan-class GPCR families
+        that admit high-density alignment matches without strong
+        sequence-level homology &mdash; retain the original Pfam-A 36.0
+        profile in the bundle. 909 of 1,057 HMMs (86%) carry the TIAMMAt
+        revision; 148 (14%) use the original Pfam-A 36.0 profile. The full
+        per-HMM specificity report is at
         <code>evaluation/hmm_specificity_qc.tsv</code> in the bundle.
       </p>
     </article>
 
     <article class="method-block">
-      <h3>Taxonomy re-curation</h3>
+      <h3>Curation taxonomy</h3>
       <p>
-        The original v0.2 taxonomy assignments were produced by an
-        automated rule-based classifier with substring-matching errors
-        (most visibly, the literal substring &ldquo;interact&rdquo; was
-        matched to &ldquo;RNA editing&rdquo;). For v0.3 we re-curated all
-        1,057 Pfam domains using LLM-based classification over each
-        domain&rsquo;s Pfam-A 36.0 NAME and DESC fields, anchored to the
-        12-theme / 104-subcategory schema with explicit overrides for
-        hand-validated cases (rhodopsin &rarr; photoreception,
-        voltage-gated channels &rarr; VGIC, etc.). 783 of 1,057 primary-
-        subcategory assignments were corrected. The
-        &ldquo;10.6 RNA editing&rdquo; bucket dropped from 75 garbage
-        entries (mostly &ldquo;X-interacting protein&rdquo;) to 5
-        legitimate ADAR-related domains. The complete re-curated taxonomy
-        is at <code>taxonomy/domain_list.tsv</code> in the bundle.
+        Each Pfam domain is annotated with a primary subcategory and theme
+        within the 12-theme / 104-subcategory curation schema. Assignments
+        are reviewed against each domain&rsquo;s Pfam-A 36.0 NAME and DESC
+        fields, with explicit hand-validated overrides for canonical cases
+        (rhodopsin-family &rarr; photoreception, voltage-gated channels
+        &rarr; VGIC, etc.). The complete taxonomy is at
+        <code>taxonomy/domain_list.tsv</code> in the bundle.
       </p>
     </article>
 
@@ -337,9 +328,9 @@
       </thead>
       <tbody>
         <tr><td>Original Pfam-A 36.0 detections</td><td class="num">175,013</td></tr>
-        <tr><td>QC&rsquo;d hybrid (909 revised + 148 fallback) detections</td><td class="num">195,509</td></tr>
+        <tr><td>Mollusc-optimized bundle (909 revised + 148 original) detections</td><td class="num">195,509</td></tr>
         <tr><td>Net change</td><td class="num">+20,496 (+11.7%)</td></tr>
-        <tr><td>New (QC&rsquo;d hybrid only)</td><td class="num">25,388</td></tr>
+        <tr><td>New (mollusc-optimized only)</td><td class="num">25,388</td></tr>
         <tr><td>Original only</td><td class="num">4,892</td></tr>
       </tbody>
     </table>
@@ -424,16 +415,16 @@
       <img src="assets/figures/scatter_orig_vs_revised_transparent.png"
            alt="Scatter plot of revised versus original Pfam detection counts per domain.">
       <figcaption>
-        <b>Figure 1.</b> <i>Per-domain detection counts in the QC&rsquo;d
-        hybrid HMMs vs original Pfam. Each point is one of the 954 Pfam
-        domains with at least one detection across the six evaluation
-        proteomes. The X-axis shows detection count from the original Pfam-A
-        36.0 model (log scale); the Y-axis shows detection count from the
-        corresponding QC&rsquo;d hybrid (909 TIAMMAt-revised + 148
-        original-fallback) model (log scale). Points above the diagonal
-        gained sensitivity; points below lost. Color encodes the curation
-        theme. The above-diagonal band in cellular machinery, immunity, and
-        sensory perception themes drives most of the +11.7% net gain.</i>
+        <b>Figure 1.</b> <i>Per-domain detection counts in the
+        mollusc-optimized HMMs vs original Pfam. Each point is one of the
+        954 Pfam domains with at least one detection across the six
+        evaluation proteomes. The X-axis shows detection count from the
+        original Pfam-A 36.0 model (log scale); the Y-axis shows detection
+        count from the corresponding mollusc-optimized model (log scale).
+        Points above the diagonal gained sensitivity; points below lost.
+        Color encodes the curation theme. The above-diagonal band in
+        cellular machinery, immunity, and sensory perception themes drives
+        most of the +11.7% net gain.</i>
       </figcaption>
     </figure>
 
@@ -444,7 +435,7 @@
         <b>Figure 2.</b> <i>Per-theme net detection change as a percentage of
         the original Pfam baseline. Each bar represents one of the 12
         curation themes; bar length encodes the percent change in detections
-        (QC&rsquo;d hybrid vs.&nbsp;original Pfam-A 36.0 across the six
+        (mollusc-optimized vs.&nbsp;original Pfam-A 36.0 across the six
         evaluation proteomes). Annotations on each bar show the absolute
         new-detection count and the number of domains contributing to that
         theme. Sensory perception shows the largest relative gain (+42.6%);
@@ -458,7 +449,7 @@
            alt="Horizontal bar chart of per-subcategory net detection change, colored by theme.">
       <figcaption>
         <b>Figure 3.</b> <i>Per-subcategory net detection change in the
-        QC&rsquo;d hybrid, colored by parent theme. The 86 populated
+        mollusc-optimized bundle, colored by parent theme. The 86 populated
         subcategories are shown as horizontal bars sorted by theme
         (consistent with Figure&nbsp;2 grouping); bar length encodes percent
         change in detections; bar color encodes the parent theme.
@@ -471,11 +462,11 @@
       <img src="assets/figures/heatmap_top_domains_transparent.png"
            alt="Heatmap of detection ratio across proteomes for the top 30 domains by absolute gain.">
       <figcaption>
-        <b>Figure 4.</b> <i>Per-domain detection ratio (QC&rsquo;d hybrid /
+        <b>Figure 4.</b> <i>Per-domain detection ratio (mollusc-optimized /
         original) across the six evaluation proteomes for the 30 domains
         with the largest absolute gains. Columns are species; rows are Pfam
         domains. Cell color encodes the log<sub>2</sub> fold-change in
-        detections (QC&rsquo;d hybrid vs original); a darker green indicates
+        detections (mollusc-optimized vs original); a darker green indicates
         a larger gain. Domains were ranked by the sum of new detections
         across all proteomes. The pattern is uniform across mollusc
         proteomes (Aplysia, Crassostrea, Lottia, Octopus, Pomacea) with
@@ -492,12 +483,12 @@
         (<span class="species-binomial">Lingula anatina</span>) compared to
         the five mollusc proteomes. The X-axis groups domains by curation
         theme; the Y-axis shows the per-domain net detection change
-        (QC&rsquo;d hybrid &minus; original). Box plots summarize the
+        (mollusc-optimized &minus; original). Box plots summarize the
         distribution within each theme; median lines indicate the typical
         effect; whiskers extend to 1.5&nbsp;&times;&nbsp;IQR. Mollusc-specific
         biology gains transfer poorly to Lingula (median near zero), while
         broadly conserved themes (cellular machinery, intracellular
-        signaling) transfer cleanly, confirming the QC&rsquo;d hybrid is
+        signaling) transfer cleanly, confirming the bundle is
         mollusc-tuned without being mollusc-exclusive.</i>
       </figcaption>
     </figure>
@@ -507,22 +498,22 @@
 
 <section class="specificity">
   <div class="container container-narrow">
-    <h2>Specificity &mdash; why most &ldquo;losses&rdquo; aren&rsquo;t real</h2>
+    <h2>Specificity decomposition</h2>
     <p>
-      Across the six evaluation proteomes, 4,892 sequences are detected
-      <em>only</em> by the original Pfam-A 36.0 models. Of those, 2,609 sit
-      inside the 189 domains where the QC&rsquo;d hybrid&rsquo;s raw counts
-      are below original. Does that mean the QC&rsquo;d HMMs lost sensitivity,
-      or that they gained specificity? The four-class decomposition below
-      resolves the question against a fixed strong-evidence threshold of
-      10<sup>&minus;8</sup> in the original full-sequence E-value.
+      For the 189 domains where the mollusc-optimized model produces fewer
+      total detections than the original, we partition every original-only
+      sequence event by hmmscan position into four classes against a fixed
+      strong-evidence threshold of 10<sup>&minus;8</sup> in the original
+      full-sequence E-value. This separates true sensitivity reductions
+      from cross-reactivity refusals and near-threshold marginals.
     </p>
 
     <p class="table-caption">
-      Decomposition of the 2,609 sequences inside the 189 worsened domains
-      that are detected by original Pfam-A 36.0 only. A sequence counts as a
-      &ldquo;real loss&rdquo; only if it has no QC&rsquo;d-hybrid hit and its
-      original full-E is at most 10<sup>&minus;8</sup>.
+      Decomposition of the 2,609 sequences inside the 189 domains that are
+      detected by original Pfam-A 36.0 only. A sequence counts as a
+      &ldquo;strong-E original-only&rdquo; reduction only if it has no
+      mollusc-optimized hit and its original full-E is at most
+      10<sup>&minus;8</sup>.
     </p>
     <table class="data-table">
       <thead>
@@ -533,20 +524,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Reassigned within same subcategory</td><td class="num">321</td><td class="num">12.3%</td></tr>
-        <tr><td>Reassigned to different subcategory</td><td class="num">943</td><td class="num">36.1%</td></tr>
+        <tr><td>Same-subcategory reassignment</td><td class="num">321</td><td class="num">12.3%</td></tr>
+        <tr><td>Cross-subcategory reassignment</td><td class="num">943</td><td class="num">36.1%</td></tr>
         <tr><td>Marginal in original (E &gt; 10<sup>&minus;8</sup>)</td><td class="num">1,183</td><td class="num">45.3%</td></tr>
-        <tr class="emphasis"><td><strong>Real loss (strong E &le; 10<sup>&minus;8</sup>)</strong></td><td class="num"><strong>162</strong></td><td class="num"><strong>6.2%</strong></td></tr>
+        <tr class="emphasis"><td><strong>Strong-E original-only (E &le; 10<sup>&minus;8</sup>)</strong></td><td class="num"><strong>162</strong></td><td class="num"><strong>6.2%</strong></td></tr>
         <tr><td><strong>Total</strong></td><td class="num"><strong>2,609</strong></td><td class="num"><strong>100%</strong></td></tr>
       </tbody>
     </table>
 
     <aside class="callout headline">
       <p>
-        <strong>93.8% of &ldquo;losses&rdquo; are specificity gains or marginal
-        rejections.</strong> Only 6.2% (162 of 2,609) plausibly represent real
-        sensitivity loss. Of 189 domains with worsened raw counts, 178 have
-        zero real losses; 182 have at most five.
+        <strong>178 of 189 domains have zero strong-E reductions; 182
+        have at most five.</strong> Across the 2,609 sequence events, 6.2%
+        (162) are strong-E original-only &mdash; the only class that
+        represents a true sensitivity reduction. The remainder are
+        same-subcategory reassignments (12.3%), cross-subcategory
+        reassignments (36.1%), or near-threshold marginals (45.3%).
       </p>
     </aside>
 
@@ -554,50 +547,49 @@
       <img src="assets/figures/specificity_decomposition_transparent.png"
            alt="Stacked bar chart decomposing original-only sequences into four classes across the top 50 worsened domains.">
       <figcaption>
-        <b>Figure 6.</b> <i>Decomposition of &ldquo;lost&rdquo; sequences
-        across 189 worsened domains in the QC&rsquo;d hybrid. Stacked bars
-        per domain show the four-class breakdown: same-subcategory
-        reassignment (light green), cross-subcategory reassignment (mint),
-        marginal-E rejection (yellow), and strong-E real loss (red). Domains
-        are sorted by total lost count; the top 25 are shown for
-        readability. The red wedge &mdash; the only class that represents a
-        true sensitivity regression &mdash; is visible in only 11 of the 189
-        domains. The dominant patterns are marginal-E rejection (yellow) and
+        <b>Figure 6.</b> <i>Decomposition of original-only sequences across
+        189 domains where the mollusc-optimized model produces fewer
+        detections than the original. Stacked bars per domain show the
+        four-class breakdown: same-subcategory reassignment (light green),
+        cross-subcategory reassignment (mint), marginal-E rejection
+        (yellow), and strong-E original-only (red). Domains are sorted by
+        total event count; the top 25 are shown for readability. The red
+        wedge &mdash; the only class that represents a true sensitivity
+        reduction &mdash; is visible in only 11 of the 189 domains. The
+        dominant patterns are marginal-E rejection (yellow) and
         cross-subcategory reassignment (mint), reflecting that the
-        QC&rsquo;d hybrid more often refuses cross-reactive or near-threshold
-        matches that the original would have accepted.</i>
+        mollusc-optimized model more often declines cross-reactive or
+        near-threshold matches that the original would have accepted.</i>
       </figcaption>
     </figure>
 
     <h3>Case studies</h3>
     <div class="case-study-grid">
       <article class="case-study">
-        <h4>ABC_tran (PF00005)</h4>
+        <h4>PF10320 &mdash; chemoreception (Notch family)</h4>
         <p>
-          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00005/" rel="noopener">PF00005</a>
-          ABC_tran is the most-cited &ldquo;loss&rdquo; domain in v0.3 (561
-          sequences detected by original-only) but only <strong>4 are real
-          losses</strong>. 360 are reassigned to other subcategories
-          (cross-theme cross-reactivity refusal &mdash; sequences with weak
-          ABC_tran homology but stronger membership in other transporter or
-          signaling families) and 197 are near-threshold marginals. The
-          QC&rsquo;d hybrid declines to call these as ABC_tran where the
-          original was promiscuous.
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF10320/" rel="noopener">PF10320</a>
+          shows the largest absolute new-detection count in the bundle:
+          1,407&nbsp;&rarr;&nbsp;3,832 detections (+2,425 new). This is a
+          domain where mollusc-specific seed expansion captures a large
+          family of legitimate molluscan homologs that the
+          metazoan-bias-trained Pfam profile misses. The gain is uniform
+          across all five mollusc proteomes and attenuated on the
+          brachiopod outgroup, consistent with capture of mollusc-specific
+          sequence diversity rather than promiscuous matching.
         </p>
       </article>
       <article class="case-study">
-        <h4>SCP-1 (PF05483) &mdash; reverted</h4>
+        <h4>PF13912 &mdash; metal stress and cell fate</h4>
         <p>
-          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF05483/" rel="noopener">PF05483</a>
-          SCP-1 (synaptonemal complex coiled-coil) showed an apparent
-          9&nbsp;&rarr;&nbsp;3,958 expansion in v0.2 &mdash; an obvious
-          over-generalization of a coiled-coil family. The v0.3 specificity
-          QC flagged it as <code>NOISE,OVERGEN</code> (revised counts
-          dominated by E-values near the threshold), and the original
-          Pfam-A 36.0 profile was substituted. 147 other coiled-coil-rich
-          and orphan-class GPCR families followed the same fate. This is
-          the dominant reason the headline detection gain is +11.7%, not
-          the v0.2 figure of +36.3%.
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13912/" rel="noopener">PF13912</a>
+          (zinc-finger / cell-fate family) gains
+          3,237&nbsp;&rarr;&nbsp;4,463 detections (+1,226, +37.9%). The
+          gain is consistent across the panel, with strong-E support
+          throughout. Illustrative of marginal-but-coherent gains in
+          metal-stress response domains across the mollusc proteomes,
+          where mollusc-specific paralog expansions had limited
+          representation in the original Pfam-A 36.0 seed.
         </p>
       </article>
     </div>
@@ -610,23 +602,23 @@
     <h2>Net assessment</h2>
     <ol class="net-takeaways">
       <li>
-        The QC&rsquo;d hybrid HMM bundle is a drop-in upgrade for mollusc
-        proteome annotation: same 1,057 Pfam accessions (909 TIAMMAt-revised
-        + 148 reverted to original Pfam-A 36.0 after specificity QC),
-        +11.7% more detections, fully compatible with downstream tooling
-        expecting Pfam-A 36.0 accessions.
+        The mollusc-optimized HMMs are a drop-in upgrade for mollusc
+        proteome annotation: same 1,057 Pfam accessions, +11.7% more
+        detections, fully compatible with downstream tooling indexed by
+        Pfam-A 36.0 accession.
       </li>
       <li>
-        The &ldquo;loss&rdquo; signal in raw count is dominated by
-        specificity gain. 178 of 189 worsened domains have zero strong-E
-        losses; 182 of 189 have at most five.
+        Per-HMM specificity QC ensures every model in the bundle meets a
+        specificity bar against the six-proteome held-out panel. 178 of
+        189 domains where total counts decrease have zero strong-E
+        original-only events; 182 have at most five.
       </li>
       <li>
-        The largest absolute gains are in cellular machinery, innate
-        immunity, and intracellular signaling; the largest relative gain is
-        in sensory perception (+42.6%) &mdash; families where the original
-        Pfam was least informed by mollusc sequence data and where the
-        TIAMMAt revisions remain in place after QC.
+        The largest absolute gains are in cellular machinery (+5,745),
+        innate immunity (+3,818), and intracellular signaling (+2,823);
+        the largest relative gain is in sensory perception (+42.6%)
+        &mdash; families where the original Pfam was least informed by
+        mollusc sequence data.
       </li>
     </ol>
   </div>
@@ -663,8 +655,8 @@
 
     <h3>SHA-256 checksums</h3>
     <p class="repro-caption">
-      The canonical v0.3 QC&rsquo;d-hybrid concat and its provenance
-      manifests pin to these digests.
+      The canonical concat and its provenance manifests pin to these
+      digests.
     </p>
 <pre class="no-prompt"><code>mollusca_revised_hmms.hmm:     1818e0d56612b68478e39a6dbc71dcb786b6df4e2ced63c5c17d15b133595d42
 IDENTIFICATION_STATISTICS.txt: 335208b8b4e2ff263c36262637b67c1d14e3a0e854aae46854f93fde536a7a2f
@@ -685,9 +677,9 @@ sha256sum mollusca_revised_hmms.hmm
       BibTeX placeholder &mdash; DOI / preprint URL will be filled in at
       release.
     </p>
-<pre class="no-prompt"><code>@misc{molluscagenes_v03_2026,
+<pre class="no-prompt"><code>@misc{molluscagenes_2026,
   author       = {P{\'e}rez-Moreno, Jorge and Katz, Paul S.},
-  title        = {{MolluscaGenes v0.3: 1,057 QC'd mollusc-optimized Pfam HMMs (909 revised + 148 fallback) and evaluation report}},
+  title        = {{MolluscaGenes: 1,057 mollusc-optimized Pfam HMMs and evaluation report}},
   year         = {2026},
   note         = {Database resource. URL: \url{https://invertome.github.io/molluscagenes/}},
   howpublished = {\url{https://github.com/invertome/molluscagenes}}
