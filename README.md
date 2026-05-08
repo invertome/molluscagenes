@@ -10,8 +10,8 @@ wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
 extraction, and iterative-BLAST phylogenetic placement.
 
 > **v0.2 — preliminary release.** The database used in the accompanying biorxiv
-> preprint. A full rebuild (v1.0) is in progress on Unity HPC and will supersede
-> v0.2 under the same Zenodo concept DOI.
+> preprint. A full rebuild (v1.0) is in progress and will supersede v0.2 under
+> the same Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
 - **Database (Zenodo):**

@@ -29,7 +29,7 @@ version move together.
 
 - SHA-256 of `mollusca_revised_hmms.hmm`:
   `dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14` (matches
-  canonical Unity build).
+  the canonical reference build).
 
 ## [0.1.0] — 2026-04-27 — Preliminary release
 

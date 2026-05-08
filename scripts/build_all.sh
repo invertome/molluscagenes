@@ -134,8 +134,7 @@ Citation:
 Provenance:
   v0.1 is a preliminary release based on EvidentialGene-assembled
   transcriptomes for ~333 mollusc species. A full rebuild (v1.0) is in
-  progress on Unity HPC and will supersede v0.1 under the same Zenodo
-  concept DOI.
+  progress and will supersede v0.1 under the same Zenodo concept DOI.
 EOF
 
 # 6. Manifest

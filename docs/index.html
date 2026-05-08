@@ -446,7 +446,7 @@
     </p>
     <ul class="plain">
       <li><strong>Larger taxonomic scope.</strong> Re-querying NCBI's SRA against an updated MolluscaBase target list, including taxa added since v0.1 was assembled.</li>
-      <li><strong>Snakemake pipeline.</strong> The new download + assembly workflow runs on Unity HPC with explicit per-stage resume, disk watchdogs, and Kraken2 contamination screening.</li>
+      <li><strong>Snakemake pipeline.</strong> The new download + assembly workflow runs on an HPC cluster with explicit per-stage resume, disk watchdogs, and Kraken2 contamination screening.</li>
       <li><strong>BUSCO completeness in metadata.</strong> Per-species BUSCO scores on Metazoa odb10 will populate <code>species_metadata.tsv</code> as a quality column.</li>
       <li><strong>Source provenance.</strong> Per-species <code>source_accession</code> (BioProject / SRA run) and <code>reference_citation_doi</code> populated from NCBI BioProject linkage — empty for most rows in v0.1.</li>
       <li><strong>Annotation add-on.</strong> A separate v1.1 workflow producing GO terms, KEGG pathways, and InterPro hits as a downloadable annotation TSV.</li>
