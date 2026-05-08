@@ -475,6 +475,118 @@ pre.no-prompt::before { content: ''; }
 .method-block p:last-child { margin-bottom: 0; }
 
 /* ------------------------------------------------------------------ *
+ *  Results section (evaluation page) — tables + inline figures
+ * ------------------------------------------------------------------ */
+.results {
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+}
+.results h3 {
+    margin-top: 2.4rem;
+    margin-bottom: 0.4rem;
+    font-family: var(--display);
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+}
+.results .table-caption {
+    max-width: 65ch;
+    margin: 0 0 0.85rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
+/* Editorial data table — bold header, alternating rows, tabular numerics */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 0 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.data-table thead th {
+    background: var(--paper-edge);
+    border-bottom: 2px solid var(--maroon);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+}
+.data-table thead th.num { text-align: right; }
+.data-table tbody td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+}
+.data-table tbody tr:nth-child(even) td {
+    background: rgba(241, 234, 217, 0.35);
+}
+.data-table tbody tr:hover td {
+    background: var(--maroon-soft);
+}
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table td.num {
+    text-align: right;
+    font-family: var(--mono);
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    white-space: nowrap;
+}
+.data-table a {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    border-bottom: 0;
+}
+.data-table a:hover { text-decoration: underline; }
+@media (max-width: 720px) {
+    .data-table { display: block; overflow-x: auto; }
+}
+
+/* Inline result figure with journal-style caption */
+.result-figure {
+    margin: 2.25rem 0 2.5rem;
+    padding: 0;
+}
+.result-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    background: transparent;
+}
+.result-figure figcaption {
+    margin: 0.85rem auto 0;
+    max-width: 65ch;
+    font-family: var(--body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: left;
+}
+.result-figure figcaption b {
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--ink);
+    margin-right: 0.25rem;
+}
+.result-figure figcaption i {
+    font-style: italic;
+}
+
+/* ------------------------------------------------------------------ *
  *  Sections
  * ------------------------------------------------------------------ */
 section { padding: clamp(2.5rem, 5vw, 4rem) 0; }
