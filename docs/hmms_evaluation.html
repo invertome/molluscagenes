@@ -117,6 +117,17 @@
   </symbol>
 </svg>
 
+<div class="notice-banner" role="alert">
+  <div class="container">
+    <strong>Notice (2026-05-08):</strong>
+    The v0.2 evaluation results are preliminary and under review. Some detection
+    gains may be inflated by HMM over-generalization for coiled-coil-rich
+    families. A revised v0.3 release with full HMM specificity QC and a
+    re-curated taxonomy will follow.
+    <a href="hmms_evaluation.html#known-issues" style="color:inherit;text-decoration:underline">Details</a>.
+  </div>
+</div>
+
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html" aria-label="MolluscaGenes home">
@@ -135,6 +146,31 @@
 </header>
 
 <main id="main-content">
+<section class="limitations" id="known-issues" style="background: linear-gradient(180deg, #fff8e6, #fde9b8); border-bottom: 2px solid #c39a3a;">
+  <div class="container container-narrow">
+    <h3 style="color: #6b4d12; margin-top: 0;">Known issues &mdash; under review (2026-05-08)</h3>
+    <p>
+      A specificity check on the revised HMM set has revealed that some HMMs
+      in this v0.2 release have over-generalized during TIAMMAt re-training,
+      particularly those targeting coiled-coil-rich proteins (SCP-1, ATG16,
+      Tropomyosin, Filament, Laminin). For these HMMs, the revised model
+      produces noise-level matches that pass the <code>domE 1e-5</code> cutoff
+      with E-values close to the threshold rather than tens of orders of
+      magnitude below it. This inflates the per-domain detection count without
+      representing real biological homology.
+    </p>
+    <p>
+      A v0.3 release is in preparation with a per-HMM specificity QC pass and
+      a re-curated taxonomy. The HMM model files in <code>hmm/</code> are
+      correct and indexed by Pfam accession; the issue is with
+      <strong>the labels and the aggregate evaluation numbers</strong>, not
+      the underlying HMMs themselves. Per-domain results (Top 20 table) are
+      unaffected at the per-domain level &mdash; what shifts is the
+      per-theme/per-subcategory aggregations.
+    </p>
+  </div>
+</section>
+
 <section class="hero">
   <div class="container container-narrow">
     <span class="eyebrow">HMM evaluation</span>

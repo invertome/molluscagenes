@@ -1543,3 +1543,29 @@ pre:hover .copy-btn, .copy-btn:focus { opacity: 1; }
     .stat { padding: 1.25rem 1rem; }
     table.data thead th { top: 0; }
 }
+
+/* Site-wide notice banner (v0.2 yank notice) */
+.notice-banner {
+  background: linear-gradient(180deg, #fff8e6, #fde9b8);
+  border-bottom: 2px solid #c39a3a;
+  color: #4a3a10;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+}
+.notice-banner .container {
+  display: block;
+}
+.notice-banner strong {
+  color: #6b4d12;
+}
+.notice-banner a {
+  color: inherit;
+  border-bottom: 1px dotted currentColor;
+}
+@media (max-width: 720px) {
+  .notice-banner {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
+  }
+}
+
