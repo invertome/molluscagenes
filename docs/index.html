@@ -120,17 +120,6 @@
   </symbol>
 </svg>
 
-<div class="notice-banner" role="alert">
-  <div class="container">
-    <strong>Notice (2026-05-08):</strong>
-    The v0.2 evaluation results are preliminary and under review. Some detection
-    gains may be inflated by HMM over-generalization for coiled-coil-rich
-    families. A revised v0.3 release with full HMM specificity QC and a
-    re-curated taxonomy will follow.
-    <a href="hmms_evaluation.html#known-issues" style="color:inherit;text-decoration:underline">Details</a>.
-  </div>
-</div>
-
 <header class="site-nav">
   <div class="container">
     <a class="brand" href="index.html" aria-label="MolluscaGenes home">
@@ -184,7 +173,7 @@
       <div class="stat"><span class="num">8<small>classes</small></span><span class="label">Coverage</span></div>
       <div class="stat"><span class="num">17<small>M</small></span><span class="label">Sequences</span></div>
       <div class="stat"><span class="num">1,057</span><span class="label">HMMs</span></div>
-      <div class="stat"><span class="num">+36.3%</span><span class="label">Detection sensitivity</span></div>
+      <div class="stat"><span class="num">+11.7%</span><span class="label">Detection sensitivity (QC'd)</span></div>
     </div>
   </div>
 </section>
@@ -234,7 +223,7 @@
           <li><strong>~17 million transcripts</strong> (~16.8 Gb of nucleotide data).</li>
           <li><strong>~17 million predicted proteins</strong> (~3.3 Gb of amino-acid data).</li>
           <li><strong>BLAST databases</strong> (protein + nucleotide) and a <strong>DIAMOND protein database</strong> built from the same source.</li>
-          <li><strong>1,057 mollusc-revised HMMs</strong> across 50 biological categories &mdash; +36.3&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 across six mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
+          <li><strong>1,057 QC&rsquo;d hybrid HMMs</strong> (909 TIAMMAt-revised + 148 reverted to original Pfam-A 36.0 after specificity QC) across 12 themes / 104 subcategories &mdash; honest +11.7&thinsp;% mean detection sensitivity vs. stock Pfam-A 36.0 across six mollusc proteomes (<a href="hmms_evaluation.html">see evaluation</a>).</li>
           <li><strong>Per-species &amp; per-HMM metadata</strong> with NCBI taxonomy and WoRMS cross-links.</li>
           <li><strong>CLI wrappers</strong>: <code>mg_blast</code>, <code>mg_diamond</code>, <code>mg_hmmsearch</code>, <code>mg_characterize</code>, <code>mg_place</code>, <code>mg_extract</code>.</li>
         </ul>
@@ -270,17 +259,19 @@
     <div class="eval-callout">
       <div class="eval-callout-text">
         <span class="eval-eyebrow">Performance</span>
-        <h3 class="eval-headline">+36.3&thinsp;% detection sensitivity.<br>Drop-in for Pfam-A 36.0.</h3>
+        <h3 class="eval-headline">+11.7&thinsp;% detection sensitivity.<br>Honest, QC&rsquo;d, drop-in for Pfam-A 36.0.</h3>
         <p>
-          Six-proteome evaluation comparing the 1,057 mollusc-optimized
-          HMMs against original Pfam-A 36.0. Specificity-decomposed (true gains
-          vs. reassignment) and figure-rich.
+          Six-proteome evaluation comparing the 1,057 QC&rsquo;d hybrid HMMs
+          (909 TIAMMAt-revised + 148 reverted to original Pfam-A 36.0 after
+          per-HMM specificity QC) against the original Pfam-A 36.0
+          baseline. Specificity-decomposed (true gains vs. reassignment) and
+          figure-rich.
         </p>
         <a class="cta secondary" href="hmms_evaluation.html">View evaluation report <span class="arrow">→</span></a>
       </div>
       <div class="eval-callout-stat">
-        <span class="eval-stat-num">+36.3<small>%</small></span>
-        <span class="eval-stat-label">mean sensitivity gain<br><small>(vs. stock Pfam-A 36.0)</small></span>
+        <span class="eval-stat-num">+11.7<small>%</small></span>
+        <span class="eval-stat-label">mean sensitivity gain<br><small>(QC&rsquo;d, vs. stock Pfam-A 36.0)</small></span>
       </div>
     </div>
   </div>

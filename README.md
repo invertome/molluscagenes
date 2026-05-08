@@ -9,9 +9,10 @@ paired with the **TIAMMAt mollusc-revised Pfam HMMs**, with command-line
 wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
 extraction, and iterative-BLAST phylogenetic placement.
 
-> **v0.2 — preliminary release.** The database used in the accompanying biorxiv
-> preprint. A full rebuild (v1.0) is in progress and will supersede v0.2 under
-> the same Zenodo concept DOI.
+> **v0.3 — QC'd release.** The database used in the accompanying biorxiv
+> preprint, with per-HMM specificity QC and a re-curated taxonomy. A full
+> rebuild (v1.0) is in progress and will supersede v0.3 under the same
+> Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
 - **Database (Zenodo):**
@@ -21,18 +22,30 @@ extraction, and iterative-BLAST phylogenetic placement.
 
 ---
 
+## What's new in v0.3
+
+- **HMM specificity QC** — 148 of 1,057 revised HMMs were found to
+  over-generalize during TIAMMAt training (predominantly coiled-coil-rich
+  structural families: SCP-1, Filament, Tropomyosin, Laminin, plus several
+  orphan-class GPCR families). v0.3 reverts these to the original Pfam-A
+  36.0 profile. The honest detection gain is **+11.7%** (was inflated to
+  +36.3% in v0.2 due to over-generalized HMMs).
+- **Taxonomy re-curation** — 783 of 1,057 Pfam-domain primary subcategory
+  assignments were corrected (the v0.2 classifier had substring-matching
+  bugs; e.g. "interact" was matched to "RNA editing").
+- **New evaluation page** at `docs/hmms_evaluation.html` documents the QC
+  methodology, taxonomy re-curation, and full per-HMM specificity report
+  (`evaluation/hmm_specificity_qc.tsv`).
+- SHA-256 of the new canonical concat: `1818e0d56612b68478e39a6dbc71dcb786b6df4e2ced63c5c17d15b133595d42`.
+
 ## What's new in v0.2
 
 - **1,057 mollusc-optimized Pfam HMMs** (up from 190 in v0.1) — TIAMMAt-revised
   against 212 mollusc proteomes from MolluscaGenes v1.
-- **12-theme / 99-subcategory curation taxonomy** replaces the flat 50-category
+- **12-theme / 104-subcategory curation taxonomy** replaces the flat 50-category
   grouping.
-- **Evaluation report** at `docs/hmms_evaluation.html` (or
-  https://invertome.github.io/molluscagenes/hmms_evaluation.html): six-proteome
-  benchmark vs original Pfam-A 36.0; +36.3% mean detection sensitivity;
-  specificity-decomposed (95.5% of "lost" detections are reassignments or
-  near-threshold marginals, not real losses).
-- SHA-256 of canonical concat: `dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14`.
+- **Evaluation report** at `docs/hmms_evaluation.html` (six-proteome
+  benchmark vs original Pfam-A 36.0; specificity-decomposed).
 
 ---
 
@@ -60,7 +73,8 @@ substantially higher sensitivity on lophotrochozoan homologs.
   Monoplacophora).
 - **~17 million transcript sequences** (~16.8 Gb of nucleotide data).
 - **~17 million predicted protein sequences** (~3.3 Gb of amino-acid data).
-- **1,057 mollusc-revised HMMs** organized by a 12-theme / 99-subcategory
+- **1,057 QC'd hybrid HMMs** (909 TIAMMAt-revised + 148 reverted to original
+  Pfam-A 36.0 after specificity QC) organized by a 12-theme / 104-subcategory
   curation taxonomy (innate immunity, developmental signalling, Ca²⁺ signalling,
   VGIC, GPCR, LGIC, shell biomineralization, epigenetic regulation,
   chemoreception, circadian, neuropeptide processing, toxin biology, synaptic
