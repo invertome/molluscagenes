@@ -452,6 +452,193 @@
 
   </div>
 </section>
+
+<section class="specificity">
+  <div class="container container-narrow">
+    <h2>Specificity &mdash; why most &ldquo;losses&rdquo; aren&rsquo;t real</h2>
+    <p>
+      Across the six held-out proteomes, 7,173 sequences are detected
+      <em>only</em> by the original Pfam-A 36.0 models. Of those, 3,595 sit
+      inside the 207 domains where revised raw counts are below original. Does
+      that mean the revised HMMs lost sensitivity, or that they gained
+      specificity? The four-class decomposition below resolves the question
+      against a fixed strong-evidence threshold of 10<sup>&minus;8</sup> in
+      the original full-sequence E-value.
+    </p>
+
+    <p class="table-caption">
+      Decomposition of the 3,595 sequences inside the 207 worsened domains
+      that are detected by original Pfam-A 36.0 only. A sequence counts as a
+      &ldquo;real loss&rdquo; only if it has no revised hit and its original
+      full-E is at most 10<sup>&minus;8</sup>.
+    </p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th class="num">Count</th>
+          <th class="num">% of &ldquo;lost&rdquo;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Reassigned within same subcategory</td><td class="num">931</td><td class="num">25.9%</td></tr>
+        <tr><td>Reassigned to different subcategory</td><td class="num">1,402</td><td class="num">39.0%</td></tr>
+        <tr><td>Marginal in original (E &gt; 10<sup>&minus;8</sup>)</td><td class="num">1,099</td><td class="num">30.6%</td></tr>
+        <tr class="emphasis"><td><strong>Real loss (strong E &le; 10<sup>&minus;8</sup>)</strong></td><td class="num"><strong>163</strong></td><td class="num"><strong>4.5%</strong></td></tr>
+        <tr><td><strong>Total</strong></td><td class="num"><strong>3,595</strong></td><td class="num"><strong>100%</strong></td></tr>
+      </tbody>
+    </table>
+
+    <aside class="callout headline">
+      <p>
+        <strong>95.5% of &ldquo;losses&rdquo; are specificity gains or marginal
+        rejections.</strong> Only 4.5% (163 of 3,595) plausibly represent real
+        sensitivity loss. Of 207 domains with worsened raw counts, 195 have
+        zero real losses; 200 have at most five.
+      </p>
+    </aside>
+
+    <figure class="result-figure">
+      <img src="assets/figures/specificity_decomposition_transparent.png"
+           alt="Stacked bar chart decomposing original-only sequences into four classes across the top 50 worsened domains.">
+      <figcaption>
+        <b>Figure 6.</b> <i>Decomposition of &ldquo;lost&rdquo; sequences
+        across 207 worsened domains. Stacked bars per domain show the
+        four-class breakdown: same-subcategory reassignment (light green),
+        cross-subcategory reassignment (mint), marginal-E rejection (yellow),
+        and strong-E real loss (red). Domains are sorted by total lost count;
+        only the top 50 are shown for readability. The red wedge &mdash; the
+        only class that represents a true sensitivity regression &mdash; is
+        visible in only 12 of the 207 domains. The dominant pattern is
+        reassignment-to-other-subcategory (mint), reflecting that the revised
+        HMMs more often refuse cross-reactive matches that the original would
+        have accepted.</i>
+      </figcaption>
+    </figure>
+
+    <h3>Case studies</h3>
+    <div class="case-study-grid">
+      <article class="case-study">
+        <h4>EF-hand families</h4>
+        <p>
+          The three core EF-hand calcium-binding domains
+          (<a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13405/" rel="noopener">PF13405</a>
+          EF-hand_6,
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF13202/" rel="noopener">PF13202</a>
+          EF-hand_5,
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00036/" rel="noopener">PF00036</a>
+          EF-hand_1) collectively show 718 &ldquo;lost&rdquo; sequences in raw
+          counts but <strong>zero strong-E losses</strong>. 99% of those losses
+          are reassigned to one of the other EF-hand subcategories. The
+          revised models are sharper at distinguishing the EF-hand variants
+          from each other rather than less sensitive to EF-hands generally.
+        </p>
+      </article>
+      <article class="case-study">
+        <h4>ABC_tran (PF00005)</h4>
+        <p>
+          <a href="https://www.ebi.ac.uk/interpro/entry/pfam/PF00005/" rel="noopener">PF00005</a>
+          ABC_tran is the most-cited &ldquo;loss&rdquo; domain (561 sequences
+          detected by original-only) but only <strong>4 are real
+          losses</strong>. 423 are reassigned to other subcategories
+          (cross-theme cross-reactivity refusal &mdash; these are sequences
+          with weak ABC_tran homology but stronger membership in other
+          transporter or signaling families) and 133 are near-threshold
+          marginals. The revised model declines to call these as ABC_tran
+          where the original was promiscuous.
+        </p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section class="net-assessment alt">
+  <div class="container container-narrow">
+    <h2>Net assessment</h2>
+    <ol class="net-takeaways">
+      <li>
+        The revised HMMs are a strict drop-in upgrade for mollusc proteome
+        annotation: same 1,057 Pfam accessions, +36.3% more detections, fully
+        compatible with downstream tooling expecting Pfam-A 36.0 accessions.
+      </li>
+      <li>
+        The &ldquo;loss&rdquo; signal in raw count is dominated by specificity
+        gain. 195 of 207 worsened domains have zero strong-E losses; 200 of
+        207 have at most five.
+      </li>
+      <li>
+        The largest gains are in mollusc-specific biology, neural and
+        synaptic biology, and cellular machinery &mdash; the families where
+        the original Pfam was least informed by mollusc sequence data.
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="limitations">
+  <div class="container container-narrow">
+    <h2>Limitations</h2>
+    <ul class="limitations-list">
+      <li>
+        The evaluation panel is six proteomes &mdash; five molluscs and one
+        brachiopod outgroup. Less-studied lineages (especially Solenogastres
+        and Caudofoveata) are not represented.
+      </li>
+      <li>
+        Mollusc-specific families are necessarily small. Effective sequence
+        counts in some subcategories (radula matrix, some allergens) are
+        below community defaults for Pfam revision; their gains, while large,
+        rest on smaller seed alignments.
+      </li>
+      <li>
+        Detection-count is a proxy for biological relevance. Downstream
+        validation (phylogeny, structure prediction, functional assays) is
+        the user&rsquo;s responsibility; a domain hit is a starting point,
+        not an end.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="reproducibility alt">
+  <div class="container container-narrow">
+    <h2>Reproducibility</h2>
+
+    <h3>SHA-256 checksums</h3>
+    <p class="repro-caption">
+      The canonical Unity build of the revised concat and its provenance
+      manifests pin to these digests.
+    </p>
+<pre class="no-prompt"><code>mollusca_revised_hmms.hmm:     dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14
+IDENTIFICATION_STATISTICS.txt: 335208b8b4e2ff263c36262637b67c1d14e3a0e854aae46854f93fde536a7a2f
+SCRIPT_LOG_combined.txt:       8cf01a07113891282ba4bfa8054f52b1f63f5778fdbd8b65cecebb9dbd9270ec</code></pre>
+
+    <h3>Rebuild the concat from individual HMMs</h3>
+    <p class="repro-caption">
+      Reconstruct the byte-identical concatenation from the per-domain HMM
+      files and verify the digest.
+    </p>
+<pre><code>LC_ALL=C cat hmm/per_domain/*.hmm &gt; mollusca_revised_hmms.hmm
+hmmpress mollusca_revised_hmms.hmm
+sha256sum mollusca_revised_hmms.hmm
+# expected: dc6ddaa195074d89a0fdd543b554c21c9a8e55873fc800f54ebaadc0e0f84c14</code></pre>
+
+    <h3>Citation</h3>
+    <p class="repro-caption">
+      BibTeX placeholder &mdash; DOI / preprint URL will be filled in at
+      release.
+    </p>
+<pre class="no-prompt"><code>@misc{molluscagenes_v02_2026,
+  author       = {P{\'e}rez-Moreno, Jorge and Katz, Paul S.},
+  title        = {{MolluscaGenes v0.2: 1,057 mollusc-optimized Pfam HMMs and evaluation report}},
+  year         = {2026},
+  note         = {Database resource. URL: \url{https://invertome.github.io/molluscagenes/}},
+  howpublished = {\url{https://github.com/invertome/molluscagenes}}
+}</code></pre>
+
+  </div>
+</section>
 </main>
 
 <footer>

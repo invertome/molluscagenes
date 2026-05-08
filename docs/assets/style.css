@@ -587,6 +587,145 @@ pre.no-prompt::before { content: ''; }
 }
 
 /* ------------------------------------------------------------------ *
+ *  Specificity / Net assessment / Limitations / Reproducibility
+ *  (evaluation page, sections 6–9)
+ * ------------------------------------------------------------------ */
+.specificity,
+.net-assessment,
+.limitations,
+.reproducibility {
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+}
+.specificity h3,
+.reproducibility h3 {
+    margin-top: 2.4rem;
+    margin-bottom: 0.4rem;
+    font-family: var(--display);
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+}
+.specificity .table-caption,
+.reproducibility .repro-caption {
+    max-width: 65ch;
+    margin: 0 0 0.85rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+.specificity .data-table tbody tr.emphasis td {
+    background: var(--maroon-soft);
+    color: var(--ink);
+}
+.specificity .data-table tbody tr.emphasis:hover td {
+    background: rgba(136, 28, 28, 0.16);
+}
+
+/* Headline callout — heavier visual weight than the default callout */
+.callout.headline {
+    margin: 1.75rem 0 2rem;
+    padding: 1.2rem 1.4rem;
+    border-left-width: 5px;
+    border-left-color: var(--maroon);
+    background: var(--maroon-soft);
+    font-size: 1.02rem;
+    line-height: 1.6;
+}
+.callout.headline strong { color: var(--maroon-deep); }
+.callout.headline p { max-width: 70ch; margin: 0; }
+
+/* Side-by-side case-study cards */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 1.25rem 0 1.5rem;
+}
+@media (max-width: 720px) {
+    .case-study-grid { grid-template-columns: 1fr; }
+}
+.case-study {
+    margin: 0;
+    padding: 1rem 1.15rem 1.05rem;
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.55);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink);
+}
+.case-study h4 {
+    margin: 0 0 0.5rem;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+}
+.case-study p { margin: 0; max-width: 60ch; }
+.case-study a { font-family: var(--mono); font-size: 0.92em; border-bottom: 0; }
+.case-study a:hover { text-decoration: underline; }
+.case-study strong { color: var(--maroon-deep); }
+
+/* Net-assessment ordered list — numbered, generous spacing */
+.net-takeaways {
+    counter-reset: takeaway;
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    max-width: 70ch;
+}
+.net-takeaways li {
+    position: relative;
+    padding: 0.15rem 0 1rem 2.6rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ink);
+    counter-increment: takeaway;
+}
+.net-takeaways li::before {
+    content: counter(takeaway);
+    position: absolute; left: 0; top: 0;
+    width: 1.85rem; height: 1.85rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--maroon);
+    background: var(--paper);
+    border: 1px solid var(--maroon);
+    border-radius: 50%;
+}
+.net-takeaways li:last-child { padding-bottom: 0; }
+
+/* Limitations bullets — plain, compact */
+.limitations-list {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+    max-width: 70ch;
+}
+.limitations-list li {
+    margin: 0.55rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+/* Reproducibility — pre blocks scroll horizontally on narrow viewports;
+ * checksum and BibTeX blocks use no-prompt so the leading "$" is suppressed.
+ */
+.reproducibility pre {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+@media (max-width: 520px) {
+    .reproducibility pre { font-size: 0.74rem; }
+}
+
+/* ------------------------------------------------------------------ *
  *  Sections
  * ------------------------------------------------------------------ */
 section { padding: clamp(2.5rem, 5vw, 4rem) 0; }
