@@ -9,9 +9,9 @@ paired with the **TIAMMAt mollusc-revised Pfam HMMs**, with command-line
 wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
 extraction, and iterative-BLAST phylogenetic placement.
 
-> **v0.3 — biorxiv release.** The mollusc transcriptome / proteome
+> **v0.4 — biorxiv release.** The mollusc transcriptome / proteome
 > resource and HMM bundle paired with the accompanying biorxiv preprint.
-> A full rebuild (v1.0) is in progress and will supersede v0.3 under the
+> A full rebuild (v1.0) is in progress and will supersede v0.4 under the
 > same Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
@@ -239,6 +239,26 @@ wrappers/mg_extract.sh -s @list.txt -o out                                 # cod
 cache (~2 min, ~600 MB under `metadata/_cache/`); subsequent runs hit
 the cache directly.
 
+**Taxon-restricted searches.** All four search wrappers (`mg_blast.sh`,
+`mg_diamond.sh`, `mg_hmmsearch.sh`, `mg_characterize.sh`) accept
+`--taxon-filter <taxon>` to restrict the target database to a class, order,
+family, binomial, species code, or comma-separated union. The first call
+materializes the subset DB under `metadata/_cache/subset_dbs/`; subsequent
+calls against the same taxon are I/O-bound. See
+[Example 6 in the tutorials](docs/examples.html#example-6) for the full walkthrough.
+
+```bash
+# All cephalopod BLAST hits for a query (subset DB auto-built on first run):
+wrappers/mg_blast.sh -q my_query.fa -o out -d aa --taxon-filter Cephalopoda
+
+# DIAMOND, restricted to two molluscan classes:
+wrappers/mg_diamond.sh -q my_query.fa -o out --taxon-filter Gastropoda,Bivalvia
+
+# HMM scan against Cephalopoda subset (no -q needed — subset is auto-built):
+wrappers/mg_hmmsearch.sh --hmm hmm/per_domain/Neur_chan_LBD_REVISION.hmm \
+    -o out --taxon-filter Cephalopoda
+```
+
 ### `mg_characterize.sh` — combined search
 
 ```bash
@@ -338,6 +358,11 @@ Per-step `.done` sentinels enable resume; `--force` re-runs every step.
 
 Species with `n_proteins = n_transcripts = 0` are listed for transparency
 as "planned but not yet in this release". v1.0 will close that gap.
+
+> `--taxon-filter` resolves against the `class`, `subclass`, `order`, `family`,
+> `species_binomial`, and `species_code` columns above; auto-detection scans in
+> that priority order and errors on ambiguity (use `--taxon-filter rank:value`
+> to disambiguate).
 
 
 ### `metadata/hmm_metadata.tsv`

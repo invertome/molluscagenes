@@ -5,6 +5,29 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.4.0 — 2026-05-12
+
+### Added
+
+- `--taxon-filter` flag on `mg_blast.sh`, `mg_diamond.sh`, `mg_hmmsearch.sh`,
+  and `mg_characterize.sh`. Restricts the target database to a class, order,
+  family, binomial, species code, or comma-separated union. Auto-detects rank
+  from `metadata/species_metadata.tsv`; use `rank:value` form (e.g.
+  `--taxon-filter class:Gastropoda`) to disambiguate when a name matches
+  multiple ranks. Subset DBs cached under
+  `metadata/_cache/subset_dbs/<key>/` with source-DB SHA256 in
+  `manifest.json` for auto-invalidation. New helper
+  `wrappers/_taxon_filter.sh`. In `mg_characterize`, the flag applies to
+  BLAST + DIAMOND only (the hmm step scans the user's query, not a
+  database). See Example 6 in `docs/examples.html` for the full walkthrough.
+
+### Fixed
+
+- `mg_hmmsearch.sh` no longer exits non-zero when a query produces zero
+  domain hits: the post-search `grep -v '^#'` pipeline used to trip
+  `pipefail` when there were no non-comment rows in `hits.tbl`. Replaced
+  with an awk filter that handles empty input gracefully.
+
 ## v0.3.0 — 2026-05-08
 
 ### Hybrid HMM bundle

@@ -14,6 +14,8 @@ set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=_common.sh
 source "${here}/_common.sh"
+# shellcheck source=_taxon_filter.sh
+source "${here}/_taxon_filter.sh"
 
 usage() {
     cat >&2 <<EOF
@@ -21,6 +23,7 @@ Usage: $(basename "$0") -q <sequences.fa> -o <outdir> [options]
 
 Required:
   -q PATH                 target protein FASTA (the sequences to scan with each HMM)
+                          REQUIRED unless --taxon-filter is set (mutually exclusive)
   -o DIR                  output directory
 
 Options:
@@ -35,6 +38,16 @@ Options:
                           (overrides -E / --domE — mutually exclusive)
   --cut-nc                use Pfam noise cutoffs (--cut_nc)
   --cut-tc                use Pfam trusted cutoffs (--cut_tc)
+  --taxon-filter T        restrict the target to species in taxon T instead of
+                          passing -q. Auto-builds the subset FASTA on first call
+                          and caches under metadata/_cache/subset_dbs/. -q and
+                          --taxon-filter are mutually exclusive. Examples:
+                            --taxon-filter Gastropoda
+                            --taxon-filter "Octopus bimaculoides"
+                            --taxon-filter Cephalopoda,Bivalvia
+                            --taxon-filter class:Gastropoda
+                          (Subset FASTA is reused as long as source DB hash matches;
+                          --force re-runs the search, not the subset rebuild.)
   --extra "ARGS"          appended verbatim to hmmsearch. Example:
                           --extra "--max --F1 0.05 --F2 0.001 --F3 1e-05"
   --force                 re-run even if .done sentinel present
@@ -59,6 +72,8 @@ dom_bit=""
 inc_e=""
 cut_flag=""
 extra=""
+taxon_filter=""
+taxon_filter_set="no"
 force="no"
 
 while [[ $# -gt 0 ]]; do
@@ -75,6 +90,7 @@ while [[ $# -gt 0 ]]; do
         --cut-ga) cut_flag="--cut_ga"; shift ;;
         --cut-nc) cut_flag="--cut_nc"; shift ;;
         --cut-tc) cut_flag="--cut_tc"; shift ;;
+        --taxon-filter) taxon_filter="${2:-}"; taxon_filter_set="yes"; shift 2 ;;
         --extra) extra="$2"; shift 2 ;;
         --force) force="yes"; shift ;;
         -h|--help) usage; exit 0 ;;
@@ -82,9 +98,23 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-[[ -z "$query"  ]] && { usage; mg_die "missing -q"; }
+# Either -q OR --taxon-filter is required (not both).
+if [[ -n "$query" && "$taxon_filter_set" == "yes" ]]; then
+    mg_die "-q and --taxon-filter are mutually exclusive (--taxon-filter auto-builds the target)"
+fi
+if [[ -z "$query" && "$taxon_filter_set" != "yes" ]]; then
+    usage; mg_die "missing -q (or use --taxon-filter to auto-build a taxon-restricted target)"
+fi
+# Empty --taxon-filter value rejection (matches mg_blast/mg_diamond pattern).
+if [[ "$taxon_filter_set" == "yes" && -z "$taxon_filter" ]]; then
+    mg_die "--taxon-filter passed but value is empty"
+fi
 [[ -z "$outdir" ]] && { usage; mg_die "missing -o"; }
-[[ -f "$query"  ]] || mg_die "target FASTA not found: $query"
+# Only validate the user-supplied -q path's existence here; the --taxon-filter
+# branch builds its FASTA later, so the file doesn't exist yet at this point.
+if [[ "$taxon_filter_set" != "yes" ]]; then
+    [[ -f "$query"  ]] || mg_die "target FASTA not found: $query"
+fi
 
 mg_load_config
 threads="${threads:-${MG_THREADS:-10}}"
@@ -104,6 +134,17 @@ if mg_is_done "$outdir" && [[ "$force" != "yes" ]]; then
 fi
 
 : > "$log"
+
+if [[ "$taxon_filter_set" == "yes" ]]; then
+    mg_log "$log" "taxon-filter: resolving '$taxon_filter' — building subset FASTA if not cached..."
+    resolve_taxon_filter "$taxon_filter"
+    taxon_cache_key
+    # hmmsearch only needs the FASTA — no BLAST/DIAMOND indexes required.
+    ensure_subset_db fasta aa
+    query="$SUBSET_DB_PATH"
+    mg_log "$log" "taxon-filter: ${#TAXON_SPECIES_CODES[@]} species resolved; using subset FASTA at $query (key=$TAXON_KEY)"
+fi
+
 mg_log "$log" "mg_hmmsearch.sh: hmmsearch"
 mg_log "$log" "command: $0 $*"
 mg_log "$log" "hmm: $hmm"
@@ -138,7 +179,9 @@ mg_log "$log" "$nhits per-sequence hits written to $tbl"
 mg_log "$log" "joining species metadata (per-sequence hits)..."
 # hmmsearch --tblout format: target_name acc query_name acc E_full score bias ...
 # target_name (the matched sequence) is column 0 (0-based) on non-comment lines.
-grep -v '^#' "$tbl" | awk 'BEGIN{OFS="\t"} {NF=18; $1=$1; print}' \
+# Use awk (not grep -v) so a zero-hits tblout doesn't trip pipefail: grep returns 1
+# on no matches, awk just emits nothing.
+awk 'BEGIN{OFS="\t"} !/^#/ && NF > 0 {NF=18; $1=$1; print}' "$tbl" \
     | mg_join_species "$MG_METADATA/species_metadata.tsv" 0 > "$joined"
 
 mg_log "$log" "wrote $joined"

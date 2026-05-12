@@ -1,0 +1,14 @@
+species_code	species_binomial	ncbi_taxid	phylum	class	subclass	order	family	worms_aphia_id	molluscabase_id	n_proteins	n_transcripts	mean_protein_len	data_source	source_accession	sequencing_type	reference_citation_doi	worms_is_marine
+Acacri	Acanthochitona crinita	126420	Mollusca	Polyplacophora	Neoloricata	Chitonida	Acanthochitonidae	138675	138675	57217	57217	259.7	EvidentialGene assembly		transcriptome		1
+Adacol	Adamussium colbecki	95546	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	197021	197021	63496	63496	240.9	EvidentialGene assembly		transcriptome		1
+Aegche	Aegista chejuensis	1399158	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Camaenidae	1369559	1369559	99083	99083	209.3	EvidentialGene assembly		transcriptome		0
+Aldmod	Alderia modesta	369574	Mollusca	Gastropoda	Heterobranchia		Limapontiidae	141555	141555	40794	40794	294.1	EvidentialGene assembly		transcriptome		1
+Alibip	Alinda biplicata	1290020	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Clausiliidae	1049653	1049653	103007	103007	192.6	EvidentialGene assembly		transcriptome		0
+Ambval	Ambigolimax valentianus	1338344	Mollusca	Gastropoda	Heterobranchia	Stylommatophora	Limacidae	819990	819990	65627	65627	203.8	EvidentialGene assembly		transcriptome		0
+Anabro	Anadara broughtonii	148819	Mollusca	Bivalvia	Autobranchia	Arcoida	Arcidae	504357	504357	180175	180175	163.9	EvidentialGene assembly		transcriptome		1
+Antent	Antalis entalis	211836	Mollusca	Scaphopoda		Dentaliida	Dentaliidae	150534	150534	66312	66312	125.5	EvidentialGene assembly		transcriptome		1
+Argope	Argopecten sp.	3111797	Mollusca	Bivalvia	Autobranchia	Pectinida	Pectinidae	156816	156816	186152	186152	198.8	EvidentialGene assembly		transcriptome		1
+Chical	Chiroteuthis calyx	559536	Mollusca	Cephalopoda	Coleoidea	Oegopsida	Chiroteuthidae	341796	341796	22637	22637	236.1	EvidentialGene assembly		transcriptome		1
+Octbim	Octopus bimaculoides	37653	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341952	341952	0	0						1
+Octboc	Octopus bocki	158821	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341953	341953	328638	328638	170.9	EvidentialGene assembly		transcriptome		1
+Octmay	Octopus maya	623738	Mollusca	Cephalopoda	Coleoidea	Octopoda	Octopodidae	341996	341996	84708	84708	158.4	EvidentialGene assembly		transcriptome		1

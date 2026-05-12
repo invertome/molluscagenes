@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tutorials — MolluscaGenes</title>
-<meta name="description" content="Step-by-step tutorials for the most common MolluscaGenes analyses: protein characterization, phylogenetic placement, taxonomic extraction, and HMM search. Written for users new to the command line.">
+<meta name="description" content="Step-by-step tutorials for the most common MolluscaGenes analyses: protein characterization, phylogenetic placement, taxonomic extraction, and HMM search, taxon-restricted search. Written for users new to the command line.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MolluscaGenes — a transcriptomic database for the Mollusca">
 <meta property="og:description" content="A taxonomically comprehensive mollusc transcriptome resource paired with mollusc-revised Pfam HMMs and CLI wrappers.">
@@ -169,6 +169,7 @@
           <li><a href="#example-3">3. Extract by taxonomy</a></li>
           <li><a href="#example-4">4. HMM scan a proteome</a></li>
           <li><a href="#example-5">5. Custom flags &amp; <code>--extra</code></a></li>
+          <li><a href="#example-6">6. Taxon-restricted search</a></li>
           <li><a href="#troubleshooting">Troubleshooting</a></li>
           <li><a href="#glossary">Glossary</a></li>
         </ol>
@@ -741,6 +742,150 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
           <code>hmmsearch -h</code>, <code>mafft --help</code>,
           <code>iqtree -h</code>. Anything those tools accept can be passed
           through <code>--extra</code>.</p>
+        </div>
+      </article>
+
+      <!-- ─── Example 6 ─── -->
+      <article id="example-6" class="example">
+        <span class="tag">Example 06 · taxon-restricted search</span>
+        <h3>BLAST, DIAMOND, or HMM-search a query against one molluscan class.</h3>
+
+        <p>
+          Sometimes you don't want hits from across the whole Mollusca — you
+          care only about gastropods, only about cephalopods, or only a single
+          family. The manual way is to extract a per-taxon FASTA with
+          <code>mg_extract.sh</code>, run <code>makeblastdb</code> on it, point
+          a search wrapper at the new database, and remember to invalidate the
+          cache when the source DB changes. <code>--taxon-filter</code>
+          collapses all of that into one flag: the first call builds and caches
+          a subset DB, every subsequent call hits the cache, and the source-DB
+          hash is recorded so the subset auto-invalidates if the underlying
+          database is rebuilt.
+        </p>
+        <p>
+          Don't know which taxon names are valid? Open the
+          <a href="species.html">species browser</a>, filter by class or
+          family, and copy a name straight off the page.
+        </p>
+
+        <dl class="prereq">
+          <dt>You'll need</dt>
+          <dd>A query FASTA, plus a taxon name — a class
+            (<code>Cephalopoda</code>), order (<code>Octopoda</code>), family
+            (<code>Octopodidae</code>), binomial
+            (<code>Octopus bimaculoides</code>), species code
+            (<code>Octbim</code>), or a comma-separated union
+            (<code>Gastropoda,Bivalvia</code>).</dd>
+          <dt>Time</dt>
+          <dd>~2 minutes on the first run (one-time subset DB build);
+            seconds on a cache hit thereafter.</dd>
+        </dl>
+
+        <div class="step">
+          <span class="step-num">1</span>
+          <h4>Pick a taxon.</h4>
+          <div class="body">
+            <p>Use the <a href="species.html">species browser</a> to filter
+            by class or family, then pick a name like
+            <code>Cephalopoda</code>, <code>Octopodidae</code>, or
+            <code>Octopus bimaculoides</code>. Names are case-sensitive and
+            must match the corresponding column in
+            <code>metadata/species_metadata.tsv</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">2</span>
+          <h4>Run the search.</h4>
+          <div class="body">
+            <p>From the repo root, with the conda env activated and
+            <code>config.sh</code> sourced:</p>
+<pre class="cmd-annotated">wrappers/mg_blast.sh \
+    <span class="flag">-q</span> <span class="val">my_query.fa</span>                  <span class="arg-comment"># your protein query</span>
+    <span class="flag">-o</span> <span class="val">gastropoda_blast</span>             <span class="arg-comment"># output directory</span>
+    <span class="flag">-d</span> <span class="val">aa</span>                            <span class="arg-comment"># protein database</span>
+    <span class="flag">--taxon-filter</span> <span class="val">Gastropoda</span>        <span class="arg-comment"># restrict target to Gastropoda</span>
+    <span class="flag">-t</span> <span class="val">8</span>                             <span class="arg-comment"># threads</span></pre>
+            <p class="faint">The first run will pause for a minute or two while
+            the subset DB is materialized; identical
+            <code>--taxon-filter</code> values on later calls hit the cache
+            directly.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">3</span>
+          <h4>What you get.</h4>
+          <div class="body">
+            <ul class="plain">
+              <li><code>gastropoda_blast/hits_with_species.tsv</code> — BLAST
+                hits, all from Gastropoda, joined to species metadata.</li>
+              <li><code>gastropoda_blast/run.log</code> — provenance, including
+                the resolved species count and the subset DB cache key.</li>
+            </ul>
+            <p>First-call side effect:
+            <code>metadata/_cache/subset_dbs/class_Gastropoda_&lt;hash&gt;/</code>
+            is created and reused for subsequent calls. The directory contains
+            the per-taxon FASTA, the format-specific index files
+            (BLAST volumes or DIAMOND <code>.dmnd</code>), and a
+            <code>manifest.json</code> recording the source-DB SHA-256 for
+            auto-invalidation.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">4</span>
+          <h4>Swap wrappers — same flag, same cache.</h4>
+          <div class="body">
+            <p>The same <code>--taxon-filter</code> works on every search
+            wrapper:</p>
+<pre>wrappers/mg_diamond.sh -q my_query.fa -o gastropoda_diamond \
+    --taxon-filter Gastropoda</pre>
+<pre>wrappers/mg_hmmsearch.sh --hmm hmm/per_domain/Neur_chan_LBD_REVISION.hmm \
+    -o gastropoda_hmm --taxon-filter Gastropoda</pre>
+<pre>wrappers/mg_characterize.sh -q my_query.fa -o gastropoda_char \
+    --taxon-filter Gastropoda</pre>
+            <p>Two notes:</p>
+            <ul class="plain">
+              <li>For <code>mg_hmmsearch.sh</code>, <code>-q</code> is
+                omitted — the subset FASTA <em>is</em> the target. <code>-q</code>
+                and <code>--taxon-filter</code> are mutually exclusive.</li>
+              <li>For <code>mg_characterize.sh</code>, the flag restricts
+                the <strong>BLAST and DIAMOND</strong> steps only. The
+                hmmsearch step scans the user's query against the HMM library
+                to identify family IDs, so a target-DB filter doesn't apply.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trouble">
+          <h5>If something goes wrong</h5>
+          <ul>
+            <li><strong>"Ambiguous taxon"</strong> — the name matches multiple
+              ranks (e.g. a genus name that also happens to be a family root).
+              Disambiguate with the <code>rank:value</code> form:
+              <code>--taxon-filter class:Gastropoda</code>,
+              <code>--taxon-filter order:Octopoda</code>, etc.</li>
+            <li><strong>"No matches"</strong> — typo, or the taxon isn't
+              represented in this release. Browse <a href="species.html">species.html</a>
+              to find a valid name.</li>
+            <li><strong>Zero-protein species</strong> — the species exists in
+              metadata but has no protein records (a placeholder for v1.0).
+              Pick a broader rank (family or class instead of binomial).</li>
+            <li><strong>Subset DB build seems slow</strong> — the first call
+              for a given taxon extracts and indexes that subset. Subsequent
+              calls reuse the cache and are I/O-bound. The one-time cost is
+              expected and visible in <code>run.log</code>.</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <p><strong>When NOT to use this.</strong> If you want hits from across
+          all molluscs — including legitimate cross-class homologs — omit the
+          flag and search the full database. Subset DBs are smaller (and
+          therefore faster) but by construction exclude every species outside
+          the requested taxon, even ones that would otherwise be your best
+          hits.</p>
         </div>
       </article>
 
