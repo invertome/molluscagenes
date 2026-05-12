@@ -753,14 +753,14 @@ wrappers/mg_extract.sh -s Octopodidae --by family          -o out -d aa</pre>
         <p>
           Sometimes you don't want hits from across the whole Mollusca — you
           care only about gastropods, only about cephalopods, or only a single
-          family. The manual way is to extract a per-taxon FASTA with
-          <code>mg_extract.sh</code>, run <code>makeblastdb</code> on it, point
-          a search wrapper at the new database, and remember to invalidate the
-          cache when the source DB changes. <code>--taxon-filter</code>
-          collapses all of that into one flag: the first call builds and caches
-          a subset DB, every subsequent call hits the cache, and the source-DB
-          hash is recorded so the subset auto-invalidates if the underlying
-          database is rebuilt.
+          family. Pass <code>--taxon-filter &lt;taxon&gt;</code> to any search
+          wrapper and the target database is automatically restricted to that
+          taxon. The first call builds and caches a per-taxon subset database
+          under <code>metadata/_cache/subset_dbs/</code>; every subsequent
+          call against the same taxon hits the cache and runs in seconds. The
+          source-DB SHA-256 is recorded in a manifest, so the subset
+          auto-invalidates and rebuilds if the underlying database changes —
+          you never have to refresh it manually.
         </p>
         <p>
           Don't know which taxon names are valid? Open the
