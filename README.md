@@ -145,6 +145,53 @@ tarballs, and writes a populated `config.sh`.
 
 To re-verify an existing download: `bash wrappers/verify_download.sh /path/to/storage`.
 
+## Updating an existing install
+
+`wrappers/mg_update.sh` refreshes the repo (scripts, wrappers, metadata, docs)
+to the latest stable release tag, then verifies your installed Zenodo data
+against the new manifest. Works against both `git clone` and release-tarball
+installs (auto-detected).
+
+```bash
+# in a git-clone install
+bash wrappers/mg_update.sh
+
+# or, against an existing install from outside it
+bash /path/to/mg_update.sh --repo-dir /path/to/molluscagenes
+```
+
+If you don't have `wrappers/mg_update.sh` yet (older install predating it),
+download just the script and point it at your existing install:
+
+```bash
+curl -fsSLO https://raw.githubusercontent.com/invertome/molluscagenes/main/wrappers/mg_update.sh
+chmod +x mg_update.sh
+./mg_update.sh --repo-dir /path/to/molluscagenes
+```
+
+After the first successful run the script is in place at
+`wrappers/mg_update.sh`; subsequent updates use that copy.
+
+The data on Zenodo is **never auto-downloaded** by `mg_update.sh` — it only
+checks SHA256 against the new manifest and prints the exact `mg_fetch.sh`
+command to run if anything is out of date.
+
+Useful flags:
+
+| Flag | Effect |
+|------|--------|
+| `--check-only` | Report current vs. latest version + data status; touch nothing. |
+| `--dry-run` | Print the full update plan without modifying anything. |
+| `--force` | In `git` mode, proceed even if the working tree is dirty. |
+| `--track main` | Pull `main` HEAD instead of the latest tag (bleeding edge). |
+| `--no-verify-data` | Skip the post-update Zenodo data check. |
+| `--no-verify-tools` | Skip the conda env / tool presence check. |
+| `--no-purge-cache` | Keep `metadata/_cache/subset_dbs/` even if `species_metadata.tsv` changed. |
+
+Exit codes: `0` clean · `1` data stale (run `mg_fetch.sh`) · `2` env tools
+missing or `environment.yml` changed while the env is active · `3` both ·
+`4` hard failure.
+
 ---
 
 ## Wrappers — CLI reference

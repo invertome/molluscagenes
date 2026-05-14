@@ -553,6 +553,35 @@ bash wrappers/mg_blast.sh -q my_query.fa -o blast_out -d aa</pre>
       <code>config.sh</code>. To re-verify an existing download:
       <code>bash wrappers/verify_download.sh /path/to/storage</code>.
     </p>
+
+    <h3 style="margin-top:2.4rem;">Updating an existing install</h3>
+    <p>
+      <code>wrappers/mg_update.sh</code> refreshes your install (scripts, wrappers,
+      metadata, docs) to the latest stable release tag, then verifies your
+      installed Zenodo data against the new manifest. It auto-detects whether
+      you installed via <code>git clone</code> or a release tarball.
+    </p>
+<pre>bash wrappers/mg_update.sh                       # in a git-clone install
+bash /path/to/mg_update.sh --repo-dir /path/to/molluscagenes</pre>
+    <p>
+      Don't have <code>wrappers/mg_update.sh</code> yet (install predates it)?
+      Download just the one script and point it at your install:
+    </p>
+<pre>curl -fsSLO https://raw.githubusercontent.com/invertome/molluscagenes/main/wrappers/mg_update.sh
+chmod +x mg_update.sh
+./mg_update.sh --repo-dir /path/to/molluscagenes</pre>
+    <p class="faint">
+      The data on Zenodo is <strong>never auto-downloaded</strong> — the updater
+      only checks SHA256 against the new manifest and prints the exact
+      <code>mg_fetch.sh</code> command to run if anything is out of date.
+      Useful flags: <code>--check-only</code> (report status, change nothing),
+      <code>--dry-run</code> (preview the update plan),
+      <code>--track main</code> (bleeding-edge instead of latest tag).
+      Exit codes: <code>0</code> clean · <code>1</code> data stale ·
+      <code>2</code> env tools missing / <code>environment.yml</code> changed ·
+      <code>3</code> both · <code>4</code> hard failure.
+    </p>
+
     <div class="cta-row">
       <a class="cta" href="examples.html">See worked examples <span class="arrow">→</span></a>
       <a class="cta secondary" href="https://github.com/invertome/molluscagenes/blob/main/README.md">Full README</a>

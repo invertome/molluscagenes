@@ -5,6 +5,30 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.5.1 — 2026-05-14
+
+### Added
+
+- `wrappers/mg_update.sh` — in-place install refresh script. Auto-detects
+  `git clone` vs release-tarball installs and brings the repo to the latest
+  stable release tag, then verifies the installed Zenodo data against the new
+  manifest. Includes standalone bootstrap mode (`curl` the script, run with
+  `--repo-dir`) for users without `wrappers/mg_update.sh` yet. Never
+  auto-downloads Zenodo data: prints the `mg_fetch.sh` command on mismatch.
+  Snapshots `environment.yml` + `metadata/species_metadata.tsv` pre-update to
+  emit a `conda env update` advisory and to conditionally purge
+  `metadata/_cache/subset_dbs/`. Exit codes `0/1/2/3/4` for clean / data
+  stale / env stale / both / hard failure.
+- `scripts/test_mg_update.sh` — 100+ unit/integration cases covering both
+  install modes, dry-run, dirty-tree refusal, `--force`, version detection,
+  env diff, cache purge, tool presence, data verification, and the
+  combined-status exit codes. Tests use `MG_UPDATE_LATEST_TAG` /
+  `MG_UPDATE_TARBALL_PATH` / `MG_UPDATE_REQUIRED_TOOLS` env overrides so the
+  harness runs offline. Verified on Unity busco_env (SLURM 57681011,
+  103/103 pass, 19 s wall).
+- README + site (`docs/index.html`): new "Updating an existing install"
+  section with the curl one-liner, flag summary, and exit codes.
+
 ## v0.5.0 — 2026-05-14
 
 ### Added
