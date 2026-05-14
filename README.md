@@ -9,9 +9,9 @@ paired with the **TIAMMAt mollusc-revised Pfam HMMs**, with command-line
 wrappers for BLAST / DIAMOND / hmmsearch search, species and taxon FASTA
 extraction, and iterative-BLAST phylogenetic placement.
 
-> **v0.4 — biorxiv release.** The mollusc transcriptome / proteome
+> **v0.5 — biorxiv release.** The mollusc transcriptome / proteome
 > resource and HMM bundle paired with the accompanying biorxiv preprint.
-> A full rebuild (v1.0) is in progress and will supersede v0.4 under the
+> A full rebuild (v1.0) is in progress and will supersede v0.5 under the
 > same Zenodo concept DOI.
 
 - **Site:** <https://invertome.github.io/molluscagenes>
@@ -25,7 +25,7 @@ extraction, and iterative-BLAST phylogenetic placement.
 ## What's included
 
 - **1,057 mollusc-optimized Pfam HMMs** — TIAMMAt-revised against 212
-  mollusc proteomes. 909 carry the TIAMMAt revision; 148 use the
+  mollusc proteomes. 918 carry a TIAMMAt revision; 139 use the
   original Pfam-A 36.0 profile (HMMs that do not meet the per-HMM
   specificity bar against the six-proteome evaluation panel).
 - **12-theme / 104-subcategory curation taxonomy** for each domain.

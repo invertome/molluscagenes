@@ -5,6 +5,45 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.5.0 — 2026-05-14
+
+### Added
+
+- **Per-HMM inclusion-threshold optimization** for the 49 HMMs flagged by
+  the v0.3 specificity QC pass. A 5-point grid (`-I ∈ {1e-5, 1e-10, 1e-15,
+  1e-20, 1e-25}`) was run per HMM in addition to the existing v2 production
+  point (`-I=1e-3`) and a uniform-strict point (`-I=1e-30`), giving a
+  7-point characterization curve per HMM. The per-HMM winning `-I` is
+  selected by a composite QC score combining strong-hit rate (E ≤ 1e-30),
+  sensitivity relative to the original Pfam baseline, and specificity-flag
+  penalties (NOISE / OVERGEN / SPEC_LOSS).
+- 9 HMMs substituted into the bundle with their per-HMM-optimized
+  revisions, each at a different `-I`:
+  `EF-hand_11` (`-I=1e-20`),
+  `EF-hand_like` (`-I=1e-10`),
+  `EF_HAND_1_PLCG` (`-I=1e-10`),
+  `Ig_SEMA7A` (`-I=1e-10`),
+  `MCLC` (`-I=1e-30`),
+  `Myo5a` (`-I=1e-5`),
+  `PRKG1_interact` (`-I=1e-25`),
+  `Spectrin_7` (`-I=1e-15`),
+  `bHLH_HIF1A` (`-I=1e-15`).
+- Methods-log section + design documents covering the grid optimization
+  protocol and scope (`tiammat_mollusca/evaluation/eval_findings_v1.md`,
+  `docs/plans/2026-05-11-tiammat-v05-per-hmm-optimization-design.md`).
+- Per-HMM response-curve figure
+  (`tiammat_mollusca/evaluation/figures/v05_response_curves.png`).
+
+### Bundle composition
+
+- 1,057 HMMs total: 909 v2 TIAMMAt revisions + 9 v0.5 grid-optimized
+  revisions + 139 original Pfam-A 36.0 profiles for HMMs where no `-I`
+  value passed the QC gates (sensitivity floor + clean NOISE/OVERGEN flag).
+- The 9 substituted HMMs contribute **+213 strong-evidence detections**
+  and **+982 total detections** across the 6-proteome evaluation panel.
+- Bundle SHA256:
+  `917844a7e2bc2885a2fe1c661635e8738a3eb60153b2cacfdbf7cce450da2ae8`
+
 ## v0.4.0 — 2026-05-12
 
 ### Added
