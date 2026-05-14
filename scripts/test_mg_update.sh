@@ -483,6 +483,25 @@ assert_eq "0" "$rc" "T11.real: --check-only on real worktree exits 0"
 assert_contains "mode: git" "$out" "T11.real: detected as git install"
 assert_contains "already at" "$out" "T11.real: reports current==latest (we mocked latest)"
 
+# --- T12: integration (network) — gated by MOLLUSCAGENES_INTEGRATION=1.
+# Catches breakage of the real GitHub tarball endpoint used in tarball mode.
+if [[ "${MOLLUSCAGENES_INTEGRATION:-0}" == "1" ]]; then
+    fx_t12="$tmp/install_t12"
+    make_fixture_repo "$fx_t12"; echo "v0.0.0" > "$fx_t12/.molluscagenes_version"
+    real_latest=$(curl -fsSL --max-time 15 \
+        'https://api.github.com/repos/invertome/molluscagenes/tags' \
+        2>/dev/null | jq -r '.[0].name // empty' 2>/dev/null)
+    if [[ -n "$real_latest" ]]; then
+        out=$(MG_UPDATE_LATEST_TAG="$real_latest" \
+              bash "$script" --no-verify-data --no-verify-tools --repo-dir "$fx_t12" 2>&1); rc=$?
+        assert_eq "0" "$rc" "T12.net: tarball download from real repo succeeds (exit 0)"
+        assert_contains "v0.0.0 -> $real_latest" "$out" "T12.net: tag delta reported"
+        assert_eq "$real_latest" "$(cat "$fx_t12/.molluscagenes_version")" "T12.net: version marker bumped to live tag"
+    else
+        echo "  SKIP T12.net: could not reach github.com/invertome/molluscagenes (offline?)"
+    fi
+fi
+
 echo
 echo "tests: ${PASS} passed, ${FAIL} failed"
 [[ "$FAIL" -eq 0 ]]

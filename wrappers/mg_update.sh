@@ -224,10 +224,11 @@ update_code_tarball() {
         tarpath="$MG_UPDATE_TARBALL_PATH"
         [[ -f "$tarpath" ]] || { err "MG_UPDATE_TARBALL_PATH not a file: $tarpath"; return 4; }
     else
-        local api="https://api.github.com/repos/invertome/molluscagenes/releases/tags/${tag}"
-        local url
-        url=$(curl -fsSL --max-time 30 "$api" 2>/dev/null | jq -r '.tarball_url // empty' 2>/dev/null)
-        [[ -n "$url" ]] || { err "could not get tarball URL for $tag from $api"; return 4; }
+        # /tarball/{tag} works for any ref (tag/branch/sha) and 302s to
+        # codeload — independent of whether a GitHub "Release" object exists.
+        # Using /releases/tags/{tag} + .tarball_url is fragile (404s on tags
+        # that were never promoted to Release objects).
+        local url="https://api.github.com/repos/invertome/molluscagenes/tarball/${tag}"
         tarpath="$tmp/release.tar.gz"
         if ! curl -fsSL --max-time 600 "$url" -o "$tarpath"; then
             err "tarball download failed: $url"; return 4

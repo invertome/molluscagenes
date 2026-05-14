@@ -5,6 +5,23 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.5.2 — 2026-05-14
+
+### Fixed
+
+- `wrappers/mg_update.sh` (tarball mode): replaced the GitHub
+  `/releases/tags/{tag}` endpoint with `/tarball/{tag}`. The previous
+  endpoint 404s on tags that weren't promoted to GitHub Release objects,
+  which is the project's actual release convention (we tag, we don't create
+  Release objects). The new endpoint works for any ref and 302s to codeload.
+  Without this, tarball-mode users running `mg_update.sh` against any current
+  tag would have hit "could not get tarball URL". v0.5.1 shipped with the
+  bug; v0.5.2 fixes it.
+- `scripts/test_mg_update.sh`: added an `MOLLUSCAGENES_INTEGRATION=1`-gated
+  network test (T12) that hits the real `invertome/molluscagenes` tarball
+  endpoint, so this class of breakage gets caught in CI / by-hand validation
+  rather than by users.
+
 ## v0.5.1 — 2026-05-14
 
 ### Added
