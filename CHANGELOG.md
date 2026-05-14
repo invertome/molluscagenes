@@ -5,6 +5,23 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.5.3 — 2026-05-14
+
+### Fixed
+
+- `wrappers/mg_update.sh` latest-tag discovery (tarball mode): same root
+  cause as v0.5.2 — `/releases/latest` 404s when no GitHub Release object
+  exists for any tag. Replaced with `/repos/{owner}/{repo}/tags`, filtered
+  for stable (no `-rc`/`-beta`/`-alpha`) and picking the first entry (the
+  list is commit-date desc). Without this, `latest_version()` in tarball
+  mode returned `"unknown"` and the subsequent tarball download failed
+  with `tarball/unknown`. v0.5.2 fixed half the chain; v0.5.3 closes the
+  other half.
+- `scripts/test_mg_update.sh` T12 (integration): now omits the
+  `MG_UPDATE_LATEST_TAG` override so the test exercises *both* the live
+  latest-discovery path AND the live tarball-download path. Catches this
+  full class of bug end-to-end.
+
 ## v0.5.2 — 2026-05-14
 
 ### Fixed

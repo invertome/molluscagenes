@@ -490,11 +490,14 @@ if [[ "${MOLLUSCAGENES_INTEGRATION:-0}" == "1" ]]; then
     make_fixture_repo "$fx_t12"; echo "v0.0.0" > "$fx_t12/.molluscagenes_version"
     real_latest=$(curl -fsSL --max-time 15 \
         'https://api.github.com/repos/invertome/molluscagenes/tags' \
-        2>/dev/null | jq -r '.[0].name // empty' 2>/dev/null)
+        2>/dev/null | jq -r '.[].name' 2>/dev/null \
+        | grep -v -e '-rc' -e '-beta' -e '-alpha' | head -1)
     if [[ -n "$real_latest" ]]; then
-        out=$(MG_UPDATE_LATEST_TAG="$real_latest" \
-              bash "$script" --no-verify-data --no-verify-tools --repo-dir "$fx_t12" 2>&1); rc=$?
-        assert_eq "0" "$rc" "T12.net: tarball download from real repo succeeds (exit 0)"
+        # End-to-end: no MG_UPDATE_LATEST_TAG override, no MG_UPDATE_TARBALL_PATH —
+        # exercise both real-network paths (latest discovery + tarball download).
+        out=$(bash "$script" --no-verify-data --no-verify-tools --repo-dir "$fx_t12" 2>&1); rc=$?
+        assert_eq "0" "$rc" "T12.net: end-to-end real-repo update exits 0"
+        assert_contains "latest: $real_latest" "$out" "T12.net: real latest-tag discovery"
         assert_contains "v0.0.0 -> $real_latest" "$out" "T12.net: tag delta reported"
         assert_eq "$real_latest" "$(cat "$fx_t12/.molluscagenes_version")" "T12.net: version marker bumped to live tag"
     else

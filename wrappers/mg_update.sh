@@ -179,9 +179,16 @@ latest_version() {
             | head -1 \
             || echo "unknown"
     else
-        local api='https://api.github.com/repos/invertome/molluscagenes/releases/latest'
+        # Discover via /tags rather than /releases/latest: tags don't require
+        # a GitHub Release object, and this project tags without creating
+        # Releases. /tags returns the tag list ordered by commit date desc.
+        # Filter out pre-release markers; take the first remaining.
+        local api='https://api.github.com/repos/invertome/molluscagenes/tags'
         local tag
-        tag=$(curl -fsSL --max-time 15 "$api" 2>/dev/null | jq -r '.tag_name // empty' 2>/dev/null)
+        tag=$(curl -fsSL --max-time 15 "$api" 2>/dev/null \
+            | jq -r '.[].name' 2>/dev/null \
+            | grep -v -e '-rc' -e '-beta' -e '-alpha' \
+            | head -1)
         [[ -n "$tag" ]] && echo "$tag" || echo "unknown"
     fi
 }
