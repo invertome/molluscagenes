@@ -1,6 +1,9 @@
 # Local config with user paths — never commit
 config.sh
 
+# Git worktrees (local-only)
+.worktrees/
+
 # Caches populated at runtime
 metadata/_cache/
 
