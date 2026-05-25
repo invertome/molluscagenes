@@ -1,1 +1,1 @@
-1818e0d56612b68478e39a6dbc71dcb786b6df4e2ced63c5c17d15b133595d42  mollusca_revised_hmms.hmm
+d8a3ff85af17cab9d7be9ac5d888b428a656f793245d7b775f3c2da3be728e10  hmm/mollusca_revised_hmms.hmm

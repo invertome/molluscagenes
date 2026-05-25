@@ -5,6 +5,74 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project
 does **not** follow strict semver because the database version and the code
 version move together.
 
+## v0.6.0 — 2026-05-25
+
+### Added
+
+- **Full per-HMM `-I` optimization completed across all 901 v0.3 QC-passing
+  HMMs.** v0.5.0 had grid-optimized only the 49 over-generalized-but-salvageable
+  HMMs; v0.6 extends the same 5-point grid (`-I ∈ {1e-5, 1e-10, 1e-15, 1e-20,
+  1e-25}`) to a 200-HMM stratified sample of QC-passing HMMs, and v0.7 sweeps
+  the remaining 701 QC-passing HMMs. Per HMM, the winning `-I` is selected
+  by composite QC score (strong-hit rate at E≤1e-30 + sensitivity vs v2
+  baseline − NOISE/OVERGEN/SPEC_LOSS penalties).
+- 54 additional HMMs substituted into the bundle with grid-optimized
+  revisions (on top of the 9 already in v0.5.0):
+  - **From v0.6 stratified sample (11 HMMs):** `BACK` (`-I=1e-15`),
+    `Bcl-2` (`-I=1e-10`), `CADH_Y-type_LIR` (`-I=1e-15`),
+    `CaMBD` (`-I=1e-15`), `Chromo` (`-I=1e-15`), `DYH2-5-8_CC` (`-I=1e-5`),
+    `GPHH` (`-I=1e-25`), `HMG_box` (`-I=1e-20`), `JmjC` (`-I=1e-15`),
+    `PCI` (`-I=1e-20`), `Zona_pellucida` (`-I=1e-15`).
+  - **From v0.7 full sweep of remaining 701 QC-passing HMMs (43 HMMs):**
+    `ABC2_membrane` (`-I=1e-20`), `Acyltransferase` (`-I=1e-10`),
+    `BIR` (`-I=1e-15`), `BRE` (`-I=1e-20`), `CBM39` (`-I=1e-5`),
+    `CH` (`-I=1e-20`), `Clathrin_lg_ch` (`-I=1e-25`),
+    `DAAF9_N` (`-I=1e-25`), `DCAF17` (`-I=1e-5`), `DHFR_1` (`-I=1e-20`),
+    `E1_FCCH` (`-I=1e-20`), `EF-hand_2` (`-I=1e-15`),
+    `EF-hand_3` (`-I=1e-25`), `Ephrin_lbd` (`-I=1e-15`),
+    `Exportin-5` (`-I=1e-10`), `Helicase_C` (`-I=1e-15`),
+    `Hexokinase_1` (`-I=1e-20`), `Hint` (`-I=1e-10`),
+    `His_Phos_1` (`-I=1e-5`), `KCNQ_channel` (`-I=1e-10`),
+    `KRAP_IP3R_bind` (`-I=1e-5`), `Laminin_B` (`-I=1e-20`),
+    `Laminin_N` (`-I=1e-25`), `MACPF` (`-I=1e-20`),
+    `MOZ_SAS` (`-I=1e-5`), `MUN` (`-I=1e-10`), `Maelstrom` (`-I=1e-10`),
+    `Myosin_TH1` (`-I=1e-10`), `Neuro_bHLH` (`-I=1e-10`),
+    `P2X_receptor` (`-I=1e-5`), `PI3Ka` (`-I=1e-10`), `RH1` (`-I=1e-15`),
+    `Ricin_B_lectin` (`-I=1e-20`), `S8_pro-domain` (`-I=1e-20`),
+    `SET` (`-I=1e-15`), `SMP_C2CD2L` (`-I=1e-5`),
+    `SNF2-rel_dom` (`-I=1e-20`), `SRP_SPB` (`-I=1e-10`),
+    `STAT_bind` (`-I=1e-10`), `TIP_N` (`-I=1e-10`), `TRP_2` (`-I=1e-20`),
+    `Transferrin` (`-I=1e-10`), `zf-C4` (`-I=1e-25`).
+- Methods-log update + design documents covering the v0.6/v0.7 grid
+  optimization extension (`tiammat_mollusca/evaluation/eval_findings_v1.md`,
+  `evaluation/v0{5,6,7}_per_hmm_winner.tsv`,
+  `evaluation/v06_release_substitution_manifest.tsv`).
+- Per-HMM response-curve figures
+  (`evaluation/figures/v0{5,6,7}_response_curves.png`).
+
+### Bundle composition
+
+- 1,057 HMMs total: 838 v2 TIAMMAt revisions + 9 v0.5 + 11 v0.6 + 43 v0.7
+  grid-optimized revisions + 139 original Pfam-A 36.0 fallback. Total
+  TIAMMAt-revised count remains 918; the breakdown shift is internal to
+  the revised set.
+- The 54 newly substituted HMMs span `-I` values from 1e-5 to 1e-25, with
+  no single value dominating (per-`-I` count among v0.6+v0.7 winners:
+  1e-5: 8, 1e-10: 16, 1e-15: 12, 1e-20: 14, 1e-25: 6).
+- Bundle SHA256:
+  `d8a3ff85af17cab9d7be9ac5d888b428a656f793245d7b775f3c2da3be728e10`
+
+### Methodology finding
+
+The v0.7 full sweep of the 701 remaining QC-passing HMMs returned a 6.1%
+substitution yield — slightly *higher* than the v0.6 stratified sample's
+5.5% despite the v0.6 sample being upper-biased by a "likelihood-to-benefit"
+heuristic. This empirically demonstrates that the v2 production `-I=1e-3`
+setting is not universally optimal: roughly **1 in 16 QC-passing HMMs has
+a clearly better per-HMM `-I` somewhere in the {1e-5..1e-25} grid**, and
+selecting that better value produces a TIAMMAt revision that beats the
+v2 baseline by ≥5pp strong-hit rate while preserving the sensitivity floor.
+
 ## v0.5.3 — 2026-05-14
 
 ### Fixed
